@@ -98,11 +98,15 @@ class DDGDA(Rolling):
         # NOTE:
         # the horizon must match the meaning in the base task template
         self.meta_exp_name = "DDG-DA"
-        self.sim_task_model: UTIL_MODEL_TYPE = sim_task_model  # The model to capture the distribution of data.
+        self.sim_task_model: UTIL_MODEL_TYPE = (
+            sim_task_model  # The model to capture the distribution of data.
+        )
         self.alpha = alpha
         self.meta_1st_train_end = meta_1st_train_end
         super().__init__(**kwargs)
-        self.working_dir = self.conf_path.parent if working_dir is None else Path(working_dir)
+        self.working_dir = (
+            self.conf_path.parent if working_dir is None else Path(working_dir)
+        )
         self.proxy_hd = self.working_dir / "handler_proxy.pkl"
 
     def _adjust_task(self, task: dict, astype: UTIL_MODEL_TYPE):
@@ -143,7 +147,9 @@ class DDGDA(Rolling):
         fi = model.get_feature_importance()
         # Because the model use numpy instead of dataframe for training lightgbm
         # So the we must use following extra steps to get the right feature importance
-        df = dataset.prepare(segments=slice(None), col_set="feature", data_key=DataHandlerLP.DK_R)
+        df = dataset.prepare(
+            segments=slice(None), col_set="feature", data_key=DataHandlerLP.DK_R
+        )
         cols = df.columns
         fi_named = {cols[int(k.split("_")[1])]: imp for k, imp in fi.to_dict().items()}
 
@@ -159,11 +165,15 @@ class DDGDA(Rolling):
         fi = self._get_feature_importance()
         col_selected = fi.nlargest(topk)
         # NOTE: adjusting to `self.sim_task_model` just for aligning with previous implementation.
-        task = self._adjust_task(self.basic_task(enable_handler_cache=False), self.sim_task_model)
+        task = self._adjust_task(
+            self.basic_task(enable_handler_cache=False), self.sim_task_model
+        )
         task = replace_task_handler_with_cache(task, self.working_dir)
 
         dataset = init_instance_by_config(task["dataset"])
-        prep_ds = dataset.prepare(slice(None), col_set=["feature", "label"], data_key=DataHandlerLP.DK_L)
+        prep_ds = dataset.prepare(
+            slice(None), col_set=["feature", "label"], data_key=DataHandlerLP.DK_L
+        )
 
         feature_df = prep_ds["feature"]
         label_df = prep_ds["label"]
@@ -201,11 +211,15 @@ class DDGDA(Rolling):
         This function will dump the input data for meta model
         """
         # According to the experiments, the choice of the model type is very important for achieving good results
-        sim_task = self._adjust_task(self.basic_task(enable_handler_cache=False), astype=self.sim_task_model)
+        sim_task = self._adjust_task(
+            self.basic_task(enable_handler_cache=False), astype=self.sim_task_model
+        )
         sim_task = replace_task_handler_with_cache(sim_task, self.working_dir)
 
         if self.sim_task_model == "gbdt":
-            sim_task["model"].setdefault("kwargs", {}).update({"early_stopping_rounds": None, "num_boost_round": 150})
+            sim_task["model"].setdefault("kwargs", {}).update(
+                {"early_stopping_rounds": None, "num_boost_round": 150}
+            )
 
         exp_name_sim = f"data_sim_s{self.step}"
 
@@ -225,8 +239,12 @@ class DDGDA(Rolling):
 
         # the train_start for training meta model does not necessarily align with final rolling
         train_start = "2008-01-01" if self.train_start is None else self.train_start
-        train_end = "2010-12-31" if self.meta_1st_train_end is None else self.meta_1st_train_end
-        test_start = (pd.Timestamp(train_end) + pd.Timedelta(days=1)).strftime("%Y-%m-%d")
+        train_end = (
+            "2010-12-31" if self.meta_1st_train_end is None else self.meta_1st_train_end
+        )
+        test_start = (pd.Timestamp(train_end) + pd.Timedelta(days=1)).strftime(
+            "%Y-%m-%d"
+        )
         proxy_forecast_model_task = {
             # "model": "qlib.contrib.model.linear.LinearModel",
             "dataset": {
@@ -235,7 +253,12 @@ class DDGDA(Rolling):
                     "handler": f"file://{(self.working_dir / self.proxy_hd).absolute()}",
                     "segments": {
                         "train": (train_start, train_end),
-                        "test": (test_start, self.basic_task()["dataset"]["kwargs"]["segments"]["test"][1]),
+                        "test": (
+                            test_start,
+                            self.basic_task()["dataset"]["kwargs"]["segments"]["test"][
+                                1
+                            ],
+                        ),
                     },
                 },
             },
@@ -268,7 +291,12 @@ class DDGDA(Rolling):
         with R.start(experiment_name=self.meta_exp_name):
             R.log_params(**kwargs)
             mm = MetaModelDS(
-                step=self.step, hist_step_n=kwargs["hist_step_n"], lr=0.001, max_epoch=30, seed=43, alpha=self.alpha
+                step=self.step,
+                hist_step_n=kwargs["hist_step_n"],
+                lr=0.001,
+                max_epoch=30,
+                seed=43,
+                alpha=self.alpha,
             )
             mm.fit(md)
             R.save_objects(model=mm)
