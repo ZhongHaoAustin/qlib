@@ -322,11 +322,6 @@ class DDGDA(Rolling):
             - input for meta model(internal data)
             - meta model (its learnt knowledge on proxy forecasting model is expected to transfer to normal forecasting model)
         """
-
-        if self._task_path.exists():
-            with self._task_path.open("rb") as f:
-                return pickle.load(f)
-
         # 1) get meta model
         exp = R.get_exp(experiment_name=self.meta_exp_name)
         rec = exp.list_recorders(rtype=exp.RT_L)[0]
