@@ -1,0 +1,93 @@
+[3388091:MainThread](2024-03-28 17:46:14,823) INFO - qlib.Initialization - [config.py:416] - default_conf: client.
+[3388091:MainThread](2024-03-28 17:46:14,826) INFO - qlib.Initialization - [__init__.py:74] - qlib successfully initialized based on client settings.
+[3388091:MainThread](2024-03-28 17:46:14,826) INFO - qlib.Initialization - [__init__.py:76] - data_path={'__DEFAULT_FREQ': PosixPath('/home/zhonghao/.qlib/qlib_data/cn_data')}
+[3388091:MainThread](2024-03-28 17:46:14,827) INFO - qlib.workflow - [exp.py:258] - Experiment 1 starts running ...
+[3388091:MainThread](2024-03-28 17:46:14,895) INFO - qlib.workflow - [recorder.py:341] - Recorder 699d3166e32f45cbb87d43fd20744c76 starts running under Experiment 1 ...
+[3388091:MainThread](2024-03-28 17:46:16,075) INFO - qlib.ADD - [pytorch_add.py:70] - ADD pytorch version...
+[3388091:MainThread](2024-03-28 17:46:16,374) INFO - qlib.ADD - [pytorch_add.py:93] - ADD parameters setting:
+d_feat : 6
+hidden_size : 64
+num_layers : 2
+dropout : 0.1
+dec_dropout : 0.0
+n_epochs : 200
+lr : 0.001
+metric : ic
+batch_size : 5000
+early_stop : 20
+optimizer : adam
+base_model : GRU
+model_path : None
+gamma : 0.1
+gamma_clip : 0.2
+mu : 0.2
+device : cuda:0
+use_GPU : True
+seed : None
+[3388091:MainThread](2024-03-28 17:46:16,404) INFO - qlib.ADD - [pytorch_add.py:150] - model:
+ADDModel(
+  (enc_excess): GRU(6, 64, num_layers=2, batch_first=True, dropout=0.1)
+  (enc_market): GRU(6, 64, num_layers=2, batch_first=True, dropout=0.1)
+  (dec): Decoder(
+    (rnn): GRU(6, 128, num_layers=2, batch_first=True)
+    (fc): Linear(in_features=128, out_features=6, bias=True)
+  )
+  (pred_excess): Sequential(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+    (1): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (2): Tanh()
+    (3): Linear(in_features=128, out_features=1, bias=True)
+  )
+  (adv_excess): Sequential(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+    (1): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (2): Tanh()
+    (3): Linear(in_features=128, out_features=1, bias=True)
+  )
+  (adv_market): Sequential(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+    (1): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (2): Tanh()
+    (3): Linear(in_features=128, out_features=3, bias=True)
+  )
+  (pred_market): Sequential(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+    (1): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (2): Tanh()
+    (3): Linear(in_features=128, out_features=3, bias=True)
+  )
+  (before_adv_market): RevGrad()
+  (before_adv_excess): RevGrad()
+)
+[3388091:MainThread](2024-03-28 17:46:16,405) INFO - qlib.ADD - [pytorch_add.py:151] - model size: 0.2839 MB
+ModuleNotFoundError. CatBoostModel are skipped. (optional: maybe installing CatBoostModel can fix it.)
+[3388091:MainThread](2024-03-28 17:47:04,659) INFO - qlib.timer - [log.py:127] - Time cost: 39.042s | Loading data Done
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/numpy/lib/nanfunctions.py:1095: RuntimeWarning: All-NaN slice encountered
+  result = np.apply_along_axis(_nanmedian1d, axis, a, overwrite_input)
+[3388091:MainThread](2024-03-28 17:49:19,558) INFO - qlib.timer - [log.py:127] - Time cost: 132.833s | RobustZScoreNorm Done
+[3388091:MainThread](2024-03-28 17:49:22,217) INFO - qlib.timer - [log.py:127] - Time cost: 2.657s | Fillna Done
+[3388091:MainThread](2024-03-28 17:49:23,537) INFO - qlib.timer - [log.py:127] - Time cost: 0.714s | DropnaLabel Done
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/qlib/data/dataset/processor.py:379: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  df[cols] = t
+[3388091:MainThread](2024-03-28 17:49:24,405) INFO - qlib.timer - [log.py:127] - Time cost: 0.866s | CSRankNorm Done
+[3388091:MainThread](2024-03-28 17:49:24,408) INFO - qlib.timer - [log.py:127] - Time cost: 139.748s | fit & process data Done
+[3388091:MainThread](2024-03-28 17:49:24,408) INFO - qlib.timer - [log.py:127] - Time cost: 178.793s | Init data Done
+[3388091:MainThread](2024-03-28 17:49:24,410) WARNING - qlib.utils - [__init__.py:789] - The parameter `reweighter` with value `None` is ignored.
+[3388091:MainThread](2024-03-28 17:49:26,943) INFO - qlib.ADD - [pytorch_add.py:315] - training...
+[3388091:MainThread](2024-03-28 17:49:26,944) INFO - qlib.ADD - [pytorch_add.py:322] - Epoch0:
+[3388091:MainThread](2024-03-28 17:49:26,945) INFO - qlib.ADD - [pytorch_add.py:323] - training...
+[3388091:MainThread](2024-03-28 17:49:41,922) INFO - qlib.ADD - [pytorch_add.py:325] - evaluating...
+[3388091:MainThread](2024-03-28 17:51:43,404) INFO - qlib.ADD - [pytorch_add.py:307] - pre_excess_loss/train: 0.996280, pre_market_loss/train: 1.084189, pre_loss/train: 2.080469, adv_excess_loss/train: 0.996355, adv_market_loss/train: 1.081849, adv_loss/train: 2.078204, rec_loss/train: 0.599675, loss/train: -0.996280, mse/train: -0.996280, ic/train: 0.040716, ric/train: 0.041080
+[3388091:MainThread](2024-03-28 17:51:43,417) INFO - qlib.ADD - [pytorch_add.py:307] - pre_excess_loss/valid: 0.999969, pre_market_loss/valid: 1.072543, pre_loss/valid: 2.072512, adv_excess_loss/valid: 0.997690, adv_market_loss/valid: 1.065306, adv_loss/valid: 2.062995, rec_loss/valid: 0.705247, loss/valid: -0.999969, mse/valid: -0.999969, ic/valid: 0.002584, ric/valid: 0.005853
+[3388091:MainThread](2024-03-28 17:51:43,659) INFO - qlib.ADD - [pytorch_add.py:322] - Epoch1:
+[3388091:MainThread](2024-03-28 17:51:43,660) INFO - qlib.ADD - [pytorch_add.py:323] - training...
+[3388091:MainThread](2024-03-28 17:52:00,525) INFO - qlib.ADD - [pytorch_add.py:325] - evaluating...
+[3388091:MainThread](2024-03-28 17:54:04,530) INFO - qlib.ADD - [pytorch_add.py:307] - pre_excess_loss/train: 0.993386, pre_market_loss/train: 1.072577, pre_loss/train: 2.065963, adv_excess_loss/train: 0.995212, adv_market_loss/train: 1.080235, adv_loss/train: 2.075447, rec_loss/train: 0.467546, loss/train: -0.993386, mse/train: -0.993386, ic/train: 0.076724, ric/train: 0.072992
+[3388091:MainThread](2024-03-28 17:54:04,531) INFO - qlib.ADD - [pytorch_add.py:307] - pre_excess_loss/valid: 0.997067, pre_market_loss/valid: 1.060060, pre_loss/valid: 2.057128, adv_excess_loss/valid: 0.998213, adv_market_loss/valid: 1.062567, adv_loss/valid: 2.060779, rec_loss/valid: 0.557201, loss/valid: -0.997067, mse/valid: -0.997067, ic/valid: 0.044926, ric/valid: 0.041139
+[3388091:MainThread](2024-03-28 17:54:04,535) INFO - qlib.ADD - [pytorch_add.py:322] - Epoch2:
+[3388091:MainThread](2024-03-28 17:54:04,536) INFO - qlib.ADD - [pytorch_add.py:323] - training...
+[3388091:MainThread](2024-03-28 17:54:21,121) INFO - qlib.ADD - [pytorch_add.py:325] - evaluating...

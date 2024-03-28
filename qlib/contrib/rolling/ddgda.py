@@ -161,51 +161,45 @@ class DDGDA(Rolling):
         The meta model will be trained upon the proxy forecasting model.
         This dataset is for the proxy forecasting model.
         """
-        fea_label_df_path = self.working_dir / "fea_label_df.pkl"
+        topk = 30
+        fi = self._get_feature_importance()
+        col_selected = fi.nlargest(topk)
+        # NOTE: adjusting to `self.sim_task_model` just for aligning with previous implementation.
+        task = self._adjust_task(
+            self.basic_task(enable_handler_cache=False), self.sim_task_model
+        )
+        task = replace_task_handler_with_cache(task, self.working_dir)
 
-        # whether fea_label_df.pkl exists
-        if not fea_label_df_path.exists():
+        dataset = init_instance_by_config(task["dataset"])
+        prep_ds = dataset.prepare(
+            slice(None), col_set=["feature", "label"], data_key=DataHandlerLP.DK_L
+        )
 
-            topk = 30
-            fi = self._get_feature_importance()
-            col_selected = fi.nlargest(topk)
-            # NOTE: adjusting to `self.sim_task_model` just for aligning with previous implementation.
-            task = self._adjust_task(
-                self.basic_task(enable_handler_cache=False), self.sim_task_model
-            )
-            task = replace_task_handler_with_cache(task, self.working_dir)
+        feature_df = prep_ds["feature"]
+        label_df = prep_ds["label"]
 
-            dataset = init_instance_by_config(task["dataset"])
-            prep_ds = dataset.prepare(
-                slice(None), col_set=["feature", "label"], data_key=DataHandlerLP.DK_L
-            )
+        feature_selected = feature_df.loc[:, col_selected.index]
 
-            feature_df = prep_ds["feature"]
-            label_df = prep_ds["label"]
+        feature_selected = feature_selected.groupby("datetime", group_keys=False).apply(
+            lambda df: (df - df.mean()).div(df.std())
+        )
+        feature_selected = feature_selected.fillna(0.0)
 
-            feature_selected = feature_df.loc[:, col_selected.index]
+        df_all = {
+            "label": label_df.reindex(feature_selected.index),
+            "feature": feature_selected,
+        }
+        df_all = pd.concat(df_all, axis=1)
+        df_all.to_pickle(self.working_dir / "fea_label_df.pkl")
 
-            feature_selected = feature_selected.groupby(
-                "datetime", group_keys=False
-            ).apply(lambda df: (df - df.mean()).div(df.std()))
-            feature_selected = feature_selected.fillna(0.0)
-
-            df_all = {
-                "label": label_df.reindex(feature_selected.index),
-                "feature": feature_selected,
+        # dump data in handler format for aligning the interface
+        handler = DataHandlerLP(
+            data_loader={
+                "class": "qlib.data.dataset.loader.StaticDataLoader",
+                "kwargs": {"config": self.working_dir / "fea_label_df.pkl"},
             }
-            df_all = pd.concat(df_all, axis=1)
-            df_all.to_pickle(fea_label_df_path)
-
-        if not self.working_dir.joinpath(self.proxy_hd).exists():
-            # dump data in handler format for aligning the interface
-            handler = DataHandlerLP(
-                data_loader={
-                    "class": "qlib.data.dataset.loader.StaticDataLoader",
-                    "kwargs": {"config": fea_label_df_path},
-                }
-            )
-            handler.to_pickle(self.working_dir / self.proxy_hd, dump_all=True)
+        )
+        handler.to_pickle(self.working_dir / self.proxy_hd, dump_all=True)
 
     @property
     def _internal_data_path(self):
@@ -216,32 +210,29 @@ class DDGDA(Rolling):
         Dump data for training meta model.
         This function will dump the input data for meta model
         """
-        if not self._internal_data_path.exists():
-            # According to the experiments, the choice of the model type is very important for achieving good results
-            sim_task = self._adjust_task(
-                self.basic_task(enable_handler_cache=False), astype=self.sim_task_model
+        # According to the experiments, the choice of the model type is very important for achieving good results
+        sim_task = self._adjust_task(
+            self.basic_task(enable_handler_cache=False), astype=self.sim_task_model
+        )
+        sim_task = replace_task_handler_with_cache(sim_task, self.working_dir)
+
+        if self.sim_task_model == "gbdt":
+            sim_task["model"].setdefault("kwargs", {}).update(
+                {"early_stopping_rounds": None, "num_boost_round": 150}
             )
-            sim_task = replace_task_handler_with_cache(sim_task, self.working_dir)
 
-            if self.sim_task_model == "gbdt":
-                sim_task["model"].setdefault("kwargs", {}).update(
-                    {"early_stopping_rounds": None, "num_boost_round": 150}
-                )
+        exp_name_sim = f"data_sim_s{self.step}"
 
-            exp_name_sim = f"data_sim_s{self.step}"
+        internal_data = InternalData(sim_task, self.step, exp_name=exp_name_sim)
+        internal_data.setup(trainer=TrainerR)
 
-            internal_data = InternalData(sim_task, self.step, exp_name=exp_name_sim)
-            internal_data.setup(trainer=TrainerR)
-
-            with self._internal_data_path.open("wb") as f:
-                pickle.dump(internal_data, f)
+        with self._internal_data_path.open("wb") as f:
+            pickle.dump(internal_data, f)
 
     def _train_meta_model(self, fill_method="max"):
         """
         training a meta model based on a simplified linear proxy model;
         """
-        if self._task_path.exists():
-            return
 
         # 1) leverage the simplified proxy forecasting model to train meta model.
         # - Only the dataset part is important, in current version of meta model will integrate the
