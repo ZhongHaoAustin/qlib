@@ -42,6 +42,9 @@
 # cd $ROLLING_DIR && python rolling_benchmark.py --conf_path=$QLIB_YAML_DIR/workflow_config_doubleensemble_sr_fs_Alpha158.yaml run > $QLIB_EXP_LOG/rolling_doubleensemble_sr_fs.log 2>&1
 # cd $ROLLING_DIR && python rolling_benchmark.py --conf_path=$QLIB_YAML_DIR/workflow_config_mlp_Alpha158.yaml run > $QLIB_EXP_LOG/rolling_mlp.log 2>&1
 # cd $ROLLING_DIR && python rolling_benchmark.py --conf_path=$QLIB_YAML_DIR/workflow_config_xgboost_Alpha158.yaml run > $QLIB_EXP_LOG/rolling_xgb.log 2>&1
+# rolling nerual network
+# cd $ROLLING_DIR && python rolling_benchmark.py --conf_path=/home/zhonghao/code/qlib/examples/benchmarks/ALSTM/workflow_config_alstm_Alpha158.yaml run > $QLIB_EXP_LOG/rolling_nn_alstm.log 2>&1
+
 
 
 #############################################################
@@ -50,6 +53,7 @@
 # cd $DDGDA_DIR && python workflow.py run > $QLIB_EXP_LOG/ddgda_lr.log 2>&1
 # cd $DDGDA_DIR && python workflow.py --conf_path=$QLIB_YAML_DIR/workflow_config_lightgbm_Alpha158.yaml run > $QLIB_EXP_LOG/ddgda_lgb.log 2>&1
 # cd $DDGDA_DIR && python workflow.py --conf_path=$QLIB_YAML_DIR/workflow_config_mlp_Alpha158.yaml run > $QLIB_EXP_LOG/ddgda_mlp.log 2>&1
-cd $DDGDA_DIR && python workflow.py --conf_path=$QLIB_YAML_DIR/workflow_config_xgboost_Alpha158.yaml run > $QLIB_EXP_LOG/ddgda_xgb.log 2>&1
-cd $DDGDA_DIR && python workflow.py --conf_path=$QLIB_YAML_DIR/workflow_config_doubleensemble_fs_Alpha158.yaml run > $QLIB_EXP_LOG/ddgda_doubleensemble_fs.log 2>&1
-cd $DDGDA_DIR && python workflow.py --conf_path=$QLIB_YAML_DIR/workflow_config_doubleensemble_sr_fs_Alpha158.yaml run > $QLIB_EXP_LOG/ddgda_doubleensemble_sr_fs.log 2>&1
+# cd $DDGDA_DIR && python workflow.py --conf_path=$QLIB_YAML_DIR/workflow_config_xgboost_Alpha158.yaml run > $QLIB_EXP_LOG/ddgda_xgb.log 2>&1
+# cd $DDGDA_DIR && python workflow.py --conf_path=$QLIB_YAML_DIR/workflow_config_doubleensemble_fs_Alpha158.yaml run > $QLIB_EXP_LOG/ddgda_doubleensemble_fs.log 2>&1
+# cd $DDGDA_DIR && python workflow.py --conf_path=$QLIB_YAML_DIR/workflow_config_doubleensemble_sr_fs_Alpha158.yaml run > $QLIB_EXP_LOG/ddgda_doubleensemble_sr_fs.log 2>&1
+#
