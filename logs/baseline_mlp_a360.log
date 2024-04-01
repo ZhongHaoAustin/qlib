@@ -1,0 +1,278 @@
+[1308202:MainThread](2024-04-01 10:57:47,263) INFO - qlib.Initialization - [config.py:416] - default_conf: client.
+[1308202:MainThread](2024-04-01 10:57:47,266) INFO - qlib.Initialization - [__init__.py:74] - qlib successfully initialized based on client settings.
+[1308202:MainThread](2024-04-01 10:57:47,266) INFO - qlib.Initialization - [__init__.py:76] - data_path={'__DEFAULT_FREQ': PosixPath('/home/zhonghao/.qlib/qlib_data/cn_data')}
+[1308202:MainThread](2024-04-01 10:57:47,267) INFO - qlib.workflow - [exp.py:258] - Experiment 1 starts running ...
+[1308202:MainThread](2024-04-01 10:57:47,387) INFO - qlib.workflow - [recorder.py:341] - Recorder ba86cef958d9492195759b591262ad5b starts running under Experiment 1 ...
+[1308202:MainThread](2024-04-01 10:57:48,664) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:82] - DNN pytorch version...
+[1308202:MainThread](2024-04-01 10:57:48,760) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:104] - DNN parameters setting:
+lr : 0.002
+max_steps : 8000
+batch_size : 4096
+early_stop_rounds : 50
+eval_steps : 20
+optimizer : adam
+loss_type : mse
+seed : None
+device : cuda:0
+use_GPU : True
+weight_decay : 0.0
+enable data parall : False
+pt_model_uri: qlib.contrib.model.pytorch_nn.Net
+pt_model_kwargs: {'input_dim': 360}
+[1308202:MainThread](2024-04-01 10:57:48,767) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:138] - model:
+Net(
+  (dnn_layers): ModuleList(
+    (0): Dropout(p=0.05, inplace=False)
+    (1): Sequential(
+      (0): Linear(in_features=360, out_features=256, bias=True)
+      (1): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): LeakyReLU(negative_slope=0.1)
+    )
+    (2): Dropout(p=0.05, inplace=False)
+    (3): Linear(in_features=256, out_features=1, bias=True)
+  )
+)
+[1308202:MainThread](2024-04-01 10:57:48,768) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:139] - model size: 0.0889 MB
+ModuleNotFoundError. CatBoostModel are skipped. (optional: maybe installing CatBoostModel can fix it.)
+[1308202:MainThread](2024-04-01 10:58:30,892) INFO - qlib.timer - [log.py:127] - Time cost: 37.326s | Loading data Done
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/numpy/lib/nanfunctions.py:1095: RuntimeWarning: All-NaN slice encountered
+  result = np.apply_along_axis(_nanmedian1d, axis, a, overwrite_input)
+[1308202:MainThread](2024-04-01 11:00:33,390) INFO - qlib.timer - [log.py:127] - Time cost: 120.353s | RobustZScoreNorm Done
+[1308202:MainThread](2024-04-01 11:00:35,701) INFO - qlib.timer - [log.py:127] - Time cost: 2.309s | Fillna Done
+[1308202:MainThread](2024-04-01 11:00:36,931) INFO - qlib.timer - [log.py:127] - Time cost: 0.650s | DropnaLabel Done
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/qlib/data/dataset/processor.py:379: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  df[cols] = t
+[1308202:MainThread](2024-04-01 11:00:37,735) INFO - qlib.timer - [log.py:127] - Time cost: 0.803s | CSRankNorm Done
+[1308202:MainThread](2024-04-01 11:00:37,738) INFO - qlib.timer - [log.py:127] - Time cost: 126.845s | fit & process data Done
+[1308202:MainThread](2024-04-01 11:00:37,739) INFO - qlib.timer - [log.py:127] - Time cost: 164.174s | Init data Done
+[1308202:MainThread](2024-04-01 11:00:40,085) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:219] - training...
+[1308202:MainThread](2024-04-01 11:00:40,602) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 20]: train_loss 1.634974, valid_loss 1.091624, train_metric nan, valid_metric -0.018195
+[1308202:MainThread](2024-04-01 11:00:40,602) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:296] - 	valid loss update from inf to 1.091624, save checkpoint.
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/torch/optim/lr_scheduler.py:903: UserWarning: The epoch parameter in `scheduler.step()` was not necessary and is being deprecated where possible. Please use `scheduler.step()` to step the scheduler. During the deprecation, if epoch is different from None, the closed form is used instead of the new chainable form, where available. Please open an issue if you are unable to replicate your use case: https://github.com/pytorch/pytorch/issues/new/choose.
+  warnings.warn(EPOCH_DEPRECATION_WARNING, UserWarning)
+[1308202:MainThread](2024-04-01 11:00:40,793) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 40]: train_loss 1.094047, valid_loss 1.037398, train_metric nan, valid_metric -0.018401
+[1308202:MainThread](2024-04-01 11:00:40,793) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:296] - 	valid loss update from 1.091624 to 1.037398, save checkpoint.
+[1308202:MainThread](2024-04-01 11:00:40,973) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 60]: train_loss 1.051408, valid_loss 1.010428, train_metric nan, valid_metric 0.024487
+[1308202:MainThread](2024-04-01 11:00:40,973) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:296] - 	valid loss update from 1.037398 to 1.010428, save checkpoint.
+[1308202:MainThread](2024-04-01 11:00:41,161) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 80]: train_loss 1.048646, valid_loss 1.007450, train_metric nan, valid_metric 0.041252
+[1308202:MainThread](2024-04-01 11:00:41,161) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:296] - 	valid loss update from 1.010428 to 1.007450, save checkpoint.
+[1308202:MainThread](2024-04-01 11:00:41,350) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 100]: train_loss 1.054710, valid_loss 1.004480, train_metric nan, valid_metric 0.033071
+[1308202:MainThread](2024-04-01 11:00:41,351) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:296] - 	valid loss update from 1.007450 to 1.004480, save checkpoint.
+[1308202:MainThread](2024-04-01 11:00:41,548) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 120]: train_loss 1.041935, valid_loss 1.002763, train_metric nan, valid_metric 0.051913
+[1308202:MainThread](2024-04-01 11:00:41,548) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:296] - 	valid loss update from 1.004480 to 1.002763, save checkpoint.
+[1308202:MainThread](2024-04-01 11:00:41,744) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 140]: train_loss 1.027958, valid_loss 1.001317, train_metric nan, valid_metric 0.041693
+[1308202:MainThread](2024-04-01 11:00:41,744) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:296] - 	valid loss update from 1.002763 to 1.001317, save checkpoint.
+[1308202:MainThread](2024-04-01 11:00:41,933) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 160]: train_loss 1.028916, valid_loss 1.001692, train_metric nan, valid_metric 0.041790
+[1308202:MainThread](2024-04-01 11:00:42,120) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 180]: train_loss 1.032830, valid_loss 1.000668, train_metric nan, valid_metric 0.041794
+[1308202:MainThread](2024-04-01 11:00:42,120) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:296] - 	valid loss update from 1.001317 to 1.000668, save checkpoint.
+[1308202:MainThread](2024-04-01 11:00:42,304) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 200]: train_loss 1.027946, valid_loss 0.999618, train_metric nan, valid_metric 0.047026
+[1308202:MainThread](2024-04-01 11:00:42,305) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:296] - 	valid loss update from 1.000668 to 0.999618, save checkpoint.
+[1308202:MainThread](2024-04-01 11:00:42,493) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 220]: train_loss 1.028257, valid_loss 0.998911, train_metric nan, valid_metric 0.044541
+[1308202:MainThread](2024-04-01 11:00:42,493) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:296] - 	valid loss update from 0.999618 to 0.998911, save checkpoint.
+[1308202:MainThread](2024-04-01 11:00:42,682) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 240]: train_loss 1.029916, valid_loss 1.000346, train_metric nan, valid_metric 0.058565
+[1308202:MainThread](2024-04-01 11:00:42,881) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 260]: train_loss 1.024570, valid_loss 1.000320, train_metric nan, valid_metric 0.049435
+[1308202:MainThread](2024-04-01 11:00:43,075) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 280]: train_loss 1.025173, valid_loss 0.998946, train_metric nan, valid_metric 0.063043
+[1308202:MainThread](2024-04-01 11:00:43,262) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 300]: train_loss 1.024049, valid_loss 1.000659, train_metric nan, valid_metric 0.040855
+[1308202:MainThread](2024-04-01 11:00:43,449) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 320]: train_loss 1.016981, valid_loss 1.001926, train_metric nan, valid_metric 0.033784
+[1308202:MainThread](2024-04-01 11:00:43,643) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 340]: train_loss 1.015260, valid_loss 0.998213, train_metric nan, valid_metric 0.057237
+[1308202:MainThread](2024-04-01 11:00:43,644) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:296] - 	valid loss update from 0.998911 to 0.998213, save checkpoint.
+[1308202:MainThread](2024-04-01 11:00:43,844) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 360]: train_loss 1.016115, valid_loss 0.998136, train_metric nan, valid_metric 0.060074
+[1308202:MainThread](2024-04-01 11:00:43,845) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:296] - 	valid loss update from 0.998213 to 0.998136, save checkpoint.
+[1308202:MainThread](2024-04-01 11:00:44,040) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 380]: train_loss 1.010490, valid_loss 0.996385, train_metric nan, valid_metric 0.062133
+[1308202:MainThread](2024-04-01 11:00:44,041) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:296] - 	valid loss update from 0.998136 to 0.996385, save checkpoint.
+[1308202:MainThread](2024-04-01 11:00:44,228) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 400]: train_loss 1.013267, valid_loss 0.996759, train_metric nan, valid_metric 0.067456
+[1308202:MainThread](2024-04-01 11:00:44,418) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 420]: train_loss 1.017832, valid_loss 0.998237, train_metric nan, valid_metric 0.052194
+[1308202:MainThread](2024-04-01 11:00:44,605) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 440]: train_loss 1.012651, valid_loss 1.003485, train_metric nan, valid_metric 0.008158
+[1308202:MainThread](2024-04-01 11:00:44,805) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 460]: train_loss 1.010233, valid_loss 0.996585, train_metric nan, valid_metric 0.054494
+[1308202:MainThread](2024-04-01 11:00:44,999) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 480]: train_loss 1.006385, valid_loss 0.997066, train_metric nan, valid_metric 0.050498
+[1308202:MainThread](2024-04-01 11:00:45,193) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 500]: train_loss 0.997023, valid_loss 0.997977, train_metric nan, valid_metric 0.044713
+[1308202:MainThread](2024-04-01 11:00:45,389) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 520]: train_loss 1.004553, valid_loss 0.996430, train_metric nan, valid_metric 0.052499
+[1308202:MainThread](2024-04-01 11:00:45,585) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 540]: train_loss 1.009585, valid_loss 0.998210, train_metric nan, valid_metric 0.049553
+[1308202:MainThread](2024-04-01 11:00:45,788) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 560]: train_loss 1.007925, valid_loss 0.998558, train_metric nan, valid_metric 0.044702
+[1308202:MainThread](2024-04-01 11:00:45,984) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 580]: train_loss 1.004812, valid_loss 0.996631, train_metric nan, valid_metric 0.062004
+[1308202:MainThread](2024-04-01 11:00:46,180) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 600]: train_loss 1.002908, valid_loss 0.997286, train_metric nan, valid_metric 0.055184
+[1308202:MainThread](2024-04-01 11:00:46,377) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 620]: train_loss 1.007489, valid_loss 0.998083, train_metric nan, valid_metric 0.042800
+[1308202:MainThread](2024-04-01 11:00:46,579) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 640]: train_loss 1.004236, valid_loss 0.996861, train_metric nan, valid_metric 0.060090
+[1308202:MainThread](2024-04-01 11:00:46,773) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 660]: train_loss 1.002249, valid_loss 0.995364, train_metric nan, valid_metric 0.065327
+[1308202:MainThread](2024-04-01 11:00:46,774) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:296] - 	valid loss update from 0.996385 to 0.995364, save checkpoint.
+[1308202:MainThread](2024-04-01 11:00:46,976) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 680]: train_loss 0.999844, valid_loss 0.996973, train_metric nan, valid_metric 0.055840
+[1308202:MainThread](2024-04-01 11:00:47,173) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 700]: train_loss 0.999964, valid_loss 0.995292, train_metric nan, valid_metric 0.062480
+[1308202:MainThread](2024-04-01 11:00:47,173) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:296] - 	valid loss update from 0.995364 to 0.995292, save checkpoint.
+[1308202:MainThread](2024-04-01 11:00:47,376) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 720]: train_loss 0.999521, valid_loss 0.997570, train_metric nan, valid_metric 0.046233
+[1308202:MainThread](2024-04-01 11:00:47,576) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 740]: train_loss 0.998854, valid_loss 0.995667, train_metric nan, valid_metric 0.060571
+[1308202:MainThread](2024-04-01 11:00:47,773) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 760]: train_loss 0.997192, valid_loss 0.996402, train_metric nan, valid_metric 0.059281
+[1308202:MainThread](2024-04-01 11:00:47,970) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 780]: train_loss 1.000591, valid_loss 0.997350, train_metric nan, valid_metric 0.055381
+[1308202:MainThread](2024-04-01 11:00:48,170) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 800]: train_loss 0.999274, valid_loss 0.997608, train_metric nan, valid_metric 0.054441
+[1308202:MainThread](2024-04-01 11:00:48,368) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 820]: train_loss 1.001505, valid_loss 0.997793, train_metric nan, valid_metric 0.051043
+[1308202:MainThread](2024-04-01 11:00:48,565) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 840]: train_loss 1.003409, valid_loss 0.996713, train_metric nan, valid_metric 0.060765
+[1308202:MainThread](2024-04-01 11:00:48,761) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 860]: train_loss 0.993824, valid_loss 0.996812, train_metric nan, valid_metric 0.055334
+[1308202:MainThread](2024-04-01 11:00:48,957) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 880]: train_loss 0.999692, valid_loss 0.995892, train_metric nan, valid_metric 0.073376
+[1308202:MainThread](2024-04-01 11:00:49,151) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 900]: train_loss 0.998791, valid_loss 0.995973, train_metric nan, valid_metric 0.072693
+[1308202:MainThread](2024-04-01 11:00:49,349) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 920]: train_loss 1.001430, valid_loss 0.995313, train_metric nan, valid_metric 0.070192
+[1308202:MainThread](2024-04-01 11:00:49,550) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 940]: train_loss 1.000682, valid_loss 0.995531, train_metric nan, valid_metric 0.064093
+[1308202:MainThread](2024-04-01 11:00:49,747) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 960]: train_loss 0.994551, valid_loss 0.995906, train_metric nan, valid_metric 0.059878
+[1308202:MainThread](2024-04-01 11:00:49,935) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 980]: train_loss 0.991885, valid_loss 0.996173, train_metric nan, valid_metric 0.072713
+[1308202:MainThread](2024-04-01 11:00:50,119) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 1000]: train_loss 0.996040, valid_loss 0.995448, train_metric nan, valid_metric 0.067036
+[1308202:MainThread](2024-04-01 11:00:50,305) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 1020]: train_loss 0.993591, valid_loss 0.995167, train_metric nan, valid_metric 0.066316
+[1308202:MainThread](2024-04-01 11:00:50,305) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:296] - 	valid loss update from 0.995292 to 0.995167, save checkpoint.
+[1308202:MainThread](2024-04-01 11:00:50,501) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 1040]: train_loss 1.004069, valid_loss 0.996032, train_metric nan, valid_metric 0.063089
+[1308202:MainThread](2024-04-01 11:00:50,688) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 1060]: train_loss 0.995261, valid_loss 0.996535, train_metric nan, valid_metric 0.063955
+[1308202:MainThread](2024-04-01 11:00:50,879) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 1080]: train_loss 0.996720, valid_loss 0.995157, train_metric nan, valid_metric 0.066944
+[1308202:MainThread](2024-04-01 11:00:50,879) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:296] - 	valid loss update from 0.995167 to 0.995157, save checkpoint.
+[1308202:MainThread](2024-04-01 11:00:51,072) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 1100]: train_loss 0.990918, valid_loss 0.995235, train_metric nan, valid_metric 0.069930
+[1308202:MainThread](2024-04-01 11:00:51,264) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 1120]: train_loss 1.001744, valid_loss 0.995427, train_metric nan, valid_metric 0.067300
+[1308202:MainThread](2024-04-01 11:00:51,457) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 1140]: train_loss 0.996329, valid_loss 0.996163, train_metric nan, valid_metric 0.058589
+[1308202:MainThread](2024-04-01 11:00:51,649) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 1160]: train_loss 0.998485, valid_loss 0.996712, train_metric nan, valid_metric 0.050959
+[1308202:MainThread](2024-04-01 11:00:51,832) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 1180]: train_loss 0.998910, valid_loss 0.995394, train_metric nan, valid_metric 0.065186
+[1308202:MainThread](2024-04-01 11:00:52,026) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 1200]: train_loss 0.995083, valid_loss 0.996469, train_metric nan, valid_metric 0.062551
+[1308202:MainThread](2024-04-01 11:00:52,220) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 1220]: train_loss 0.988767, valid_loss 0.995441, train_metric nan, valid_metric 0.061070
+[1308202:MainThread](2024-04-01 11:00:52,413) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 1240]: train_loss 0.996184, valid_loss 0.995961, train_metric nan, valid_metric 0.058137
+[1308202:MainThread](2024-04-01 11:00:52,606) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 1260]: train_loss 0.990919, valid_loss 0.995496, train_metric nan, valid_metric 0.066159
+[1308202:MainThread](2024-04-01 11:00:52,800) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 1280]: train_loss 0.998023, valid_loss 0.995590, train_metric nan, valid_metric 0.061259
+[1308202:MainThread](2024-04-01 11:00:52,993) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 1300]: train_loss 0.987860, valid_loss 0.995530, train_metric nan, valid_metric 0.061961
+[1308202:MainThread](2024-04-01 11:00:53,185) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 1320]: train_loss 1.000933, valid_loss 0.996207, train_metric nan, valid_metric 0.059463
+[1308202:MainThread](2024-04-01 11:00:53,384) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 1340]: train_loss 0.996193, valid_loss 0.995931, train_metric nan, valid_metric 0.059733
+[1308202:MainThread](2024-04-01 11:00:53,573) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 1360]: train_loss 0.994676, valid_loss 0.995644, train_metric nan, valid_metric 0.064766
+[1308202:MainThread](2024-04-01 11:00:53,763) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 1380]: train_loss 0.993255, valid_loss 0.995241, train_metric nan, valid_metric 0.066732
+[1308202:MainThread](2024-04-01 11:00:53,961) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 1400]: train_loss 0.995040, valid_loss 0.995527, train_metric nan, valid_metric 0.063159
+[1308202:MainThread](2024-04-01 11:00:54,157) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 1420]: train_loss 0.992514, valid_loss 0.995693, train_metric nan, valid_metric 0.069017
+[1308202:MainThread](2024-04-01 11:00:54,346) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 1440]: train_loss 0.994959, valid_loss 0.996613, train_metric nan, valid_metric 0.057674
+[1308202:MainThread](2024-04-01 11:00:54,533) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 1460]: train_loss 0.996302, valid_loss 0.995026, train_metric nan, valid_metric 0.068736
+[1308202:MainThread](2024-04-01 11:00:54,533) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:296] - 	valid loss update from 0.995157 to 0.995026, save checkpoint.
+[1308202:MainThread](2024-04-01 11:00:54,723) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 1480]: train_loss 0.990472, valid_loss 0.997993, train_metric nan, valid_metric 0.049421
+[1308202:MainThread](2024-04-01 11:00:54,917) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 1500]: train_loss 0.988116, valid_loss 0.996464, train_metric nan, valid_metric 0.056648
+[1308202:MainThread](2024-04-01 11:00:55,113) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 1520]: train_loss 0.995978, valid_loss 0.995188, train_metric nan, valid_metric 0.064449
+[1308202:MainThread](2024-04-01 11:00:55,331) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 1540]: train_loss 0.993964, valid_loss 0.994796, train_metric nan, valid_metric 0.067684
+[1308202:MainThread](2024-04-01 11:00:55,332) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:296] - 	valid loss update from 0.995026 to 0.994796, save checkpoint.
+[1308202:MainThread](2024-04-01 11:00:55,549) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 1560]: train_loss 0.999917, valid_loss 0.996371, train_metric nan, valid_metric 0.062461
+[1308202:MainThread](2024-04-01 11:00:55,732) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 1580]: train_loss 0.997693, valid_loss 0.994966, train_metric nan, valid_metric 0.069360
+[1308202:MainThread](2024-04-01 11:00:55,927) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 1600]: train_loss 0.992320, valid_loss 0.997144, train_metric nan, valid_metric 0.061170
+[1308202:MainThread](2024-04-01 11:00:56,122) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 1620]: train_loss 0.997580, valid_loss 0.996433, train_metric nan, valid_metric 0.053817
+[1308202:MainThread](2024-04-01 11:00:56,321) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 1640]: train_loss 1.001728, valid_loss 0.996414, train_metric nan, valid_metric 0.060772
+[1308202:MainThread](2024-04-01 11:00:56,515) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 1660]: train_loss 0.994272, valid_loss 0.996217, train_metric nan, valid_metric 0.056791
+[1308202:MainThread](2024-04-01 11:00:56,714) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 1680]: train_loss 0.999511, valid_loss 0.997154, train_metric nan, valid_metric 0.057166
+[1308202:MainThread](2024-04-01 11:00:56,911) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 1700]: train_loss 0.994296, valid_loss 0.995354, train_metric nan, valid_metric 0.062315
+[1308202:MainThread](2024-04-01 11:00:57,108) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 1720]: train_loss 0.992127, valid_loss 0.994659, train_metric nan, valid_metric 0.069687
+[1308202:MainThread](2024-04-01 11:00:57,108) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:296] - 	valid loss update from 0.994796 to 0.994659, save checkpoint.
+[1308202:MainThread](2024-04-01 11:00:57,305) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 1740]: train_loss 0.998526, valid_loss 0.995380, train_metric nan, valid_metric 0.069903
+[1308202:MainThread](2024-04-01 11:00:57,496) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 1760]: train_loss 0.991480, valid_loss 0.996625, train_metric nan, valid_metric 0.056738
+[1308202:MainThread](2024-04-01 11:00:57,690) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 1780]: train_loss 0.996040, valid_loss 0.995235, train_metric nan, valid_metric 0.064543
+[1308202:MainThread](2024-04-01 11:00:57,885) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 1800]: train_loss 0.998470, valid_loss 0.995334, train_metric nan, valid_metric 0.066888
+[1308202:MainThread](2024-04-01 11:00:58,081) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 1820]: train_loss 0.988693, valid_loss 0.995026, train_metric nan, valid_metric 0.071933
+[1308202:MainThread](2024-04-01 11:00:58,277) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 1840]: train_loss 0.995860, valid_loss 0.995224, train_metric nan, valid_metric 0.074602
+[1308202:MainThread](2024-04-01 11:00:58,473) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 1860]: train_loss 0.987576, valid_loss 0.995160, train_metric nan, valid_metric 0.070004
+[1308202:MainThread](2024-04-01 11:00:58,668) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 1880]: train_loss 0.996430, valid_loss 0.995666, train_metric nan, valid_metric 0.065799
+[1308202:MainThread](2024-04-01 11:00:58,864) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 1900]: train_loss 0.991979, valid_loss 0.996488, train_metric nan, valid_metric 0.056920
+[1308202:MainThread](2024-04-01 11:00:59,060) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 1920]: train_loss 0.991359, valid_loss 0.995532, train_metric nan, valid_metric 0.064925
+[1308202:MainThread](2024-04-01 11:00:59,255) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 1940]: train_loss 0.990565, valid_loss 0.996320, train_metric nan, valid_metric 0.060702
+[1308202:MainThread](2024-04-01 11:00:59,452) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 1960]: train_loss 0.990662, valid_loss 0.996236, train_metric nan, valid_metric 0.063777
+[1308202:MainThread](2024-04-01 11:00:59,640) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 1980]: train_loss 0.990701, valid_loss 0.995522, train_metric nan, valid_metric 0.070073
+[1308202:MainThread](2024-04-01 11:00:59,830) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 2000]: train_loss 0.989495, valid_loss 0.995549, train_metric nan, valid_metric 0.062472
+[1308202:MainThread](2024-04-01 11:01:00,018) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 2020]: train_loss 0.988993, valid_loss 0.996212, train_metric nan, valid_metric 0.060324
+[1308202:MainThread](2024-04-01 11:01:00,214) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 2040]: train_loss 0.988019, valid_loss 0.995459, train_metric nan, valid_metric 0.068668
+[1308202:MainThread](2024-04-01 11:01:00,410) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 2060]: train_loss 0.997965, valid_loss 0.994891, train_metric nan, valid_metric 0.071695
+[1308202:MainThread](2024-04-01 11:01:00,606) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 2080]: train_loss 0.995682, valid_loss 0.995579, train_metric nan, valid_metric 0.066637
+[1308202:MainThread](2024-04-01 11:01:00,797) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 2100]: train_loss 0.987094, valid_loss 0.995663, train_metric nan, valid_metric 0.067743
+[1308202:MainThread](2024-04-01 11:01:00,988) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 2120]: train_loss 0.992195, valid_loss 0.995725, train_metric nan, valid_metric 0.063549
+[1308202:MainThread](2024-04-01 11:01:01,181) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 2140]: train_loss 0.992311, valid_loss 0.995545, train_metric nan, valid_metric 0.067677
+[1308202:MainThread](2024-04-01 11:01:01,376) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 2160]: train_loss 0.988303, valid_loss 0.995893, train_metric nan, valid_metric 0.063501
+[1308202:MainThread](2024-04-01 11:01:01,573) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 2180]: train_loss 0.983344, valid_loss 0.995385, train_metric nan, valid_metric 0.069064
+[1308202:MainThread](2024-04-01 11:01:01,759) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 2200]: train_loss 0.996648, valid_loss 0.995498, train_metric nan, valid_metric 0.066683
+[1308202:MainThread](2024-04-01 11:01:01,945) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 2220]: train_loss 0.986992, valid_loss 0.995101, train_metric nan, valid_metric 0.070049
+[1308202:MainThread](2024-04-01 11:01:02,133) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 2240]: train_loss 0.986211, valid_loss 0.995292, train_metric nan, valid_metric 0.068763
+[1308202:MainThread](2024-04-01 11:01:02,318) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 2260]: train_loss 0.993754, valid_loss 0.995352, train_metric nan, valid_metric 0.066809
+[1308202:MainThread](2024-04-01 11:01:02,506) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 2280]: train_loss 0.994055, valid_loss 0.995375, train_metric nan, valid_metric 0.064807
+[1308202:MainThread](2024-04-01 11:01:02,694) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 2300]: train_loss 0.992998, valid_loss 0.995027, train_metric nan, valid_metric 0.070242
+[1308202:MainThread](2024-04-01 11:01:02,880) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 2320]: train_loss 0.995348, valid_loss 0.995026, train_metric nan, valid_metric 0.069804
+[1308202:MainThread](2024-04-01 11:01:03,067) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 2340]: train_loss 0.989506, valid_loss 0.996328, train_metric nan, valid_metric 0.058504
+[1308202:MainThread](2024-04-01 11:01:03,252) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 2360]: train_loss 0.998616, valid_loss 0.995157, train_metric nan, valid_metric 0.069808
+[1308202:MainThread](2024-04-01 11:01:03,438) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 2380]: train_loss 0.995262, valid_loss 0.996503, train_metric nan, valid_metric 0.056683
+[1308202:MainThread](2024-04-01 11:01:03,634) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 2400]: train_loss 0.984805, valid_loss 0.995827, train_metric nan, valid_metric 0.062164
+[1308202:MainThread](2024-04-01 11:01:03,824) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 2420]: train_loss 0.992691, valid_loss 0.995485, train_metric nan, valid_metric 0.066621
+[1308202:MainThread](2024-04-01 11:01:04,009) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 2440]: train_loss 0.992282, valid_loss 0.995790, train_metric nan, valid_metric 0.063033
+[1308202:MainThread](2024-04-01 11:01:04,195) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 2460]: train_loss 0.989264, valid_loss 0.995670, train_metric nan, valid_metric 0.063731
+[1308202:MainThread](2024-04-01 11:01:04,391) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 2480]: train_loss 0.991437, valid_loss 0.995529, train_metric nan, valid_metric 0.063563
+[1308202:MainThread](2024-04-01 11:01:04,584) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 2500]: train_loss 0.996404, valid_loss 0.995830, train_metric nan, valid_metric 0.063231
+[1308202:MainThread](2024-04-01 11:01:04,783) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 2520]: train_loss 0.993471, valid_loss 0.995646, train_metric nan, valid_metric 0.065714
+[1308202:MainThread](2024-04-01 11:01:04,979) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 2540]: train_loss 0.995972, valid_loss 0.995845, train_metric nan, valid_metric 0.063811
+[1308202:MainThread](2024-04-01 11:01:05,173) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 2560]: train_loss 0.993828, valid_loss 0.995508, train_metric nan, valid_metric 0.066205
+[1308202:MainThread](2024-04-01 11:01:05,368) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 2580]: train_loss 0.993796, valid_loss 0.995354, train_metric nan, valid_metric 0.067056
+[1308202:MainThread](2024-04-01 11:01:05,565) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 2600]: train_loss 0.993389, valid_loss 0.995536, train_metric nan, valid_metric 0.066644
+[1308202:MainThread](2024-04-01 11:01:05,771) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 2620]: train_loss 0.995955, valid_loss 0.995314, train_metric nan, valid_metric 0.068349
+[1308202:MainThread](2024-04-01 11:01:05,966) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 2640]: train_loss 0.990807, valid_loss 0.995363, train_metric nan, valid_metric 0.066482
+[1308202:MainThread](2024-04-01 11:01:06,155) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 2660]: train_loss 0.986610, valid_loss 0.995264, train_metric nan, valid_metric 0.067382
+[1308202:MainThread](2024-04-01 11:01:06,343) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 2680]: train_loss 0.991728, valid_loss 0.995315, train_metric nan, valid_metric 0.066966
+[1308202:MainThread](2024-04-01 11:01:06,539) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 2700]: train_loss 0.991929, valid_loss 0.995587, train_metric nan, valid_metric 0.063913
+[1308202:MainThread](2024-04-01 11:01:06,736) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:289] - [Step 2720]: train_loss 0.992647, valid_loss 0.995308, train_metric nan, valid_metric 0.065743
+[1308202:MainThread](2024-04-01 11:01:06,736) INFO - qlib.DNNModelPytorch - [pytorch_nn.py:228] - 	early stop
+[1308202:MainThread](2024-04-01 11:01:06,795) INFO - qlib.fill_placeholder - [__init__.py:739] - <PRED> lookes like a placeholder, but it can't match to any given values
+[1308202:MainThread](2024-04-01 11:01:07,138) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 1
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/scipy/stats/_stats_py.py:4916: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  warnings.warn(stats.ConstantInputWarning(warn_msg))
+[1308202:MainThread](2024-04-01 11:01:09,885) INFO - qlib.backtest caller - [__init__.py:93] - Create new exchange
+Epoch   600: reducing learning rate of group 0 to 1.0000e-03.
+Epoch   880: reducing learning rate of group 0 to 5.0000e-04.
+Epoch  1240: reducing learning rate of group 0 to 2.5000e-04.
+Epoch  1940: reducing learning rate of group 0 to 1.2500e-04.
+Epoch  2160: reducing learning rate of group 0 to 6.2500e-05.
+Epoch  2380: reducing learning rate of group 0 to 3.1250e-05.
+Epoch  2600: reducing learning rate of group 0 to 1.5625e-05.
+'The following are prediction results of the DNNModelPytorch model.'
+                          score
+datetime   instrument          
+2017-01-03 SH600000   -0.035273
+           SH600008   -0.005734
+           SH600009    0.075612
+           SH600010    0.050246
+           SH600015    0.067198
+{'IC': 0.02946505982310524,
+ 'ICIR': 0.2114456524524083,
+ 'Rank IC': 0.039191338133191055,
+ 'Rank ICIR': 0.3007104317857069}
+[1308202:MainThread](2024-04-01 11:01:16,159) WARNING - qlib.online operator - [exchange.py:219] - $close field data contains nan.
+[1308202:MainThread](2024-04-01 11:01:16,162) WARNING - qlib.online operator - [exchange.py:219] - $close field data contains nan.
+[1308202:MainThread](2024-04-01 11:01:16,170) WARNING - qlib.online operator - [exchange.py:226] - factor.day.bin file not exists or factor contains `nan`. Order using adjusted_price.
+[1308202:MainThread](2024-04-01 11:01:16,170) WARNING - qlib.online operator - [exchange.py:228] - trade unit 100 is not supported in adjusted_price mode.
+[1308202:MainThread](2024-04-01 11:01:20,376) WARNING - qlib.data - [data.py:666] - load calendar error: freq=day, future=True; return current calendar!
+[1308202:MainThread](2024-04-01 11:01:20,377) WARNING - qlib.data - [data.py:669] - You can get future calendar by referring to the following document: https://github.com/microsoft/qlib/blob/main/scripts/data_collector/contrib/README.md
+[1308202:MainThread](2024-04-01 11:01:20,394) WARNING - qlib.BaseExecutor - [executor.py:121] - `common_infra` is not set for <qlib.backtest.executor.SimulatorExecutor object at 0x7ff13b5964f0>
+backtest loop:   0%|          | 0/871 [00:00<?, ?it/s]/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/qlib/utils/index_data.py:481: RuntimeWarning: Mean of empty slice
+  return np.nanmean(self.data)
+backtest loop:   1%|          | 6/871 [00:00<00:30, 28.25it/s]backtest loop:   1%|▏         | 12/871 [00:00<00:21, 40.82it/s]backtest loop:   2%|▏         | 18/871 [00:00<00:19, 44.31it/s]backtest loop:   3%|▎         | 24/871 [00:00<00:18, 45.88it/s]backtest loop:   4%|▎         | 31/871 [00:00<00:16, 51.62it/s]backtest loop:   4%|▍         | 38/871 [00:00<00:14, 55.53it/s]backtest loop:   5%|▌         | 44/871 [00:00<00:15, 53.28it/s]backtest loop:   6%|▌         | 51/871 [00:01<00:14, 56.42it/s]backtest loop:   7%|▋         | 58/871 [00:01<00:13, 58.93it/s]backtest loop:   7%|▋         | 64/871 [00:01<00:14, 56.56it/s]backtest loop:   8%|▊         | 71/871 [00:01<00:13, 58.45it/s]backtest loop:   9%|▉         | 77/871 [00:01<00:14, 55.83it/s]backtest loop:  10%|▉         | 84/871 [00:01<00:13, 58.07it/s]backtest loop:  10%|█         | 91/871 [00:01<00:13, 57.09it/s]backtest loop:  11%|█▏        | 98/871 [00:01<00:13, 59.36it/s]backtest loop:  12%|█▏        | 104/871 [00:01<00:13, 56.90it/s]backtest loop:  13%|█▎        | 111/871 [00:02<00:12, 59.75it/s]backtest loop:  14%|█▎        | 118/871 [00:02<00:12, 61.12it/s]backtest loop:  14%|█▍        | 125/871 [00:02<00:12, 59.10it/s]backtest loop:  15%|█▌        | 132/871 [00:02<00:12, 60.77it/s]backtest loop:  16%|█▌        | 139/871 [00:02<00:12, 58.43it/s]backtest loop:  17%|█▋        | 146/871 [00:02<00:11, 60.87it/s]backtest loop:  18%|█▊        | 153/871 [00:02<00:11, 61.93it/s]backtest loop:  18%|█▊        | 160/871 [00:02<00:12, 59.18it/s]backtest loop:  19%|█▉        | 167/871 [00:02<00:11, 61.27it/s]backtest loop:  20%|█▉        | 174/871 [00:03<00:11, 59.16it/s]backtest loop:  21%|██        | 180/871 [00:03<00:11, 59.35it/s]backtest loop:  21%|██▏       | 187/871 [00:03<00:11, 60.52it/s]backtest loop:  22%|██▏       | 194/871 [00:03<00:11, 58.54it/s]backtest loop:  23%|██▎       | 201/871 [00:03<00:11, 60.11it/s]backtest loop:  24%|██▍       | 208/871 [00:03<00:10, 61.08it/s]backtest loop:  25%|██▍       | 215/871 [00:03<00:11, 58.39it/s]backtest loop:  25%|██▌       | 222/871 [00:03<00:10, 59.87it/s]backtest loop:  26%|██▋       | 229/871 [00:04<00:11, 56.89it/s]backtest loop:  27%|██▋       | 236/871 [00:04<00:10, 58.82it/s]backtest loop:  28%|██▊       | 243/871 [00:04<00:10, 61.16it/s]backtest loop:  29%|██▊       | 250/871 [00:04<00:10, 59.38it/s]backtest loop:  30%|██▉       | 257/871 [00:04<00:09, 61.50it/s]backtest loop:  30%|███       | 264/871 [00:04<00:10, 59.27it/s]backtest loop:  31%|███       | 271/871 [00:04<00:09, 61.36it/s]backtest loop:  32%|███▏      | 278/871 [00:04<00:10, 55.34it/s]backtest loop:  33%|███▎      | 285/871 [00:04<00:10, 57.46it/s]backtest loop:  34%|███▎      | 292/871 [00:05<00:09, 59.08it/s]backtest loop:  34%|███▍      | 299/871 [00:05<00:09, 57.29it/s]backtest loop:  35%|███▌      | 305/871 [00:05<00:09, 57.96it/s]backtest loop:  36%|███▌      | 311/871 [00:05<00:10, 54.75it/s]backtest loop:  37%|███▋      | 318/871 [00:05<00:09, 57.21it/s]backtest loop:  37%|███▋      | 324/871 [00:05<00:09, 55.20it/s]backtest loop:  38%|███▊      | 331/871 [00:05<00:09, 57.35it/s]backtest loop:  39%|███▉      | 338/871 [00:05<00:08, 59.97it/s]backtest loop:  40%|███▉      | 345/871 [00:06<00:09, 57.85it/s]backtest loop:  40%|████      | 352/871 [00:06<00:08, 59.34it/s]backtest loop:  41%|████      | 358/871 [00:06<00:09, 56.99it/s]backtest loop:  42%|████▏     | 365/871 [00:06<00:08, 59.27it/s]backtest loop:  43%|████▎     | 371/871 [00:06<00:08, 59.45it/s]backtest loop:  43%|████▎     | 378/871 [00:06<00:08, 57.20it/s]backtest loop:  44%|████▍     | 385/871 [00:06<00:08, 58.72it/s]backtest loop:  45%|████▌     | 392/871 [00:06<00:07, 60.17it/s]backtest loop:  46%|████▌     | 399/871 [00:06<00:08, 57.72it/s]backtest loop:  47%|████▋     | 406/871 [00:07<00:07, 59.34it/s]backtest loop:  47%|████▋     | 413/871 [00:07<00:07, 57.54it/s]backtest loop:  48%|████▊     | 420/871 [00:07<00:07, 59.23it/s]backtest loop:  49%|████▉     | 427/871 [00:07<00:07, 57.01it/s]backtest loop:  50%|████▉     | 434/871 [00:07<00:07, 59.38it/s]backtest loop:  51%|█████     | 441/871 [00:07<00:07, 60.19it/s]backtest loop:  51%|█████▏    | 448/871 [00:07<00:07, 57.53it/s]backtest loop:  52%|█████▏    | 455/871 [00:07<00:07, 59.12it/s]backtest loop:  53%|█████▎    | 462/871 [00:08<00:07, 56.87it/s]backtest loop:  54%|█████▍    | 469/871 [00:08<00:06, 58.33it/s]backtest loop:  55%|█████▍    | 476/871 [00:08<00:06, 59.58it/s]backtest loop:  55%|█████▌    | 482/871 [00:08<00:06, 56.66it/s]backtest loop:  56%|█████▌    | 489/871 [00:08<00:06, 58.39it/s]backtest loop:  57%|█████▋    | 495/871 [00:08<00:06, 55.60it/s]backtest loop:  58%|█████▊    | 502/871 [00:08<00:06, 57.47it/s]backtest loop:  58%|█████▊    | 508/871 [00:08<00:06, 58.15it/s]backtest loop:  59%|█████▉    | 515/871 [00:08<00:06, 56.15it/s]backtest loop:  60%|█████▉    | 522/871 [00:09<00:05, 59.54it/s]backtest loop:  61%|██████    | 529/871 [00:09<00:05, 60.75it/s]backtest loop:  62%|██████▏   | 536/871 [00:09<00:05, 57.91it/s]backtest loop:  62%|██████▏   | 543/871 [00:09<00:05, 59.55it/s]backtest loop:  63%|██████▎   | 550/871 [00:09<00:05, 57.59it/s]backtest loop:  64%|██████▍   | 557/871 [00:09<00:05, 59.10it/s]backtest loop:  65%|██████▍   | 564/871 [00:09<00:05, 56.88it/s]/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/qlib/utils/index_data.py:481: RuntimeWarning: Mean of empty slice
+  return np.nanmean(self.data)
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/qlib/utils/index_data.py:481: RuntimeWarning: Mean of empty slice
+  return np.nanmean(self.data)
+backtest loop:  66%|██████▌   | 572/871 [00:09<00:04, 60.97it/s]backtest loop:  66%|██████▋   | 579/871 [00:09<00:04, 60.95it/s]backtest loop:  67%|██████▋   | 586/871 [00:10<00:04, 58.57it/s]backtest loop:  68%|██████▊   | 593/871 [00:10<00:04, 60.41it/s]backtest loop:  69%|██████▉   | 600/871 [00:10<00:04, 58.10it/s]backtest loop:  70%|██████▉   | 607/871 [00:10<00:04, 59.28it/s]backtest loop:  70%|███████   | 613/871 [00:10<00:04, 59.46it/s]backtest loop:  71%|███████   | 620/871 [00:10<00:04, 57.10it/s]backtest loop:  72%|███████▏  | 627/871 [00:10<00:04, 58.59it/s]backtest loop:  73%|███████▎  | 634/871 [00:10<00:03, 59.75it/s]backtest loop:  74%|███████▎  | 641/871 [00:11<00:04, 57.30it/s]backtest loop:  74%|███████▍  | 648/871 [00:11<00:03, 58.96it/s]backtest loop:  75%|███████▌  | 655/871 [00:11<00:03, 56.74it/s]backtest loop:  76%|███████▌  | 662/871 [00:11<00:03, 58.35it/s]backtest loop:  77%|███████▋  | 669/871 [00:11<00:03, 56.28it/s]backtest loop:  77%|███████▋  | 675/871 [00:11<00:03, 54.34it/s]backtest loop:  78%|███████▊  | 682/871 [00:11<00:03, 56.63it/s]backtest loop:  79%|███████▉  | 689/871 [00:11<00:03, 55.27it/s]backtest loop:  80%|███████▉  | 696/871 [00:12<00:03, 57.30it/s]backtest loop:  81%|████████  | 702/871 [00:12<00:02, 57.90it/s]backtest loop:  81%|████████▏ | 708/871 [00:12<00:02, 57.80it/s]backtest loop:  82%|████████▏ | 714/871 [00:12<00:02, 55.19it/s]backtest loop:  83%|████████▎ | 721/871 [00:12<00:02, 57.30it/s]backtest loop:  84%|████████▎ | 728/871 [00:12<00:02, 59.16it/s]backtest loop:  84%|████████▍ | 734/871 [00:12<00:02, 53.16it/s]backtest loop:  85%|████████▌ | 741/871 [00:12<00:02, 55.79it/s]backtest loop:  86%|████████▌ | 747/871 [00:12<00:02, 53.80it/s]backtest loop:  87%|████████▋ | 754/871 [00:13<00:02, 56.54it/s]backtest loop:  87%|████████▋ | 761/871 [00:13<00:01, 58.36it/s]backtest loop:  88%|████████▊ | 767/871 [00:13<00:01, 55.36it/s]backtest loop:  89%|████████▉ | 774/871 [00:13<00:01, 57.43it/s]backtest loop:  90%|████████▉ | 781/871 [00:13<00:01, 59.38it/s]backtest loop:  90%|█████████ | 787/871 [00:13<00:01, 56.37it/s]backtest loop:  91%|█████████ | 793/871 [00:13<00:01, 57.16it/s]backtest loop:  92%|█████████▏| 800/871 [00:13<00:01, 59.01it/s]backtest loop:  93%|█████████▎| 806/871 [00:13<00:01, 56.43it/s]backtest loop:  93%|█████████▎| 813/871 [00:14<00:01, 55.36it/s]backtest loop:  94%|█████████▍| 820/871 [00:14<00:00, 57.93it/s]backtest loop:  95%|█████████▍| 827/871 [00:14<00:00, 59.67it/s]backtest loop:  96%|█████████▌| 834/871 [00:14<00:00, 57.33it/s]backtest loop:  96%|█████████▋| 840/871 [00:14<00:00, 57.38it/s]backtest loop:  97%|█████████▋| 846/871 [00:14<00:00, 54.96it/s]backtest loop:  98%|█████████▊| 853/871 [00:14<00:00, 57.53it/s]backtest loop:  99%|█████████▊| 860/871 [00:14<00:00, 59.42it/s]backtest loop:  99%|█████████▉| 866/871 [00:15<00:00, 56.60it/s]backtest loop: 100%|██████████| 871/871 [00:15<00:00, 57.65it/s]
+[1308202:MainThread](2024-04-01 11:01:35,560) INFO - qlib.workflow - [record_temp.py:515] - Portfolio analysis record 'port_analysis_1day.pkl' has been saved as the artifact of the Experiment 1
+[1308202:MainThread](2024-04-01 11:01:35,573) INFO - qlib.workflow - [record_temp.py:540] - Indicator analysis record 'indicator_analysis_1day.pkl' has been saved as the artifact of the Experiment 1
+[1308202:MainThread](2024-04-01 11:01:36,438) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+'The following are analysis results of benchmark return(1day).'
+                       risk
+mean               0.000477
+std                0.012295
+annualized_return  0.113561
+information_ratio  0.598699
+max_drawdown      -0.370479
+'The following are analysis results of the excess return without cost(1day).'
+                       risk
+mean               0.000260
+std                0.005320
+annualized_return  0.061899
+information_ratio  0.754149
+max_drawdown      -0.098771
+'The following are analysis results of the excess return with cost(1day).'
+                       risk
+mean               0.000069
+std                0.005318
+annualized_return  0.016479
+information_ratio  0.200854
+max_drawdown      -0.116840
+'The following are analysis results of indicators(1day).'
+     value
+ffr    1.0
+pa     0.0
+pos    0.0
