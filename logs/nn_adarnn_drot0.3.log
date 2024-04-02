@@ -1,0 +1,299 @@
+[1543894:MainThread](2024-04-02 01:03:21,413) INFO - qlib.Initialization - [config.py:416] - default_conf: client.
+[1543894:MainThread](2024-04-02 01:03:21,415) INFO - qlib.Initialization - [__init__.py:74] - qlib successfully initialized based on client settings.
+[1543894:MainThread](2024-04-02 01:03:21,415) INFO - qlib.Initialization - [__init__.py:76] - data_path={'__DEFAULT_FREQ': PosixPath('/home/zhonghao/.qlib/qlib_data/cn_data')}
+[1543894:MainThread](2024-04-02 01:03:21,416) INFO - qlib.workflow - [exp.py:258] - Experiment 1 starts running ...
+[1543894:MainThread](2024-04-02 01:03:21,487) INFO - qlib.workflow - [recorder.py:341] - Recorder 4585cbcfa9e64b40ac9e2cb21b73960a starts running under Experiment 1 ...
+[1543894:MainThread](2024-04-02 01:03:22,516) INFO - qlib.ADARNN - [pytorch_adarnn.py:63] - ADARNN pytorch version...
+[1543894:MainThread](2024-04-02 01:03:22,866) INFO - qlib.ADARNN - [pytorch_adarnn.py:87] - ADARNN parameters setting:
+d_feat : 6
+hidden_size : 64
+num_layers : 2
+dropout : 0.3
+n_epochs : 200
+lr : 0.001
+metric : loss
+batch_size : 800
+early_stop : 20
+optimizer : adam
+loss_type : mse
+visible_GPU : 0
+use_GPU : True
+seed : None
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/torch/nn/modules/rnn.py:62: UserWarning: dropout option adds dropout after all but last recurrent layer, so non-zero dropout expects num_layers greater than 1, but got dropout=0.3 and num_layers=1
+  warnings.warn("dropout option adds dropout after all but last "
+[1543894:MainThread](2024-04-02 01:03:22,899) INFO - qlib.ADARNN - [pytorch_adarnn.py:136] - model:
+AdaRNN(
+  (features): Sequential(
+    (0): GRU(6, 64, batch_first=True, dropout=0.3)
+    (1): GRU(64, 64, batch_first=True, dropout=0.3)
+  )
+  (fc_out): Linear(in_features=64, out_features=1, bias=True)
+  (gate): ModuleList(
+    (0): Linear(in_features=3328, out_features=26, bias=True)
+    (1): Linear(in_features=3328, out_features=26, bias=True)
+  )
+  (bn_lst): ModuleList(
+    (0): BatchNorm1d(26, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (1): BatchNorm1d(26, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  )
+  (softmax): Softmax(dim=0)
+)
+[1543894:MainThread](2024-04-02 01:03:22,900) INFO - qlib.ADARNN - [pytorch_adarnn.py:137] - model size: 0.2022 MB
+ModuleNotFoundError. CatBoostModel are skipped. (optional: maybe installing CatBoostModel can fix it.)
+[1543894:MainThread](2024-04-02 01:03:47,088) INFO - qlib.timer - [log.py:127] - Time cost: 17.433s | Loading data Done
+[1543894:MainThread](2024-04-02 01:03:48,139) INFO - qlib.timer - [log.py:127] - Time cost: 0.258s | DropCol Done
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/qlib/data/dataset/processor.py:313: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  df[self.cols] = X
+[1543894:MainThread](2024-04-02 01:04:14,425) INFO - qlib.timer - [log.py:127] - Time cost: 26.284s | RobustZScoreNorm Done
+[1543894:MainThread](2024-04-02 01:04:15,322) INFO - qlib.timer - [log.py:127] - Time cost: 0.895s | Fillna Done
+[1543894:MainThread](2024-04-02 01:04:15,824) INFO - qlib.timer - [log.py:127] - Time cost: 0.249s | DropCol Done
+[1543894:MainThread](2024-04-02 01:04:16,112) INFO - qlib.timer - [log.py:127] - Time cost: 0.288s | DropnaLabel Done
+[1543894:MainThread](2024-04-02 01:04:16,606) INFO - qlib.timer - [log.py:127] - Time cost: 0.493s | CSRankNorm Done
+[1543894:MainThread](2024-04-02 01:04:16,608) INFO - qlib.timer - [log.py:127] - Time cost: 29.519s | fit & process data Done
+[1543894:MainThread](2024-04-02 01:04:16,608) INFO - qlib.timer - [log.py:127] - Time cost: 46.953s | Init data Done
+[1543894:MainThread](2024-04-02 01:04:16,609) WARNING - qlib.utils - [__init__.py:789] - The parameter `reweighter` with value `None` is ignored.
+[1543894:MainThread](2024-04-02 01:04:17,485) INFO - qlib.ADARNN - [pytorch_adarnn.py:266] - training...
+[1543894:MainThread](2024-04-02 01:04:17,486) INFO - qlib.ADARNN - [pytorch_adarnn.py:273] - Epoch0:
+[1543894:MainThread](2024-04-02 01:04:17,488) INFO - qlib.ADARNN - [pytorch_adarnn.py:274] - training...
+[1543894:MainThread](2024-04-02 01:04:39,329) INFO - qlib.ADARNN - [pytorch_adarnn.py:276] - evaluating...
+[1543894:MainThread](2024-04-02 01:04:45,295) INFO - qlib.ADARNN - [pytorch_adarnn.py:241] - ic/train: : 0.062446, icir/train: : 0.401902, ric/train: : 0.059092, ricir/train: : 0.384054, mse/train: : -0.023551, loss/train: : -0.023551
+[1543894:MainThread](2024-04-02 01:04:45,295) INFO - qlib.ADARNN - [pytorch_adarnn.py:241] - ic/valid: : 0.066393, icir/valid: : 0.401687, ric/valid: : 0.060047, ricir/valid: : 0.359616, mse/valid: : -0.021032, loss/valid: : -0.021032
+[1543894:MainThread](2024-04-02 01:04:45,298) INFO - qlib.ADARNN - [pytorch_adarnn.py:273] - Epoch1:
+[1543894:MainThread](2024-04-02 01:04:45,298) INFO - qlib.ADARNN - [pytorch_adarnn.py:274] - training...
+[1543894:MainThread](2024-04-02 01:05:06,789) INFO - qlib.ADARNN - [pytorch_adarnn.py:276] - evaluating...
+[1543894:MainThread](2024-04-02 01:05:12,484) INFO - qlib.ADARNN - [pytorch_adarnn.py:241] - ic/train: : 0.074020, icir/train: : 0.481940, ric/train: : 0.070761, ricir/train: : 0.464581, mse/train: : -0.005867, loss/train: : -0.005867
+[1543894:MainThread](2024-04-02 01:05:12,485) INFO - qlib.ADARNN - [pytorch_adarnn.py:241] - ic/valid: : 0.074523, icir/valid: : 0.433587, ric/valid: : 0.070708, ricir/valid: : 0.407141, mse/valid: : -0.003036, loss/valid: : -0.003036
+[1543894:MainThread](2024-04-02 01:05:12,487) INFO - qlib.ADARNN - [pytorch_adarnn.py:273] - Epoch2:
+[1543894:MainThread](2024-04-02 01:05:12,487) INFO - qlib.ADARNN - [pytorch_adarnn.py:274] - training...
+[1543894:MainThread](2024-04-02 01:05:33,993) INFO - qlib.ADARNN - [pytorch_adarnn.py:276] - evaluating...
+[1543894:MainThread](2024-04-02 01:05:39,895) INFO - qlib.ADARNN - [pytorch_adarnn.py:241] - ic/train: : 0.077447, icir/train: : 0.588409, ric/train: : 0.074933, ricir/train: : 0.569700, mse/train: : -0.019746, loss/train: : -0.019746
+[1543894:MainThread](2024-04-02 01:05:39,895) INFO - qlib.ADARNN - [pytorch_adarnn.py:241] - ic/valid: : 0.066428, icir/valid: : 0.437528, ric/valid: : 0.063225, ricir/valid: : 0.410278, mse/valid: : -0.010954, loss/valid: : -0.010954
+[1543894:MainThread](2024-04-02 01:05:39,895) INFO - qlib.ADARNN - [pytorch_adarnn.py:273] - Epoch3:
+[1543894:MainThread](2024-04-02 01:05:39,896) INFO - qlib.ADARNN - [pytorch_adarnn.py:274] - training...
+[1543894:MainThread](2024-04-02 01:06:01,433) INFO - qlib.ADARNN - [pytorch_adarnn.py:276] - evaluating...
+[1543894:MainThread](2024-04-02 01:06:07,357) INFO - qlib.ADARNN - [pytorch_adarnn.py:241] - ic/train: : 0.080095, icir/train: : 0.589407, ric/train: : 0.077662, ricir/train: : 0.576063, mse/train: : 0.009691, loss/train: : 0.009691
+[1543894:MainThread](2024-04-02 01:06:07,357) INFO - qlib.ADARNN - [pytorch_adarnn.py:241] - ic/valid: : 0.068827, icir/valid: : 0.446126, ric/valid: : 0.064454, ricir/valid: : 0.415232, mse/valid: : 0.020466, loss/valid: : 0.020466
+[1543894:MainThread](2024-04-02 01:06:07,359) INFO - qlib.ADARNN - [pytorch_adarnn.py:273] - Epoch4:
+[1543894:MainThread](2024-04-02 01:06:07,360) INFO - qlib.ADARNN - [pytorch_adarnn.py:274] - training...
+[1543894:MainThread](2024-04-02 01:06:28,838) INFO - qlib.ADARNN - [pytorch_adarnn.py:276] - evaluating...
+[1543894:MainThread](2024-04-02 01:06:34,621) INFO - qlib.ADARNN - [pytorch_adarnn.py:241] - ic/train: : 0.090269, icir/train: : 0.687147, ric/train: : 0.087437, ricir/train: : 0.669207, mse/train: : -0.003944, loss/train: : -0.003944
+[1543894:MainThread](2024-04-02 01:06:34,622) INFO - qlib.ADARNN - [pytorch_adarnn.py:241] - ic/valid: : 0.076225, icir/valid: : 0.504897, ric/valid: : 0.071340, ricir/valid: : 0.471288, mse/valid: : 0.006648, loss/valid: : 0.006648
+[1543894:MainThread](2024-04-02 01:06:34,622) INFO - qlib.ADARNN - [pytorch_adarnn.py:273] - Epoch5:
+[1543894:MainThread](2024-04-02 01:06:34,622) INFO - qlib.ADARNN - [pytorch_adarnn.py:274] - training...
+[1543894:MainThread](2024-04-02 01:06:55,774) INFO - qlib.ADARNN - [pytorch_adarnn.py:276] - evaluating...
+[1543894:MainThread](2024-04-02 01:07:01,463) INFO - qlib.ADARNN - [pytorch_adarnn.py:241] - ic/train: : 0.085747, icir/train: : 0.697007, ric/train: : 0.082876, ricir/train: : 0.675880, mse/train: : 0.013657, loss/train: : 0.013657
+[1543894:MainThread](2024-04-02 01:07:01,464) INFO - qlib.ADARNN - [pytorch_adarnn.py:241] - ic/valid: : 0.072276, icir/valid: : 0.531661, ric/valid: : 0.068074, ricir/valid: : 0.495797, mse/valid: : 0.021689, loss/valid: : 0.021689
+[1543894:MainThread](2024-04-02 01:07:01,466) INFO - qlib.ADARNN - [pytorch_adarnn.py:273] - Epoch6:
+[1543894:MainThread](2024-04-02 01:07:01,466) INFO - qlib.ADARNN - [pytorch_adarnn.py:274] - training...
+[1543894:MainThread](2024-04-02 01:07:22,803) INFO - qlib.ADARNN - [pytorch_adarnn.py:276] - evaluating...
+[1543894:MainThread](2024-04-02 01:07:28,429) INFO - qlib.ADARNN - [pytorch_adarnn.py:241] - ic/train: : 0.094792, icir/train: : 0.729508, ric/train: : 0.091201, ricir/train: : 0.710364, mse/train: : -0.013616, loss/train: : -0.013616
+[1543894:MainThread](2024-04-02 01:07:28,430) INFO - qlib.ADARNN - [pytorch_adarnn.py:241] - ic/valid: : 0.081751, icir/valid: : 0.570069, ric/valid: : 0.075828, ricir/valid: : 0.527750, mse/valid: : -0.006265, loss/valid: : -0.006265
+[1543894:MainThread](2024-04-02 01:07:28,430) INFO - qlib.ADARNN - [pytorch_adarnn.py:273] - Epoch7:
+[1543894:MainThread](2024-04-02 01:07:28,430) INFO - qlib.ADARNN - [pytorch_adarnn.py:274] - training...
+[1543894:MainThread](2024-04-02 01:07:49,298) INFO - qlib.ADARNN - [pytorch_adarnn.py:276] - evaluating...
+[1543894:MainThread](2024-04-02 01:07:54,957) INFO - qlib.ADARNN - [pytorch_adarnn.py:241] - ic/train: : 0.084916, icir/train: : 0.657505, ric/train: : 0.081744, ricir/train: : 0.631153, mse/train: : 0.016189, loss/train: : 0.016189
+[1543894:MainThread](2024-04-02 01:07:54,957) INFO - qlib.ADARNN - [pytorch_adarnn.py:241] - ic/valid: : 0.066566, icir/valid: : 0.479206, ric/valid: : 0.063395, ricir/valid: : 0.463474, mse/valid: : 0.022955, loss/valid: : 0.022955
+[1543894:MainThread](2024-04-02 01:07:54,959) INFO - qlib.ADARNN - [pytorch_adarnn.py:273] - Epoch8:
+[1543894:MainThread](2024-04-02 01:07:54,959) INFO - qlib.ADARNN - [pytorch_adarnn.py:274] - training...
+[1543894:MainThread](2024-04-02 01:08:16,065) INFO - qlib.ADARNN - [pytorch_adarnn.py:276] - evaluating...
+[1543894:MainThread](2024-04-02 01:08:21,786) INFO - qlib.ADARNN - [pytorch_adarnn.py:241] - ic/train: : 0.093268, icir/train: : 0.707418, ric/train: : 0.089235, ricir/train: : 0.682591, mse/train: : -0.007776, loss/train: : -0.007776
+[1543894:MainThread](2024-04-02 01:08:21,787) INFO - qlib.ADARNN - [pytorch_adarnn.py:241] - ic/valid: : 0.075120, icir/valid: : 0.521832, ric/valid: : 0.070701, ricir/valid: : 0.499581, mse/valid: : -0.003151, loss/valid: : -0.003151
+[1543894:MainThread](2024-04-02 01:08:21,787) INFO - qlib.ADARNN - [pytorch_adarnn.py:273] - Epoch9:
+[1543894:MainThread](2024-04-02 01:08:21,787) INFO - qlib.ADARNN - [pytorch_adarnn.py:274] - training...
+[1543894:MainThread](2024-04-02 01:08:43,001) INFO - qlib.ADARNN - [pytorch_adarnn.py:276] - evaluating...
+[1543894:MainThread](2024-04-02 01:08:48,687) INFO - qlib.ADARNN - [pytorch_adarnn.py:241] - ic/train: : 0.099259, icir/train: : 0.707765, ric/train: : 0.095584, ricir/train: : 0.692197, mse/train: : -0.010141, loss/train: : -0.010141
+[1543894:MainThread](2024-04-02 01:08:48,688) INFO - qlib.ADARNN - [pytorch_adarnn.py:241] - ic/valid: : 0.086255, icir/valid: : 0.569450, ric/valid: : 0.080795, ricir/valid: : 0.544698, mse/valid: : -0.008378, loss/valid: : -0.008378
+[1543894:MainThread](2024-04-02 01:08:48,688) INFO - qlib.ADARNN - [pytorch_adarnn.py:273] - Epoch10:
+[1543894:MainThread](2024-04-02 01:08:48,689) INFO - qlib.ADARNN - [pytorch_adarnn.py:274] - training...
+[1543894:MainThread](2024-04-02 01:09:09,822) INFO - qlib.ADARNN - [pytorch_adarnn.py:276] - evaluating...
+[1543894:MainThread](2024-04-02 01:09:15,628) INFO - qlib.ADARNN - [pytorch_adarnn.py:241] - ic/train: : 0.097750, icir/train: : 0.798375, ric/train: : 0.094464, ricir/train: : 0.776969, mse/train: : -0.017580, loss/train: : -0.017580
+[1543894:MainThread](2024-04-02 01:09:15,628) INFO - qlib.ADARNN - [pytorch_adarnn.py:241] - ic/valid: : 0.076917, icir/valid: : 0.570388, ric/valid: : 0.071709, ricir/valid: : 0.533676, mse/valid: : -0.012135, loss/valid: : -0.012135
+[1543894:MainThread](2024-04-02 01:09:15,629) INFO - qlib.ADARNN - [pytorch_adarnn.py:273] - Epoch11:
+[1543894:MainThread](2024-04-02 01:09:15,629) INFO - qlib.ADARNN - [pytorch_adarnn.py:274] - training...
+[1543894:MainThread](2024-04-02 01:09:37,063) INFO - qlib.ADARNN - [pytorch_adarnn.py:276] - evaluating...
+[1543894:MainThread](2024-04-02 01:09:42,817) INFO - qlib.ADARNN - [pytorch_adarnn.py:241] - ic/train: : 0.102823, icir/train: : 0.806426, ric/train: : 0.099456, ricir/train: : 0.788017, mse/train: : -0.019361, loss/train: : -0.019361
+[1543894:MainThread](2024-04-02 01:09:42,817) INFO - qlib.ADARNN - [pytorch_adarnn.py:241] - ic/valid: : 0.080958, icir/valid: : 0.580649, ric/valid: : 0.075593, ricir/valid: : 0.548950, mse/valid: : -0.013994, loss/valid: : -0.013994
+[1543894:MainThread](2024-04-02 01:09:42,817) INFO - qlib.ADARNN - [pytorch_adarnn.py:273] - Epoch12:
+[1543894:MainThread](2024-04-02 01:09:42,818) INFO - qlib.ADARNN - [pytorch_adarnn.py:274] - training...
+[1543894:MainThread](2024-04-02 01:10:04,332) INFO - qlib.ADARNN - [pytorch_adarnn.py:276] - evaluating...
+[1543894:MainThread](2024-04-02 01:10:10,005) INFO - qlib.ADARNN - [pytorch_adarnn.py:241] - ic/train: : 0.101100, icir/train: : 0.843312, ric/train: : 0.097518, ricir/train: : 0.821314, mse/train: : 0.015558, loss/train: : 0.015558
+[1543894:MainThread](2024-04-02 01:10:10,006) INFO - qlib.ADARNN - [pytorch_adarnn.py:241] - ic/valid: : 0.075091, icir/valid: : 0.564107, ric/valid: : 0.069369, ricir/valid: : 0.524475, mse/valid: : 0.021722, loss/valid: : 0.021722
+[1543894:MainThread](2024-04-02 01:10:10,006) INFO - qlib.ADARNN - [pytorch_adarnn.py:273] - Epoch13:
+[1543894:MainThread](2024-04-02 01:10:10,006) INFO - qlib.ADARNN - [pytorch_adarnn.py:274] - training...
+[1543894:MainThread](2024-04-02 01:10:31,196) INFO - qlib.ADARNN - [pytorch_adarnn.py:276] - evaluating...
+[1543894:MainThread](2024-04-02 01:10:36,823) INFO - qlib.ADARNN - [pytorch_adarnn.py:241] - ic/train: : 0.103081, icir/train: : 0.832001, ric/train: : 0.099455, ricir/train: : 0.809138, mse/train: : 0.021462, loss/train: : 0.021462
+[1543894:MainThread](2024-04-02 01:10:36,824) INFO - qlib.ADARNN - [pytorch_adarnn.py:241] - ic/valid: : 0.079230, icir/valid: : 0.584267, ric/valid: : 0.073688, ricir/valid: : 0.547897, mse/valid: : 0.026008, loss/valid: : 0.026008
+[1543894:MainThread](2024-04-02 01:10:36,826) INFO - qlib.ADARNN - [pytorch_adarnn.py:273] - Epoch14:
+[1543894:MainThread](2024-04-02 01:10:36,826) INFO - qlib.ADARNN - [pytorch_adarnn.py:274] - training...
+[1543894:MainThread](2024-04-02 01:10:57,856) INFO - qlib.ADARNN - [pytorch_adarnn.py:276] - evaluating...
+[1543894:MainThread](2024-04-02 01:11:03,491) INFO - qlib.ADARNN - [pytorch_adarnn.py:241] - ic/train: : 0.105565, icir/train: : 0.807642, ric/train: : 0.102064, ricir/train: : 0.790386, mse/train: : 0.020779, loss/train: : 0.020779
+[1543894:MainThread](2024-04-02 01:11:03,491) INFO - qlib.ADARNN - [pytorch_adarnn.py:241] - ic/valid: : 0.079862, icir/valid: : 0.555057, ric/valid: : 0.074390, ricir/valid: : 0.521433, mse/valid: : 0.026861, loss/valid: : 0.026861
+[1543894:MainThread](2024-04-02 01:11:03,493) INFO - qlib.ADARNN - [pytorch_adarnn.py:273] - Epoch15:
+[1543894:MainThread](2024-04-02 01:11:03,493) INFO - qlib.ADARNN - [pytorch_adarnn.py:274] - training...
+[1543894:MainThread](2024-04-02 01:11:28,164) INFO - qlib.ADARNN - [pytorch_adarnn.py:276] - evaluating...
+[1543894:MainThread](2024-04-02 01:11:33,893) INFO - qlib.ADARNN - [pytorch_adarnn.py:241] - ic/train: : 0.097990, icir/train: : 0.841157, ric/train: : 0.094928, ricir/train: : 0.817908, mse/train: : 0.021343, loss/train: : 0.021343
+[1543894:MainThread](2024-04-02 01:11:33,893) INFO - qlib.ADARNN - [pytorch_adarnn.py:241] - ic/valid: : 0.065891, icir/valid: : 0.520763, ric/valid: : 0.060764, ricir/valid: : 0.478894, mse/valid: : 0.030496, loss/valid: : 0.030496
+[1543894:MainThread](2024-04-02 01:11:33,895) INFO - qlib.ADARNN - [pytorch_adarnn.py:273] - Epoch16:
+[1543894:MainThread](2024-04-02 01:11:33,895) INFO - qlib.ADARNN - [pytorch_adarnn.py:274] - training...
+[1543894:MainThread](2024-04-02 01:11:55,722) INFO - qlib.ADARNN - [pytorch_adarnn.py:276] - evaluating...
+[1543894:MainThread](2024-04-02 01:12:01,639) INFO - qlib.ADARNN - [pytorch_adarnn.py:241] - ic/train: : 0.101020, icir/train: : 0.862565, ric/train: : 0.097886, ricir/train: : 0.840488, mse/train: : 0.013704, loss/train: : 0.013704
+[1543894:MainThread](2024-04-02 01:12:01,640) INFO - qlib.ADARNN - [pytorch_adarnn.py:241] - ic/valid: : 0.067503, icir/valid: : 0.514281, ric/valid: : 0.062363, ricir/valid: : 0.473239, mse/valid: : 0.020569, loss/valid: : 0.020569
+[1543894:MainThread](2024-04-02 01:12:01,640) INFO - qlib.ADARNN - [pytorch_adarnn.py:273] - Epoch17:
+[1543894:MainThread](2024-04-02 01:12:01,640) INFO - qlib.ADARNN - [pytorch_adarnn.py:274] - training...
+[1543894:MainThread](2024-04-02 01:12:23,774) INFO - qlib.ADARNN - [pytorch_adarnn.py:276] - evaluating...
+[1543894:MainThread](2024-04-02 01:12:29,833) INFO - qlib.ADARNN - [pytorch_adarnn.py:241] - ic/train: : 0.110220, icir/train: : 0.871680, ric/train: : 0.106234, ricir/train: : 0.850086, mse/train: : -0.022027, loss/train: : -0.022027
+[1543894:MainThread](2024-04-02 01:12:29,833) INFO - qlib.ADARNN - [pytorch_adarnn.py:241] - ic/valid: : 0.081874, icir/valid: : 0.608491, ric/valid: : 0.074768, ricir/valid: : 0.560267, mse/valid: : -0.019289, loss/valid: : -0.019289
+[1543894:MainThread](2024-04-02 01:12:29,834) INFO - qlib.ADARNN - [pytorch_adarnn.py:273] - Epoch18:
+[1543894:MainThread](2024-04-02 01:12:29,834) INFO - qlib.ADARNN - [pytorch_adarnn.py:274] - training...
+[1543894:MainThread](2024-04-02 01:12:52,089) INFO - qlib.ADARNN - [pytorch_adarnn.py:276] - evaluating...
+[1543894:MainThread](2024-04-02 01:12:58,116) INFO - qlib.ADARNN - [pytorch_adarnn.py:241] - ic/train: : 0.108862, icir/train: : 0.877108, ric/train: : 0.105009, ricir/train: : 0.858158, mse/train: : 0.003577, loss/train: : 0.003577
+[1543894:MainThread](2024-04-02 01:12:58,117) INFO - qlib.ADARNN - [pytorch_adarnn.py:241] - ic/valid: : 0.079088, icir/valid: : 0.598005, ric/valid: : 0.072409, ricir/valid: : 0.551153, mse/valid: : 0.008482, loss/valid: : 0.008482
+[1543894:MainThread](2024-04-02 01:12:58,117) INFO - qlib.ADARNN - [pytorch_adarnn.py:273] - Epoch19:
+[1543894:MainThread](2024-04-02 01:12:58,117) INFO - qlib.ADARNN - [pytorch_adarnn.py:274] - training...
+[1543894:MainThread](2024-04-02 01:13:21,412) INFO - qlib.ADARNN - [pytorch_adarnn.py:276] - evaluating...
+[1543894:MainThread](2024-04-02 01:13:27,526) INFO - qlib.ADARNN - [pytorch_adarnn.py:241] - ic/train: : 0.111749, icir/train: : 0.890950, ric/train: : 0.108008, ricir/train: : 0.868192, mse/train: : 0.006545, loss/train: : 0.006545
+[1543894:MainThread](2024-04-02 01:13:27,527) INFO - qlib.ADARNN - [pytorch_adarnn.py:241] - ic/valid: : 0.081188, icir/valid: : 0.603479, ric/valid: : 0.075074, ricir/valid: : 0.560789, mse/valid: : 0.012443, loss/valid: : 0.012443
+[1543894:MainThread](2024-04-02 01:13:27,527) INFO - qlib.ADARNN - [pytorch_adarnn.py:273] - Epoch20:
+[1543894:MainThread](2024-04-02 01:13:27,527) INFO - qlib.ADARNN - [pytorch_adarnn.py:274] - training...
+[1543894:MainThread](2024-04-02 01:13:52,504) INFO - qlib.ADARNN - [pytorch_adarnn.py:276] - evaluating...
+[1543894:MainThread](2024-04-02 01:13:58,951) INFO - qlib.ADARNN - [pytorch_adarnn.py:241] - ic/train: : 0.109972, icir/train: : 0.920070, ric/train: : 0.106457, ricir/train: : 0.896309, mse/train: : -0.020742, loss/train: : -0.020742
+[1543894:MainThread](2024-04-02 01:13:58,952) INFO - qlib.ADARNN - [pytorch_adarnn.py:241] - ic/valid: : 0.071453, icir/valid: : 0.554759, ric/valid: : 0.064795, ricir/valid: : 0.502835, mse/valid: : -0.012627, loss/valid: : -0.012627
+[1543894:MainThread](2024-04-02 01:13:58,952) INFO - qlib.ADARNN - [pytorch_adarnn.py:273] - Epoch21:
+[1543894:MainThread](2024-04-02 01:13:58,952) INFO - qlib.ADARNN - [pytorch_adarnn.py:274] - training...
+[1543894:MainThread](2024-04-02 01:14:21,892) INFO - qlib.ADARNN - [pytorch_adarnn.py:276] - evaluating...
+[1543894:MainThread](2024-04-02 01:14:27,785) INFO - qlib.ADARNN - [pytorch_adarnn.py:241] - ic/train: : 0.113827, icir/train: : 0.874281, ric/train: : 0.110097, ricir/train: : 0.853210, mse/train: : -0.003099, loss/train: : -0.003099
+[1543894:MainThread](2024-04-02 01:14:27,785) INFO - qlib.ADARNN - [pytorch_adarnn.py:241] - ic/valid: : 0.081745, icir/valid: : 0.595620, ric/valid: : 0.074880, ricir/valid: : 0.548643, mse/valid: : 0.000567, loss/valid: : 0.000567
+[1543894:MainThread](2024-04-02 01:14:27,785) INFO - qlib.ADARNN - [pytorch_adarnn.py:273] - Epoch22:
+[1543894:MainThread](2024-04-02 01:14:27,786) INFO - qlib.ADARNN - [pytorch_adarnn.py:274] - training...
+[1543894:MainThread](2024-04-02 01:14:49,262) INFO - qlib.ADARNN - [pytorch_adarnn.py:276] - evaluating...
+[1543894:MainThread](2024-04-02 01:14:55,202) INFO - qlib.ADARNN - [pytorch_adarnn.py:241] - ic/train: : 0.116165, icir/train: : 0.890446, ric/train: : 0.112921, ricir/train: : 0.873224, mse/train: : 0.013835, loss/train: : 0.013835
+[1543894:MainThread](2024-04-02 01:14:55,202) INFO - qlib.ADARNN - [pytorch_adarnn.py:241] - ic/valid: : 0.081327, icir/valid: : 0.577024, ric/valid: : 0.075588, ricir/valid: : 0.542537, mse/valid: : 0.017155, loss/valid: : 0.017155
+[1543894:MainThread](2024-04-02 01:14:55,202) INFO - qlib.ADARNN - [pytorch_adarnn.py:273] - Epoch23:
+[1543894:MainThread](2024-04-02 01:14:55,202) INFO - qlib.ADARNN - [pytorch_adarnn.py:274] - training...
+[1543894:MainThread](2024-04-02 01:15:16,556) INFO - qlib.ADARNN - [pytorch_adarnn.py:276] - evaluating...
+[1543894:MainThread](2024-04-02 01:15:22,461) INFO - qlib.ADARNN - [pytorch_adarnn.py:241] - ic/train: : 0.115663, icir/train: : 0.878472, ric/train: : 0.112004, ricir/train: : 0.859330, mse/train: : 0.006212, loss/train: : 0.006212
+[1543894:MainThread](2024-04-02 01:15:22,462) INFO - qlib.ADARNN - [pytorch_adarnn.py:241] - ic/valid: : 0.084224, icir/valid: : 0.598783, ric/valid: : 0.076921, ricir/valid: : 0.551373, mse/valid: : 0.010907, loss/valid: : 0.010907
+[1543894:MainThread](2024-04-02 01:15:22,462) INFO - qlib.ADARNN - [pytorch_adarnn.py:273] - Epoch24:
+[1543894:MainThread](2024-04-02 01:15:22,462) INFO - qlib.ADARNN - [pytorch_adarnn.py:274] - training...
+[1543894:MainThread](2024-04-02 01:15:44,136) INFO - qlib.ADARNN - [pytorch_adarnn.py:276] - evaluating...
+[1543894:MainThread](2024-04-02 01:15:50,355) INFO - qlib.ADARNN - [pytorch_adarnn.py:241] - ic/train: : 0.116868, icir/train: : 0.924428, ric/train: : 0.112916, ricir/train: : 0.902540, mse/train: : 0.010819, loss/train: : 0.010819
+[1543894:MainThread](2024-04-02 01:15:50,356) INFO - qlib.ADARNN - [pytorch_adarnn.py:241] - ic/valid: : 0.077836, icir/valid: : 0.576403, ric/valid: : 0.071643, ricir/valid: : 0.531562, mse/valid: : 0.014041, loss/valid: : 0.014041
+[1543894:MainThread](2024-04-02 01:15:50,356) INFO - qlib.ADARNN - [pytorch_adarnn.py:273] - Epoch25:
+[1543894:MainThread](2024-04-02 01:15:50,356) INFO - qlib.ADARNN - [pytorch_adarnn.py:274] - training...
+[1543894:MainThread](2024-04-02 01:16:12,093) INFO - qlib.ADARNN - [pytorch_adarnn.py:276] - evaluating...
+[1543894:MainThread](2024-04-02 01:16:18,071) INFO - qlib.ADARNN - [pytorch_adarnn.py:241] - ic/train: : 0.118575, icir/train: : 0.936514, ric/train: : 0.115411, ricir/train: : 0.914064, mse/train: : 0.011958, loss/train: : 0.011958
+[1543894:MainThread](2024-04-02 01:16:18,071) INFO - qlib.ADARNN - [pytorch_adarnn.py:241] - ic/valid: : 0.078211, icir/valid: : 0.569350, ric/valid: : 0.072253, ricir/valid: : 0.526619, mse/valid: : 0.019647, loss/valid: : 0.019647
+[1543894:MainThread](2024-04-02 01:16:18,071) INFO - qlib.ADARNN - [pytorch_adarnn.py:273] - Epoch26:
+[1543894:MainThread](2024-04-02 01:16:18,071) INFO - qlib.ADARNN - [pytorch_adarnn.py:274] - training...
+[1543894:MainThread](2024-04-02 01:16:40,443) INFO - qlib.ADARNN - [pytorch_adarnn.py:276] - evaluating...
+[1543894:MainThread](2024-04-02 01:16:48,961) INFO - qlib.ADARNN - [pytorch_adarnn.py:241] - ic/train: : 0.117649, icir/train: : 0.974407, ric/train: : 0.114635, ricir/train: : 0.957550, mse/train: : -0.001126, loss/train: : -0.001126
+[1543894:MainThread](2024-04-02 01:16:48,962) INFO - qlib.ADARNN - [pytorch_adarnn.py:241] - ic/valid: : 0.073874, icir/valid: : 0.567135, ric/valid: : 0.067243, ricir/valid: : 0.519358, mse/valid: : 0.002668, loss/valid: : 0.002668
+[1543894:MainThread](2024-04-02 01:16:48,962) INFO - qlib.ADARNN - [pytorch_adarnn.py:273] - Epoch27:
+[1543894:MainThread](2024-04-02 01:16:48,962) INFO - qlib.ADARNN - [pytorch_adarnn.py:274] - training...
+[1543894:MainThread](2024-04-02 01:17:19,461) INFO - qlib.ADARNN - [pytorch_adarnn.py:276] - evaluating...
+[1543894:MainThread](2024-04-02 01:17:25,797) INFO - qlib.ADARNN - [pytorch_adarnn.py:241] - ic/train: : 0.119345, icir/train: : 0.946102, ric/train: : 0.115867, ricir/train: : 0.928355, mse/train: : -0.004394, loss/train: : -0.004394
+[1543894:MainThread](2024-04-02 01:17:25,797) INFO - qlib.ADARNN - [pytorch_adarnn.py:241] - ic/valid: : 0.076338, icir/valid: : 0.562777, ric/valid: : 0.069699, ricir/valid: : 0.514124, mse/valid: : -0.000928, loss/valid: : -0.000928
+[1543894:MainThread](2024-04-02 01:17:25,798) INFO - qlib.ADARNN - [pytorch_adarnn.py:273] - Epoch28:
+[1543894:MainThread](2024-04-02 01:17:25,798) INFO - qlib.ADARNN - [pytorch_adarnn.py:274] - training...
+[1543894:MainThread](2024-04-02 01:17:48,153) INFO - qlib.ADARNN - [pytorch_adarnn.py:276] - evaluating...
+[1543894:MainThread](2024-04-02 01:17:54,463) INFO - qlib.ADARNN - [pytorch_adarnn.py:241] - ic/train: : 0.123768, icir/train: : 0.986366, ric/train: : 0.119951, ricir/train: : 0.964856, mse/train: : 0.000473, loss/train: : 0.000473
+[1543894:MainThread](2024-04-02 01:17:54,464) INFO - qlib.ADARNN - [pytorch_adarnn.py:241] - ic/valid: : 0.075333, icir/valid: : 0.573741, ric/valid: : 0.069948, ricir/valid: : 0.534434, mse/valid: : 0.004786, loss/valid: : 0.004786
+[1543894:MainThread](2024-04-02 01:17:54,464) INFO - qlib.ADARNN - [pytorch_adarnn.py:273] - Epoch29:
+[1543894:MainThread](2024-04-02 01:17:54,465) INFO - qlib.ADARNN - [pytorch_adarnn.py:274] - training...
+[1543894:MainThread](2024-04-02 01:18:18,748) INFO - qlib.ADARNN - [pytorch_adarnn.py:276] - evaluating...
+[1543894:MainThread](2024-04-02 01:18:24,782) INFO - qlib.ADARNN - [pytorch_adarnn.py:241] - ic/train: : 0.124100, icir/train: : 1.017886, ric/train: : 0.120958, ricir/train: : 1.001406, mse/train: : -0.026751, loss/train: : -0.026751
+[1543894:MainThread](2024-04-02 01:18:24,783) INFO - qlib.ADARNN - [pytorch_adarnn.py:241] - ic/valid: : 0.070407, icir/valid: : 0.539025, ric/valid: : 0.066221, ricir/valid: : 0.509158, mse/valid: : -0.021253, loss/valid: : -0.021253
+[1543894:MainThread](2024-04-02 01:18:24,783) INFO - qlib.ADARNN - [pytorch_adarnn.py:273] - Epoch30:
+[1543894:MainThread](2024-04-02 01:18:24,783) INFO - qlib.ADARNN - [pytorch_adarnn.py:274] - training...
+[1543894:MainThread](2024-04-02 01:18:46,892) INFO - qlib.ADARNN - [pytorch_adarnn.py:276] - evaluating...
+[1543894:MainThread](2024-04-02 01:18:52,968) INFO - qlib.ADARNN - [pytorch_adarnn.py:241] - ic/train: : 0.128218, icir/train: : 1.014535, ric/train: : 0.124769, ricir/train: : 0.995344, mse/train: : -0.001658, loss/train: : -0.001658
+[1543894:MainThread](2024-04-02 01:18:52,968) INFO - qlib.ADARNN - [pytorch_adarnn.py:241] - ic/valid: : 0.080540, icir/valid: : 0.598214, ric/valid: : 0.074956, ricir/valid: : 0.559471, mse/valid: : -0.002426, loss/valid: : -0.002426
+[1543894:MainThread](2024-04-02 01:18:52,969) INFO - qlib.ADARNN - [pytorch_adarnn.py:273] - Epoch31:
+[1543894:MainThread](2024-04-02 01:18:52,969) INFO - qlib.ADARNN - [pytorch_adarnn.py:274] - training...
+[1543894:MainThread](2024-04-02 01:19:16,856) INFO - qlib.ADARNN - [pytorch_adarnn.py:276] - evaluating...
+[1543894:MainThread](2024-04-02 01:19:23,040) INFO - qlib.ADARNN - [pytorch_adarnn.py:241] - ic/train: : 0.128609, icir/train: : 1.082239, ric/train: : 0.125279, ricir/train: : 1.057982, mse/train: : 0.013006, loss/train: : 0.013006
+[1543894:MainThread](2024-04-02 01:19:23,041) INFO - qlib.ADARNN - [pytorch_adarnn.py:241] - ic/valid: : 0.075286, icir/valid: : 0.585958, ric/valid: : 0.070172, ricir/valid: : 0.543991, mse/valid: : 0.015836, loss/valid: : 0.015836
+[1543894:MainThread](2024-04-02 01:19:23,041) INFO - qlib.ADARNN - [pytorch_adarnn.py:273] - Epoch32:
+[1543894:MainThread](2024-04-02 01:19:23,042) INFO - qlib.ADARNN - [pytorch_adarnn.py:274] - training...
+[1543894:MainThread](2024-04-02 01:19:47,149) INFO - qlib.ADARNN - [pytorch_adarnn.py:276] - evaluating...
+[1543894:MainThread](2024-04-02 01:19:54,560) INFO - qlib.ADARNN - [pytorch_adarnn.py:241] - ic/train: : 0.132600, icir/train: : 1.108907, ric/train: : 0.128748, ricir/train: : 1.083268, mse/train: : 0.011972, loss/train: : 0.011972
+[1543894:MainThread](2024-04-02 01:19:54,560) INFO - qlib.ADARNN - [pytorch_adarnn.py:241] - ic/valid: : 0.076553, icir/valid: : 0.589893, ric/valid: : 0.071087, ricir/valid: : 0.548134, mse/valid: : 0.010287, loss/valid: : 0.010287
+[1543894:MainThread](2024-04-02 01:19:54,561) INFO - qlib.ADARNN - [pytorch_adarnn.py:273] - Epoch33:
+[1543894:MainThread](2024-04-02 01:19:54,561) INFO - qlib.ADARNN - [pytorch_adarnn.py:274] - training...
+[1543894:MainThread](2024-04-02 01:20:27,191) INFO - qlib.ADARNN - [pytorch_adarnn.py:276] - evaluating...
+[1543894:MainThread](2024-04-02 01:20:35,639) INFO - qlib.ADARNN - [pytorch_adarnn.py:241] - ic/train: : 0.129438, icir/train: : 1.087905, ric/train: : 0.125716, ricir/train: : 1.065120, mse/train: : 0.001329, loss/train: : 0.001329
+[1543894:MainThread](2024-04-02 01:20:35,640) INFO - qlib.ADARNN - [pytorch_adarnn.py:241] - ic/valid: : 0.061540, icir/valid: : 0.472567, ric/valid: : 0.056755, ricir/valid: : 0.436935, mse/valid: : 0.007969, loss/valid: : 0.007969
+[1543894:MainThread](2024-04-02 01:20:35,641) INFO - qlib.ADARNN - [pytorch_adarnn.py:273] - Epoch34:
+[1543894:MainThread](2024-04-02 01:20:35,642) INFO - qlib.ADARNN - [pytorch_adarnn.py:274] - training...
+[1543894:MainThread](2024-04-02 01:21:09,226) INFO - qlib.ADARNN - [pytorch_adarnn.py:276] - evaluating...
+[1543894:MainThread](2024-04-02 01:21:18,047) INFO - qlib.ADARNN - [pytorch_adarnn.py:241] - ic/train: : 0.135197, icir/train: : 1.106650, ric/train: : 0.131369, ricir/train: : 1.083560, mse/train: : 0.002212, loss/train: : 0.002212
+[1543894:MainThread](2024-04-02 01:21:18,048) INFO - qlib.ADARNN - [pytorch_adarnn.py:241] - ic/valid: : 0.070882, icir/valid: : 0.529526, ric/valid: : 0.067405, ricir/valid: : 0.504093, mse/valid: : -0.005597, loss/valid: : -0.005597
+[1543894:MainThread](2024-04-02 01:21:18,048) INFO - qlib.ADARNN - [pytorch_adarnn.py:273] - Epoch35:
+[1543894:MainThread](2024-04-02 01:21:18,048) INFO - qlib.ADARNN - [pytorch_adarnn.py:274] - training...
+[1543894:MainThread](2024-04-02 01:21:51,007) INFO - qlib.ADARNN - [pytorch_adarnn.py:276] - evaluating...
+[1543894:MainThread](2024-04-02 01:21:59,019) INFO - qlib.ADARNN - [pytorch_adarnn.py:241] - ic/train: : 0.131553, icir/train: : 1.159159, ric/train: : 0.129270, ricir/train: : 1.148041, mse/train: : -0.024501, loss/train: : -0.024501
+[1543894:MainThread](2024-04-02 01:21:59,020) INFO - qlib.ADARNN - [pytorch_adarnn.py:241] - ic/valid: : 0.064293, icir/valid: : 0.513522, ric/valid: : 0.060420, ricir/valid: : 0.475469, mse/valid: : -0.028966, loss/valid: : -0.028966
+[1543894:MainThread](2024-04-02 01:21:59,020) INFO - qlib.ADARNN - [pytorch_adarnn.py:294] - early stop
+[1543894:MainThread](2024-04-02 01:21:59,021) INFO - qlib.ADARNN - [pytorch_adarnn.py:297] - best score: 0.030496 @ 15
+[1543894:MainThread](2024-04-02 01:21:59,076) INFO - qlib.fill_placeholder - [__init__.py:739] - <PRED> lookes like a placeholder, but it can't match to any given values
+[1543894:MainThread](2024-04-02 01:22:00,563) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 1
+[1543894:MainThread](2024-04-02 01:22:02,728) INFO - qlib.backtest caller - [__init__.py:93] - Create new exchange
+'The following are prediction results of the ADARNN model.'
+                          score
+datetime   instrument          
+2017-01-03 SH600000    0.020094
+           SH600008    0.028532
+           SH600009    0.087119
+           SH600010    0.041851
+           SH600015    0.057808
+{'IC': 0.044589317436367466,
+ 'ICIR': 0.3681499990718119,
+ 'Rank IC': 0.045711084185438865,
+ 'Rank ICIR': 0.3740514662243836}
+[1543894:MainThread](2024-04-02 01:22:13,449) WARNING - qlib.online operator - [exchange.py:219] - $close field data contains nan.
+[1543894:MainThread](2024-04-02 01:22:13,454) WARNING - qlib.online operator - [exchange.py:219] - $close field data contains nan.
+[1543894:MainThread](2024-04-02 01:22:13,463) WARNING - qlib.online operator - [exchange.py:226] - factor.day.bin file not exists or factor contains `nan`. Order using adjusted_price.
+[1543894:MainThread](2024-04-02 01:22:13,463) WARNING - qlib.online operator - [exchange.py:228] - trade unit 100 is not supported in adjusted_price mode.
+[1543894:MainThread](2024-04-02 01:22:17,973) WARNING - qlib.data - [data.py:666] - load calendar error: freq=day, future=True; return current calendar!
+[1543894:MainThread](2024-04-02 01:22:17,974) WARNING - qlib.data - [data.py:669] - You can get future calendar by referring to the following document: https://github.com/microsoft/qlib/blob/main/scripts/data_collector/contrib/README.md
+[1543894:MainThread](2024-04-02 01:22:17,992) WARNING - qlib.BaseExecutor - [executor.py:121] - `common_infra` is not set for <qlib.backtest.executor.SimulatorExecutor object at 0x7ff9ea80a070>
+backtest loop:   0%|          | 0/871 [00:00<?, ?it/s]/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/qlib/utils/index_data.py:481: RuntimeWarning: Mean of empty slice
+  return np.nanmean(self.data)
+backtest loop:   1%|          | 5/871 [00:00<00:18, 45.61it/s]backtest loop:   1%|          | 10/871 [00:00<00:36, 23.85it/s]backtest loop:   2%|▏         | 16/871 [00:00<00:25, 32.95it/s]backtest loop:   2%|▏         | 21/871 [00:00<00:23, 36.70it/s]backtest loop:   3%|▎         | 27/871 [00:00<00:19, 43.02it/s]backtest loop:   4%|▍         | 33/871 [00:00<00:17, 47.80it/s]backtest loop:   4%|▍         | 39/871 [00:00<00:17, 47.24it/s]backtest loop:   5%|▌         | 45/871 [00:01<00:16, 49.71it/s]backtest loop:   6%|▌         | 51/871 [00:01<00:15, 51.28it/s]backtest loop:   7%|▋         | 57/871 [00:01<00:15, 52.52it/s]backtest loop:   7%|▋         | 63/871 [00:01<00:16, 49.79it/s]backtest loop:   8%|▊         | 69/871 [00:01<00:15, 50.40it/s]backtest loop:   9%|▊         | 75/871 [00:01<00:15, 51.30it/s]backtest loop:   9%|▉         | 81/871 [00:01<00:15, 49.38it/s]backtest loop:  10%|▉         | 87/871 [00:01<00:15, 50.15it/s]backtest loop:  11%|█         | 93/871 [00:01<00:15, 51.10it/s]backtest loop:  11%|█▏        | 99/871 [00:02<00:15, 49.74it/s]backtest loop:  12%|█▏        | 105/871 [00:02<00:14, 51.16it/s]backtest loop:  13%|█▎        | 111/871 [00:02<00:14, 53.02it/s]backtest loop:  13%|█▎        | 117/871 [00:02<00:13, 54.01it/s]backtest loop:  14%|█▍        | 123/871 [00:02<00:13, 55.06it/s]backtest loop:  15%|█▍        | 129/871 [00:02<00:14, 52.90it/s]backtest loop:  15%|█▌        | 135/871 [00:02<00:13, 53.87it/s]backtest loop:  16%|█▌        | 141/871 [00:02<00:13, 54.16it/s]backtest loop:  17%|█▋        | 147/871 [00:02<00:13, 55.27it/s]backtest loop:  18%|█▊        | 153/871 [00:03<00:12, 56.45it/s]backtest loop:  18%|█▊        | 159/871 [00:03<00:12, 54.99it/s]backtest loop:  19%|█▉        | 166/871 [00:03<00:12, 57.35it/s]backtest loop:  20%|█▉        | 173/871 [00:03<00:11, 59.63it/s]backtest loop:  21%|██        | 179/871 [00:03<00:12, 56.19it/s]backtest loop:  21%|██        | 185/871 [00:03<00:12, 56.92it/s]backtest loop:  22%|██▏       | 191/871 [00:03<00:11, 57.56it/s]backtest loop:  23%|██▎       | 198/871 [00:03<00:11, 60.47it/s]backtest loop:  24%|██▎       | 205/871 [00:03<00:11, 60.19it/s]backtest loop:  24%|██▍       | 213/871 [00:04<00:10, 63.73it/s]backtest loop:  25%|██▌       | 220/871 [00:04<00:10, 60.71it/s]backtest loop:  26%|██▌       | 227/871 [00:04<00:10, 61.32it/s]backtest loop:  27%|██▋       | 234/871 [00:04<00:11, 56.74it/s]backtest loop:  28%|██▊       | 240/871 [00:04<00:11, 55.79it/s]backtest loop:  28%|██▊       | 246/871 [00:04<00:11, 56.45it/s]backtest loop:  29%|██▉       | 252/871 [00:04<00:11, 55.26it/s]backtest loop:  30%|██▉       | 258/871 [00:04<00:11, 51.68it/s]backtest loop:  30%|███       | 264/871 [00:05<00:11, 51.76it/s]backtest loop:  31%|███       | 270/871 [00:05<00:11, 51.99it/s]backtest loop:  32%|███▏      | 276/871 [00:05<00:12, 49.39it/s]backtest loop:  32%|███▏      | 282/871 [00:05<00:11, 50.32it/s]backtest loop:  33%|███▎      | 288/871 [00:05<00:12, 47.77it/s]backtest loop:  34%|███▍      | 294/871 [00:05<00:11, 49.28it/s]backtest loop:  34%|███▍      | 300/871 [00:05<00:11, 51.06it/s]backtest loop:  35%|███▌      | 306/871 [00:05<00:11, 49.54it/s]backtest loop:  36%|███▌      | 312/871 [00:06<00:10, 51.06it/s]backtest loop:  37%|███▋      | 318/871 [00:06<00:10, 51.92it/s]backtest loop:  37%|███▋      | 324/871 [00:06<00:10, 49.89it/s]backtest loop:  38%|███▊      | 330/871 [00:06<00:10, 50.86it/s]backtest loop:  39%|███▊      | 336/871 [00:06<00:10, 52.27it/s]backtest loop:  39%|███▉      | 342/871 [00:06<00:10, 52.83it/s]backtest loop:  40%|███▉      | 348/871 [00:06<00:10, 48.75it/s]backtest loop:  41%|████      | 353/871 [00:06<00:11, 44.52it/s]backtest loop:  41%|████      | 358/871 [00:07<00:13, 38.32it/s]backtest loop:  42%|████▏     | 363/871 [00:07<00:13, 37.50it/s]backtest loop:  42%|████▏     | 368/871 [00:07<00:12, 39.50it/s]backtest loop:  43%|████▎     | 374/871 [00:07<00:11, 43.91it/s]backtest loop:  44%|████▎     | 380/871 [00:07<00:10, 46.99it/s]backtest loop:  44%|████▍     | 386/871 [00:07<00:09, 49.82it/s]backtest loop:  45%|████▌     | 392/871 [00:07<00:09, 51.09it/s]backtest loop:  46%|████▌     | 398/871 [00:07<00:09, 49.13it/s]backtest loop:  46%|████▋     | 404/871 [00:07<00:09, 50.68it/s]backtest loop:  47%|████▋     | 410/871 [00:08<00:08, 51.89it/s]backtest loop:  48%|████▊     | 416/871 [00:08<00:08, 52.72it/s]backtest loop:  48%|████▊     | 422/871 [00:08<00:08, 53.30it/s]backtest loop:  49%|████▉     | 428/871 [00:08<00:08, 51.57it/s]backtest loop:  50%|████▉     | 434/871 [00:08<00:08, 53.10it/s]backtest loop:  51%|█████     | 440/871 [00:08<00:07, 54.23it/s]backtest loop:  51%|█████     | 446/871 [00:08<00:07, 55.45it/s]backtest loop:  52%|█████▏    | 452/871 [00:08<00:07, 52.49it/s]backtest loop:  53%|█████▎    | 458/871 [00:08<00:07, 53.30it/s]backtest loop:  53%|█████▎    | 464/871 [00:09<00:07, 54.25it/s]backtest loop:  54%|█████▍    | 470/871 [00:09<00:07, 54.63it/s]backtest loop:  55%|█████▍    | 476/871 [00:09<00:07, 53.92it/s]backtest loop:  55%|█████▌    | 482/871 [00:09<00:07, 51.21it/s]backtest loop:  56%|█████▌    | 488/871 [00:09<00:07, 52.10it/s]backtest loop:  57%|█████▋    | 494/871 [00:09<00:07, 52.92it/s]backtest loop:  57%|█████▋    | 500/871 [00:09<00:07, 49.21it/s]backtest loop:  58%|█████▊    | 505/871 [00:09<00:07, 49.17it/s]backtest loop:  59%|█████▊    | 511/871 [00:10<00:07, 50.01it/s]backtest loop:  59%|█████▉    | 517/871 [00:10<00:06, 50.92it/s]backtest loop:  60%|██████    | 523/871 [00:10<00:06, 51.48it/s]backtest loop:  61%|██████    | 529/871 [00:10<00:06, 52.96it/s]backtest loop:  61%|██████▏   | 535/871 [00:10<00:06, 50.08it/s]backtest loop:  62%|██████▏   | 541/871 [00:10<00:06, 50.68it/s]backtest loop:  63%|██████▎   | 547/871 [00:10<00:06, 51.71it/s]backtest loop:  63%|██████▎   | 553/871 [00:10<00:06, 52.43it/s]backtest loop:  64%|██████▍   | 559/871 [00:10<00:06, 49.97it/s]/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/qlib/utils/index_data.py:481: RuntimeWarning: Mean of empty slice
+  return np.nanmean(self.data)
+backtest loop:  65%|██████▍   | 565/871 [00:11<00:05, 51.80it/s]/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/qlib/utils/index_data.py:481: RuntimeWarning: Mean of empty slice
+  return np.nanmean(self.data)
+backtest loop:  66%|██████▌   | 571/871 [00:11<00:05, 52.95it/s]backtest loop:  66%|██████▌   | 577/871 [00:11<00:05, 53.88it/s]backtest loop:  67%|██████▋   | 583/871 [00:11<00:05, 54.52it/s]backtest loop:  68%|██████▊   | 589/871 [00:11<00:05, 55.07it/s]backtest loop:  68%|██████▊   | 595/871 [00:11<00:05, 52.58it/s]backtest loop:  69%|██████▉   | 602/871 [00:11<00:04, 55.50it/s]backtest loop:  70%|██████▉   | 609/871 [00:11<00:04, 57.74it/s]backtest loop:  71%|███████   | 615/871 [00:11<00:04, 55.24it/s]backtest loop:  71%|███████▏  | 622/871 [00:12<00:04, 57.44it/s]backtest loop:  72%|███████▏  | 628/871 [00:12<00:04, 58.13it/s]backtest loop:  73%|███████▎  | 635/871 [00:12<00:04, 55.85it/s]backtest loop:  74%|███████▎  | 641/871 [00:12<00:04, 55.83it/s]backtest loop:  74%|███████▍  | 647/871 [00:12<00:04, 55.95it/s]backtest loop:  75%|███████▍  | 653/871 [00:12<00:03, 56.80it/s]backtest loop:  76%|███████▌  | 659/871 [00:12<00:03, 54.50it/s]backtest loop:  76%|███████▋  | 665/871 [00:12<00:03, 55.35it/s]backtest loop:  77%|███████▋  | 671/871 [00:12<00:03, 51.56it/s]backtest loop:  78%|███████▊  | 677/871 [00:13<00:03, 53.05it/s]backtest loop:  78%|███████▊  | 683/871 [00:13<00:03, 52.11it/s]backtest loop:  79%|███████▉  | 689/871 [00:13<00:03, 49.62it/s]backtest loop:  80%|███████▉  | 695/871 [00:13<00:03, 50.14it/s]backtest loop:  80%|████████  | 701/871 [00:13<00:03, 50.99it/s]backtest loop:  81%|████████  | 707/871 [00:13<00:03, 51.99it/s]backtest loop:  82%|████████▏ | 713/871 [00:13<00:03, 51.67it/s]backtest loop:  83%|████████▎ | 719/871 [00:13<00:03, 48.58it/s]backtest loop:  83%|████████▎ | 725/871 [00:14<00:02, 49.39it/s]backtest loop:  84%|████████▍ | 731/871 [00:14<00:02, 47.33it/s]backtest loop:  85%|████████▍ | 736/871 [00:14<00:02, 47.90it/s]backtest loop:  85%|████████▌ | 741/871 [00:14<00:02, 48.31it/s]backtest loop:  86%|████████▌ | 746/871 [00:14<00:02, 48.19it/s]backtest loop:  86%|████████▋ | 752/871 [00:14<00:02, 46.22it/s]backtest loop:  87%|████████▋ | 757/871 [00:14<00:02, 46.66it/s]backtest loop:  87%|████████▋ | 762/871 [00:14<00:02, 46.92it/s]backtest loop:  88%|████████▊ | 767/871 [00:14<00:02, 47.27it/s]backtest loop:  89%|████████▊ | 772/871 [00:15<00:02, 47.86it/s]backtest loop:  89%|████████▉ | 777/871 [00:15<00:01, 47.90it/s]backtest loop:  90%|████████▉ | 782/871 [00:15<00:01, 48.20it/s]backtest loop:  90%|█████████ | 787/871 [00:15<00:01, 47.92it/s]backtest loop:  91%|█████████ | 792/871 [00:15<00:01, 47.27it/s]backtest loop:  92%|█████████▏| 797/871 [00:15<00:01, 47.76it/s]backtest loop:  92%|█████████▏| 802/871 [00:15<00:01, 47.77it/s]backtest loop:  93%|█████████▎| 808/871 [00:15<00:01, 49.05it/s]backtest loop:  93%|█████████▎| 813/871 [00:15<00:01, 47.17it/s]backtest loop:  94%|█████████▍| 819/871 [00:16<00:01, 50.07it/s]backtest loop:  95%|█████████▍| 825/871 [00:16<00:00, 51.95it/s]backtest loop:  95%|█████████▌| 831/871 [00:16<00:00, 53.40it/s]backtest loop:  96%|█████████▌| 837/871 [00:16<00:00, 54.10it/s]backtest loop:  97%|█████████▋| 843/871 [00:16<00:00, 51.79it/s]backtest loop:  98%|█████████▊| 850/871 [00:16<00:00, 54.90it/s]backtest loop:  98%|█████████▊| 856/871 [00:16<00:00, 53.34it/s]backtest loop:  99%|█████████▉| 863/871 [00:16<00:00, 56.42it/s]backtest loop: 100%|█████████▉| 869/871 [00:16<00:00, 56.72it/s]backtest loop: 100%|██████████| 871/871 [00:16<00:00, 51.35it/s]
+[1543894:MainThread](2024-04-02 01:22:35,023) INFO - qlib.workflow - [record_temp.py:515] - Portfolio analysis record 'port_analysis_1day.pkl' has been saved as the artifact of the Experiment 1
+[1543894:MainThread](2024-04-02 01:22:35,039) INFO - qlib.workflow - [record_temp.py:540] - Indicator analysis record 'indicator_analysis_1day.pkl' has been saved as the artifact of the Experiment 1
+[1543894:MainThread](2024-04-02 01:22:36,127) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+'The following are analysis results of benchmark return(1day).'
+                       risk
+mean               0.000477
+std                0.012295
+annualized_return  0.113561
+information_ratio  0.598699
+max_drawdown      -0.370479
+'The following are analysis results of the excess return without cost(1day).'
+                       risk
+mean               0.000418
+std                0.004252
+annualized_return  0.099403
+information_ratio  1.515348
+max_drawdown      -0.064935
+'The following are analysis results of the excess return with cost(1day).'
+                       risk
+mean               0.000243
+std                0.004253
+annualized_return  0.057740
+information_ratio  0.879981
+max_drawdown      -0.097666
+'The following are analysis results of indicators(1day).'
+     value
+ffr    1.0
+pa     0.0
+pos    0.0

@@ -71,7 +71,7 @@ class MetaModelDS(MetaTaskModel):
             torch.set_grad_enabled(True)
         else:
             self.tn.eval()
-            torch.set_grad_enabled(False)
+            # torch.set_grad_enabled(False)
         running_loss = 0.0
         pred_y_all = []
         for task in tqdm(task_list, desc=f"{phase} Task", leave=False):
