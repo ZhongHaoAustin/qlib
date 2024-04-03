@@ -58,11 +58,22 @@
 # cd $DDGDA_DIR && python workflow.py --conf_path=$QLIB_YAML_DIR/workflow_config_xgboost_Alpha158.yaml run > $QLIB_EXP_LOG/ddgda_xgb.log 2>&1
 # cd $DDGDA_DIR && python workflow.py --conf_path=$QLIB_YAML_DIR/workflow_config_doubleensemble_fs_Alpha158.yaml run > $QLIB_EXP_LOG/ddgda_doubleensemble_fs.log 2>&1
 # cd $DDGDA_DIR && python workflow.py --conf_path=$QLIB_YAML_DIR/workflow_config_doubleensemble_sr_fs_Alpha158.yaml run > $QLIB_EXP_LOG/ddgda_doubleensemble_sr_fs.log 2>&1
-cd $DDGDA_DIR && python workflow.py --conf_path=/home/zhonghao/code/qlib/examples/benchmarks/ADARNN/workflow_config_adarnn_Alpha158.yaml run > $QLIB_EXP_LOG/ddgda_adann.log 2>&1
-cd $DDGDA_DIR && python workflow.py --conf_path=/home/zhonghao/code/qlib/examples/benchmarks/feat_selection/workflow_config_gru_Alpha158.yaml run > $QLIB_EXP_LOG/ddgda_gru.log 2>&1
-cd $DDGDA_DIR && python workflow.py --conf_path=/home/zhonghao/code/qlib/examples/benchmarks/feat_selection/workflow_config_transformer_Alpha158.yaml run > $QLIB_EXP_LOG/ddgda_transformer.log 2>&1
-cd $DDGDA_DIR && python workflow.py --conf_path=/home/zhonghao/code/qlib/examples/benchmarks/feat_selection/workflow_config_lstm_Alpha158.yaml run > $QLIB_EXP_LOG/ddgda_lstm.log 2>&1
-cd $DDGDA_DIR && python workflow.py --conf_path=/home/zhonghao/code/qlib/examples/benchmarks/feat_selection/workflow_config_alstm_Alpha158.yaml run > $QLIB_EXP_LOG/ddgda_alstm.log 2>&1
+# cd $DDGDA_DIR && python workflow.py --conf_path=/home/zhonghao/code/qlib/examples/benchmarks/ADARNN/workflow_config_adarnn_Alpha158.yaml run > $QLIB_EXP_LOG/ddgda_adann.log 2>&1
+# cd $DDGDA_DIR && python workflow.py --conf_path=/home/zhonghao/code/qlib/examples/benchmarks/feat_selection/workflow_config_gru_Alpha158.yaml run > $QLIB_EXP_LOG/ddgda_gru.log 2>&1
+# cd $DDGDA_DIR && python workflow.py --conf_path=/home/zhonghao/code/qlib/examples/benchmarks/feat_selection/workflow_config_transformer_Alpha158.yaml run > $QLIB_EXP_LOG/ddgda_transformer.log 2>&1
+# cd $DDGDA_DIR && python workflow.py --conf_path=/home/zhonghao/code/qlib/examples/benchmarks/feat_selection/workflow_config_lstm_Alpha158.yaml run > $QLIB_EXP_LOG/ddgda_lstm.log 2>&1
+# cd $DDGDA_DIR && python workflow.py --conf_path=/home/zhonghao/code/qlib/examples/benchmarks/feat_selection/workflow_config_alstm_Alpha158.yaml run > $QLIB_EXP_LOG/ddgda_alstm.log 2>&1
+
+#############################################################
+# DDG-DA pre-trained
+#############################################################
+# cd $DDGDA_DIR && python workflow.py --conf_path=$QLIB_YAML_DIR/workflow_config_mlp_Alpha158.yaml run > $QLIB_EXP_LOG/ddgda_mlp_pre.log 2>&1
+# cd $DDGDA_DIR && python workflow.py --conf_path=$QLIB_YAML_DIR/workflow_config_lightgbm_Alpha158.yaml run > $QLIB_EXP_LOG/ddgda_lgb_pre.log 2>&1
+cd $DDGDA_DIR && python workflow.py --conf_path=/home/zhonghao/code/qlib/examples/benchmarks/ADARNN/workflow_config_adarnn_Alpha158.yaml run > $QLIB_EXP_LOG/ddgda_adann_pre.log 2>&1
+cd $DDGDA_DIR && python workflow.py --conf_path=$QLIB_YAML_DIR/workflow_config_xgboost_Alpha158.yaml run > $QLIB_EXP_LOG/ddgda_xgb_pre.log 2>&1
+cd $DDGDA_DIR && python workflow.py --conf_path=$QLIB_YAML_DIR/workflow_config_doubleensemble_fs_Alpha158.yaml run > $QLIB_EXP_LOG/ddgda_doubleensemble_fs_pre.log 2>&1
+cd $DDGDA_DIR && python workflow.py --conf_path=$QLIB_YAML_DIR/workflow_config_doubleensemble_sr_fs_Alpha158.yaml run > $QLIB_EXP_LOG/ddgda_doubleensemble_sr_fs_pre.log 2>&1
+
 
 #############################################################
 # Alpha360

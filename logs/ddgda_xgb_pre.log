@@ -1,0 +1,2311 @@
+2024-04-03 14:46:17.575 | WARNING  | qlib.tests.data:qlib_data:175 - Data already exists: ~/.qlib/qlib_data/cn_data, the data download will be skipped
+	If downloading is required: `exists_skip=False` or `change target_dir`
+[2428938:MainThread](2024-04-03 14:46:17,577) INFO - qlib.Initialization - [config.py:416] - default_conf: client.
+[2428938:MainThread](2024-04-03 14:46:17,580) INFO - qlib.Initialization - [__init__.py:74] - qlib successfully initialized based on client settings.
+[2428938:MainThread](2024-04-03 14:46:17,580) INFO - qlib.Initialization - [__init__.py:76] - data_path={'__DEFAULT_FREQ': PosixPath('/home/zhonghao/.qlib/qlib_data/cn_data')}
+[2428938:MainThread](2024-04-03 14:46:17,582) WARNING - qlib.Rolling - [workflow.py:38] - Model type is not in the benchmark!
+[2428938:MainThread](2024-04-03 14:46:17,605) INFO - qlib.Rolling - [base.py:162] - The prediction horizon is overrided
+[2428938:MainThread](2024-04-03 14:46:17,606) INFO - qlib.Rolling - [base.py:173] - {'model': {'class': 'XGBModel', 'module_path': 'qlib.contrib.model.xgboost', 'kwargs': {'eval_metric': 'rmse', 'colsample_bytree': 0.8879, 'eta': 0.0421, 'max_depth': 8, 'n_estimators': 647, 'subsample': 0.8789, 'nthread': 20}}, 'dataset': {'class': 'DatasetH', 'module_path': 'qlib.data.dataset', 'kwargs': {'handler': 'file:///home/zhonghao/code/qlib/exp_yaml/Alpha158.9a5cdb3f2b.pkl', 'segments': {'train': [datetime.date(2008, 1, 1), datetime.date(2014, 12, 31)], 'valid': [datetime.date(2015, 1, 1), datetime.date(2016, 12, 31)], 'test': [datetime.date(2017, 1, 1), datetime.date(2020, 8, 1)]}}}, 'record': [{'class': 'SignalRecord', 'module_path': 'qlib.workflow.record_temp', 'kwargs': {'model': '<MODEL>', 'dataset': '<DATASET>'}}, {'class': 'SigAnaRecord', 'module_path': 'qlib.workflow.record_temp', 'kwargs': {'ana_long_short': False, 'ann_scaler': 252}}, {'class': 'PortAnaRecord', 'module_path': 'qlib.workflow.record_temp', 'kwargs': {'config': {'strategy': {'class': 'TopkDropoutStrategy', 'module_path': 'qlib.contrib.strategy', 'kwargs': {'signal': '<PRED>', 'topk': 50, 'n_drop': 5}}, 'backtest': {'start_time': datetime.date(2017, 1, 1), 'end_time': datetime.date(2020, 8, 1), 'account': 100000000, 'benchmark': 'SH000300', 'exchange_kwargs': {'limit_threshold': 0.095, 'deal_price': 'close', 'open_cost': 0.0005, 'close_cost': 0.0015, 'min_cost': 5}}}}}]}
+[2428938:MainThread](2024-04-03 14:46:17,608) WARNING - qlib.data - [data.py:666] - load calendar error: freq=day, future=True; return current calendar!
+[2428938:MainThread](2024-04-03 14:46:17,608) WARNING - qlib.data - [data.py:669] - You can get future calendar by referring to the following document: https://github.com/microsoft/qlib/blob/main/scripts/data_collector/contrib/README.md
+[2428938:MainThread](2024-04-03 14:46:17,656) INFO - qlib.MetaDatasetDS - [dataset.py:355] - Example task for training meta model: {'model': {'class': 'XGBModel', 'module_path': 'qlib.contrib.model.xgboost', 'kwargs': {'eval_metric': 'rmse', 'colsample_bytree': 0.8879, 'eta': 0.0421, 'max_depth': 8, 'n_estimators': 647, 'subsample': 0.8789, 'nthread': 20}}, 'dataset': {'class': 'DatasetH', 'module_path': 'qlib.data.dataset', 'kwargs': {'handler': 'file:///home/zhonghao/code/qlib/exp_yaml/Alpha158.9a5cdb3f2b.pkl', 'segments': {'train': (Timestamp('2008-01-02 00:00:00'), Timestamp('2014-12-31 00:00:00')), 'valid': (Timestamp('2015-01-05 00:00:00'), Timestamp('2016-12-02 00:00:00')), 'test': (Timestamp('2017-01-03 00:00:00'), Timestamp('2017-02-06 00:00:00'))}}}, 'record': ['qlib.workflow.record_temp.SignalRecord']}
+creating meta tasks:   0%|          | 0/44 [00:00<?, ?it/s]creating meta tasks:   2%|▏         | 1/44 [00:00<00:17,  2.41it/s]creating meta tasks:   5%|▍         | 2/44 [00:00<00:17,  2.38it/s]creating meta tasks:   7%|▋         | 3/44 [00:01<00:17,  2.36it/s]creating meta tasks:   9%|▉         | 4/44 [00:01<00:16,  2.36it/s]creating meta tasks:  11%|█▏        | 5/44 [00:02<00:16,  2.35it/s]creating meta tasks:  14%|█▎        | 6/44 [00:02<00:16,  2.34it/s]creating meta tasks:  16%|█▌        | 7/44 [00:02<00:15,  2.33it/s]creating meta tasks:  18%|█▊        | 8/44 [00:03<00:16,  2.15it/s]creating meta tasks:  20%|██        | 9/44 [00:03<00:16,  2.18it/s]creating meta tasks:  23%|██▎       | 10/44 [00:04<00:15,  2.21it/s]creating meta tasks:  25%|██▌       | 11/44 [00:04<00:14,  2.23it/s]creating meta tasks:  27%|██▋       | 12/44 [00:05<00:14,  2.23it/s]creating meta tasks:  30%|██▉       | 13/44 [00:05<00:13,  2.23it/s]creating meta tasks:  32%|███▏      | 14/44 [00:06<00:13,  2.23it/s]creating meta tasks:  34%|███▍      | 15/44 [00:06<00:13,  2.23it/s]creating meta tasks:  36%|███▋      | 16/44 [00:07<00:12,  2.23it/s]creating meta tasks:  39%|███▊      | 17/44 [00:07<00:12,  2.23it/s]creating meta tasks:  41%|████      | 18/44 [00:07<00:11,  2.22it/s]creating meta tasks:  43%|████▎     | 19/44 [00:08<00:11,  2.22it/s]creating meta tasks:  45%|████▌     | 20/44 [00:08<00:10,  2.21it/s]creating meta tasks:  48%|████▊     | 21/44 [00:09<00:10,  2.21it/s]creating meta tasks:  50%|█████     | 22/44 [00:09<00:10,  2.20it/s]creating meta tasks:  52%|█████▏    | 23/44 [00:10<00:09,  2.19it/s]creating meta tasks:  55%|█████▍    | 24/44 [00:10<00:08,  2.23it/s]creating meta tasks:  57%|█████▋    | 25/44 [00:11<00:08,  2.31it/s]creating meta tasks:  59%|█████▉    | 26/44 [00:11<00:07,  2.37it/s]creating meta tasks:  61%|██████▏   | 27/44 [00:11<00:07,  2.40it/s]creating meta tasks:  64%|██████▎   | 28/44 [00:12<00:06,  2.42it/s]creating meta tasks:  66%|██████▌   | 29/44 [00:12<00:06,  2.43it/s]creating meta tasks:  68%|██████▊   | 30/44 [00:13<00:05,  2.42it/s]creating meta tasks:  70%|███████   | 31/44 [00:13<00:05,  2.43it/s]creating meta tasks:  73%|███████▎  | 32/44 [00:13<00:04,  2.44it/s]creating meta tasks:  75%|███████▌  | 33/44 [00:14<00:04,  2.44it/s]creating meta tasks:  77%|███████▋  | 34/44 [00:14<00:04,  2.43it/s]creating meta tasks:  80%|███████▉  | 35/44 [00:15<00:03,  2.43it/s]creating meta tasks:  82%|████████▏ | 36/44 [00:15<00:03,  2.42it/s]creating meta tasks:  84%|████████▍ | 37/44 [00:16<00:02,  2.41it/s]creating meta tasks:  86%|████████▋ | 38/44 [00:16<00:02,  2.40it/s]creating meta tasks:  89%|████████▊ | 39/44 [00:16<00:02,  2.37it/s]creating meta tasks:  91%|█████████ | 40/44 [00:17<00:01,  2.28it/s]creating meta tasks:  93%|█████████▎| 41/44 [00:17<00:01,  2.27it/s]creating meta tasks:  95%|█████████▌| 42/44 [00:18<00:00,  2.29it/s]creating meta tasks:  98%|█████████▊| 43/44 [00:18<00:00,  2.31it/s]creating meta tasks: 100%|██████████| 44/44 [00:19<00:00,  2.29it/s]creating meta tasks: 100%|██████████| 44/44 [00:19<00:00,  2.30it/s]
+[2428938:MainThread](2024-04-03 14:46:36,972) INFO - qlib.Rolling - [base.py:190] - Deleting previous Rolling results
+[2428938:MainThread](2024-04-03 14:46:36,978) INFO - qlib.Rolling - [base.py:196] - No previous rolling results
+train tasks:   0%|          | 0/44 [00:00<?, ?it/s][2428938:MainThread](2024-04-03 14:46:36,983) WARNING - qlib.workflow - [expm.py:230] - No valid experiment found. Create a new experiment with name rolling_models_20240403144617.
+[2428938:MainThread](2024-04-03 14:46:36,991) INFO - qlib.workflow - [exp.py:258] - Experiment 10 starts running ...
+[2428938:MainThread](2024-04-03 14:46:37,174) INFO - qlib.workflow - [recorder.py:341] - Recorder 7701a5c905df4371ba53abc0900209db starts running under Experiment 10 ...
+[2428938:MainThread](2024-04-03 14:46:39,980) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2008-01-02  SH600000      0.766362
+            SH600004      0.766362
+            SH600006      0.766362
+            SH600007      0.766362
+            SH600008      0.766362
+                            ...   
+2014-12-31  SZ300070      1.688575
+            SZ300124      1.688575
+            SZ300133      1.688575
+            SZ300146      1.688575
+            SZ300251      1.688575
+Length: 473841, dtype: float64
+[2428938:MainThread](2024-04-03 14:46:40,003) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2015-01-05  SH600000      1.688575
+            SH600008      1.688575
+            SH600009      1.688575
+            SH600010      1.688575
+            SH600011      1.688575
+                            ...   
+2016-12-02  SZ300144      0.694616
+            SZ300146      0.694616
+            SZ300168      0.694616
+            SZ300251      0.694616
+            SZ300315      0.694616
+Length: 119596, dtype: float64
+ModuleNotFoundError. CatBoostModel are skipped. (optional: maybe installing CatBoostModel can fix it.)
+[0]	train-rmse:0.99704	valid-rmse:0.99776
+[20]	train-rmse:0.98004	valid-rmse:0.99451
+[40]	train-rmse:0.96781	valid-rmse:0.99438
+[60]	train-rmse:0.95816	valid-rmse:0.99424
+[80]	train-rmse:0.94990	valid-rmse:0.99488
+[100]	train-rmse:0.94311	valid-rmse:0.99585
+[106]	train-rmse:0.94114	valid-rmse:0.99606
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [14:46:40] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[2428938:MainThread](2024-04-03 14:46:57,992) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 10
+[2428938:MainThread](2024-04-03 14:46:58,045) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:   2%|▏         | 1/44 [00:21<15:05, 21.07s/it][2428938:MainThread](2024-04-03 14:46:58,052) INFO - qlib.workflow - [exp.py:258] - Experiment 10 starts running ...
+[2428938:MainThread](2024-04-03 14:46:58,061) INFO - qlib.workflow - [recorder.py:341] - Recorder a898b1d04978489caa067e8059e0e9b1 starts running under Experiment 10 ...
+[2428938:MainThread](2024-04-03 14:47:00,643) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2008-01-02  SH600000      0.730198
+            SH600004      0.730198
+            SH600006      0.730198
+            SH600007      0.730198
+            SH600008      0.730198
+                            ...   
+2015-01-30  SZ300070      0.800931
+            SZ300124      0.800931
+            SZ300133      0.800931
+            SZ300146      0.800931
+            SZ300251      0.800931
+Length: 479433, dtype: float64
+[2428938:MainThread](2024-04-03 14:47:00,666) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2015-02-02  SH600000      0.800931
+            SH600008      0.800931
+            SH600009      0.800931
+            SH600010      0.800931
+            SH600011      0.800931
+                            ...   
+2016-12-30  SZ300144      0.925027
+            SZ300146      0.925027
+            SZ300168      0.925027
+            SZ300182      0.925027
+            SZ300251      0.925027
+Length: 119656, dtype: float64
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2017-01-03 SH600000   -0.064440
+           SH600008   -0.074981
+           SH600009    0.135519
+           SH600010   -0.156094
+           SH600015    0.164123
+[0]	train-rmse:0.99695	valid-rmse:0.99771
+[20]	train-rmse:0.97772	valid-rmse:0.99415
+[40]	train-rmse:0.96470	valid-rmse:0.99434
+[60]	train-rmse:0.95518	valid-rmse:0.99455
+[77]	train-rmse:0.94834	valid-rmse:0.99528
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [14:47:01] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[2428938:MainThread](2024-04-03 14:47:15,382) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 10
+[2428938:MainThread](2024-04-03 14:47:15,419) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:   5%|▍         | 2/44 [00:38<13:13, 18.90s/it][2428938:MainThread](2024-04-03 14:47:15,426) INFO - qlib.workflow - [exp.py:258] - Experiment 10 starts running ...
+[2428938:MainThread](2024-04-03 14:47:15,435) INFO - qlib.workflow - [recorder.py:341] - Recorder 3f3b4c70046b4c4aaf7812ceea232349 starts running under Experiment 10 ...
+[2428938:MainThread](2024-04-03 14:47:18,008) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2008-01-02  SH600000      1.317386
+            SH600004      1.317386
+            SH600006      1.317386
+            SH600007      1.317386
+            SH600008      1.317386
+                            ...   
+2015-03-06  SZ300070      0.603883
+            SZ300124      0.603883
+            SZ300133      0.603883
+            SZ300146      0.603883
+            SZ300251      0.603883
+Length: 484905, dtype: float64
+[2428938:MainThread](2024-04-03 14:47:18,032) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2015-03-09  SH600000      0.603883
+            SH600008      0.603883
+            SH600009      0.603883
+            SH600010      0.603883
+            SH600011      0.603883
+                            ...   
+2017-02-06  SZ300144      0.624648
+            SZ300146      0.624648
+            SZ300168      0.624648
+            SZ300182      0.624648
+            SZ300251      0.624648
+Length: 119809, dtype: float64
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2017-02-07 SH600000    0.118470
+           SH600008    0.040684
+           SH600009    0.226262
+           SH600010    0.033162
+           SH600015    0.358995
+[0]	train-rmse:0.99703	valid-rmse:0.99807
+[20]	train-rmse:0.97908	valid-rmse:0.99533
+[40]	train-rmse:0.96689	valid-rmse:0.99505
+[60]	train-rmse:0.95776	valid-rmse:0.99502
+[80]	train-rmse:0.95029	valid-rmse:0.99547
+[86]	train-rmse:0.94841	valid-rmse:0.99557
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [14:47:18] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[2428938:MainThread](2024-04-03 14:47:33,008) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 10
+[2428938:MainThread](2024-04-03 14:47:33,059) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:   7%|▋         | 3/44 [00:56<12:31, 18.32s/it][2428938:MainThread](2024-04-03 14:47:33,066) INFO - qlib.workflow - [exp.py:258] - Experiment 10 starts running ...
+[2428938:MainThread](2024-04-03 14:47:33,075) INFO - qlib.workflow - [recorder.py:341] - Recorder b3dea9580c91473492f5038b06c503d1 starts running under Experiment 10 ...
+[2428938:MainThread](2024-04-03 14:47:35,642) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2008-01-02  SH600000      1.200828
+            SH600004      1.200828
+            SH600006      1.200828
+            SH600007      1.200828
+            SH600008      1.200828
+                            ...   
+2015-04-03  SZ300070      1.231980
+            SZ300124      1.231980
+            SZ300133      1.231980
+            SZ300146      1.231980
+            SZ300251      1.231980
+Length: 490418, dtype: float64
+[2428938:MainThread](2024-04-03 14:47:35,664) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2015-04-07  SH600000      1.231980
+            SH600008      1.231980
+            SH600009      1.231980
+            SH600010      1.231980
+            SH600011      1.231980
+                            ...   
+2017-03-06  SZ300144      0.775518
+            SZ300146      0.775518
+            SZ300168      0.775518
+            SZ300182      0.775518
+            SZ300251      0.775518
+Length: 119924, dtype: float64
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2017-03-07 SH600000    0.075354
+           SH600008   -0.010054
+           SH600009    0.179571
+           SH600010    0.075001
+           SH600015    0.152807
+[0]	train-rmse:0.99698	valid-rmse:0.99796
+[20]	train-rmse:0.97858	valid-rmse:0.99619
+[40]	train-rmse:0.96555	valid-rmse:0.99720
+[60]	train-rmse:0.95662	valid-rmse:0.99744
+[74]	train-rmse:0.95094	valid-rmse:0.99785
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [14:47:36] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[2428938:MainThread](2024-04-03 14:47:49,233) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 10
+[2428938:MainThread](2024-04-03 14:47:49,271) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:   9%|▉         | 4/44 [01:12<11:39, 17.49s/it][2428938:MainThread](2024-04-03 14:47:49,278) INFO - qlib.workflow - [exp.py:258] - Experiment 10 starts running ...
+[2428938:MainThread](2024-04-03 14:47:49,288) INFO - qlib.workflow - [recorder.py:341] - Recorder e174344a443e44868a3bf564b0266fd7 starts running under Experiment 10 ...
+[2428938:MainThread](2024-04-03 14:47:51,806) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2008-01-02  SH600000      0.700069
+            SH600004      0.700069
+            SH600006      0.700069
+            SH600007      0.700069
+            SH600008      0.700069
+                            ...   
+2015-05-05  SZ300070      1.282635
+            SZ300124      1.282635
+            SZ300133      1.282635
+            SZ300146      1.282635
+            SZ300251      1.282635
+Length: 495869, dtype: float64
+[2428938:MainThread](2024-04-03 14:47:51,828) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2015-05-06  SH600000      1.282635
+            SH600008      1.282635
+            SH600009      1.282635
+            SH600010      1.282635
+            SH600011      1.282635
+                            ...   
+2017-04-05  SZ300133      1.010320
+            SZ300144      1.010320
+            SZ300146      1.010320
+            SZ300182      1.010320
+            SZ300251      1.010320
+Length: 120046, dtype: float64
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2017-04-06 SH600000   -0.044441
+           SH600008   -0.206508
+           SH600009    0.058395
+           SH600010    0.049223
+           SH600015   -0.016151
+[0]	train-rmse:0.99688	valid-rmse:0.99806
+[20]	train-rmse:0.97759	valid-rmse:0.99560
+[40]	train-rmse:0.96468	valid-rmse:0.99554
+[60]	train-rmse:0.95612	valid-rmse:0.99555
+[80]	train-rmse:0.94921	valid-rmse:0.99611
+[83]	train-rmse:0.94830	valid-rmse:0.99617
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [14:47:52] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[2428938:MainThread](2024-04-03 14:48:08,146) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 10
+[2428938:MainThread](2024-04-03 14:48:08,191) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  11%|█▏        | 5/44 [01:31<11:42, 18.01s/it][2428938:MainThread](2024-04-03 14:48:08,200) INFO - qlib.workflow - [exp.py:258] - Experiment 10 starts running ...
+[2428938:MainThread](2024-04-03 14:48:08,210) INFO - qlib.workflow - [recorder.py:341] - Recorder ca254890773f406393728858dd4730f3 starts running under Experiment 10 ...
+[2428938:MainThread](2024-04-03 14:48:10,731) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2008-01-02  SH600000      0.790953
+            SH600004      0.790953
+            SH600006      0.790953
+            SH600007      0.790953
+            SH600008      0.790953
+                            ...   
+2015-06-02  SZ300024      1.411943
+            SZ300058      1.411943
+            SZ300070      1.411943
+            SZ300124      1.411943
+            SZ300146      1.411943
+Length: 500977, dtype: float64
+[2428938:MainThread](2024-04-03 14:48:10,754) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2015-06-03  SH600000      1.411943
+            SH600008      1.411943
+            SH600009      1.411943
+            SH600010      1.411943
+            SH600011      1.411943
+                            ...   
+2017-05-04  SZ300133      1.902027
+            SZ300144      1.902027
+            SZ300146      1.902027
+            SZ300182      1.902027
+            SZ300251      1.902027
+Length: 120463, dtype: float64
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2017-05-05 SH600000    0.083873
+           SH600008   -0.111387
+           SH600009   -0.028029
+           SH600010   -0.156929
+           SH600015    0.028889
+[0]	train-rmse:0.99690	valid-rmse:0.99786
+[20]	train-rmse:0.97772	valid-rmse:0.99236
+[40]	train-rmse:0.96511	valid-rmse:0.99081
+[60]	train-rmse:0.95604	valid-rmse:0.99027
+[80]	train-rmse:0.94843	valid-rmse:0.99056
+[100]	train-rmse:0.94194	valid-rmse:0.99090
+[111]	train-rmse:0.93832	valid-rmse:0.99141
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [14:48:11] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[2428938:MainThread](2024-04-03 14:48:29,683) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 10
+[2428938:MainThread](2024-04-03 14:48:29,728) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  14%|█▎        | 6/44 [01:52<12:09, 19.21s/it][2428938:MainThread](2024-04-03 14:48:29,735) INFO - qlib.workflow - [exp.py:258] - Experiment 10 starts running ...
+[2428938:MainThread](2024-04-03 14:48:29,744) INFO - qlib.workflow - [recorder.py:341] - Recorder 9c01267b0895459b9da57f9d107f12a8 starts running under Experiment 10 ...
+[2428938:MainThread](2024-04-03 14:48:32,418) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2008-01-02  SH600000      1.585529
+            SH600004      1.585529
+            SH600006      1.585529
+            SH600007      1.585529
+            SH600008      1.585529
+                            ...   
+2015-07-10  SZ300024      0.969471
+            SZ300059      0.969471
+            SZ300104      0.969471
+            SZ300124      0.969471
+            SZ300146      0.969471
+Length: 505973, dtype: float64
+[2428938:MainThread](2024-04-03 14:48:32,441) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2015-07-13  SH600000      0.969471
+            SH600008      0.969471
+            SH600009      0.969471
+            SH600010      0.969471
+            SH600011      0.969471
+                            ...   
+2017-06-05  SZ300133      1.546591
+            SZ300144      1.546591
+            SZ300146      1.546591
+            SZ300182      1.546591
+            SZ300251      1.546591
+Length: 120838, dtype: float64
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2017-06-06 SH600000    0.060830
+           SH600008    0.131268
+           SH600009    0.177318
+           SH600010    0.142884
+           SH600015    0.614463
+[0]	train-rmse:0.99697	valid-rmse:0.99764
+[20]	train-rmse:0.97843	valid-rmse:0.99235
+[40]	train-rmse:0.96623	valid-rmse:0.99139
+[60]	train-rmse:0.95730	valid-rmse:0.99103
+[80]	train-rmse:0.95064	valid-rmse:0.99131
+[100]	train-rmse:0.94436	valid-rmse:0.99166
+[102]	train-rmse:0.94386	valid-rmse:0.99169
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [14:48:33] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[2428938:MainThread](2024-04-03 14:48:50,200) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 10
+[2428938:MainThread](2024-04-03 14:48:50,244) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  16%|█▌        | 7/44 [02:13<12:06, 19.63s/it][2428938:MainThread](2024-04-03 14:48:50,251) INFO - qlib.workflow - [exp.py:258] - Experiment 10 starts running ...
+[2428938:MainThread](2024-04-03 14:48:50,259) INFO - qlib.workflow - [recorder.py:341] - Recorder 9250338b723e47b4b3f26b8dd3547dfa starts running under Experiment 10 ...
+[2428938:MainThread](2024-04-03 14:48:52,843) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2008-01-02  SH600000      1.809962
+            SH600004      1.809962
+            SH600006      1.809962
+            SH600007      1.809962
+            SH600008      1.809962
+                            ...   
+2015-08-07  SZ300104      0.818156
+            SZ300124      0.818156
+            SZ300133      0.818156
+            SZ300146      0.818156
+            SZ300251      0.818156
+Length: 511112, dtype: float64
+[2428938:MainThread](2024-04-03 14:48:52,866) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2015-08-10  SH600000      0.818156
+            SH600008      0.818156
+            SH600009      0.818156
+            SH600010      0.818156
+            SH600011      0.818156
+                            ...   
+2017-07-03  SZ300133      0.984765
+            SZ300144      0.984765
+            SZ300168      0.984765
+            SZ300251      0.984765
+            SZ300315      0.984765
+Length: 121118, dtype: float64
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2017-07-04 SH600000    0.027639
+           SH600008   -0.221333
+           SH600009    0.170847
+           SH600010    0.162588
+           SH600015    0.059767
+[0]	train-rmse:0.99705	valid-rmse:0.99782
+[20]	train-rmse:0.98022	valid-rmse:0.99376
+[40]	train-rmse:0.96951	valid-rmse:0.99302
+[60]	train-rmse:0.96070	valid-rmse:0.99299
+[80]	train-rmse:0.95402	valid-rmse:0.99296
+[100]	train-rmse:0.94734	valid-rmse:0.99326
+[115]	train-rmse:0.94294	valid-rmse:0.99327
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [14:48:53] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[2428938:MainThread](2024-04-03 14:49:11,678) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 10
+[2428938:MainThread](2024-04-03 14:49:11,723) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  18%|█▊        | 8/44 [02:34<12:07, 20.22s/it][2428938:MainThread](2024-04-03 14:49:11,730) INFO - qlib.workflow - [exp.py:258] - Experiment 10 starts running ...
+[2428938:MainThread](2024-04-03 14:49:11,739) INFO - qlib.workflow - [recorder.py:341] - Recorder 608feb7bdb52495aaf474cd7935c4fb5 starts running under Experiment 10 ...
+[2428938:MainThread](2024-04-03 14:49:14,351) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2008-01-02  SH600000      1.521158
+            SH600004      1.521158
+            SH600006      1.521158
+            SH600007      1.521158
+            SH600008      1.521158
+                            ...   
+2015-09-08  SZ300104      0.793955
+            SZ300124      0.793955
+            SZ300133      0.793955
+            SZ300146      0.793955
+            SZ300251      0.793955
+Length: 516385, dtype: float64
+[2428938:MainThread](2024-04-03 14:49:14,375) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2015-09-09  SH600000      0.793955
+            SH600008      0.793955
+            SH600009      0.793955
+            SH600010      0.793955
+            SH600011      0.793955
+                            ...   
+2017-07-31  SZ300133      0.724508
+            SZ300144      0.724508
+            SZ300168      0.724508
+            SZ300251      0.724508
+            SZ300315      0.724508
+Length: 121385, dtype: float64
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2017-08-01 SH600000    0.123549
+           SH600008    0.023014
+           SH600009    0.149685
+           SH600010    0.068419
+           SH600015    0.193644
+[0]	train-rmse:0.99703	valid-rmse:0.99765
+[20]	train-rmse:0.97957	valid-rmse:0.99367
+[40]	train-rmse:0.96834	valid-rmse:0.99258
+[60]	train-rmse:0.96001	valid-rmse:0.99251
+[80]	train-rmse:0.95329	valid-rmse:0.99284
+[92]	train-rmse:0.94956	valid-rmse:0.99303
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [14:49:15] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[2428938:MainThread](2024-04-03 14:49:32,870) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 10
+[2428938:MainThread](2024-04-03 14:49:32,922) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  20%|██        | 9/44 [02:55<11:58, 20.53s/it][2428938:MainThread](2024-04-03 14:49:32,932) INFO - qlib.workflow - [exp.py:258] - Experiment 10 starts running ...
+[2428938:MainThread](2024-04-03 14:49:32,944) INFO - qlib.workflow - [recorder.py:341] - Recorder 0ddf9be72a874c00bc47857af4589b61 starts running under Experiment 10 ...
+[2428938:MainThread](2024-04-03 14:49:35,515) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2008-01-02  SH600000      1.257301
+            SH600004      1.257301
+            SH600006      1.257301
+            SH600007      1.257301
+            SH600008      1.257301
+                            ...   
+2015-10-13  SZ300104      1.252892
+            SZ300124      1.252892
+            SZ300133      1.252892
+            SZ300146      1.252892
+            SZ300251      1.252892
+Length: 521736, dtype: float64
+[2428938:MainThread](2024-04-03 14:49:35,539) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2015-10-14  SH600000      1.252892
+            SH600008      1.252892
+            SH600009      1.252892
+            SH600010      1.252892
+            SH600011      1.252892
+                            ...   
+2017-08-28  SZ300133      0.711989
+            SZ300144      0.711989
+            SZ300168      0.711989
+            SZ300251      0.711989
+            SZ300315      0.711989
+Length: 121583, dtype: float64
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2017-08-29 SH600000    0.129435
+           SH600008   -0.193768
+           SH600009    0.158160
+           SH600010    0.005847
+           SH600015    0.071491
+[0]	train-rmse:0.99693	valid-rmse:0.99773
+[20]	train-rmse:0.97917	valid-rmse:0.99309
+[40]	train-rmse:0.96737	valid-rmse:0.99241
+[60]	train-rmse:0.95882	valid-rmse:0.99221
+[80]	train-rmse:0.95162	valid-rmse:0.99255
+[100]	train-rmse:0.94555	valid-rmse:0.99291
+[110]	train-rmse:0.94267	valid-rmse:0.99302
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [14:49:36] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[2428938:MainThread](2024-04-03 14:49:56,418) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 10
+[2428938:MainThread](2024-04-03 14:49:56,463) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  23%|██▎       | 10/44 [03:19<12:09, 21.46s/it][2428938:MainThread](2024-04-03 14:49:56,470) INFO - qlib.workflow - [exp.py:258] - Experiment 10 starts running ...
+[2428938:MainThread](2024-04-03 14:49:56,478) INFO - qlib.workflow - [recorder.py:341] - Recorder 7682a7456fbc46acb991bc012ea62797 starts running under Experiment 10 ...
+[2428938:MainThread](2024-04-03 14:49:59,068) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2008-01-02  SH600000      1.166737
+            SH600004      1.166737
+            SH600006      1.166737
+            SH600007      1.166737
+            SH600008      1.166737
+                            ...   
+2015-11-19  SZ300059      1.173274
+            SZ300124      1.173274
+            SZ300133      1.173274
+            SZ300146      1.173274
+            SZ300251      1.173274
+Length: 527236, dtype: float64
+[2428938:MainThread](2024-04-03 14:49:59,093) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2015-11-20  SH600000      1.173274
+            SH600008      1.173274
+            SH600009      1.173274
+            SH600010      1.173274
+            SH600011      1.173274
+                            ...   
+2017-09-25  SZ300133      1.160791
+            SZ300144      1.160791
+            SZ300168      1.160791
+            SZ300251      1.160791
+            SZ300315      1.160791
+Length: 121671, dtype: float64
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2017-09-26 SH600000    0.072239
+           SH600008   -0.269744
+           SH600009   -0.042867
+           SH600010   -0.204800
+           SH600015   -0.121965
+[0]	train-rmse:0.99714	valid-rmse:0.99778
+[20]	train-rmse:0.98107	valid-rmse:0.99359
+[40]	train-rmse:0.96990	valid-rmse:0.99263
+[60]	train-rmse:0.96168	valid-rmse:0.99232
+[80]	train-rmse:0.95512	valid-rmse:0.99221
+[100]	train-rmse:0.94870	valid-rmse:0.99251
+[120]	train-rmse:0.94275	valid-rmse:0.99283
+[132]	train-rmse:0.93978	valid-rmse:0.99304
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [14:49:59] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[2428938:MainThread](2024-04-03 14:50:21,164) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 10
+[2428938:MainThread](2024-04-03 14:50:21,202) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  25%|██▌       | 11/44 [03:44<12:21, 22.46s/it][2428938:MainThread](2024-04-03 14:50:21,209) INFO - qlib.workflow - [exp.py:258] - Experiment 10 starts running ...
+[2428938:MainThread](2024-04-03 14:50:21,218) INFO - qlib.workflow - [recorder.py:341] - Recorder f428e366fc2d438583c794fa30b91af0 starts running under Experiment 10 ...
+[2428938:MainThread](2024-04-03 14:50:23,704) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2008-01-02  SH600000      0.972511
+            SH600004      0.972511
+            SH600006      0.972511
+            SH600007      0.972511
+            SH600008      0.972511
+                            ...   
+2015-12-17  SZ300133      1.198120
+            SZ300144      1.198120
+            SZ300146      1.198120
+            SZ300251      1.198120
+            SZ300315      1.198120
+Length: 532693, dtype: float64
+[2428938:MainThread](2024-04-03 14:50:23,728) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2015-12-18  SH600000      1.198120
+            SH600008      1.198120
+            SH600009      1.198120
+            SH600010      1.198120
+            SH600011      1.198120
+                            ...   
+2017-10-30  SZ300133      1.349805
+            SZ300144      1.349805
+            SZ300168      1.349805
+            SZ300251      1.349805
+            SZ300315      1.349805
+Length: 121866, dtype: float64
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2017-10-31 SH600000    0.099906
+           SH600008   -0.300497
+           SH600009    0.132477
+           SH600010    0.009136
+           SH600015    0.003203
+[0]	train-rmse:0.99721	valid-rmse:0.99784
+[20]	train-rmse:0.98243	valid-rmse:0.99437
+[40]	train-rmse:0.97193	valid-rmse:0.99355
+[60]	train-rmse:0.96368	valid-rmse:0.99356
+[80]	train-rmse:0.95692	valid-rmse:0.99351
+[93]	train-rmse:0.95319	valid-rmse:0.99366
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [14:50:24] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[2428938:MainThread](2024-04-03 14:50:41,521) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 10
+[2428938:MainThread](2024-04-03 14:50:41,561) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  27%|██▋       | 12/44 [04:04<11:38, 21.82s/it][2428938:MainThread](2024-04-03 14:50:41,568) INFO - qlib.workflow - [exp.py:258] - Experiment 10 starts running ...
+[2428938:MainThread](2024-04-03 14:50:41,577) INFO - qlib.workflow - [recorder.py:341] - Recorder d8314c10f3d94ff6ac76d1f481a4741b starts running under Experiment 10 ...
+[2428938:MainThread](2024-04-03 14:50:44,135) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2008-01-02  SH600000      1.118192
+            SH600004      1.118192
+            SH600006      1.118192
+            SH600007      1.118192
+            SH600008      1.118192
+                            ...   
+2016-01-15  SZ300133      0.745594
+            SZ300144      0.745594
+            SZ300146      0.745594
+            SZ300251      0.745594
+            SZ300315      0.745594
+Length: 538190, dtype: float64
+[2428938:MainThread](2024-04-03 14:50:44,160) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2016-01-18  SH600000      0.745594
+            SH600008      0.745594
+            SH600009      0.745594
+            SH600010      0.745594
+            SH600011      0.745594
+                            ...   
+2017-11-27  SZ300133      1.440326
+            SZ300144      1.440326
+            SZ300168      1.440326
+            SZ300251      1.440326
+            SZ300315      1.440326
+Length: 122020, dtype: float64
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2017-11-28 SH600000    0.236539
+           SH600008    0.016353
+           SH600009   -0.049772
+           SH600010   -0.041597
+           SH600015    0.315112
+[0]	train-rmse:0.99709	valid-rmse:0.99777
+[20]	train-rmse:0.98039	valid-rmse:0.99324
+[40]	train-rmse:0.96888	valid-rmse:0.99218
+[60]	train-rmse:0.96069	valid-rmse:0.99198
+[80]	train-rmse:0.95474	valid-rmse:0.99195
+[100]	train-rmse:0.94922	valid-rmse:0.99205
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [14:50:45] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[2428938:MainThread](2024-04-03 14:51:03,350) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 10
+[2428938:MainThread](2024-04-03 14:51:03,389) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  30%|██▉       | 13/44 [04:26<11:16, 21.82s/it][2428938:MainThread](2024-04-03 14:51:03,396) INFO - qlib.workflow - [exp.py:258] - Experiment 10 starts running ...
+[2428938:MainThread](2024-04-03 14:51:03,405) INFO - qlib.workflow - [recorder.py:341] - Recorder 50c4cff5d0ff4fa88d398fb23cc4834c starts running under Experiment 10 ...
+[2428938:MainThread](2024-04-03 14:51:06,001) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2008-01-02  SH600000      1.395842
+            SH600004      1.395842
+            SH600006      1.395842
+            SH600007      1.395842
+            SH600008      1.395842
+                            ...   
+2016-03-16  SZ300124      0.854756
+            SZ300133      0.854756
+            SZ300144      0.854756
+            SZ300146      0.854756
+            SZ300315      0.854756
+Length: 543641, dtype: float64
+[2428938:MainThread](2024-04-03 14:51:06,028) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2016-03-17  SH600000      0.854756
+            SH600008      0.854756
+            SH600009      0.854756
+            SH600010      0.854756
+            SH600011      0.854756
+                            ...   
+2017-12-25  SZ300124      1.280845
+            SZ300136      1.280845
+            SZ300144      1.280845
+            SZ300251      1.280845
+            SZ300315      1.280845
+Length: 122219, dtype: float64
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2017-12-26 SH600000    0.128544
+           SH600008   -0.109175
+           SH600009    0.170749
+           SH600010   -0.054937
+           SH600011    0.126910
+[0]	train-rmse:0.99700	valid-rmse:0.99765
+[20]	train-rmse:0.97969	valid-rmse:0.99218
+[40]	train-rmse:0.96825	valid-rmse:0.99079
+[60]	train-rmse:0.95976	valid-rmse:0.99055
+[80]	train-rmse:0.95335	valid-rmse:0.99037
+[100]	train-rmse:0.94743	valid-rmse:0.99053
+[120]	train-rmse:0.94142	valid-rmse:0.99077
+[121]	train-rmse:0.94096	valid-rmse:0.99081
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [14:51:06] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[2428938:MainThread](2024-04-03 14:51:27,353) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 10
+[2428938:MainThread](2024-04-03 14:51:27,419) INFO - qlib.timer - [log.py:127] - Time cost: 0.001s | waiting `async_log` Done
+train tasks:  32%|███▏      | 14/44 [04:50<11:14, 22.49s/it][2428938:MainThread](2024-04-03 14:51:27,430) INFO - qlib.workflow - [exp.py:258] - Experiment 10 starts running ...
+[2428938:MainThread](2024-04-03 14:51:27,441) INFO - qlib.workflow - [recorder.py:341] - Recorder 6cfa6834fca045a68ad37534431909fe starts running under Experiment 10 ...
+[2428938:MainThread](2024-04-03 14:51:30,034) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2008-01-02  SH600000      0.979741
+            SH600004      0.979741
+            SH600006      0.979741
+            SH600007      0.979741
+            SH600008      0.979741
+                            ...   
+2016-04-14  SZ300124      1.325320
+            SZ300133      1.325320
+            SZ300144      1.325320
+            SZ300146      1.325320
+            SZ300315      1.325320
+Length: 549129, dtype: float64
+[2428938:MainThread](2024-04-03 14:51:30,058) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2016-04-15  SH600000      1.325320
+            SH600008      1.325320
+            SH600009      1.325320
+            SH600010      1.325320
+            SH600011      1.325320
+                            ...   
+2018-01-23  SZ300124      0.974148
+            SZ300136      0.974148
+            SZ300144      0.974148
+            SZ300251      0.974148
+            SZ300315      0.974148
+Length: 122399, dtype: float64
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2018-01-24 SH600000   -0.028710
+           SH600008   -0.223127
+           SH600009   -0.021976
+           SH600010   -0.018492
+           SH600011    0.133883
+[0]	train-rmse:0.99710	valid-rmse:0.99770
+[20]	train-rmse:0.98055	valid-rmse:0.99170
+[40]	train-rmse:0.96981	valid-rmse:0.99019
+[60]	train-rmse:0.96125	valid-rmse:0.98964
+[80]	train-rmse:0.95500	valid-rmse:0.98947
+[100]	train-rmse:0.94955	valid-rmse:0.98976
+[120]	train-rmse:0.94362	valid-rmse:0.98987
+[123]	train-rmse:0.94260	valid-rmse:0.98988
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [14:51:30] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[2428938:MainThread](2024-04-03 14:51:53,196) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 10
+[2428938:MainThread](2024-04-03 14:51:53,240) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  34%|███▍      | 15/44 [05:16<11:21, 23.49s/it][2428938:MainThread](2024-04-03 14:51:53,247) INFO - qlib.workflow - [exp.py:258] - Experiment 10 starts running ...
+[2428938:MainThread](2024-04-03 14:51:53,255) INFO - qlib.workflow - [recorder.py:341] - Recorder bffe58a6f7fc4ae6898e356a7233a84a starts running under Experiment 10 ...
+[2428938:MainThread](2024-04-03 14:51:55,815) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2008-01-02  SH600000      0.870676
+            SH600004      0.870676
+            SH600006      0.870676
+            SH600007      0.870676
+            SH600008      0.870676
+                            ...   
+2016-05-13  SZ300124      1.114858
+            SZ300133      1.114858
+            SZ300144      1.114858
+            SZ300146      1.114858
+            SZ300315      1.114858
+Length: 554686, dtype: float64
+[2428938:MainThread](2024-04-03 14:51:55,839) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2016-05-16  SH600000      1.114858
+            SH600008      1.114858
+            SH600009      1.114858
+            SH600010      1.114858
+            SH600011      1.114858
+                            ...   
+2018-02-27  SZ300124      0.667595
+            SZ300136      0.667595
+            SZ300144      0.667595
+            SZ300251      0.667595
+            SZ300315      0.667595
+Length: 122501, dtype: float64
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2018-02-28 SH600000   -0.231370
+           SH600008    0.147886
+           SH600009    0.083156
+           SH600010   -0.058863
+           SH600011    0.141520
+[0]	train-rmse:0.99719	valid-rmse:0.99776
+[20]	train-rmse:0.98245	valid-rmse:0.99347
+[40]	train-rmse:0.97213	valid-rmse:0.99277
+[60]	train-rmse:0.96492	valid-rmse:0.99278
+[80]	train-rmse:0.95877	valid-rmse:0.99281
+[100]	train-rmse:0.95266	valid-rmse:0.99320
+[107]	train-rmse:0.95055	valid-rmse:0.99332
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [14:51:56] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[2428938:MainThread](2024-04-03 14:52:16,673) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 10
+[2428938:MainThread](2024-04-03 14:52:16,719) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  36%|███▋      | 16/44 [05:39<10:57, 23.49s/it][2428938:MainThread](2024-04-03 14:52:16,726) INFO - qlib.workflow - [exp.py:258] - Experiment 10 starts running ...
+[2428938:MainThread](2024-04-03 14:52:16,735) INFO - qlib.workflow - [recorder.py:341] - Recorder e9aed7dd1b5e4f70bd58ea76f30d76bc starts running under Experiment 10 ...
+[2428938:MainThread](2024-04-03 14:52:19,335) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2008-01-02  SH600000      1.074198
+            SH600004      1.074198
+            SH600006      1.074198
+            SH600007      1.074198
+            SH600008      1.074198
+                            ...   
+2016-06-14  SZ300133      1.107998
+            SZ300144      1.107998
+            SZ300146      1.107998
+            SZ300251      1.107998
+            SZ300315      1.107998
+Length: 560308, dtype: float64
+[2428938:MainThread](2024-04-03 14:52:19,360) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2016-06-15  SH600000      1.107998
+            SH600008      1.107998
+            SH600009      1.107998
+            SH600010      1.107998
+            SH600011      1.107998
+                            ...   
+2018-03-27  SZ300124      1.031755
+            SZ300136      1.031755
+            SZ300144      1.031755
+            SZ300251      1.031755
+            SZ300315      1.031755
+Length: 122536, dtype: float64
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2018-03-28 SH600000   -0.110999
+           SH600008   -0.130953
+           SH600009    0.147653
+           SH600010    0.154043
+           SH600011    0.001343
+[0]	train-rmse:0.99732	valid-rmse:0.99798
+[20]	train-rmse:0.98253	valid-rmse:0.99579
+[40]	train-rmse:0.97171	valid-rmse:0.99519
+[60]	train-rmse:0.96406	valid-rmse:0.99499
+[80]	train-rmse:0.95698	valid-rmse:0.99522
+[100]	train-rmse:0.95065	valid-rmse:0.99562
+[106]	train-rmse:0.94894	valid-rmse:0.99564
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [14:52:20] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[2428938:MainThread](2024-04-03 14:52:39,091) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 10
+[2428938:MainThread](2024-04-03 14:52:39,139) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  39%|███▊      | 17/44 [06:02<10:25, 23.17s/it][2428938:MainThread](2024-04-03 14:52:39,146) INFO - qlib.workflow - [exp.py:258] - Experiment 10 starts running ...
+[2428938:MainThread](2024-04-03 14:52:39,157) INFO - qlib.workflow - [recorder.py:341] - Recorder 45c44b570749425c9673b0fbffa746f6 starts running under Experiment 10 ...
+[2428938:MainThread](2024-04-03 14:52:41,935) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2008-01-02  SH600000      1.186565
+            SH600004      1.186565
+            SH600006      1.186565
+            SH600007      1.186565
+            SH600008      1.186565
+                            ...   
+2016-07-12  SZ300144      1.121042
+            SZ300146      1.121042
+            SZ300168      1.121042
+            SZ300251      1.121042
+            SZ300315      1.121042
+Length: 566042, dtype: float64
+[2428938:MainThread](2024-04-03 14:52:41,962) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2016-07-13  SH600000      1.121042
+            SH600008      1.121042
+            SH600009      1.121042
+            SH600010      1.121042
+            SH600011      1.121042
+                            ...   
+2018-04-26  SZ300124      0.553938
+            SZ300136      0.553938
+            SZ300144      0.553938
+            SZ300251      0.553938
+            SZ300315      0.553938
+Length: 122456, dtype: float64
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2018-04-27 SH600000   -0.043054
+           SH600008   -0.048809
+           SH600009    0.078481
+           SH600010    0.011639
+           SH600011   -0.101265
+[0]	train-rmse:0.99716	valid-rmse:0.99804
+[20]	train-rmse:0.98201	valid-rmse:0.99556
+[40]	train-rmse:0.97114	valid-rmse:0.99478
+[60]	train-rmse:0.96300	valid-rmse:0.99472
+[80]	train-rmse:0.95582	valid-rmse:0.99495
+[100]	train-rmse:0.94965	valid-rmse:0.99532
+[103]	train-rmse:0.94859	valid-rmse:0.99532
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [14:52:42] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[2428938:MainThread](2024-04-03 14:53:00,880) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 10
+[2428938:MainThread](2024-04-03 14:53:00,925) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  41%|████      | 18/44 [06:23<09:51, 22.75s/it][2428938:MainThread](2024-04-03 14:53:00,932) INFO - qlib.workflow - [exp.py:258] - Experiment 10 starts running ...
+[2428938:MainThread](2024-04-03 14:53:00,941) INFO - qlib.workflow - [recorder.py:341] - Recorder 42f1f3d83a7e4d8caae296136119de78 starts running under Experiment 10 ...
+[2428938:MainThread](2024-04-03 14:53:03,571) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2008-01-02  SH600000      0.976866
+            SH600004      0.976866
+            SH600006      0.976866
+            SH600007      0.976866
+            SH600008      0.976866
+                            ...   
+2016-08-09  SZ300144      0.783795
+            SZ300146      0.783795
+            SZ300168      0.783795
+            SZ300251      0.783795
+            SZ300315      0.783795
+Length: 571793, dtype: float64
+[2428938:MainThread](2024-04-03 14:53:03,596) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2016-08-10  SH600000      0.783795
+            SH600008      0.783795
+            SH600009      0.783795
+            SH600010      0.783795
+            SH600011      0.783795
+                            ...   
+2018-05-28  SZ300124      1.100137
+            SZ300136      1.100137
+            SZ300144      1.100137
+            SZ300251      1.100137
+            SZ300315      1.100137
+Length: 122294, dtype: float64
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2018-05-29 SH600000    0.047981
+           SH600008    0.010892
+           SH600009   -0.005698
+           SH600010    0.110140
+           SH600011   -0.185961
+[0]	train-rmse:0.99712	valid-rmse:0.99778
+[20]	train-rmse:0.98114	valid-rmse:0.99229
+[40]	train-rmse:0.97055	valid-rmse:0.99050
+[60]	train-rmse:0.96271	valid-rmse:0.98984
+[80]	train-rmse:0.95610	valid-rmse:0.98938
+[100]	train-rmse:0.95021	valid-rmse:0.98939
+[120]	train-rmse:0.94470	valid-rmse:0.98938
+[140]	train-rmse:0.93929	valid-rmse:0.98958
+[160]	train-rmse:0.93417	valid-rmse:0.98979
+[166]	train-rmse:0.93278	valid-rmse:0.98980
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [14:53:04] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[2428938:MainThread](2024-04-03 14:53:33,074) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 10
+[2428938:MainThread](2024-04-03 14:53:33,118) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  43%|████▎     | 19/44 [06:56<10:39, 25.59s/it][2428938:MainThread](2024-04-03 14:53:33,125) INFO - qlib.workflow - [exp.py:258] - Experiment 10 starts running ...
+[2428938:MainThread](2024-04-03 14:53:33,134) INFO - qlib.workflow - [recorder.py:341] - Recorder f6cd41bd533947d9a4236cfec9e4bc68 starts running under Experiment 10 ...
+[2428938:MainThread](2024-04-03 14:53:35,745) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2008-01-02  SH600000      0.699677
+            SH600004      0.699677
+            SH600006      0.699677
+            SH600007      0.699677
+            SH600008      0.699677
+                            ...   
+2016-09-06  SZ300144      0.531382
+            SZ300146      0.531382
+            SZ300168      0.531382
+            SZ300251      0.531382
+            SZ300315      0.531382
+Length: 577490, dtype: float64
+[2428938:MainThread](2024-04-03 14:53:35,771) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2016-09-07  SH600000      0.531382
+            SH600008      0.531382
+            SH600009      0.531382
+            SH600010      0.531382
+            SH600011      0.531382
+                            ...   
+2018-06-26  SZ300136      0.973410
+            SZ300144      0.973410
+            SZ300251      0.973410
+            SZ300408      0.973410
+            SZ300433      0.973410
+Length: 122231, dtype: float64
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2018-06-27 SH600000   -0.013189
+           SH600008   -0.250559
+           SH600009    0.098017
+           SH600010   -0.074281
+           SH600011   -0.115871
+[0]	train-rmse:0.99697	valid-rmse:0.99737
+[20]	train-rmse:0.97872	valid-rmse:0.98853
+[40]	train-rmse:0.96621	valid-rmse:0.98527
+[60]	train-rmse:0.95762	valid-rmse:0.98363
+[80]	train-rmse:0.95079	valid-rmse:0.98291
+[100]	train-rmse:0.94531	valid-rmse:0.98284
+[120]	train-rmse:0.93953	valid-rmse:0.98270
+[140]	train-rmse:0.93395	valid-rmse:0.98269
+[160]	train-rmse:0.92887	valid-rmse:0.98271
+[180]	train-rmse:0.92327	valid-rmse:0.98282
+[183]	train-rmse:0.92282	valid-rmse:0.98281
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [14:53:36] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[2428938:MainThread](2024-04-03 14:54:08,430) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 10
+[2428938:MainThread](2024-04-03 14:54:08,467) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  45%|████▌     | 20/44 [07:31<11:24, 28.52s/it][2428938:MainThread](2024-04-03 14:54:08,474) INFO - qlib.workflow - [exp.py:258] - Experiment 10 starts running ...
+[2428938:MainThread](2024-04-03 14:54:08,483) INFO - qlib.workflow - [recorder.py:341] - Recorder 12485c8896934850b075f018a9f9611f starts running under Experiment 10 ...
+[2428938:MainThread](2024-04-03 14:54:11,103) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2008-01-02  SH600000      1.280519
+            SH600004      1.280519
+            SH600006      1.280519
+            SH600007      1.280519
+            SH600008      1.280519
+                            ...   
+2016-10-13  SZ300144      0.578918
+            SZ300146      0.578918
+            SZ300168      0.578918
+            SZ300251      0.578918
+            SZ300315      0.578918
+Length: 583176, dtype: float64
+[2428938:MainThread](2024-04-03 14:54:11,128) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2016-10-14  SH600000      0.578918
+            SH600008      0.578918
+            SH600009      0.578918
+            SH600010      0.578918
+            SH600011      0.578918
+                            ...   
+2018-07-24  SZ300136      0.528598
+            SZ300144      0.528598
+            SZ300251      0.528598
+            SZ300408      0.528598
+            SZ300433      0.528598
+Length: 122271, dtype: float64
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2018-07-25 SH600000    0.193786
+           SH600008   -0.112025
+           SH600009    0.237841
+           SH600010   -0.284576
+           SH600011    0.112773
+[0]	train-rmse:0.99700	valid-rmse:0.99758
+[20]	train-rmse:0.97892	valid-rmse:0.99018
+[40]	train-rmse:0.96735	valid-rmse:0.98721
+[60]	train-rmse:0.95841	valid-rmse:0.98591
+[80]	train-rmse:0.95187	valid-rmse:0.98534
+[100]	train-rmse:0.94532	valid-rmse:0.98503
+[120]	train-rmse:0.93979	valid-rmse:0.98484
+[140]	train-rmse:0.93418	valid-rmse:0.98489
+[160]	train-rmse:0.92873	valid-rmse:0.98489
+[170]	train-rmse:0.92539	valid-rmse:0.98492
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [14:54:12] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[2428938:MainThread](2024-04-03 14:54:38,997) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 10
+[2428938:MainThread](2024-04-03 14:54:39,049) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  48%|████▊     | 21/44 [08:02<11:10, 29.14s/it][2428938:MainThread](2024-04-03 14:54:39,056) INFO - qlib.workflow - [exp.py:258] - Experiment 10 starts running ...
+[2428938:MainThread](2024-04-03 14:54:39,065) INFO - qlib.workflow - [recorder.py:341] - Recorder 9b42f3054bb04b40915de2df5696ace2 starts running under Experiment 10 ...
+[2428938:MainThread](2024-04-03 14:54:41,648) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2008-01-02  SH600000      1.858295
+            SH600004      1.858295
+            SH600006      1.858295
+            SH600007      1.858295
+            SH600008      1.858295
+                            ...   
+2016-11-10  SZ300144      0.752259
+            SZ300146      0.752259
+            SZ300168      0.752259
+            SZ300251      0.752259
+            SZ300315      0.752259
+Length: 588913, dtype: float64
+[2428938:MainThread](2024-04-03 14:54:41,674) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2016-11-11  SH600000      0.752259
+            SH600008      0.752259
+            SH600009      0.752259
+            SH600010      0.752259
+            SH600011      0.752259
+                            ...   
+2018-08-21  SZ300136      0.803303
+            SZ300144      0.803303
+            SZ300251      0.803303
+            SZ300408      0.803303
+            SZ300433      0.803303
+Length: 122322, dtype: float64
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2018-08-22 SH600000    0.111517
+           SH600008   -0.272096
+           SH600009    0.333556
+           SH600010   -0.116172
+           SH600011    0.014226
+[0]	train-rmse:0.99712	valid-rmse:0.99765
+[20]	train-rmse:0.98081	valid-rmse:0.99111
+[40]	train-rmse:0.96961	valid-rmse:0.98873
+[60]	train-rmse:0.96129	valid-rmse:0.98778
+[80]	train-rmse:0.95487	valid-rmse:0.98747
+[100]	train-rmse:0.94791	valid-rmse:0.98748
+[120]	train-rmse:0.94177	valid-rmse:0.98768
+[140]	train-rmse:0.93651	valid-rmse:0.98765
+[142]	train-rmse:0.93603	valid-rmse:0.98764
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [14:54:42] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[2428938:MainThread](2024-04-03 14:55:08,486) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 10
+[2428938:MainThread](2024-04-03 14:55:08,540) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  50%|█████     | 22/44 [08:31<10:43, 29.24s/it][2428938:MainThread](2024-04-03 14:55:08,550) INFO - qlib.workflow - [exp.py:258] - Experiment 10 starts running ...
+[2428938:MainThread](2024-04-03 14:55:08,563) INFO - qlib.workflow - [recorder.py:341] - Recorder 59259ca450c44c7192dbc8d26ee576e3 starts running under Experiment 10 ...
+[2428938:MainThread](2024-04-03 14:55:11,249) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2008-01-02  SH600000      1.496139
+            SH600004      1.496139
+            SH600006      1.496139
+            SH600007      1.496139
+            SH600008      1.496139
+                            ...   
+2016-12-08  SZ300144      1.774223
+            SZ300146      1.774223
+            SZ300168      1.774223
+            SZ300251      1.774223
+            SZ300315      1.774223
+Length: 594565, dtype: float64
+[2428938:MainThread](2024-04-03 14:55:11,276) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2016-12-09  SH600000      1.774223
+            SH600008      1.774223
+            SH600009      1.774223
+            SH600010      1.774223
+            SH600011      1.774223
+                            ...   
+2018-09-18  SZ300136      0.782772
+            SZ300144      0.782772
+            SZ300251      0.782772
+            SZ300408      0.782772
+            SZ300433      0.782772
+Length: 122433, dtype: float64
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2018-09-19 SH600000    0.086229
+           SH600008   -0.132471
+           SH600009   -0.053372
+           SH600010   -0.123899
+           SH600011    0.073815
+[0]	train-rmse:0.99724	valid-rmse:0.99767
+[20]	train-rmse:0.98160	valid-rmse:0.99153
+[40]	train-rmse:0.97121	valid-rmse:0.98907
+[60]	train-rmse:0.96373	valid-rmse:0.98792
+[80]	train-rmse:0.95734	valid-rmse:0.98741
+[100]	train-rmse:0.95068	valid-rmse:0.98710
+[120]	train-rmse:0.94474	valid-rmse:0.98693
+[140]	train-rmse:0.93947	valid-rmse:0.98718
+[160]	train-rmse:0.93422	valid-rmse:0.98726
+[167]	train-rmse:0.93227	valid-rmse:0.98735
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [14:55:12] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[2428938:MainThread](2024-04-03 14:55:44,132) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 10
+[2428938:MainThread](2024-04-03 14:55:44,185) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  52%|█████▏    | 23/44 [09:07<10:54, 31.17s/it][2428938:MainThread](2024-04-03 14:55:44,195) INFO - qlib.workflow - [exp.py:258] - Experiment 10 starts running ...
+[2428938:MainThread](2024-04-03 14:55:44,205) INFO - qlib.workflow - [recorder.py:341] - Recorder b3d9d05dad76442b9ca029cfff57636f starts running under Experiment 10 ...
+[2428938:MainThread](2024-04-03 14:55:46,824) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2008-01-02  SH600000      0.752382
+            SH600004      0.752382
+            SH600006      0.752382
+            SH600007      0.752382
+            SH600008      0.752382
+                            ...   
+2017-01-06  SZ300144      1.165174
+            SZ300146      1.165174
+            SZ300168      1.165174
+            SZ300182      1.165174
+            SZ300251      1.165174
+Length: 600218, dtype: float64
+[2428938:MainThread](2024-04-03 14:55:46,850) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2017-01-09  SH600000      1.165174
+            SH600008      1.165174
+            SH600009      1.165174
+            SH600010      1.165174
+            SH600015      1.165174
+                            ...   
+2018-10-24  SZ300136      0.814825
+            SZ300144      0.814825
+            SZ300251      0.814825
+            SZ300408      0.814825
+            SZ300433      0.814825
+Length: 122528, dtype: float64
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2018-10-25 SH600000    0.120169
+           SH600008    0.038609
+           SH600009    0.053162
+           SH600010   -0.201447
+           SH600011    0.012910
+[0]	train-rmse:0.99721	valid-rmse:0.99783
+[20]	train-rmse:0.98235	valid-rmse:0.99317
+[40]	train-rmse:0.97226	valid-rmse:0.99120
+[60]	train-rmse:0.96440	valid-rmse:0.99007
+[80]	train-rmse:0.95770	valid-rmse:0.98970
+[100]	train-rmse:0.95197	valid-rmse:0.98968
+[120]	train-rmse:0.94596	valid-rmse:0.98973
+[140]	train-rmse:0.94056	valid-rmse:0.98998
+[141]	train-rmse:0.94032	valid-rmse:0.98998
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [14:55:47] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[2428938:MainThread](2024-04-03 14:56:11,876) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 10
+[2428938:MainThread](2024-04-03 14:56:11,927) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  55%|█████▍    | 24/44 [09:34<10:02, 30.14s/it][2428938:MainThread](2024-04-03 14:56:11,937) INFO - qlib.workflow - [exp.py:258] - Experiment 10 starts running ...
+[2428938:MainThread](2024-04-03 14:56:11,949) INFO - qlib.workflow - [recorder.py:341] - Recorder b5a2568c3ed8458ba33389531a8c88f0 starts running under Experiment 10 ...
+[2428938:MainThread](2024-04-03 14:56:14,522) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2008-01-02  SH600000      0.758681
+            SH600004      0.758681
+            SH600006      0.758681
+            SH600007      0.758681
+            SH600008      0.758681
+                            ...   
+2017-02-10  SZ300144      0.802378
+            SZ300146      0.802378
+            SZ300168      0.802378
+            SZ300182      0.802378
+            SZ300251      0.802378
+Length: 605841, dtype: float64
+[2428938:MainThread](2024-04-03 14:56:14,547) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2017-02-13  SH600000      0.802378
+            SH600008      0.802378
+            SH600009      0.802378
+            SH600010      0.802378
+            SH600015      0.802378
+                            ...   
+2018-11-21  SZ300136      1.874220
+            SZ300144      1.874220
+            SZ300251      1.874220
+            SZ300408      1.874220
+            SZ300433      1.874220
+Length: 122735, dtype: float64
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2018-11-22 SH600000    0.129853
+           SH600008    0.081784
+           SH600009    0.113236
+           SH600010    0.058649
+           SH600011    0.240428
+[0]	train-rmse:0.99700	valid-rmse:0.99794
+[20]	train-rmse:0.98140	valid-rmse:0.99538
+[40]	train-rmse:0.96967	valid-rmse:0.99450
+[60]	train-rmse:0.96103	valid-rmse:0.99416
+[80]	train-rmse:0.95396	valid-rmse:0.99425
+[100]	train-rmse:0.94788	valid-rmse:0.99460
+[113]	train-rmse:0.94398	valid-rmse:0.99479
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [14:56:15] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[2428938:MainThread](2024-04-03 14:56:36,207) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 10
+[2428938:MainThread](2024-04-03 14:56:36,243) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  57%|█████▋    | 25/44 [09:59<08:59, 28.39s/it][2428938:MainThread](2024-04-03 14:56:36,250) INFO - qlib.workflow - [exp.py:258] - Experiment 10 starts running ...
+[2428938:MainThread](2024-04-03 14:56:36,260) INFO - qlib.workflow - [recorder.py:341] - Recorder d67859249d6f4a7c834ba3e766e5ea6a starts running under Experiment 10 ...
+[2428938:MainThread](2024-04-03 14:56:38,937) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2008-01-02  SH600000      0.785028
+            SH600004      0.785028
+            SH600006      0.785028
+            SH600007      0.785028
+            SH600008      0.785028
+                            ...   
+2017-03-10  SZ300144      0.548939
+            SZ300146      0.548939
+            SZ300168      0.548939
+            SZ300182      0.548939
+            SZ300251      0.548939
+Length: 611468, dtype: float64
+[2428938:MainThread](2024-04-03 14:56:38,964) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2017-03-13  SH600000      0.548939
+            SH600008      0.548939
+            SH600009      0.548939
+            SH600010      0.548939
+            SH600015      0.548939
+                            ...   
+2018-12-19  SZ300144      0.572333
+            SZ300251      0.572333
+            SZ300296      0.572333
+            SZ300408      0.572333
+            SZ300433      0.572333
+Length: 123020, dtype: float64
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2018-12-20 SH600000    0.043060
+           SH600004    0.046671
+           SH600009    0.041401
+           SH600010    0.105216
+           SH600011    0.067333
+[0]	train-rmse:0.99713	valid-rmse:0.99778
+[20]	train-rmse:0.98111	valid-rmse:0.99444
+[40]	train-rmse:0.97049	valid-rmse:0.99349
+[60]	train-rmse:0.96253	valid-rmse:0.99288
+[80]	train-rmse:0.95585	valid-rmse:0.99261
+[100]	train-rmse:0.95007	valid-rmse:0.99259
+[120]	train-rmse:0.94429	valid-rmse:0.99284
+[140]	train-rmse:0.93908	valid-rmse:0.99306
+[145]	train-rmse:0.93784	valid-rmse:0.99314
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [14:56:39] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[2428938:MainThread](2024-04-03 14:57:04,808) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 10
+[2428938:MainThread](2024-04-03 14:57:04,859) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  59%|█████▉    | 26/44 [10:27<08:32, 28.46s/it][2428938:MainThread](2024-04-03 14:57:04,867) INFO - qlib.workflow - [exp.py:258] - Experiment 10 starts running ...
+[2428938:MainThread](2024-04-03 14:57:04,876) INFO - qlib.workflow - [recorder.py:341] - Recorder 7e1f9398a9ef4e29b726e33b939450d0 starts running under Experiment 10 ...
+[2428938:MainThread](2024-04-03 14:57:07,515) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2008-01-02  SH600000      0.794728
+            SH600004      0.794728
+            SH600006      0.794728
+            SH600007      0.794728
+            SH600008      0.794728
+                            ...   
+2017-04-11  SZ300133      1.644949
+            SZ300144      1.644949
+            SZ300146      1.644949
+            SZ300182      1.644949
+            SZ300251      1.644949
+Length: 617027, dtype: float64
+[2428938:MainThread](2024-04-03 14:57:07,544) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2017-04-12  SH600000      1.644949
+            SH600008      1.644949
+            SH600009      1.644949
+            SH600010      1.644949
+            SH600015      1.644949
+                            ...   
+2019-01-18  SZ300144      1.120589
+            SZ300251      1.120589
+            SZ300296      1.120589
+            SZ300408      1.120589
+            SZ300433      1.120589
+Length: 123410, dtype: float64
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2019-01-21 SH600000    0.138772
+           SH600004    0.041141
+           SH600009    0.079119
+           SH600010    0.080994
+           SH600011    0.079374
+[0]	train-rmse:0.99700	valid-rmse:0.99758
+[20]	train-rmse:0.97947	valid-rmse:0.99129
+[40]	train-rmse:0.96814	valid-rmse:0.98907
+[60]	train-rmse:0.95964	valid-rmse:0.98814
+[80]	train-rmse:0.95387	valid-rmse:0.98787
+[100]	train-rmse:0.94842	valid-rmse:0.98760
+[120]	train-rmse:0.94286	valid-rmse:0.98768
+[140]	train-rmse:0.93742	valid-rmse:0.98788
+[156]	train-rmse:0.93294	valid-rmse:0.98805
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [14:57:08] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[2428938:MainThread](2024-04-03 14:57:38,969) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 10
+[2428938:MainThread](2024-04-03 14:57:39,024) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  61%|██████▏   | 27/44 [11:02<08:32, 30.17s/it][2428938:MainThread](2024-04-03 14:57:39,035) INFO - qlib.workflow - [exp.py:258] - Experiment 10 starts running ...
+[2428938:MainThread](2024-04-03 14:57:39,050) INFO - qlib.workflow - [recorder.py:341] - Recorder bee771a13d0f4c94817aefa28599c828 starts running under Experiment 10 ...
+[2428938:MainThread](2024-04-03 14:57:41,705) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2008-01-02  SH600000      0.642396
+            SH600004      0.642396
+            SH600006      0.642396
+            SH600007      0.642396
+            SH600008      0.642396
+                            ...   
+2017-05-10  SZ300133      1.481213
+            SZ300144      1.481213
+            SZ300146      1.481213
+            SZ300182      1.481213
+            SZ300251      1.481213
+Length: 622538, dtype: float64
+[2428938:MainThread](2024-04-03 14:57:41,732) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2017-05-11  SH600000      1.481213
+            SH600008      1.481213
+            SH600009      1.481213
+            SH600010      1.481213
+            SH600015      1.481213
+                            ...   
+2019-02-22  SZ300144      0.531430
+            SZ300251      0.531430
+            SZ300296      0.531430
+            SZ300408      0.531430
+            SZ300433      0.531430
+Length: 123839, dtype: float64
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2019-02-25 SH600000   -0.043310
+           SH600004   -0.005637
+           SH600009    0.112495
+           SH600010    0.077042
+           SH600011   -0.027195
+[0]	train-rmse:0.99694	valid-rmse:0.99759
+[20]	train-rmse:0.97826	valid-rmse:0.99170
+[40]	train-rmse:0.96587	valid-rmse:0.99033
+[60]	train-rmse:0.95717	valid-rmse:0.98984
+[80]	train-rmse:0.95077	valid-rmse:0.98962
+[100]	train-rmse:0.94541	valid-rmse:0.98977
+[120]	train-rmse:0.94039	valid-rmse:0.98989
+[129]	train-rmse:0.93817	valid-rmse:0.99011
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [14:57:42] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[2428938:MainThread](2024-04-03 14:58:06,671) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 10
+[2428938:MainThread](2024-04-03 14:58:06,714) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  64%|██████▎   | 28/44 [11:29<07:50, 29.43s/it][2428938:MainThread](2024-04-03 14:58:06,722) INFO - qlib.workflow - [exp.py:258] - Experiment 10 starts running ...
+[2428938:MainThread](2024-04-03 14:58:06,731) INFO - qlib.workflow - [recorder.py:341] - Recorder d0d929b1cd6f419ead4b41b528db3465 starts running under Experiment 10 ...
+[2428938:MainThread](2024-04-03 14:58:09,386) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2008-01-02  SH600000      0.646947
+            SH600004      0.646947
+            SH600006      0.646947
+            SH600007      0.646947
+            SH600008      0.646947
+                            ...   
+2017-06-09  SZ300133      1.225424
+            SZ300144      1.225424
+            SZ300146      1.225424
+            SZ300182      1.225424
+            SZ300251      1.225424
+Length: 627897, dtype: float64
+[2428938:MainThread](2024-04-03 14:58:09,411) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2017-06-12  SH600000      1.225424
+            SH600008      1.225424
+            SH600009      1.225424
+            SH600010      1.225424
+            SH600015      1.225424
+                            ...   
+2019-03-22  SZ300144      0.639205
+            SZ300251      0.639205
+            SZ300296      0.639205
+            SZ300408      0.639205
+            SZ300433      0.639205
+Length: 124396, dtype: float64
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2019-03-25 SH600000   -0.034827
+           SH600004   -0.068816
+           SH600009    0.093668
+           SH600010    0.029222
+           SH600011    0.011804
+[0]	train-rmse:0.99717	valid-rmse:0.99809
+[20]	train-rmse:0.98149	valid-rmse:0.99670
+[40]	train-rmse:0.97080	valid-rmse:0.99663
+[60]	train-rmse:0.96281	valid-rmse:0.99674
+[80]	train-rmse:0.95594	valid-rmse:0.99712
+[93]	train-rmse:0.95186	valid-rmse:0.99725
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [14:58:10] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[2428938:MainThread](2024-04-03 14:58:28,116) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 10
+[2428938:MainThread](2024-04-03 14:58:28,170) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  66%|██████▌   | 29/44 [11:51<06:45, 27.03s/it][2428938:MainThread](2024-04-03 14:58:28,179) INFO - qlib.workflow - [exp.py:258] - Experiment 10 starts running ...
+[2428938:MainThread](2024-04-03 14:58:28,190) INFO - qlib.workflow - [recorder.py:341] - Recorder 3d32caaed5404ed1b2abf1fa9c5575a8 starts running under Experiment 10 ...
+[2428938:MainThread](2024-04-03 14:58:30,768) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2008-01-02  SH600000      1.006572
+            SH600004      1.006572
+            SH600006      1.006572
+            SH600007      1.006572
+            SH600008      1.006572
+                            ...   
+2017-07-07  SZ300133      1.821420
+            SZ300144      1.821420
+            SZ300168      1.821420
+            SZ300251      1.821420
+            SZ300315      1.821420
+Length: 633348, dtype: float64
+[2428938:MainThread](2024-04-03 14:58:30,795) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2017-07-10  SH600000      1.82142
+            SH600008      1.82142
+            SH600009      1.82142
+            SH600010      1.82142
+            SH600015      1.82142
+                           ...   
+2019-04-22  SZ300144      0.55440
+            SZ300251      0.55440
+            SZ300296      0.55440
+            SZ300408      0.55440
+            SZ300433      0.55440
+Length: 124267, dtype: float64
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2019-04-23 SH600000    0.018682
+           SH600004   -0.009421
+           SH600009   -0.076040
+           SH600010   -0.066950
+           SH600011    0.020321
+[0]	train-rmse:0.99739	valid-rmse:0.99821
+[20]	train-rmse:0.98378	valid-rmse:0.99776
+[40]	train-rmse:0.97468	valid-rmse:0.99807
+[60]	train-rmse:0.96741	valid-rmse:0.99814
+[70]	train-rmse:0.96375	valid-rmse:0.99851
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [14:58:31] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[2428938:MainThread](2024-04-03 14:58:46,407) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 10
+[2428938:MainThread](2024-04-03 14:58:46,444) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  68%|██████▊   | 30/44 [12:09<05:41, 24.41s/it][2428938:MainThread](2024-04-03 14:58:46,451) INFO - qlib.workflow - [exp.py:258] - Experiment 10 starts running ...
+[2428938:MainThread](2024-04-03 14:58:46,460) INFO - qlib.workflow - [recorder.py:341] - Recorder 08e64e98b28b488d90ab4289db156b3c starts running under Experiment 10 ...
+[2428938:MainThread](2024-04-03 14:58:49,273) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2008-01-02  SH600000      1.014671
+            SH600004      1.014671
+            SH600006      1.014671
+            SH600007      1.014671
+            SH600008      1.014671
+                            ...   
+2017-08-04  SZ300133      0.728989
+            SZ300144      0.728989
+            SZ300168      0.728989
+            SZ300251      0.728989
+            SZ300315      0.728989
+Length: 638886, dtype: float64
+[2428938:MainThread](2024-04-03 14:58:49,299) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2017-08-07  SH600000      0.728989
+            SH600008      0.728989
+            SH600009      0.728989
+            SH600010      0.728989
+            SH600015      0.728989
+                            ...   
+2019-05-23  SZ300144      1.318145
+            SZ300251      1.318145
+            SZ300296      1.318145
+            SZ300408      1.318145
+            SZ300433      1.318145
+Length: 124072, dtype: float64
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2019-05-24 SH600000   -0.087611
+           SH600004    0.041991
+           SH600009   -0.054812
+           SH600010   -0.188816
+           SH600011   -0.087087
+[0]	train-rmse:0.99733	valid-rmse:0.99812
+[20]	train-rmse:0.98306	valid-rmse:0.99664
+[40]	train-rmse:0.97414	valid-rmse:0.99628
+[60]	train-rmse:0.96721	valid-rmse:0.99614
+[80]	train-rmse:0.96088	valid-rmse:0.99620
+[100]	train-rmse:0.95503	valid-rmse:0.99648
+[120]	train-rmse:0.94951	valid-rmse:0.99672
+[123]	train-rmse:0.94876	valid-rmse:0.99680
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [14:58:50] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[2428938:MainThread](2024-04-03 14:59:13,626) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 10
+[2428938:MainThread](2024-04-03 14:59:13,677) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  70%|███████   | 31/44 [12:36<05:28, 25.25s/it][2428938:MainThread](2024-04-03 14:59:13,685) INFO - qlib.workflow - [exp.py:258] - Experiment 10 starts running ...
+[2428938:MainThread](2024-04-03 14:59:13,695) INFO - qlib.workflow - [recorder.py:341] - Recorder d0bafbc10e334d028620c33ee3ffec70 starts running under Experiment 10 ...
+[2428938:MainThread](2024-04-03 14:59:16,362) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2008-01-02  SH600000      0.741817
+            SH600004      0.741817
+            SH600006      0.741817
+            SH600007      0.741817
+            SH600008      0.741817
+                            ...   
+2017-09-01  SZ300133      0.907858
+            SZ300144      0.907858
+            SZ300168      0.907858
+            SZ300251      0.907858
+            SZ300315      0.907858
+Length: 644425, dtype: float64
+[2428938:MainThread](2024-04-03 14:59:16,389) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2017-09-04  SH600000      0.907858
+            SH600008      0.907858
+            SH600009      0.907858
+            SH600010      0.907858
+            SH600015      0.907858
+                            ...   
+2019-06-21  SZ300296      1.548851
+            SZ300408      1.548851
+            SZ300413      1.548851
+            SZ300433      1.548851
+            SZ300498      1.548851
+Length: 124488, dtype: float64
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2019-06-24 SH600000    0.207338
+           SH600004    0.133277
+           SH600009    0.071489
+           SH600010   -0.104322
+           SH600011    0.189411
+[0]	train-rmse:0.99717	valid-rmse:0.99803
+[20]	train-rmse:0.98241	valid-rmse:0.99572
+[40]	train-rmse:0.97225	valid-rmse:0.99509
+[60]	train-rmse:0.96439	valid-rmse:0.99486
+[80]	train-rmse:0.95768	valid-rmse:0.99509
+[100]	train-rmse:0.95213	valid-rmse:0.99531
+[112]	train-rmse:0.94906	valid-rmse:0.99548
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [14:59:17] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[2428938:MainThread](2024-04-03 14:59:40,690) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 10
+[2428938:MainThread](2024-04-03 14:59:40,727) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  73%|███████▎  | 32/44 [13:03<05:09, 25.79s/it][2428938:MainThread](2024-04-03 14:59:40,734) INFO - qlib.workflow - [exp.py:258] - Experiment 10 starts running ...
+[2428938:MainThread](2024-04-03 14:59:40,744) INFO - qlib.workflow - [recorder.py:341] - Recorder 100dd7b8c1dc4773a64a6d6ba33314e7 starts running under Experiment 10 ...
+[2428938:MainThread](2024-04-03 14:59:43,317) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2008-01-02  SH600000      0.662608
+            SH600004      0.662608
+            SH600006      0.662608
+            SH600007      0.662608
+            SH600008      0.662608
+                            ...   
+2017-09-29  SZ300133      0.622707
+            SZ300144      0.622707
+            SZ300168      0.622707
+            SZ300251      0.622707
+            SZ300315      0.622707
+Length: 650036, dtype: float64
+[2428938:MainThread](2024-04-03 14:59:43,344) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2017-10-09  SH600000      0.622707
+            SH600008      0.622707
+            SH600009      0.622707
+            SH600010      0.622707
+            SH600015      0.622707
+                            ...   
+2019-07-19  SZ300296      0.569785
+            SZ300408      0.569785
+            SZ300413      0.569785
+            SZ300433      0.569785
+            SZ300498      0.569785
+Length: 124847, dtype: float64
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2019-07-22 SH600000    0.084993
+           SH600004    0.068072
+           SH600009    0.089406
+           SH600010   -0.102943
+           SH600011    0.067655
+[0]	train-rmse:0.99714	valid-rmse:0.99796
+[20]	train-rmse:0.98116	valid-rmse:0.99568
+[40]	train-rmse:0.97142	valid-rmse:0.99497
+[60]	train-rmse:0.96357	valid-rmse:0.99488
+[80]	train-rmse:0.95711	valid-rmse:0.99513
+[94]	train-rmse:0.95348	valid-rmse:0.99520
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [14:59:44] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[2428938:MainThread](2024-04-03 15:00:03,390) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 10
+[2428938:MainThread](2024-04-03 15:00:03,428) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  75%|███████▌  | 33/44 [13:26<04:33, 24.87s/it][2428938:MainThread](2024-04-03 15:00:03,435) INFO - qlib.workflow - [exp.py:258] - Experiment 10 starts running ...
+[2428938:MainThread](2024-04-03 15:00:03,444) INFO - qlib.workflow - [recorder.py:341] - Recorder 04ecd0a4d4304cbaaffa7516a085cd46 starts running under Experiment 10 ...
+[2428938:MainThread](2024-04-03 15:00:05,968) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2008-01-02  SH600000      1.168607
+            SH600004      1.168607
+            SH600006      1.168607
+            SH600007      1.168607
+            SH600008      1.168607
+                            ...   
+2017-11-03  SZ300133      0.830971
+            SZ300144      0.830971
+            SZ300168      0.830971
+            SZ300251      0.830971
+            SZ300315      0.830971
+Length: 655692, dtype: float64
+[2428938:MainThread](2024-04-03 15:00:05,997) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2017-11-06  SH600000      0.830971
+            SH600008      0.830971
+            SH600009      0.830971
+            SH600010      0.830971
+            SH600015      0.830971
+                            ...   
+2019-08-16  SZ300296      0.707080
+            SZ300408      0.707080
+            SZ300413      0.707080
+            SZ300433      0.707080
+            SZ300498      0.707080
+Length: 125165, dtype: float64
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2019-08-19 SH600000    0.048690
+           SH600004    0.004395
+           SH600009    0.137116
+           SH600010   -0.043559
+           SH600011   -0.027735
+[0]	train-rmse:0.99717	valid-rmse:0.99787
+[20]	train-rmse:0.98162	valid-rmse:0.99418
+[40]	train-rmse:0.97138	valid-rmse:0.99357
+[60]	train-rmse:0.96428	valid-rmse:0.99327
+[80]	train-rmse:0.95901	valid-rmse:0.99316
+[100]	train-rmse:0.95386	valid-rmse:0.99350
+[120]	train-rmse:0.94869	valid-rmse:0.99389
+[125]	train-rmse:0.94742	valid-rmse:0.99396
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [15:00:06] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[2428938:MainThread](2024-04-03 15:00:30,155) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 10
+[2428938:MainThread](2024-04-03 15:00:30,193) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  77%|███████▋  | 34/44 [13:53<04:14, 25.44s/it][2428938:MainThread](2024-04-03 15:00:30,200) INFO - qlib.workflow - [exp.py:258] - Experiment 10 starts running ...
+[2428938:MainThread](2024-04-03 15:00:30,211) INFO - qlib.workflow - [recorder.py:341] - Recorder 5661e8bc405f4cfdb958d908296f7d45 starts running under Experiment 10 ...
+[2428938:MainThread](2024-04-03 15:00:32,953) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2008-01-02  SH600000      1.713429
+            SH600004      1.713429
+            SH600006      1.713429
+            SH600007      1.713429
+            SH600008      1.713429
+                            ...   
+2017-12-01  SZ300133      1.689549
+            SZ300144      1.689549
+            SZ300168      1.689549
+            SZ300251      1.689549
+            SZ300315      1.689549
+Length: 661338, dtype: float64
+[2428938:MainThread](2024-04-03 15:00:32,981) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2017-12-04  SH600000      1.689549
+            SH600009      1.689549
+            SH600010      1.689549
+            SH600015      1.689549
+            SH600016      1.689549
+                            ...   
+2019-09-16  SZ300296      0.769210
+            SZ300408      0.769210
+            SZ300413      0.769210
+            SZ300433      0.769210
+            SZ300498      0.769210
+Length: 125504, dtype: float64
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2019-09-17 SH600000    0.333712
+           SH600004    0.387558
+           SH600009    0.335319
+           SH600010   -0.026636
+           SH600011    0.014360
+[0]	train-rmse:0.99710	valid-rmse:0.99802
+[20]	train-rmse:0.98217	valid-rmse:0.99564
+[40]	train-rmse:0.97212	valid-rmse:0.99525
+[60]	train-rmse:0.96552	valid-rmse:0.99528
+[80]	train-rmse:0.95968	valid-rmse:0.99539
+[96]	train-rmse:0.95505	valid-rmse:0.99555
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [15:00:33] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[2428938:MainThread](2024-04-03 15:00:53,274) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 10
+[2428938:MainThread](2024-04-03 15:00:53,313) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  80%|███████▉  | 35/44 [14:16<03:42, 24.74s/it][2428938:MainThread](2024-04-03 15:00:53,320) INFO - qlib.workflow - [exp.py:258] - Experiment 10 starts running ...
+[2428938:MainThread](2024-04-03 15:00:53,331) INFO - qlib.workflow - [recorder.py:341] - Recorder 2e429426d8c74e6dbf37625669f51af4 starts running under Experiment 10 ...
+[2428938:MainThread](2024-04-03 15:00:55,876) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2008-01-02  SH600000      1.609017
+            SH600004      1.609017
+            SH600006      1.609017
+            SH600007      1.609017
+            SH600008      1.609017
+                            ...   
+2017-12-29  SZ300124      0.563738
+            SZ300136      0.563738
+            SZ300144      0.563738
+            SZ300251      0.563738
+            SZ300315      0.563738
+Length: 667001, dtype: float64
+[2428938:MainThread](2024-04-03 15:00:55,904) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2018-01-02  SH600000      0.563738
+            SH600009      0.563738
+            SH600010      0.563738
+            SH600011      0.563738
+            SH600015      0.563738
+                            ...   
+2019-10-21  SZ300296      0.548133
+            SZ300408      0.548133
+            SZ300413      0.548133
+            SZ300433      0.548133
+            SZ300498      0.548133
+Length: 125826, dtype: float64
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2019-10-22 SH600000    0.198117
+           SH600004    0.437958
+           SH600009    0.025019
+           SH600010   -0.089111
+           SH600011   -0.122049
+[0]	train-rmse:0.99724	valid-rmse:0.99816
+[20]	train-rmse:0.98327	valid-rmse:0.99653
+[40]	train-rmse:0.97342	valid-rmse:0.99637
+[60]	train-rmse:0.96623	valid-rmse:0.99642
+[80]	train-rmse:0.96038	valid-rmse:0.99653
+[100]	train-rmse:0.95475	valid-rmse:0.99672
+[102]	train-rmse:0.95415	valid-rmse:0.99679
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [15:00:56] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[2428938:MainThread](2024-04-03 15:01:17,254) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 10
+[2428938:MainThread](2024-04-03 15:01:17,292) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  82%|████████▏ | 36/44 [14:40<03:16, 24.51s/it][2428938:MainThread](2024-04-03 15:01:17,299) INFO - qlib.workflow - [exp.py:258] - Experiment 10 starts running ...
+[2428938:MainThread](2024-04-03 15:01:17,308) INFO - qlib.workflow - [recorder.py:341] - Recorder 89703cea849648118a3e0fcc480dbf6b starts running under Experiment 10 ...
+[2428938:MainThread](2024-04-03 15:01:19,978) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2008-01-02  SH600000      0.837405
+            SH600004      0.837405
+            SH600006      0.837405
+            SH600007      0.837405
+            SH600008      0.837405
+                            ...   
+2018-01-29  SZ300124      1.415710
+            SZ300136      1.415710
+            SZ300144      1.415710
+            SZ300251      1.415710
+            SZ300315      1.415710
+Length: 672655, dtype: float64
+[2428938:MainThread](2024-04-03 15:01:20,006) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2018-01-30  SH600000      1.415710
+            SH600008      1.415710
+            SH600009      1.415710
+            SH600010      1.415710
+            SH600011      1.415710
+                            ...   
+2019-11-18  SZ300296      0.941067
+            SZ300408      0.941067
+            SZ300413      0.941067
+            SZ300433      0.941067
+            SZ300498      0.941067
+Length: 126143, dtype: float64
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2019-11-19 SH600000   -0.039233
+           SH600004   -0.017231
+           SH600009    0.058073
+           SH600010   -0.005371
+           SH600011    0.036789
+[0]	train-rmse:0.99734	valid-rmse:0.99809
+[20]	train-rmse:0.98353	valid-rmse:0.99667
+[40]	train-rmse:0.97425	valid-rmse:0.99658
+[60]	train-rmse:0.96701	valid-rmse:0.99659
+[80]	train-rmse:0.96090	valid-rmse:0.99672
+[100]	train-rmse:0.95547	valid-rmse:0.99705
+[101]	train-rmse:0.95527	valid-rmse:0.99705
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [15:01:21] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[2428938:MainThread](2024-04-03 15:01:41,718) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 10
+[2428938:MainThread](2024-04-03 15:01:41,758) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  84%|████████▍ | 37/44 [15:04<02:51, 24.50s/it][2428938:MainThread](2024-04-03 15:01:41,765) INFO - qlib.workflow - [exp.py:258] - Experiment 10 starts running ...
+[2428938:MainThread](2024-04-03 15:01:41,774) INFO - qlib.workflow - [recorder.py:341] - Recorder 30915e4ec08c4a288223835000564d02 starts running under Experiment 10 ...
+[2428938:MainThread](2024-04-03 15:01:44,438) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2008-01-02  SH600000      0.705044
+            SH600004      0.705044
+            SH600006      0.705044
+            SH600007      0.705044
+            SH600008      0.705044
+                            ...   
+2018-03-05  SZ300124      0.986225
+            SZ300136      0.986225
+            SZ300144      0.986225
+            SZ300251      0.986225
+            SZ300315      0.986225
+Length: 678321, dtype: float64
+[2428938:MainThread](2024-04-03 15:01:44,466) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2018-03-06  SH600000      0.986225
+            SH600008      0.986225
+            SH600009      0.986225
+            SH600010      0.986225
+            SH600011      0.986225
+                            ...   
+2019-12-16  SZ300347      0.642592
+            SZ300408      0.642592
+            SZ300413      0.642592
+            SZ300433      0.642592
+            SZ300498      0.642592
+Length: 126451, dtype: float64
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2019-12-17 SH600000    0.028138
+           SH600004    0.043792
+           SH600009    0.104711
+           SH600010    0.075235
+           SH600011    0.101958
+[0]	train-rmse:0.99704	valid-rmse:0.99810
+[20]	train-rmse:0.98182	valid-rmse:0.99726
+[40]	train-rmse:0.97236	valid-rmse:0.99757
+[60]	train-rmse:0.96552	valid-rmse:0.99784
+[67]	train-rmse:0.96347	valid-rmse:0.99794
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [15:01:45] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[2428938:MainThread](2024-04-03 15:02:01,165) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 10
+[2428938:MainThread](2024-04-03 15:02:01,209) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  86%|████████▋ | 38/44 [15:24<02:17, 22.98s/it][2428938:MainThread](2024-04-03 15:02:01,216) INFO - qlib.workflow - [exp.py:258] - Experiment 10 starts running ...
+[2428938:MainThread](2024-04-03 15:02:01,225) INFO - qlib.workflow - [recorder.py:341] - Recorder af3d73363afd4d7ea8a23b374b594c50 starts running under Experiment 10 ...
+[2428938:MainThread](2024-04-03 15:02:03,933) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2008-01-02  SH600000      1.31062
+            SH600004      1.31062
+            SH600006      1.31062
+            SH600007      1.31062
+            SH600008      1.31062
+                           ...   
+2018-04-02  SZ300124      1.00839
+            SZ300136      1.00839
+            SZ300144      1.00839
+            SZ300251      1.00839
+            SZ300315      1.00839
+Length: 683978, dtype: float64
+[2428938:MainThread](2024-04-03 15:02:03,961) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2018-04-03  SH600000      1.00839
+            SH600008      1.00839
+            SH600009      1.00839
+            SH600010      1.00839
+            SH600011      1.00839
+                           ...   
+2020-01-14  SZ300347      0.61481
+            SZ300408      0.61481
+            SZ300413      0.61481
+            SZ300433      0.61481
+            SZ300498      0.61481
+Length: 126786, dtype: float64
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2020-01-15 SH600000    0.081841
+           SH600004    0.087481
+           SH600009    0.081171
+           SH600010    0.049912
+           SH600011    0.081951
+[0]	train-rmse:0.99715	valid-rmse:0.99818
+[20]	train-rmse:0.98224	valid-rmse:0.99769
+[40]	train-rmse:0.97341	valid-rmse:0.99788
+[60]	train-rmse:0.96649	valid-rmse:0.99806
+[64]	train-rmse:0.96525	valid-rmse:0.99808
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [15:02:04] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[2428938:MainThread](2024-04-03 15:02:20,667) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 10
+[2428938:MainThread](2024-04-03 15:02:20,737) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  89%|████████▊ | 39/44 [15:43<01:49, 21.95s/it][2428938:MainThread](2024-04-03 15:02:20,747) INFO - qlib.workflow - [exp.py:258] - Experiment 10 starts running ...
+[2428938:MainThread](2024-04-03 15:02:20,760) INFO - qlib.workflow - [recorder.py:341] - Recorder 72a3cb886e4f445b994ff245232cc70c starts running under Experiment 10 ...
+[2428938:MainThread](2024-04-03 15:02:23,413) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2008-01-02  SH600000      1.627597
+            SH600004      1.627597
+            SH600006      1.627597
+            SH600007      1.627597
+            SH600008      1.627597
+                            ...   
+2018-05-04  SZ300124      0.995077
+            SZ300136      0.995077
+            SZ300144      0.995077
+            SZ300251      0.995077
+            SZ300315      0.995077
+Length: 689624, dtype: float64
+[2428938:MainThread](2024-04-03 15:02:23,441) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2018-05-07  SH600000      0.995077
+            SH600008      0.995077
+            SH600009      0.995077
+            SH600010      0.995077
+            SH600011      0.995077
+                            ...   
+2020-02-19  SZ300347      0.583826
+            SZ300408      0.583826
+            SZ300413      0.583826
+            SZ300433      0.583826
+            SZ300498      0.583826
+Length: 127125, dtype: float64
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2020-02-20 SH600000    0.054400
+           SH600004    0.069814
+           SH600009   -0.130613
+           SH600010    0.002553
+           SH600011   -0.000211
+[0]	train-rmse:0.99723	valid-rmse:0.99826
+[20]	train-rmse:0.98357	valid-rmse:0.99757
+[40]	train-rmse:0.97496	valid-rmse:0.99784
+[60]	train-rmse:0.96845	valid-rmse:0.99794
+[63]	train-rmse:0.96735	valid-rmse:0.99814
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [15:02:24] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[2428938:MainThread](2024-04-03 15:02:40,861) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 10
+[2428938:MainThread](2024-04-03 15:02:40,901) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  91%|█████████ | 40/44 [16:03<01:25, 21.41s/it][2428938:MainThread](2024-04-03 15:02:40,909) INFO - qlib.workflow - [exp.py:258] - Experiment 10 starts running ...
+[2428938:MainThread](2024-04-03 15:02:40,919) INFO - qlib.workflow - [recorder.py:341] - Recorder 06f6a63cc168433abded0368412069f8 starts running under Experiment 10 ...
+[2428938:MainThread](2024-04-03 15:02:43,500) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2008-01-02  SH600000      1.848297
+            SH600004      1.848297
+            SH600006      1.848297
+            SH600007      1.848297
+            SH600008      1.848297
+                            ...   
+2018-06-01  SZ300124      1.463918
+            SZ300136      1.463918
+            SZ300144      1.463918
+            SZ300251      1.463918
+            SZ300315      1.463918
+Length: 695202, dtype: float64
+[2428938:MainThread](2024-04-03 15:02:43,528) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2018-06-04  SH600000      1.463918
+            SH600008      1.463918
+            SH600009      1.463918
+            SH600010      1.463918
+            SH600011      1.463918
+                            ...   
+2020-03-18  SZ300347      0.615302
+            SZ300408      0.615302
+            SZ300413      0.615302
+            SZ300433      0.615302
+            SZ300498      0.615302
+Length: 127513, dtype: float64
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2020-03-19 SH600000   -0.033183
+           SH600004    0.095462
+           SH600009   -0.067084
+           SH600010   -0.048418
+           SH600011    0.129739
+[0]	train-rmse:0.99719	valid-rmse:0.99816
+[20]	train-rmse:0.98202	valid-rmse:0.99760
+[40]	train-rmse:0.97217	valid-rmse:0.99827
+[60]	train-rmse:0.96539	valid-rmse:0.99889
+[63]	train-rmse:0.96444	valid-rmse:0.99898
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [15:02:44] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[2428938:MainThread](2024-04-03 15:02:59,233) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 10
+[2428938:MainThread](2024-04-03 15:02:59,268) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  93%|█████████▎| 41/44 [16:22<01:01, 20.50s/it][2428938:MainThread](2024-04-03 15:02:59,275) INFO - qlib.workflow - [exp.py:258] - Experiment 10 starts running ...
+[2428938:MainThread](2024-04-03 15:02:59,284) INFO - qlib.workflow - [recorder.py:341] - Recorder e1465e06aecc4a388458ec2b7d2768ba starts running under Experiment 10 ...
+[2428938:MainThread](2024-04-03 15:03:02,102) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2008-01-02  SH600000      1.110732
+            SH600004      1.110732
+            SH600006      1.110732
+            SH600007      1.110732
+            SH600008      1.110732
+                            ...   
+2018-07-02  SZ300136      1.074420
+            SZ300144      1.074420
+            SZ300251      1.074420
+            SZ300408      1.074420
+            SZ300433      1.074420
+Length: 700862, dtype: float64
+[2428938:MainThread](2024-04-03 15:03:02,130) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2018-07-03  SH600000      1.074420
+            SH600008      1.074420
+            SH600009      1.074420
+            SH600010      1.074420
+            SH600011      1.074420
+                            ...   
+2020-04-16  SZ300347      0.599827
+            SZ300408      0.599827
+            SZ300413      0.599827
+            SZ300433      0.599827
+            SZ300498      0.599827
+Length: 127830, dtype: float64
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2020-04-17 SH600000   -0.136941
+           SH600004    0.020051
+           SH600009    0.086785
+           SH600010   -0.138274
+           SH600011   -0.004937
+[0]	train-rmse:0.99741	valid-rmse:0.99825
+[20]	train-rmse:0.98344	valid-rmse:0.99865
+[40]	train-rmse:0.97398	valid-rmse:0.99932
+[54]	train-rmse:0.96876	valid-rmse:0.99988
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [15:03:03] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[2428938:MainThread](2024-04-03 15:03:17,082) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 10
+[2428938:MainThread](2024-04-03 15:03:17,129) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  95%|█████████▌| 42/44 [16:40<00:39, 19.71s/it][2428938:MainThread](2024-04-03 15:03:17,137) INFO - qlib.workflow - [exp.py:258] - Experiment 10 starts running ...
+[2428938:MainThread](2024-04-03 15:03:17,147) INFO - qlib.workflow - [recorder.py:341] - Recorder e805339f1fbc47369258071c4e3fbc6e starts running under Experiment 10 ...
+[2428938:MainThread](2024-04-03 15:03:19,837) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2008-01-02  SH600000      0.847174
+            SH600004      0.847174
+            SH600006      0.847174
+            SH600007      0.847174
+            SH600008      0.847174
+                            ...   
+2018-07-30  SZ300136      0.840943
+            SZ300144      0.840943
+            SZ300251      0.840943
+            SZ300408      0.840943
+            SZ300433      0.840943
+Length: 706604, dtype: float64
+[2428938:MainThread](2024-04-03 15:03:19,867) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2018-07-31  SH600000      0.840943
+            SH600008      0.840943
+            SH600009      0.840943
+            SH600010      0.840943
+            SH600011      0.840943
+                            ...   
+2020-05-19  SZ300347      1.014662
+            SZ300408      1.014662
+            SZ300413      1.014662
+            SZ300433      1.014662
+            SZ300498      1.014662
+Length: 128060, dtype: float64
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2020-05-20 SH600000   -0.071188
+           SH600004   -0.101008
+           SH600009    0.019178
+           SH600010    0.000079
+           SH600011   -0.042052
+[0]	train-rmse:0.99740	valid-rmse:0.99825
+[20]	train-rmse:0.98480	valid-rmse:0.99890
+[40]	train-rmse:0.97591	valid-rmse:0.99976
+[52]	train-rmse:0.97160	valid-rmse:1.00019
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [15:03:20] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[2428938:MainThread](2024-04-03 15:03:35,380) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 10
+[2428938:MainThread](2024-04-03 15:03:35,425) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  98%|█████████▊| 43/44 [16:58<00:19, 19.28s/it][2428938:MainThread](2024-04-03 15:03:35,433) INFO - qlib.workflow - [exp.py:258] - Experiment 10 starts running ...
+[2428938:MainThread](2024-04-03 15:03:35,442) INFO - qlib.workflow - [recorder.py:341] - Recorder a0b16f8585014345bdb42cbb2349784e starts running under Experiment 10 ...
+[2428938:MainThread](2024-04-03 15:03:38,144) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2008-01-02  SH600000      0.912456
+            SH600004      0.912456
+            SH600006      0.912456
+            SH600007      0.912456
+            SH600008      0.912456
+                            ...   
+2018-08-27  SZ300136      0.614116
+            SZ300144      0.614116
+            SZ300251      0.614116
+            SZ300408      0.614116
+            SZ300433      0.614116
+Length: 712393, dtype: float64
+[2428938:MainThread](2024-04-03 15:03:38,173) INFO - qlib.data selection - [model.py:36] - Reweighting result:
+datetime    instrument
+2018-08-28  SH600000      0.614116
+            SH600008      0.614116
+            SH600009      0.614116
+            SH600010      0.614116
+            SH600011      0.614116
+                            ...   
+2020-06-16  SZ300413      1.606758
+            SZ300433      1.606758
+            SZ300498      1.606758
+            SZ300601      1.606758
+            SZ300628      1.606758
+Length: 128252, dtype: float64
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2020-06-17 SH600000    0.116986
+           SH600004    0.050723
+           SH600009    0.098189
+           SH600010    0.043772
+           SH600011   -0.044884
+[0]	train-rmse:0.99726	valid-rmse:0.99817
+[20]	train-rmse:0.98393	valid-rmse:0.99773
+[40]	train-rmse:0.97509	valid-rmse:0.99825
+[60]	train-rmse:0.96846	valid-rmse:0.99871
+[61]	train-rmse:0.96800	valid-rmse:0.99880
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [15:03:39] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[2428938:MainThread](2024-04-03 15:03:55,088) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 10
+[2428938:MainThread](2024-04-03 15:03:55,134) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks: 100%|██████████| 44/44 [17:18<00:00, 19.41s/it]train tasks: 100%|██████████| 44/44 [17:18<00:00, 23.59s/it]
+[2428938:MainThread](2024-04-03 15:03:55,248) INFO - qlib.timer - [log.py:127] - Time cost: 0.068s | Time to `list_recorders` in RecorderCollector Done
+[2428938:MainThread](2024-04-03 15:03:55,248) INFO - qlib.RecorderCollector - [collect.py:226] - Nubmer of recorders after filter: defaultdict(<class 'int'>, {'FINISHED': 44})
+[2428938:MainThread](2024-04-03 15:03:55,290) INFO - qlib.RollingEnsemble - [ensemble.py:81] - keys in group: ['a0b16f8585014345bdb42cbb2349784e', 'e805339f1fbc47369258071c4e3fbc6e', 'e1465e06aecc4a388458ec2b7d2768ba', '06f6a63cc168433abded0368412069f8', '72a3cb886e4f445b994ff245232cc70c', 'af3d73363afd4d7ea8a23b374b594c50', '30915e4ec08c4a288223835000564d02', '89703cea849648118a3e0fcc480dbf6b', '2e429426d8c74e6dbf37625669f51af4', '5661e8bc405f4cfdb958d908296f7d45', '04ecd0a4d4304cbaaffa7516a085cd46', '100dd7b8c1dc4773a64a6d6ba33314e7', 'd0bafbc10e334d028620c33ee3ffec70', '08e64e98b28b488d90ab4289db156b3c', '3d32caaed5404ed1b2abf1fa9c5575a8', 'd0d929b1cd6f419ead4b41b528db3465', 'bee771a13d0f4c94817aefa28599c828', '7e1f9398a9ef4e29b726e33b939450d0', 'd67859249d6f4a7c834ba3e766e5ea6a', 'b5a2568c3ed8458ba33389531a8c88f0', 'b3d9d05dad76442b9ca029cfff57636f', '59259ca450c44c7192dbc8d26ee576e3', '9b42f3054bb04b40915de2df5696ace2', '12485c8896934850b075f018a9f9611f', 'f6cd41bd533947d9a4236cfec9e4bc68', '42f1f3d83a7e4d8caae296136119de78', '45c44b570749425c9673b0fbffa746f6', 'e9aed7dd1b5e4f70bd58ea76f30d76bc', 'bffe58a6f7fc4ae6898e356a7233a84a', '6cfa6834fca045a68ad37534431909fe', '50c4cff5d0ff4fa88d398fb23cc4834c', 'd8314c10f3d94ff6ac76d1f481a4741b', 'f428e366fc2d438583c794fa30b91af0', '7682a7456fbc46acb991bc012ea62797', '0ddf9be72a874c00bc47857af4589b61', '608feb7bdb52495aaf474cd7935c4fb5', '9250338b723e47b4b3f26b8dd3547dfa', '9c01267b0895459b9da57f9d107f12a8', 'ca254890773f406393728858dd4730f3', 'e174344a443e44868a3bf564b0266fd7', 'b3dea9580c91473492f5038b06c503d1', '3f3b4c70046b4c4aaf7812ceea232349', 'a898b1d04978489caa067e8059e0e9b1', '7701a5c905df4371ba53abc0900209db']
+[2428938:MainThread](2024-04-03 15:03:55,387) INFO - qlib.RollingEnsemble - [ensemble.py:81] - keys in group: ['a0b16f8585014345bdb42cbb2349784e', 'e805339f1fbc47369258071c4e3fbc6e', 'e1465e06aecc4a388458ec2b7d2768ba', '06f6a63cc168433abded0368412069f8', '72a3cb886e4f445b994ff245232cc70c', 'af3d73363afd4d7ea8a23b374b594c50', '30915e4ec08c4a288223835000564d02', '89703cea849648118a3e0fcc480dbf6b', '2e429426d8c74e6dbf37625669f51af4', '5661e8bc405f4cfdb958d908296f7d45', '04ecd0a4d4304cbaaffa7516a085cd46', '100dd7b8c1dc4773a64a6d6ba33314e7', 'd0bafbc10e334d028620c33ee3ffec70', '08e64e98b28b488d90ab4289db156b3c', '3d32caaed5404ed1b2abf1fa9c5575a8', 'd0d929b1cd6f419ead4b41b528db3465', 'bee771a13d0f4c94817aefa28599c828', '7e1f9398a9ef4e29b726e33b939450d0', 'd67859249d6f4a7c834ba3e766e5ea6a', 'b5a2568c3ed8458ba33389531a8c88f0', 'b3d9d05dad76442b9ca029cfff57636f', '59259ca450c44c7192dbc8d26ee576e3', '9b42f3054bb04b40915de2df5696ace2', '12485c8896934850b075f018a9f9611f', 'f6cd41bd533947d9a4236cfec9e4bc68', '42f1f3d83a7e4d8caae296136119de78', '45c44b570749425c9673b0fbffa746f6', 'e9aed7dd1b5e4f70bd58ea76f30d76bc', 'bffe58a6f7fc4ae6898e356a7233a84a', '6cfa6834fca045a68ad37534431909fe', '50c4cff5d0ff4fa88d398fb23cc4834c', 'd8314c10f3d94ff6ac76d1f481a4741b', 'f428e366fc2d438583c794fa30b91af0', '7682a7456fbc46acb991bc012ea62797', '0ddf9be72a874c00bc47857af4589b61', '608feb7bdb52495aaf474cd7935c4fb5', '9250338b723e47b4b3f26b8dd3547dfa', '9c01267b0895459b9da57f9d107f12a8', 'ca254890773f406393728858dd4730f3', 'e174344a443e44868a3bf564b0266fd7', 'b3dea9580c91473492f5038b06c503d1', '3f3b4c70046b4c4aaf7812ceea232349', 'a898b1d04978489caa067e8059e0e9b1', '7701a5c905df4371ba53abc0900209db']
+[2428938:MainThread](2024-04-03 15:03:55,486) INFO - qlib.workflow - [exp.py:258] - Experiment 5 starts running ...
+[2428938:MainThread](2024-04-03 15:03:55,498) INFO - qlib.workflow - [recorder.py:341] - Recorder 1cf8129880cc4326ac6c6b2d14288792 starts running under Experiment 5 ...
+[2428938:MainThread](2024-04-03 15:03:55,678) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+[2428938:MainThread](2024-04-03 15:03:57,278) INFO - qlib.backtest caller - [__init__.py:93] - Create new exchange
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2020-07-17 SH600000   -0.149262
+           SH600004   -0.077271
+           SH600009    0.007686
+           SH600010   -0.145078
+           SH600011    0.045976
+{'IC': 0.07387607482738397,
+ 'ICIR': 0.5380398213650586,
+ 'Rank IC': 0.08513593330868,
+ 'Rank ICIR': 0.5741704266280093}
+[2428938:MainThread](2024-04-03 15:04:02,217) WARNING - qlib.online operator - [exchange.py:219] - $close field data contains nan.
+[2428938:MainThread](2024-04-03 15:04:02,219) WARNING - qlib.online operator - [exchange.py:219] - $close field data contains nan.
+[2428938:MainThread](2024-04-03 15:04:02,233) WARNING - qlib.online operator - [exchange.py:226] - factor.day.bin file not exists or factor contains `nan`. Order using adjusted_price.
+[2428938:MainThread](2024-04-03 15:04:02,233) WARNING - qlib.online operator - [exchange.py:228] - trade unit 100 is not supported in adjusted_price mode.
+[2428938:MainThread](2024-04-03 15:04:06,456) WARNING - qlib.BaseExecutor - [executor.py:121] - `common_infra` is not set for <qlib.backtest.executor.SimulatorExecutor object at 0x7f539be24760>
+backtest loop:   0%|          | 0/871 [00:00<?, ?it/s]/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/qlib/utils/index_data.py:481: RuntimeWarning: Mean of empty slice
+  return np.nanmean(self.data)
+backtest loop:   1%|          | 6/871 [00:00<00:14, 59.57it/s]backtest loop:   1%|▏         | 13/871 [00:00<00:13, 62.01it/s]backtest loop:   2%|▏         | 20/871 [00:00<00:15, 55.10it/s]backtest loop:   3%|▎         | 27/871 [00:00<00:14, 60.07it/s]backtest loop:   4%|▍         | 34/871 [00:00<00:13, 60.17it/s]backtest loop:   5%|▍         | 41/871 [00:00<00:17, 46.96it/s]backtest loop:   6%|▌         | 48/871 [00:00<00:15, 52.33it/s]backtest loop:   6%|▌         | 54/871 [00:00<00:15, 52.99it/s]backtest loop:   7%|▋         | 61/871 [00:01<00:14, 56.32it/s]backtest loop:   8%|▊         | 67/871 [00:01<00:14, 55.43it/s]backtest loop:   8%|▊         | 74/871 [00:01<00:13, 57.70it/s]backtest loop:   9%|▉         | 80/871 [00:01<00:13, 57.73it/s]backtest loop:  10%|▉         | 86/871 [00:01<00:14, 55.23it/s]backtest loop:  11%|█         | 93/871 [00:01<00:13, 58.80it/s]backtest loop:  11%|█▏        | 99/871 [00:01<00:13, 56.99it/s]backtest loop:  12%|█▏        | 106/871 [00:01<00:12, 59.51it/s]backtest loop:  13%|█▎        | 113/871 [00:01<00:12, 62.21it/s]backtest loop:  14%|█▍        | 120/871 [00:02<00:12, 59.99it/s]backtest loop:  15%|█▍        | 128/871 [00:02<00:11, 63.93it/s]backtest loop:  15%|█▌        | 135/871 [00:02<00:12, 60.95it/s]backtest loop:  16%|█▋        | 142/871 [00:02<00:11, 61.67it/s]backtest loop:  17%|█▋        | 149/871 [00:02<00:12, 57.82it/s]backtest loop:  18%|█▊        | 155/871 [00:02<00:12, 57.97it/s]backtest loop:  18%|█▊        | 161/871 [00:02<00:12, 58.39it/s]backtest loop:  19%|█▉        | 168/871 [00:02<00:11, 61.10it/s]backtest loop:  20%|██        | 175/871 [00:03<00:11, 59.49it/s]backtest loop:  21%|██        | 182/871 [00:03<00:11, 62.07it/s]backtest loop:  22%|██▏       | 189/871 [00:03<00:11, 59.64it/s]backtest loop:  23%|██▎       | 196/871 [00:03<00:11, 61.25it/s]backtest loop:  23%|██▎       | 203/871 [00:03<00:10, 62.39it/s]backtest loop:  24%|██▍       | 210/871 [00:03<00:11, 59.97it/s]backtest loop:  25%|██▍       | 217/871 [00:03<00:10, 62.37it/s]backtest loop:  26%|██▌       | 224/871 [00:03<00:10, 61.18it/s]backtest loop:  27%|██▋       | 231/871 [00:03<00:10, 62.94it/s]backtest loop:  27%|██▋       | 238/871 [00:04<00:09, 64.52it/s]backtest loop:  28%|██▊       | 245/871 [00:04<00:10, 60.64it/s]backtest loop:  29%|██▉       | 252/871 [00:04<00:10, 61.50it/s]backtest loop:  30%|██▉       | 259/871 [00:04<00:10, 60.52it/s]backtest loop:  31%|███       | 266/871 [00:04<00:09, 62.65it/s]backtest loop:  31%|███▏      | 273/871 [00:04<00:09, 61.60it/s]backtest loop:  32%|███▏      | 280/871 [00:04<00:09, 61.27it/s]backtest loop:  33%|███▎      | 288/871 [00:04<00:09, 61.63it/s]backtest loop:  34%|███▍      | 295/871 [00:04<00:09, 63.68it/s]backtest loop:  35%|███▍      | 302/871 [00:05<00:08, 64.97it/s]backtest loop:  35%|███▌      | 309/871 [00:05<00:09, 62.08it/s]backtest loop:  36%|███▋      | 316/871 [00:05<00:09, 60.29it/s]backtest loop:  37%|███▋      | 323/871 [00:05<00:08, 62.55it/s]backtest loop:  38%|███▊      | 330/871 [00:05<00:08, 60.99it/s]backtest loop:  39%|███▉      | 338/871 [00:05<00:08, 65.29it/s]backtest loop:  40%|███▉      | 345/871 [00:05<00:08, 63.54it/s]backtest loop:  40%|████      | 352/871 [00:05<00:07, 64.94it/s]backtest loop:  41%|████      | 359/871 [00:05<00:08, 62.61it/s]backtest loop:  42%|████▏     | 366/871 [00:06<00:07, 64.32it/s]backtest loop:  43%|████▎     | 373/871 [00:06<00:08, 61.06it/s]backtest loop:  44%|████▎     | 380/871 [00:06<00:07, 63.32it/s]backtest loop:  44%|████▍     | 387/871 [00:06<00:07, 63.72it/s]backtest loop:  45%|████▌     | 394/871 [00:06<00:07, 60.70it/s]backtest loop:  46%|████▌     | 401/871 [00:06<00:07, 62.04it/s]backtest loop:  47%|████▋     | 408/871 [00:06<00:07, 59.47it/s]backtest loop:  48%|████▊     | 415/871 [00:06<00:07, 61.12it/s]backtest loop:  48%|████▊     | 422/871 [00:06<00:07, 62.37it/s]backtest loop:  49%|████▉     | 429/871 [00:07<00:07, 60.82it/s]backtest loop:  50%|█████     | 437/871 [00:07<00:07, 60.98it/s]backtest loop:  51%|█████     | 445/871 [00:07<00:06, 64.89it/s]backtest loop:  52%|█████▏    | 452/871 [00:07<00:06, 62.44it/s]backtest loop:  53%|█████▎    | 459/871 [00:07<00:06, 63.25it/s]backtest loop:  54%|█████▎    | 466/871 [00:07<00:06, 63.00it/s]backtest loop:  54%|█████▍    | 473/871 [00:07<00:06, 59.09it/s]backtest loop:  55%|█████▌    | 480/871 [00:07<00:06, 60.21it/s]backtest loop:  56%|█████▌    | 487/871 [00:08<00:06, 57.14it/s]backtest loop:  57%|█████▋    | 494/871 [00:08<00:06, 58.62it/s]backtest loop:  57%|█████▋    | 500/871 [00:08<00:06, 56.35it/s]backtest loop:  58%|█████▊    | 507/871 [00:08<00:06, 58.23it/s]backtest loop:  59%|█████▉    | 513/871 [00:08<00:06, 58.58it/s]backtest loop:  60%|█████▉    | 520/871 [00:08<00:06, 56.51it/s]backtest loop:  61%|██████    | 527/871 [00:08<00:05, 59.25it/s]backtest loop:  61%|██████▏   | 534/871 [00:08<00:05, 60.72it/s]backtest loop:  62%|██████▏   | 541/871 [00:08<00:05, 57.74it/s]backtest loop:  63%|██████▎   | 548/871 [00:09<00:05, 59.17it/s]backtest loop:  64%|██████▎   | 554/871 [00:09<00:05, 56.50it/s]backtest loop:  64%|██████▍   | 561/871 [00:09<00:05, 58.27it/s]/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/qlib/utils/index_data.py:481: RuntimeWarning: Mean of empty slice
+  return np.nanmean(self.data)
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/qlib/utils/index_data.py:481: RuntimeWarning: Mean of empty slice
+  return np.nanmean(self.data)
+backtest loop:  65%|██████▌   | 568/871 [00:09<00:05, 60.49it/s]backtest loop:  66%|██████▌   | 575/871 [00:09<00:04, 61.23it/s]backtest loop:  67%|██████▋   | 582/871 [00:09<00:04, 58.20it/s]backtest loop:  68%|██████▊   | 589/871 [00:09<00:04, 60.41it/s]backtest loop:  68%|██████▊   | 596/871 [00:09<00:04, 58.24it/s]backtest loop:  69%|██████▉   | 603/871 [00:10<00:04, 59.48it/s]backtest loop:  70%|███████   | 610/871 [00:10<00:04, 56.97it/s]backtest loop:  71%|███████   | 616/871 [00:10<00:04, 57.59it/s]backtest loop:  71%|███████▏  | 622/871 [00:10<00:04, 55.14it/s]backtest loop:  72%|███████▏  | 628/871 [00:10<00:04, 54.88it/s]backtest loop:  73%|███████▎  | 634/871 [00:10<00:04, 54.14it/s]backtest loop:  73%|███████▎  | 640/871 [00:10<00:04, 52.65it/s]backtest loop:  74%|███████▍  | 646/871 [00:10<00:04, 54.61it/s]backtest loop:  75%|███████▍  | 653/871 [00:10<00:03, 56.91it/s]backtest loop:  76%|███████▌  | 659/871 [00:11<00:03, 54.41it/s]backtest loop:  76%|███████▋  | 665/871 [00:11<00:03, 55.61it/s]backtest loop:  77%|███████▋  | 671/871 [00:11<00:03, 53.49it/s]backtest loop:  78%|███████▊  | 678/871 [00:11<00:03, 56.12it/s]backtest loop:  79%|███████▊  | 684/871 [00:11<00:03, 53.94it/s]backtest loop:  79%|███████▉  | 691/871 [00:11<00:03, 56.61it/s]backtest loop:  80%|████████  | 698/871 [00:11<00:02, 58.26it/s]backtest loop:  81%|████████  | 704/871 [00:11<00:03, 55.48it/s]backtest loop:  82%|████████▏ | 711/871 [00:11<00:02, 57.58it/s]backtest loop:  82%|████████▏ | 717/871 [00:12<00:02, 57.98it/s]backtest loop:  83%|████████▎ | 724/871 [00:12<00:02, 55.84it/s]backtest loop:  84%|████████▍ | 730/871 [00:12<00:02, 55.50it/s]backtest loop:  85%|████████▍ | 736/871 [00:12<00:02, 53.47it/s]backtest loop:  85%|████████▌ | 742/871 [00:12<00:02, 55.20it/s]backtest loop:  86%|████████▌ | 748/871 [00:12<00:02, 53.54it/s]backtest loop:  87%|████████▋ | 754/871 [00:12<00:02, 55.19it/s]backtest loop:  87%|████████▋ | 760/871 [00:12<00:01, 56.49it/s]backtest loop:  88%|████████▊ | 766/871 [00:12<00:01, 57.13it/s]backtest loop:  89%|████████▊ | 772/871 [00:13<00:01, 54.32it/s]backtest loop:  89%|████████▉ | 779/871 [00:13<00:01, 56.78it/s]backtest loop:  90%|█████████ | 786/871 [00:13<00:01, 58.47it/s]backtest loop:  91%|█████████ | 792/871 [00:13<00:01, 55.72it/s]backtest loop:  92%|█████████▏| 799/871 [00:13<00:01, 58.11it/s]backtest loop:  93%|█████████▎| 806/871 [00:13<00:01, 56.88it/s]backtest loop:  93%|█████████▎| 813/871 [00:13<00:01, 56.09it/s]backtest loop:  94%|█████████▍| 820/871 [00:13<00:00, 58.49it/s]backtest loop:  95%|█████████▍| 827/871 [00:14<00:00, 60.45it/s]backtest loop:  96%|█████████▌| 834/871 [00:14<00:00, 58.08it/s]backtest loop:  96%|█████████▋| 840/871 [00:14<00:00, 58.55it/s]backtest loop:  97%|█████████▋| 846/871 [00:14<00:00, 55.70it/s]backtest loop:  98%|█████████▊| 853/871 [00:14<00:00, 58.11it/s]backtest loop:  99%|█████████▊| 860/871 [00:14<00:00, 59.90it/s]backtest loop: 100%|█████████▉| 867/871 [00:14<00:00, 57.26it/s]backtest loop: 100%|██████████| 871/871 [00:14<00:00, 58.83it/s]
+[2428938:MainThread](2024-04-03 15:04:21,331) INFO - qlib.workflow - [record_temp.py:515] - Portfolio analysis record 'port_analysis_1day.pkl' has been saved as the artifact of the Experiment 5
+[2428938:MainThread](2024-04-03 15:04:21,347) INFO - qlib.workflow - [record_temp.py:540] - Indicator analysis record 'indicator_analysis_1day.pkl' has been saved as the artifact of the Experiment 5
+'The following are analysis results of benchmark return(1day).'
+                       risk
+mean               0.000477
+std                0.012295
+annualized_return  0.113561
+information_ratio  0.598699
+max_drawdown      -0.370479
+'The following are analysis results of the excess return without cost(1day).'
+                       risk
+mean               0.000430
+std                0.004071
+annualized_return  0.102437
+information_ratio  1.630942
+max_drawdown      -0.072182
+'The following are analysis results of the excess return with cost(1day).'
+                       risk
+mean               0.000272
+std                0.004073
+annualized_return  0.064780
+information_ratio  1.030993
+max_drawdown      -0.087179
+'The following are analysis results of indicators(1day).'
+     value
+ffr    1.0
+pa     0.0
+pos    0.0
+Your evaluation results can be found in the experiment named `None`.
