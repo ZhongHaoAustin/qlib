@@ -81,6 +81,7 @@ class DDGDA(Rolling):
         meta_1st_train_end: Optional[str] = None,
         alpha: float = 0.01,
         working_dir: Optional[Union[str, Path]] = None,
+        train_mate: bool = False,
         **kwargs,
     ):
         """
@@ -103,6 +104,7 @@ class DDGDA(Rolling):
         )
         self.alpha = alpha
         self.meta_1st_train_end = meta_1st_train_end
+        self.train_meta = train_mate
         super().__init__(**kwargs)
         self.working_dir = (
             self.conf_path.parent if working_dir is None else Path(working_dir)
@@ -303,7 +305,8 @@ class DDGDA(Rolling):
 
     @property
     def _task_path(self):
-        return self.working_dir / f"tasks_s{self.step}.pkl"
+        suffix = self.conf_path.stem.split("_")[2] if isinstance(self.conf_path, Path) else self.conf_path.split("_")[2]
+        return self.working_dir / f"tasks_s{self.step}_{suffix}.pkl"
 
     def get_task_list(self):
         """
@@ -354,15 +357,16 @@ class DDGDA(Rolling):
         return new_tasks
 
     def run(self):
-        # prepare the meta model for rolling ---------
-        # 1) file: handler_proxy.pkl (self.proxy_hd)
-        self._dump_data_for_proxy_model()
-        # 2)
-        # file: internal_data_s20.pkl
-        # mlflow: data_sim_s20, models for calculating meta_ipt
-        self._dump_meta_ipt()
-        # 3) meta model will be stored in `DDG-DA`
-        self._train_meta_model()
+        if self.train_meta:
+            # prepare the meta model for rolling ---------
+            # 1) file: handler_proxy.pkl (self.proxy_hd)
+            self._dump_data_for_proxy_model()
+            # 2)
+            # file: internal_data_s20.pkl
+            # mlflow: data_sim_s20, models for calculating meta_ipt
+            self._dump_meta_ipt()
+            # 3) meta model will be stored in `DDG-DA`
+            self._train_meta_model()
 
         # Run rolling --------------------------------
         # 4) new_tasks are saved in "tasks_s20.pkl" (reweighter is added)

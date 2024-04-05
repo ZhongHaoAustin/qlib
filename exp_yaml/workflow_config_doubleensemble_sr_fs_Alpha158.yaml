@@ -72,9 +72,9 @@ task:
                 module_path: qlib.contrib.data.handler
                 kwargs: *data_handler_config
             segments:
-                train: [2008-01-01, 2014-12-31]
-                valid: [2015-01-01, 2016-12-31]
-                test: [2017-01-01, 2020-08-01]
+                train: [*data_start_time, *end_fit_time]
+                valid: [*valid_start, *valid_end]
+                test: [*test_start, *data_end_time]
     record: 
         - class: SignalRecord
           module_path: qlib.workflow.record_temp

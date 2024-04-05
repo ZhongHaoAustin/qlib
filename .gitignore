@@ -49,3 +49,6 @@ tags
 
 ./pretrain
 .idea/
+
+*.gz
+*-ubyte

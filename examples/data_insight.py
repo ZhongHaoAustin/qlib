@@ -16,11 +16,14 @@ from qlib.tests.data import GetData
 from qlib.tests.config import CSI300_BENCH, CSI300_GBDT_TASK
 
 import lightgbm as lgb
+from qlib import auto_init
 
 # use default data
-provider_uri = "~/.qlib/qlib_data/cn_data"  # target_dir
-GetData().qlib_data(target_dir=provider_uri, region=REG_CN, exists_skip=True)
+provider_uri = {"day": "~/.qlib/qlib_data/my_data"}  # target_dir
+# provider_uri = "~/.qlib/qlib_data/cn_data"  # target_dir
+# GetData().qlib_data(target_dir=provider_uri, region=REG_CN, exists_skip=True)
 qlib.init(provider_uri=provider_uri, region=REG_CN)
+
 
 model = init_instance_by_config(CSI300_GBDT_TASK["model"])
 
@@ -39,10 +42,10 @@ dataset:
             class: Alpha158
             module_path: qlib.contrib.data.handler
             kwargs:
-                start_time: 2008-01-01
-                end_time: 2020-08-01
-                fit_start_time: 2008-01-01
-                fit_end_time: 2014-12-31
+                start_time: 2010-01-01
+                end_time: 2024-12-01
+                fit_start_time: 2010-01-01
+                fit_end_time: 2019-12-31
                 instruments: csi300
                 infer_processors:
                     - class: RobustZScoreNorm
@@ -58,43 +61,15 @@ dataset:
                       kwargs:
                         fields_group: label
         segments:
-            train: [2008-01-01, 2014-12-31]
-            valid: [2015-01-01, 2016-12-31]
-            test: [2017-01-01, 2020-08-01]        
+            train: [2010-01-01, 2019-12-31]
+            valid: [2020-01-01, 2021-12-31]
+            test: [2022-01-01, 2023-12-31]        
 """
 # save load config
 config = yaml.safe_load(model)
 dataset = init_instance_by_config(config["dataset"])
 
-rf_model_config = {
-    "class": "RandomForestModel",
-    "module_path": "qlib.contrib.model.random_forest",
-}
-
-rf = init_instance_by_config(rf_model_config)
-
-rf.fit(dataset)
-
 
 # NOTE: This line is optional
 # It demonstrates that the dataset can be used standalone.
-example_df = dataset.prepare("train")
-
-
-X = example_df.iloc[:, :-1]
-y = example_df.iloc[:, -1]
-
-# get feature importance
-lgb_model = lgb.LGBMRegressor()
-# lgb_model.fit(example_df.iloc[:, :-1], example_df.iloc[:, -1])
-lgb_model.fit(X, y)
-
-
-X = example_df.dropna(axis=1).iloc[:, :-1]
-y = example_df.dropna(axis=1).iloc[:, -1]
-
-
-from sklearn.ensemble import RandomForestRegressor
-
-rf = RandomForestRegressor()
-rf.fit(X, y)
+example_df = dataset.prepare("test")

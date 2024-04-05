@@ -75,6 +75,7 @@ class MetaModelDS(MetaTaskModel):
         running_loss = 0.0
         pred_y_all = []
         for task in tqdm(task_list, desc=f"{phase} Task", leave=False):
+            task: MetaTask
             meta_input = task.get_meta_input()
             pred, weights = self.tn(
                 meta_input["X"],
@@ -184,6 +185,7 @@ class MetaModelDS(MetaTaskModel):
 
         # run weight with no weight
         for phase, task_list in zip(phases, meta_tasks_l):
+            task_list: List[MetaTask]
             self.run_epoch(
                 f"{phase}_noweight", task_list, 0, opt, {}, ignore_weight=True
             )
