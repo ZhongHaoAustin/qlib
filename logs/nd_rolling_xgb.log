@@ -1,0 +1,1183 @@
+[4153972:MainThread](2024-04-06 16:37:23,853) INFO - qlib.Initialization - [config.py:416] - default_conf: client.
+[4153972:MainThread](2024-04-06 16:37:23,855) INFO - qlib.Initialization - [__init__.py:74] - qlib successfully initialized based on client settings.
+[4153972:MainThread](2024-04-06 16:37:23,856) INFO - qlib.Initialization - [__init__.py:76] - data_path={'day': PosixPath('/home/zhonghao/.qlib/qlib_data/my_data')}
+[4153972:MainThread](2024-04-06 16:37:23,857) WARNING - qlib.Rolling - [rolling_benchmark.py:32] - Model type is not in the benchmark!
+[4153972:MainThread](2024-04-06 16:37:23,867) INFO - qlib.Rolling - [base.py:162] - The prediction horizon is overrided
+[4153972:MainThread](2024-04-06 16:37:23,867) INFO - qlib.Rolling - [base.py:173] - {'model': {'class': 'XGBModel', 'module_path': 'qlib.contrib.model.xgboost', 'kwargs': {'eval_metric': 'rmse', 'colsample_bytree': 0.8879, 'eta': 0.0421, 'max_depth': 8, 'n_estimators': 647, 'subsample': 0.8789, 'nthread': 20}}, 'dataset': {'class': 'DatasetH', 'module_path': 'qlib.data.dataset', 'kwargs': {'handler': 'file:///home/zhonghao/code/qlib/exp_yaml/new_data/Alpha158.691ad7fa98.pkl', 'segments': {'train': [datetime.date(2009, 1, 1), datetime.date(2018, 12, 31)], 'valid': [datetime.date(2019, 1, 1), datetime.date(2019, 12, 31)], 'test': [datetime.date(2020, 1, 1), datetime.date(2024, 3, 26)]}}}, 'record': [{'class': 'SignalRecord', 'module_path': 'qlib.workflow.record_temp', 'kwargs': {'model': '<MODEL>', 'dataset': '<DATASET>'}}, {'class': 'SigAnaRecord', 'module_path': 'qlib.workflow.record_temp', 'kwargs': {'ana_long_short': False, 'ann_scaler': 252}}, {'class': 'PortAnaRecord', 'module_path': 'qlib.workflow.record_temp', 'kwargs': {'config': {'strategy': {'class': 'TopkDropoutStrategy', 'module_path': 'qlib.contrib.strategy', 'kwargs': {'signal': '<PRED>', 'topk': 50, 'n_drop': 5}}, 'backtest': {'start_time': datetime.date(2020, 1, 1), 'end_time': datetime.date(2024, 3, 26), 'account': 100000000, 'benchmark': 'SH000300', 'exchange_kwargs': {'limit_threshold': 0.095, 'deal_price': 'close', 'open_cost': 0.0005, 'close_cost': 0.0015, 'min_cost': 5}}}}}]}
+[4153972:MainThread](2024-04-06 16:37:23,914) INFO - qlib.Rolling - [base.py:190] - Deleting previous Rolling results
+[4153972:MainThread](2024-04-06 16:37:23,919) INFO - qlib.Rolling - [base.py:196] - No previous rolling results
+train tasks:   0%|          | 0/52 [00:00<?, ?it/s][4153972:MainThread](2024-04-06 16:37:23,925) WARNING - qlib.workflow - [expm.py:230] - No valid experiment found. Create a new experiment with name rolling_models_20240406163723.
+[4153972:MainThread](2024-04-06 16:37:23,936) INFO - qlib.workflow - [exp.py:258] - Experiment 15 starts running ...
+[4153972:MainThread](2024-04-06 16:37:24,020) INFO - qlib.workflow - [recorder.py:341] - Recorder a018e16ed2d447a8a608cbc0bb8f7110 starts running under Experiment 15 ...
+ModuleNotFoundError. CatBoostModel are skipped. (optional: maybe installing CatBoostModel can fix it.)
+[0]	train-rmse:0.99736	valid-rmse:0.99830
+[20]	train-rmse:0.98393	valid-rmse:0.99773
+[40]	train-rmse:0.97432	valid-rmse:0.99832
+[60]	train-rmse:0.96778	valid-rmse:0.99877
+[62]	train-rmse:0.96722	valid-rmse:0.99885
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [16:37:29] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[4153972:MainThread](2024-04-06 16:37:43,880) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 15
+[4153972:MainThread](2024-04-06 16:37:43,936) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:   2%|▏         | 1/52 [00:20<17:01, 20.02s/it][4153972:MainThread](2024-04-06 16:37:43,951) INFO - qlib.workflow - [exp.py:258] - Experiment 15 starts running ...
+[4153972:MainThread](2024-04-06 16:37:43,973) INFO - qlib.workflow - [recorder.py:341] - Recorder 05379c682a874f6db7a0eac6fde88e52 starts running under Experiment 15 ...
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2020-01-02 SH600000    0.121782
+           SH600004    0.079601
+           SH600009    0.162428
+           SH600010   -0.044589
+           SH600011    0.062790
+[0]	train-rmse:0.99738	valid-rmse:0.99815
+[20]	train-rmse:0.98383	valid-rmse:0.99778
+[40]	train-rmse:0.97483	valid-rmse:0.99834
+[60]	train-rmse:0.96856	valid-rmse:0.99893
+[71]	train-rmse:0.96542	valid-rmse:0.99917
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [16:37:48] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[4153972:MainThread](2024-04-06 16:38:03,794) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 15
+[4153972:MainThread](2024-04-06 16:38:03,845) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:   4%|▍         | 2/52 [00:39<16:37, 19.95s/it][4153972:MainThread](2024-04-06 16:38:03,855) INFO - qlib.workflow - [exp.py:258] - Experiment 15 starts running ...
+[4153972:MainThread](2024-04-06 16:38:03,869) INFO - qlib.workflow - [recorder.py:341] - Recorder 9ab6a0ae91a240599beb77653ff3a059 starts running under Experiment 15 ...
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2020-02-07 SH600000    0.147117
+           SH600004    0.112920
+           SH600009   -0.064424
+           SH600010    0.126601
+           SH600011    0.110376
+[0]	train-rmse:0.99740	valid-rmse:0.99834
+[20]	train-rmse:0.98438	valid-rmse:0.99753
+[40]	train-rmse:0.97501	valid-rmse:0.99810
+[60]	train-rmse:0.96850	valid-rmse:0.99844
+[72]	train-rmse:0.96531	valid-rmse:0.99883
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [16:38:07] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[4153972:MainThread](2024-04-06 16:38:23,522) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 15
+[4153972:MainThread](2024-04-06 16:38:23,593) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:   6%|▌         | 3/52 [00:59<16:13, 19.86s/it][4153972:MainThread](2024-04-06 16:38:23,607) INFO - qlib.workflow - [exp.py:258] - Experiment 15 starts running ...
+[4153972:MainThread](2024-04-06 16:38:23,624) INFO - qlib.workflow - [recorder.py:341] - Recorder 1e25c050514a41c497f6f439b62e6847 starts running under Experiment 15 ...
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2020-03-06 SH600000   -0.053891
+           SH600004    0.044535
+           SH600009   -0.073803
+           SH600010    0.004809
+           SH600011   -0.004524
+[0]	train-rmse:0.99741	valid-rmse:0.99824
+[20]	train-rmse:0.98418	valid-rmse:0.99742
+[40]	train-rmse:0.97494	valid-rmse:0.99726
+[60]	train-rmse:0.96895	valid-rmse:0.99737
+[80]	train-rmse:0.96361	valid-rmse:0.99757
+[83]	train-rmse:0.96294	valid-rmse:0.99764
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [16:38:27] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[4153972:MainThread](2024-04-06 16:38:45,162) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 15
+[4153972:MainThread](2024-04-06 16:38:45,234) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:   8%|▊         | 4/52 [01:21<16:27, 20.56s/it][4153972:MainThread](2024-04-06 16:38:45,247) INFO - qlib.workflow - [exp.py:258] - Experiment 15 starts running ...
+[4153972:MainThread](2024-04-06 16:38:45,265) INFO - qlib.workflow - [recorder.py:341] - Recorder cda6e2767b674d089b21768b55675922 starts running under Experiment 15 ...
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2020-04-03 SH600000   -0.005843
+           SH600004    0.123553
+           SH600009    0.117884
+           SH600010   -0.000170
+           SH600011    0.041002
+[0]	train-rmse:0.99734	valid-rmse:0.99823
+[20]	train-rmse:0.98420	valid-rmse:0.99750
+[40]	train-rmse:0.97499	valid-rmse:0.99792
+[60]	train-rmse:0.96874	valid-rmse:0.99814
+[73]	train-rmse:0.96532	valid-rmse:0.99855
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [16:38:49] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[4153972:MainThread](2024-04-06 16:39:05,158) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 15
+[4153972:MainThread](2024-04-06 16:39:05,209) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  10%|▉         | 5/52 [01:41<15:56, 20.35s/it][4153972:MainThread](2024-04-06 16:39:05,219) INFO - qlib.workflow - [exp.py:258] - Experiment 15 starts running ...
+[4153972:MainThread](2024-04-06 16:39:05,230) INFO - qlib.workflow - [recorder.py:341] - Recorder f55caf0d823645039fe889ccec9d8416 starts running under Experiment 15 ...
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2020-05-07 SH600000   -0.082045
+           SH600004   -0.127798
+           SH600009    0.077885
+           SH600010   -0.014710
+           SH600011   -0.064731
+[0]	train-rmse:0.99742	valid-rmse:0.99819
+[20]	train-rmse:0.98416	valid-rmse:0.99673
+[40]	train-rmse:0.97551	valid-rmse:0.99641
+[60]	train-rmse:0.96925	valid-rmse:0.99644
+[80]	train-rmse:0.96413	valid-rmse:0.99661
+[95]	train-rmse:0.96093	valid-rmse:0.99678
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [16:39:10] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[4153972:MainThread](2024-04-06 16:39:29,029) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 15
+[4153972:MainThread](2024-04-06 16:39:29,109) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  12%|█▏        | 6/52 [02:05<16:31, 21.56s/it][4153972:MainThread](2024-04-06 16:39:29,123) INFO - qlib.workflow - [exp.py:258] - Experiment 15 starts running ...
+[4153972:MainThread](2024-04-06 16:39:29,140) INFO - qlib.workflow - [recorder.py:341] - Recorder d0a8b3517eb14d3e8523ebadf2c985a8 starts running under Experiment 15 ...
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2020-06-04 SH600000    0.200056
+           SH600004   -0.090509
+           SH600009    0.108163
+           SH600010    0.137195
+           SH600011   -0.028721
+[0]	train-rmse:0.99740	valid-rmse:0.99820
+[20]	train-rmse:0.98398	valid-rmse:0.99686
+[40]	train-rmse:0.97511	valid-rmse:0.99640
+[60]	train-rmse:0.96869	valid-rmse:0.99659
+[80]	train-rmse:0.96379	valid-rmse:0.99673
+[90]	train-rmse:0.96150	valid-rmse:0.99690
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [16:39:33] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[4153972:MainThread](2024-04-06 16:39:51,886) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 15
+[4153972:MainThread](2024-04-06 16:39:51,959) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  13%|█▎        | 7/52 [02:28<16:29, 21.98s/it][4153972:MainThread](2024-04-06 16:39:51,972) INFO - qlib.workflow - [exp.py:258] - Experiment 15 starts running ...
+[4153972:MainThread](2024-04-06 16:39:51,989) INFO - qlib.workflow - [recorder.py:341] - Recorder 44fe79bc5f2e43b2a8d8a7ff053ff87e starts running under Experiment 15 ...
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2020-07-06 SH600000   -0.020965
+           SH600004    0.110883
+           SH600009    0.180011
+           SH600010    0.046851
+           SH600011    0.108133
+[0]	train-rmse:0.99742	valid-rmse:0.99816
+[20]	train-rmse:0.98390	valid-rmse:0.99741
+[40]	train-rmse:0.97514	valid-rmse:0.99743
+[60]	train-rmse:0.96931	valid-rmse:0.99747
+[70]	train-rmse:0.96663	valid-rmse:0.99762
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [16:39:56] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[4153972:MainThread](2024-04-06 16:40:19,515) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 15
+[4153972:MainThread](2024-04-06 16:40:19,595) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  15%|█▌        | 8/52 [02:55<17:26, 23.78s/it][4153972:MainThread](2024-04-06 16:40:19,616) INFO - qlib.workflow - [exp.py:258] - Experiment 15 starts running ...
+[4153972:MainThread](2024-04-06 16:40:19,649) INFO - qlib.workflow - [recorder.py:341] - Recorder 216cb6a86d5c4462a197973d91b46059 starts running under Experiment 15 ...
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2020-08-03 SH600000   -0.049251
+           SH600004   -0.083234
+           SH600009   -0.016621
+           SH600010   -0.061398
+           SH600011    0.006002
+[0]	train-rmse:0.99736	valid-rmse:0.99819
+[20]	train-rmse:0.98402	valid-rmse:0.99659
+[40]	train-rmse:0.97513	valid-rmse:0.99627
+[60]	train-rmse:0.96887	valid-rmse:0.99649
+[80]	train-rmse:0.96374	valid-rmse:0.99681
+[84]	train-rmse:0.96284	valid-rmse:0.99680
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [16:40:24] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[4153972:MainThread](2024-04-06 16:40:43,678) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 15
+[4153972:MainThread](2024-04-06 16:40:43,760) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  17%|█▋        | 9/52 [03:19<17:07, 23.90s/it][4153972:MainThread](2024-04-06 16:40:43,786) INFO - qlib.workflow - [exp.py:258] - Experiment 15 starts running ...
+[4153972:MainThread](2024-04-06 16:40:43,825) INFO - qlib.workflow - [recorder.py:341] - Recorder 56eb8a5271ed4afebb18548d09360bc6 starts running under Experiment 15 ...
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2020-08-31 SH600000   -0.130899
+           SH600004    0.024902
+           SH600009    0.196257
+           SH600010   -0.018755
+           SH600011    0.030901
+[0]	train-rmse:0.99736	valid-rmse:0.99809
+[20]	train-rmse:0.98432	valid-rmse:0.99570
+[40]	train-rmse:0.97553	valid-rmse:0.99522
+[60]	train-rmse:0.96931	valid-rmse:0.99526
+[80]	train-rmse:0.96422	valid-rmse:0.99540
+[90]	train-rmse:0.96203	valid-rmse:0.99540
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [16:40:49] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[4153972:MainThread](2024-04-06 16:41:08,333) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 15
+[4153972:MainThread](2024-04-06 16:41:08,405) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  19%|█▉        | 10/52 [03:44<16:53, 24.13s/it][4153972:MainThread](2024-04-06 16:41:08,419) INFO - qlib.workflow - [exp.py:258] - Experiment 15 starts running ...
+[4153972:MainThread](2024-04-06 16:41:08,446) INFO - qlib.workflow - [recorder.py:341] - Recorder be32902804a64472b90ed3b4b48b9b2f starts running under Experiment 15 ...
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2020-09-28 SH600000   -0.217006
+           SH600004   -0.140881
+           SH600009    0.059745
+           SH600010   -0.191784
+           SH600011   -0.098107
+[0]	train-rmse:0.99736	valid-rmse:0.99809
+[20]	train-rmse:0.98413	valid-rmse:0.99613
+[40]	train-rmse:0.97546	valid-rmse:0.99606
+[60]	train-rmse:0.96910	valid-rmse:0.99614
+[79]	train-rmse:0.96453	valid-rmse:0.99646
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [16:41:13] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[4153972:MainThread](2024-04-06 16:41:36,794) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 15
+[4153972:MainThread](2024-04-06 16:41:36,923) INFO - qlib.timer - [log.py:127] - Time cost: 0.004s | waiting `async_log` Done
+train tasks:  21%|██        | 11/52 [04:13<17:24, 25.47s/it][4153972:MainThread](2024-04-06 16:41:36,937) INFO - qlib.workflow - [exp.py:258] - Experiment 15 starts running ...
+[4153972:MainThread](2024-04-06 16:41:36,972) INFO - qlib.workflow - [recorder.py:341] - Recorder 8b9c623723904d86a965e8763d65bc73 starts running under Experiment 15 ...
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2020-11-03 SH600000   -0.070596
+           SH600004    0.086607
+           SH600009    0.178520
+           SH600010   -0.096380
+           SH600011    0.048259
+[0]	train-rmse:0.99739	valid-rmse:0.99809
+[20]	train-rmse:0.98450	valid-rmse:0.99514
+[40]	train-rmse:0.97570	valid-rmse:0.99454
+[60]	train-rmse:0.96949	valid-rmse:0.99439
+[80]	train-rmse:0.96466	valid-rmse:0.99453
+[96]	train-rmse:0.96131	valid-rmse:0.99464
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [16:41:41] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[4153972:MainThread](2024-04-06 16:42:03,458) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 15
+[4153972:MainThread](2024-04-06 16:42:03,557) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  23%|██▎       | 12/52 [04:39<17:13, 25.83s/it][4153972:MainThread](2024-04-06 16:42:03,576) INFO - qlib.workflow - [exp.py:258] - Experiment 15 starts running ...
+[4153972:MainThread](2024-04-06 16:42:03,614) INFO - qlib.workflow - [recorder.py:341] - Recorder 0a882e1bc04d410b832930e5eb4fb78f starts running under Experiment 15 ...
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2020-12-01 SH600000    0.030805
+           SH600004    0.123841
+           SH600009    0.225453
+           SH600010    0.164905
+           SH600011   -0.071954
+[0]	train-rmse:0.99744	valid-rmse:0.99798
+[20]	train-rmse:0.98461	valid-rmse:0.99421
+[40]	train-rmse:0.97600	valid-rmse:0.99330
+[60]	train-rmse:0.97018	valid-rmse:0.99308
+[80]	train-rmse:0.96559	valid-rmse:0.99310
+[100]	train-rmse:0.96146	valid-rmse:0.99323
+[110]	train-rmse:0.95911	valid-rmse:0.99331
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [16:42:08] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[4153972:MainThread](2024-04-06 16:42:34,662) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 15
+[4153972:MainThread](2024-04-06 16:42:34,733) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  25%|██▌       | 13/52 [05:10<17:50, 27.45s/it][4153972:MainThread](2024-04-06 16:42:34,748) INFO - qlib.workflow - [exp.py:258] - Experiment 15 starts running ...
+[4153972:MainThread](2024-04-06 16:42:34,790) INFO - qlib.workflow - [recorder.py:341] - Recorder ed49cf6c04f04cde9820b3c2084479a2 starts running under Experiment 15 ...
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2020-12-29 SH600000   -0.000962
+           SH600004    0.043027
+           SH600009    0.107679
+           SH600010    0.012408
+           SH600011   -0.062033
+[0]	train-rmse:0.99745	valid-rmse:0.99797
+[20]	train-rmse:0.98454	valid-rmse:0.99342
+[40]	train-rmse:0.97601	valid-rmse:0.99198
+[60]	train-rmse:0.97033	valid-rmse:0.99177
+[80]	train-rmse:0.96566	valid-rmse:0.99164
+[100]	train-rmse:0.96138	valid-rmse:0.99192
+[120]	train-rmse:0.95708	valid-rmse:0.99199
+[123]	train-rmse:0.95654	valid-rmse:0.99198
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [16:42:39] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[4153972:MainThread](2024-04-06 16:43:04,591) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 15
+[4153972:MainThread](2024-04-06 16:43:04,664) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  27%|██▋       | 14/52 [05:40<17:51, 28.20s/it][4153972:MainThread](2024-04-06 16:43:04,679) INFO - qlib.workflow - [exp.py:258] - Experiment 15 starts running ...
+[4153972:MainThread](2024-04-06 16:43:04,702) INFO - qlib.workflow - [recorder.py:341] - Recorder abe2101fc64242599bb6166451b05530 starts running under Experiment 15 ...
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2021-01-27 SH600000    0.076277
+           SH600004   -0.000802
+           SH600009    0.079094
+           SH600010    0.011848
+           SH600011   -0.069741
+[0]	train-rmse:0.99737	valid-rmse:0.99783
+[20]	train-rmse:0.98462	valid-rmse:0.99269
+[40]	train-rmse:0.97569	valid-rmse:0.99133
+[60]	train-rmse:0.96988	valid-rmse:0.99079
+[80]	train-rmse:0.96535	valid-rmse:0.99044
+[100]	train-rmse:0.96094	valid-rmse:0.99036
+[120]	train-rmse:0.95637	valid-rmse:0.99067
+[140]	train-rmse:0.95234	valid-rmse:0.99096
+[152]	train-rmse:0.94999	valid-rmse:0.99107
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [16:43:09] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[4153972:MainThread](2024-04-06 16:43:37,339) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 15
+[4153972:MainThread](2024-04-06 16:43:37,411) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  29%|██▉       | 15/52 [06:13<18:14, 29.57s/it][4153972:MainThread](2024-04-06 16:43:37,425) INFO - qlib.workflow - [exp.py:258] - Experiment 15 starts running ...
+[4153972:MainThread](2024-04-06 16:43:37,442) INFO - qlib.workflow - [recorder.py:341] - Recorder 5f55ea9a68a046c894f886b54936e396 starts running under Experiment 15 ...
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2021-03-03 SH600000   -0.028494
+           SH600004    0.010749
+           SH600009   -0.013096
+           SH600010   -0.373994
+           SH600011    0.059742
+[0]	train-rmse:0.99737	valid-rmse:0.99793
+[20]	train-rmse:0.98476	valid-rmse:0.99400
+[40]	train-rmse:0.97615	valid-rmse:0.99307
+[60]	train-rmse:0.97048	valid-rmse:0.99295
+[80]	train-rmse:0.96588	valid-rmse:0.99292
+[100]	train-rmse:0.96190	valid-rmse:0.99306
+[120]	train-rmse:0.95775	valid-rmse:0.99332
+[121]	train-rmse:0.95758	valid-rmse:0.99331
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [16:43:41] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[4153972:MainThread](2024-04-06 16:44:05,486) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 15
+[4153972:MainThread](2024-04-06 16:44:05,559) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  31%|███       | 16/52 [06:41<17:29, 29.14s/it][4153972:MainThread](2024-04-06 16:44:05,572) INFO - qlib.workflow - [exp.py:258] - Experiment 15 starts running ...
+[4153972:MainThread](2024-04-06 16:44:05,589) INFO - qlib.workflow - [recorder.py:341] - Recorder faee01dd69ff4ed1ac3547b692a88497 starts running under Experiment 15 ...
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2021-03-31 SH600000    0.201219
+           SH600004    0.099696
+           SH600009   -0.057634
+           SH600010    0.013176
+           SH600011   -0.177842
+[0]	train-rmse:0.99738	valid-rmse:0.99793
+[20]	train-rmse:0.98453	valid-rmse:0.99362
+[40]	train-rmse:0.97602	valid-rmse:0.99287
+[60]	train-rmse:0.97043	valid-rmse:0.99259
+[80]	train-rmse:0.96591	valid-rmse:0.99275
+[100]	train-rmse:0.96149	valid-rmse:0.99303
+[111]	train-rmse:0.95931	valid-rmse:0.99324
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [16:44:10] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[4153972:MainThread](2024-04-06 16:44:33,311) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 15
+[4153972:MainThread](2024-04-06 16:44:33,382) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  33%|███▎      | 17/52 [07:09<16:46, 28.74s/it][4153972:MainThread](2024-04-06 16:44:33,395) INFO - qlib.workflow - [exp.py:258] - Experiment 15 starts running ...
+[4153972:MainThread](2024-04-06 16:44:33,412) INFO - qlib.workflow - [recorder.py:341] - Recorder 786d7c74268547f9883a3d11dc50f78d starts running under Experiment 15 ...
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2021-04-29 SH600000    0.081937
+           SH600004    0.051116
+           SH600009    0.305832
+           SH600010    0.001643
+           SH600011   -0.011786
+[0]	train-rmse:0.99736	valid-rmse:0.99795
+[20]	train-rmse:0.98444	valid-rmse:0.99426
+[40]	train-rmse:0.97598	valid-rmse:0.99346
+[60]	train-rmse:0.97015	valid-rmse:0.99352
+[80]	train-rmse:0.96550	valid-rmse:0.99368
+[95]	train-rmse:0.96215	valid-rmse:0.99411
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [16:44:37] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[4153972:MainThread](2024-04-06 16:44:58,478) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 15
+[4153972:MainThread](2024-04-06 16:44:58,529) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  35%|███▍      | 18/52 [07:34<15:40, 27.66s/it][4153972:MainThread](2024-04-06 16:44:58,538) INFO - qlib.workflow - [exp.py:258] - Experiment 15 starts running ...
+[4153972:MainThread](2024-04-06 16:44:58,550) INFO - qlib.workflow - [recorder.py:341] - Recorder 49a8bdd7e2e44d53b732c9e1fff879e8 starts running under Experiment 15 ...
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2021-06-01 SH600000    0.052557
+           SH600004    0.081800
+           SH600009   -0.001025
+           SH600010   -0.092108
+           SH600011   -0.025081
+[0]	train-rmse:0.99736	valid-rmse:0.99794
+[20]	train-rmse:0.98469	valid-rmse:0.99406
+[40]	train-rmse:0.97657	valid-rmse:0.99318
+[60]	train-rmse:0.97086	valid-rmse:0.99341
+[80]	train-rmse:0.96636	valid-rmse:0.99367
+[94]	train-rmse:0.96335	valid-rmse:0.99384
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [16:45:02] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[4153972:MainThread](2024-04-06 16:45:22,918) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 15
+[4153972:MainThread](2024-04-06 16:45:22,990) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  37%|███▋      | 19/52 [07:59<14:41, 26.70s/it][4153972:MainThread](2024-04-06 16:45:23,003) INFO - qlib.workflow - [exp.py:258] - Experiment 15 starts running ...
+[4153972:MainThread](2024-04-06 16:45:23,020) INFO - qlib.workflow - [recorder.py:341] - Recorder 9a432eaa7e2b4a689e35e70ddf9b67b6 starts running under Experiment 15 ...
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2021-06-30 SH600000   -0.161408
+           SH600009   -0.260105
+           SH600010   -0.112428
+           SH600011    0.070882
+           SH600015   -0.162471
+[0]	train-rmse:0.99736	valid-rmse:0.99797
+[20]	train-rmse:0.98478	valid-rmse:0.99451
+[40]	train-rmse:0.97641	valid-rmse:0.99374
+[60]	train-rmse:0.97060	valid-rmse:0.99373
+[80]	train-rmse:0.96587	valid-rmse:0.99374
+[100]	train-rmse:0.96173	valid-rmse:0.99388
+[103]	train-rmse:0.96108	valid-rmse:0.99391
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [16:45:27] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[4153972:MainThread](2024-04-06 16:45:48,513) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 15
+[4153972:MainThread](2024-04-06 16:45:48,564) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  38%|███▊      | 20/52 [08:24<14:03, 26.36s/it][4153972:MainThread](2024-04-06 16:45:48,574) INFO - qlib.workflow - [exp.py:258] - Experiment 15 starts running ...
+[4153972:MainThread](2024-04-06 16:45:48,587) INFO - qlib.workflow - [recorder.py:341] - Recorder 6e3ba81615d34c39b1d9e9c013fec7c9 starts running under Experiment 15 ...
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2021-07-28 SH600000    0.019576
+           SH600009    0.086509
+           SH600010   -0.005249
+           SH600011   -0.118941
+           SH600015   -0.031639
+[0]	train-rmse:0.99737	valid-rmse:0.99818
+[20]	train-rmse:0.98472	valid-rmse:0.99719
+[40]	train-rmse:0.97651	valid-rmse:0.99820
+[60]	train-rmse:0.97068	valid-rmse:0.99912
+[63]	train-rmse:0.96991	valid-rmse:0.99923
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [16:45:53] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[4153972:MainThread](2024-04-06 16:46:09,470) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 15
+[4153972:MainThread](2024-04-06 16:46:09,544) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  40%|████      | 21/52 [08:45<12:47, 24.75s/it][4153972:MainThread](2024-04-06 16:46:09,558) INFO - qlib.workflow - [exp.py:258] - Experiment 15 starts running ...
+[4153972:MainThread](2024-04-06 16:46:09,576) INFO - qlib.workflow - [recorder.py:341] - Recorder 2378392e555f4608a4c944c66719d4fa starts running under Experiment 15 ...
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2021-08-25 SH600000   -0.076547
+           SH600009   -0.085521
+           SH600010   -0.222346
+           SH600011   -0.161295
+           SH600015   -0.020952
+[0]	train-rmse:0.99739	valid-rmse:0.99827
+[20]	train-rmse:0.98455	valid-rmse:0.99856
+[40]	train-rmse:0.97630	valid-rmse:0.99994
+[56]	train-rmse:0.97192	valid-rmse:1.00084
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [16:46:13] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[4153972:MainThread](2024-04-06 16:46:28,266) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 15
+[4153972:MainThread](2024-04-06 16:46:28,340) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  42%|████▏     | 22/52 [09:04<11:28, 22.96s/it][4153972:MainThread](2024-04-06 16:46:28,353) INFO - qlib.workflow - [exp.py:258] - Experiment 15 starts running ...
+[4153972:MainThread](2024-04-06 16:46:28,370) INFO - qlib.workflow - [recorder.py:341] - Recorder 2b71ac90cefc4757aa190258a90e98c5 starts running under Experiment 15 ...
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2021-09-24 SH600000    0.040615
+           SH600009   -0.035178
+           SH600010   -0.326850
+           SH600011   -0.535980
+           SH600015   -0.008521
+[0]	train-rmse:0.99741	valid-rmse:0.99809
+[20]	train-rmse:0.98469	valid-rmse:0.99695
+[40]	train-rmse:0.97645	valid-rmse:0.99776
+[60]	train-rmse:0.97090	valid-rmse:0.99852
+[69]	train-rmse:0.96884	valid-rmse:0.99893
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [16:46:32] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[4153972:MainThread](2024-04-06 16:46:49,180) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 15
+[4153972:MainThread](2024-04-06 16:46:49,252) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  44%|████▍     | 23/52 [09:25<10:48, 22.35s/it][4153972:MainThread](2024-04-06 16:46:49,265) INFO - qlib.workflow - [exp.py:258] - Experiment 15 starts running ...
+[4153972:MainThread](2024-04-06 16:46:49,289) INFO - qlib.workflow - [recorder.py:341] - Recorder cb1ae596ad504dbab1a6f989b2b94c3a starts running under Experiment 15 ...
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2021-10-29 SH600000   -0.055195
+           SH600009   -0.041451
+           SH600010   -0.000572
+           SH600011   -0.330250
+           SH600015    0.036660
+[0]	train-rmse:0.99743	valid-rmse:0.99809
+[20]	train-rmse:0.98498	valid-rmse:0.99668
+[40]	train-rmse:0.97700	valid-rmse:0.99699
+[60]	train-rmse:0.97123	valid-rmse:0.99771
+[77]	train-rmse:0.96751	valid-rmse:0.99828
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [16:46:53] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[4153972:MainThread](2024-04-06 16:47:12,233) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 15
+[4153972:MainThread](2024-04-06 16:47:12,287) INFO - qlib.timer - [log.py:127] - Time cost: 0.001s | waiting `async_log` Done
+train tasks:  46%|████▌     | 24/52 [09:48<10:31, 22.55s/it][4153972:MainThread](2024-04-06 16:47:12,296) INFO - qlib.workflow - [exp.py:258] - Experiment 15 starts running ...
+[4153972:MainThread](2024-04-06 16:47:12,310) INFO - qlib.workflow - [recorder.py:341] - Recorder d3e62e909d1a42d0b1f8c735902e68ea starts running under Experiment 15 ...
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2021-11-26 SH600000   -0.034588
+           SH600009   -0.018725
+           SH600010   -0.004955
+           SH600011    0.109372
+           SH600015    0.053839
+[0]	train-rmse:0.99742	valid-rmse:0.99813
+[20]	train-rmse:0.98501	valid-rmse:0.99715
+[40]	train-rmse:0.97688	valid-rmse:0.99771
+[60]	train-rmse:0.97136	valid-rmse:0.99836
+[70]	train-rmse:0.96909	valid-rmse:0.99869
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [16:47:16] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[4153972:MainThread](2024-04-06 16:47:34,240) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 15
+[4153972:MainThread](2024-04-06 16:47:34,313) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  48%|████▊     | 25/52 [10:10<10:04, 22.40s/it][4153972:MainThread](2024-04-06 16:47:34,327) INFO - qlib.workflow - [exp.py:258] - Experiment 15 starts running ...
+[4153972:MainThread](2024-04-06 16:47:34,345) INFO - qlib.workflow - [recorder.py:341] - Recorder 53f363a2ae7d4e0cb916207ee1fddd6e starts running under Experiment 15 ...
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2021-12-24 SH600000   -0.105520
+           SH600009   -0.034831
+           SH600010   -0.017916
+           SH600011   -0.046957
+           SH600015   -0.044469
+[0]	train-rmse:0.99741	valid-rmse:0.99834
+[20]	train-rmse:0.98462	valid-rmse:0.99913
+[40]	train-rmse:0.97658	valid-rmse:1.00054
+[51]	train-rmse:0.97334	valid-rmse:1.00122
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [16:47:39] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[4153972:MainThread](2024-04-06 16:47:53,374) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 15
+[4153972:MainThread](2024-04-06 16:47:53,447) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  50%|█████     | 26/52 [10:29<09:16, 21.42s/it][4153972:MainThread](2024-04-06 16:47:53,462) INFO - qlib.workflow - [exp.py:258] - Experiment 15 starts running ...
+[4153972:MainThread](2024-04-06 16:47:53,484) INFO - qlib.workflow - [recorder.py:341] - Recorder b0e550f367fa4b76a60f658dec3a3936 starts running under Experiment 15 ...
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2022-01-24 SH600000   -0.049717
+           SH600009   -0.029826
+           SH600010   -0.053311
+           SH600011    0.022526
+           SH600015    0.022484
+[0]	train-rmse:0.99740	valid-rmse:0.99821
+[20]	train-rmse:0.98494	valid-rmse:0.99766
+[40]	train-rmse:0.97710	valid-rmse:0.99847
+[60]	train-rmse:0.97156	valid-rmse:0.99904
+[69]	train-rmse:0.96954	valid-rmse:0.99918
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [16:47:57] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[4153972:MainThread](2024-04-06 16:48:15,106) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 15
+[4153972:MainThread](2024-04-06 16:48:15,178) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  52%|█████▏    | 27/52 [10:51<08:57, 21.51s/it][4153972:MainThread](2024-04-06 16:48:15,192) INFO - qlib.workflow - [exp.py:258] - Experiment 15 starts running ...
+[4153972:MainThread](2024-04-06 16:48:15,233) INFO - qlib.workflow - [recorder.py:341] - Recorder 7d8acf1692004795b7b1b8805ac752d7 starts running under Experiment 15 ...
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2022-02-28 SH600000   -0.018285
+           SH600009    0.064244
+           SH600010   -0.037038
+           SH600011   -0.019765
+           SH600015   -0.006213
+[0]	train-rmse:0.99740	valid-rmse:0.99827
+[20]	train-rmse:0.98490	valid-rmse:0.99843
+[40]	train-rmse:0.97734	valid-rmse:0.99968
+[57]	train-rmse:0.97254	valid-rmse:1.00040
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [16:48:19] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[4153972:MainThread](2024-04-06 16:48:34,368) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 15
+[4153972:MainThread](2024-04-06 16:48:34,427) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  54%|█████▍    | 28/52 [11:10<08:19, 20.83s/it][4153972:MainThread](2024-04-06 16:48:34,440) INFO - qlib.workflow - [exp.py:258] - Experiment 15 starts running ...
+[4153972:MainThread](2024-04-06 16:48:34,461) INFO - qlib.workflow - [recorder.py:341] - Recorder 8ecd33b927984c21bf5b7a4cf60ed5bd starts running under Experiment 15 ...
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2022-03-28 SH600000    0.059250
+           SH600009    0.089947
+           SH600010    0.040571
+           SH600011    0.072482
+           SH600015    0.079649
+[0]	train-rmse:0.99740	valid-rmse:0.99830
+[20]	train-rmse:0.98497	valid-rmse:0.99965
+[40]	train-rmse:0.97690	valid-rmse:1.00153
+[49]	train-rmse:0.97431	valid-rmse:1.00204
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [16:48:38] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[4153972:MainThread](2024-04-06 16:48:52,538) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 15
+[4153972:MainThread](2024-04-06 16:48:52,610) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  56%|█████▌    | 29/52 [11:28<07:40, 20.04s/it][4153972:MainThread](2024-04-06 16:48:52,623) INFO - qlib.workflow - [exp.py:258] - Experiment 15 starts running ...
+[4153972:MainThread](2024-04-06 16:48:52,641) INFO - qlib.workflow - [recorder.py:341] - Recorder 008f99af212443fc98d4c783583a3e10 starts running under Experiment 15 ...
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2022-04-27 SH600000    0.058075
+           SH600009    0.024957
+           SH600010    0.198617
+           SH600011    0.055449
+           SH600015    0.113780
+[0]	train-rmse:0.99743	valid-rmse:0.99826
+[20]	train-rmse:0.98494	valid-rmse:0.99861
+[40]	train-rmse:0.97697	valid-rmse:0.99979
+[55]	train-rmse:0.97275	valid-rmse:1.00030
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [16:48:57] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[4153972:MainThread](2024-04-06 16:49:12,422) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 15
+[4153972:MainThread](2024-04-06 16:49:12,499) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  58%|█████▊    | 30/52 [11:48<07:19, 19.99s/it][4153972:MainThread](2024-04-06 16:49:12,512) INFO - qlib.workflow - [exp.py:258] - Experiment 15 starts running ...
+[4153972:MainThread](2024-04-06 16:49:12,530) INFO - qlib.workflow - [recorder.py:341] - Recorder 9c1c3b5e2cfa483685ee6b7c49c1c2c9 starts running under Experiment 15 ...
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2022-05-30 SH600000   -0.018817
+           SH600009    0.015950
+           SH600010    0.005484
+           SH600011    0.002658
+           SH600015   -0.007359
+[0]	train-rmse:0.99744	valid-rmse:0.99817
+[20]	train-rmse:0.98507	valid-rmse:0.99795
+[40]	train-rmse:0.97733	valid-rmse:0.99877
+[60]	train-rmse:0.97202	valid-rmse:0.99927
+[61]	train-rmse:0.97177	valid-rmse:0.99931
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [16:49:17] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[4153972:MainThread](2024-04-06 16:49:33,013) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 15
+[4153972:MainThread](2024-04-06 16:49:33,085) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  60%|█████▉    | 31/52 [12:09<07:03, 20.17s/it][4153972:MainThread](2024-04-06 16:49:33,098) INFO - qlib.workflow - [exp.py:258] - Experiment 15 starts running ...
+[4153972:MainThread](2024-04-06 16:49:33,116) INFO - qlib.workflow - [recorder.py:341] - Recorder 7f00d37f1fda44cf9f8f0d09cb99b7af starts running under Experiment 15 ...
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2022-06-28 SH600000    0.063316
+           SH600009   -0.000836
+           SH600010   -0.128911
+           SH600011    0.140129
+           SH600015    0.078946
+[0]	train-rmse:0.99745	valid-rmse:0.99811
+[20]	train-rmse:0.98521	valid-rmse:0.99601
+[40]	train-rmse:0.97729	valid-rmse:0.99632
+[60]	train-rmse:0.97215	valid-rmse:0.99667
+[75]	train-rmse:0.96912	valid-rmse:0.99673
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [16:49:37] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[4153972:MainThread](2024-04-06 16:49:55,495) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 15
+[4153972:MainThread](2024-04-06 16:49:55,566) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  62%|██████▏   | 32/52 [12:31<06:57, 20.86s/it][4153972:MainThread](2024-04-06 16:49:55,579) INFO - qlib.workflow - [exp.py:258] - Experiment 15 starts running ...
+[4153972:MainThread](2024-04-06 16:49:55,599) INFO - qlib.workflow - [recorder.py:341] - Recorder 3314d2aa7d6149eaa7b11c835eaa0478 starts running under Experiment 15 ...
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2022-07-26 SH600000   -0.009335
+           SH600009   -0.035216
+           SH600010   -0.046576
+           SH600011    0.061893
+           SH600015    0.107324
+[0]	train-rmse:0.99747	valid-rmse:0.99805
+[20]	train-rmse:0.98567	valid-rmse:0.99495
+[40]	train-rmse:0.97797	valid-rmse:0.99457
+[60]	train-rmse:0.97302	valid-rmse:0.99440
+[80]	train-rmse:0.96883	valid-rmse:0.99444
+[100]	train-rmse:0.96487	valid-rmse:0.99443
+[120]	train-rmse:0.96106	valid-rmse:0.99460
+[136]	train-rmse:0.95785	valid-rmse:0.99479
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [16:50:00] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[4153972:MainThread](2024-04-06 16:50:28,554) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 15
+[4153972:MainThread](2024-04-06 16:50:28,609) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  63%|██████▎   | 33/52 [13:04<07:45, 24.52s/it][4153972:MainThread](2024-04-06 16:50:28,618) INFO - qlib.workflow - [exp.py:258] - Experiment 15 starts running ...
+[4153972:MainThread](2024-04-06 16:50:28,630) INFO - qlib.workflow - [recorder.py:341] - Recorder 19d29306f7ae40a8aad921cf11777155 starts running under Experiment 15 ...
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2022-08-23 SH600000   -0.026826
+           SH600009    0.091514
+           SH600010    0.004836
+           SH600011    0.097365
+           SH600015   -0.088875
+[0]	train-rmse:0.99744	valid-rmse:0.99802
+[20]	train-rmse:0.98572	valid-rmse:0.99619
+[40]	train-rmse:0.97808	valid-rmse:0.99615
+[60]	train-rmse:0.97303	valid-rmse:0.99620
+[80]	train-rmse:0.96897	valid-rmse:0.99624
+[82]	train-rmse:0.96853	valid-rmse:0.99626
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [16:50:33] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[4153972:MainThread](2024-04-06 16:50:53,432) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 15
+[4153972:MainThread](2024-04-06 16:50:53,516) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  65%|██████▌   | 34/52 [13:29<07:23, 24.63s/it][4153972:MainThread](2024-04-06 16:50:53,529) INFO - qlib.workflow - [exp.py:258] - Experiment 15 starts running ...
+[4153972:MainThread](2024-04-06 16:50:53,547) INFO - qlib.workflow - [recorder.py:341] - Recorder 0c5fb18a843a420c861065494898fffb starts running under Experiment 15 ...
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2022-09-21 SH600000   -0.016320
+           SH600009    0.052789
+           SH600010    0.015373
+           SH600011    0.096376
+           SH600015    0.047386
+[0]	train-rmse:0.99747	valid-rmse:0.99813
+[20]	train-rmse:0.98593	valid-rmse:0.99627
+[40]	train-rmse:0.97806	valid-rmse:0.99643
+[60]	train-rmse:0.97294	valid-rmse:0.99647
+[74]	train-rmse:0.96994	valid-rmse:0.99661
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [16:50:58] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[4153972:MainThread](2024-04-06 16:51:16,847) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 15
+[4153972:MainThread](2024-04-06 16:51:16,902) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  67%|██████▋   | 35/52 [13:52<06:52, 24.26s/it][4153972:MainThread](2024-04-06 16:51:16,916) INFO - qlib.workflow - [exp.py:258] - Experiment 15 starts running ...
+[4153972:MainThread](2024-04-06 16:51:16,939) INFO - qlib.workflow - [recorder.py:341] - Recorder 3676c4c9043248bf9107550f2ea198d6 starts running under Experiment 15 ...
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2022-10-26 SH600000   -0.026971
+           SH600009    0.113872
+           SH600010   -0.015751
+           SH600011   -0.008844
+           SH600015   -0.007983
+[0]	train-rmse:0.99745	valid-rmse:0.99816
+[20]	train-rmse:0.98588	valid-rmse:0.99678
+[40]	train-rmse:0.97827	valid-rmse:0.99739
+[60]	train-rmse:0.97327	valid-rmse:0.99770
+[65]	train-rmse:0.97211	valid-rmse:0.99770
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [16:51:21] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[4153972:MainThread](2024-04-06 16:51:39,673) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 15
+[4153972:MainThread](2024-04-06 16:51:39,733) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  69%|██████▉   | 36/52 [14:15<06:21, 23.83s/it][4153972:MainThread](2024-04-06 16:51:39,747) INFO - qlib.workflow - [exp.py:258] - Experiment 15 starts running ...
+[4153972:MainThread](2024-04-06 16:51:39,771) INFO - qlib.workflow - [recorder.py:341] - Recorder c51fed4ac8be4718a92ea0c61db474de starts running under Experiment 15 ...
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2022-11-23 SH600000    0.058302
+           SH600009    0.017930
+           SH600010   -0.192407
+           SH600011    0.102307
+           SH600015    0.063606
+[0]	train-rmse:0.99749	valid-rmse:0.99807
+[20]	train-rmse:0.98611	valid-rmse:0.99623
+[40]	train-rmse:0.97849	valid-rmse:0.99677
+[60]	train-rmse:0.97314	valid-rmse:0.99696
+[75]	train-rmse:0.97003	valid-rmse:0.99698
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [16:51:44] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[4153972:MainThread](2024-04-06 16:52:03,642) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 15
+[4153972:MainThread](2024-04-06 16:52:03,693) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  71%|███████   | 37/52 [14:39<05:58, 23.87s/it][4153972:MainThread](2024-04-06 16:52:03,703) INFO - qlib.workflow - [exp.py:258] - Experiment 15 starts running ...
+[4153972:MainThread](2024-04-06 16:52:03,723) INFO - qlib.workflow - [recorder.py:341] - Recorder 75eb83d6c725437389c48fe29cf3544c starts running under Experiment 15 ...
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2022-12-21 SH600000    0.051828
+           SH600009    0.107218
+           SH600010   -0.192224
+           SH600011    0.010665
+           SH600015    0.001774
+[0]	train-rmse:0.99751	valid-rmse:0.99804
+[20]	train-rmse:0.98623	valid-rmse:0.99548
+[40]	train-rmse:0.97852	valid-rmse:0.99541
+[60]	train-rmse:0.97354	valid-rmse:0.99537
+[80]	train-rmse:0.96948	valid-rmse:0.99519
+[100]	train-rmse:0.96580	valid-rmse:0.99544
+[120]	train-rmse:0.96181	valid-rmse:0.99568
+[130]	train-rmse:0.96001	valid-rmse:0.99582
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [16:52:08] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[4153972:MainThread](2024-04-06 16:52:36,847) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 15
+[4153972:MainThread](2024-04-06 16:52:36,922) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  73%|███████▎  | 38/52 [15:13<06:13, 26.68s/it][4153972:MainThread](2024-04-06 16:52:36,936) INFO - qlib.workflow - [exp.py:258] - Experiment 15 starts running ...
+[4153972:MainThread](2024-04-06 16:52:36,954) INFO - qlib.workflow - [recorder.py:341] - Recorder caa86ec48489451ea099650a2f83bfc4 starts running under Experiment 15 ...
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2023-01-19 SH600000    0.030132
+           SH600009    0.066503
+           SH600010   -0.029488
+           SH600011   -0.231138
+           SH600015    0.048745
+[0]	train-rmse:0.99752	valid-rmse:0.99812
+[20]	train-rmse:0.98625	valid-rmse:0.99604
+[40]	train-rmse:0.97849	valid-rmse:0.99659
+[60]	train-rmse:0.97369	valid-rmse:0.99663
+[70]	train-rmse:0.97154	valid-rmse:0.99668
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [16:52:41] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[4153972:MainThread](2024-04-06 16:53:00,731) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 15
+[4153972:MainThread](2024-04-06 16:53:00,805) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  75%|███████▌  | 39/52 [15:36<05:35, 25.84s/it][4153972:MainThread](2024-04-06 16:53:00,818) INFO - qlib.workflow - [exp.py:258] - Experiment 15 starts running ...
+[4153972:MainThread](2024-04-06 16:53:00,836) INFO - qlib.workflow - [recorder.py:341] - Recorder 0b0e684d7203412fb43874a3c5f61275 starts running under Experiment 15 ...
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2023-02-23 SH600000   -0.005305
+           SH600009    0.085654
+           SH600010    0.019676
+           SH600011    0.115133
+           SH600015    0.070870
+[0]	train-rmse:0.99752	valid-rmse:0.99809
+[20]	train-rmse:0.98645	valid-rmse:0.99599
+[40]	train-rmse:0.97887	valid-rmse:0.99598
+[60]	train-rmse:0.97404	valid-rmse:0.99601
+[80]	train-rmse:0.97006	valid-rmse:0.99599
+[94]	train-rmse:0.96750	valid-rmse:0.99600
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [16:53:05] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[4153972:MainThread](2024-04-06 16:53:27,914) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 15
+[4153972:MainThread](2024-04-06 16:53:27,965) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  77%|███████▋  | 40/52 [16:04<05:14, 26.24s/it][4153972:MainThread](2024-04-06 16:53:27,975) INFO - qlib.workflow - [exp.py:258] - Experiment 15 starts running ...
+[4153972:MainThread](2024-04-06 16:53:27,987) INFO - qlib.workflow - [recorder.py:341] - Recorder 14b63026287c4f3b984deb8702dab615 starts running under Experiment 15 ...
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2023-03-23 SH600000    0.048756
+           SH600009   -0.037447
+           SH600010   -0.005328
+           SH600011    0.099837
+           SH600015    0.152874
+[0]	train-rmse:0.99751	valid-rmse:0.99821
+[20]	train-rmse:0.98630	valid-rmse:0.99716
+[40]	train-rmse:0.97890	valid-rmse:0.99740
+[60]	train-rmse:0.97392	valid-rmse:0.99781
+[69]	train-rmse:0.97186	valid-rmse:0.99792
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [16:53:33] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[4153972:MainThread](2024-04-06 16:53:51,689) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 15
+[4153972:MainThread](2024-04-06 16:53:51,741) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  79%|███████▉  | 41/52 [16:27<04:40, 25.50s/it][4153972:MainThread](2024-04-06 16:53:51,751) INFO - qlib.workflow - [exp.py:258] - Experiment 15 starts running ...
+[4153972:MainThread](2024-04-06 16:53:51,763) INFO - qlib.workflow - [recorder.py:341] - Recorder 16f7ce1e302d483584325cdb44ee0e46 starts running under Experiment 15 ...
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2023-04-21 SH600000    0.151158
+           SH600009   -0.015411
+           SH600010   -0.013072
+           SH600011    0.248434
+           SH600015    0.080865
+[0]	train-rmse:0.99749	valid-rmse:0.99820
+[20]	train-rmse:0.98658	valid-rmse:0.99726
+[40]	train-rmse:0.97932	valid-rmse:0.99730
+[60]	train-rmse:0.97404	valid-rmse:0.99751
+[80]	train-rmse:0.96995	valid-rmse:0.99769
+[82]	train-rmse:0.96953	valid-rmse:0.99770
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [16:53:57] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[4153972:MainThread](2024-04-06 16:54:18,345) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 15
+[4153972:MainThread](2024-04-06 16:54:18,401) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  81%|████████  | 42/52 [16:54<04:18, 25.85s/it][4153972:MainThread](2024-04-06 16:54:18,410) INFO - qlib.workflow - [exp.py:258] - Experiment 15 starts running ...
+[4153972:MainThread](2024-04-06 16:54:18,422) INFO - qlib.workflow - [recorder.py:341] - Recorder 6efba984d253499d95d67f587678b2b2 starts running under Experiment 15 ...
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2023-05-24 SH600000   -0.029165
+           SH600009    0.030426
+           SH600010   -0.053157
+           SH600011    0.012533
+           SH600015   -0.085782
+[0]	train-rmse:0.99752	valid-rmse:0.99825
+[20]	train-rmse:0.98666	valid-rmse:0.99748
+[40]	train-rmse:0.97937	valid-rmse:0.99786
+[60]	train-rmse:0.97404	valid-rmse:0.99788
+[68]	train-rmse:0.97233	valid-rmse:0.99799
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [16:54:22] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[4153972:MainThread](2024-04-06 16:54:41,267) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 15
+[4153972:MainThread](2024-04-06 16:54:41,342) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  83%|████████▎ | 43/52 [17:17<03:44, 24.98s/it][4153972:MainThread](2024-04-06 16:54:41,356) INFO - qlib.workflow - [exp.py:258] - Experiment 15 starts running ...
+[4153972:MainThread](2024-04-06 16:54:41,377) INFO - qlib.workflow - [recorder.py:341] - Recorder 1fe04366a02e4e7cb5fce0fdd1025dac starts running under Experiment 15 ...
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2023-06-21 SH600000   -0.043873
+           SH600009    0.043271
+           SH600010   -0.065820
+           SH600011    0.027013
+           SH600015   -0.037168
+[0]	train-rmse:0.99753	valid-rmse:0.99821
+[20]	train-rmse:0.98668	valid-rmse:0.99743
+[40]	train-rmse:0.97940	valid-rmse:0.99741
+[60]	train-rmse:0.97436	valid-rmse:0.99743
+[73]	train-rmse:0.97161	valid-rmse:0.99757
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [16:54:46] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[4153972:MainThread](2024-04-06 16:55:05,510) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 15
+[4153972:MainThread](2024-04-06 16:55:05,584) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  85%|████████▍ | 44/52 [17:41<03:18, 24.76s/it][4153972:MainThread](2024-04-06 16:55:05,597) INFO - qlib.workflow - [exp.py:258] - Experiment 15 starts running ...
+[4153972:MainThread](2024-04-06 16:55:05,616) INFO - qlib.workflow - [recorder.py:341] - Recorder c3b416c872ac4f99a145e4841d6cb317 starts running under Experiment 15 ...
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2023-07-21 SH600000    0.017714
+           SH600009    0.018850
+           SH600010    0.002840
+           SH600011    0.080769
+           SH600015    0.044266
+[0]	train-rmse:0.99753	valid-rmse:0.99819
+[20]	train-rmse:0.98675	valid-rmse:0.99707
+[40]	train-rmse:0.97943	valid-rmse:0.99690
+[60]	train-rmse:0.97445	valid-rmse:0.99684
+[80]	train-rmse:0.97022	valid-rmse:0.99706
+[98]	train-rmse:0.96695	valid-rmse:0.99719
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [16:55:10] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[4153972:MainThread](2024-04-06 16:55:34,314) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 15
+[4153972:MainThread](2024-04-06 16:55:34,387) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  87%|████████▋ | 45/52 [18:10<03:01, 25.97s/it][4153972:MainThread](2024-04-06 16:55:34,401) INFO - qlib.workflow - [exp.py:258] - Experiment 15 starts running ...
+[4153972:MainThread](2024-04-06 16:55:34,419) INFO - qlib.workflow - [recorder.py:341] - Recorder b7092fd80e4b4342ba05fe36d4ea7a26 starts running under Experiment 15 ...
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2023-08-18 SH600000    0.056192
+           SH600009    0.084604
+           SH600010    0.019922
+           SH600011    0.056424
+           SH600015    0.080259
+[0]	train-rmse:0.99753	valid-rmse:0.99816
+[20]	train-rmse:0.98662	valid-rmse:0.99713
+[40]	train-rmse:0.97912	valid-rmse:0.99714
+[60]	train-rmse:0.97422	valid-rmse:0.99704
+[80]	train-rmse:0.97008	valid-rmse:0.99736
+[99]	train-rmse:0.96670	valid-rmse:0.99749
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [16:55:39] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[4153972:MainThread](2024-04-06 16:56:03,798) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 15
+[4153972:MainThread](2024-04-06 16:56:03,871) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  88%|████████▊ | 46/52 [18:39<02:42, 27.02s/it][4153972:MainThread](2024-04-06 16:56:03,885) INFO - qlib.workflow - [exp.py:258] - Experiment 15 starts running ...
+[4153972:MainThread](2024-04-06 16:56:03,903) INFO - qlib.workflow - [recorder.py:341] - Recorder 12245d71ef974d2f86cbce85f1d67f56 starts running under Experiment 15 ...
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2023-09-15 SH600000   -0.007742
+           SH600009   -0.064927
+           SH600010   -0.035882
+           SH600011    0.071112
+           SH600015    0.017595
+[0]	train-rmse:0.99754	valid-rmse:0.99815
+[20]	train-rmse:0.98670	valid-rmse:0.99689
+[40]	train-rmse:0.97943	valid-rmse:0.99675
+[60]	train-rmse:0.97439	valid-rmse:0.99674
+[80]	train-rmse:0.97015	valid-rmse:0.99712
+[87]	train-rmse:0.96868	valid-rmse:0.99716
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [16:56:08] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[4153972:MainThread](2024-04-06 16:56:30,936) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 15
+[4153972:MainThread](2024-04-06 16:56:31,011) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  90%|█████████ | 47/52 [19:07<02:15, 27.06s/it][4153972:MainThread](2024-04-06 16:56:31,024) INFO - qlib.workflow - [exp.py:258] - Experiment 15 starts running ...
+[4153972:MainThread](2024-04-06 16:56:31,042) INFO - qlib.workflow - [recorder.py:341] - Recorder 64d181a7bdd54331a31b1db1eab9b942 starts running under Experiment 15 ...
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2023-10-23 SH600000    0.029316
+           SH600009   -0.015318
+           SH600010    0.014280
+           SH600011   -0.099679
+           SH600015    0.049865
+[0]	train-rmse:0.99752	valid-rmse:0.99822
+[20]	train-rmse:0.98687	valid-rmse:0.99770
+[40]	train-rmse:0.97956	valid-rmse:0.99789
+[60]	train-rmse:0.97453	valid-rmse:0.99804
+[68]	train-rmse:0.97259	valid-rmse:0.99815
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [16:56:35] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[4153972:MainThread](2024-04-06 16:56:54,559) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 15
+[4153972:MainThread](2024-04-06 16:56:54,631) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  92%|█████████▏| 48/52 [19:30<01:44, 26.03s/it][4153972:MainThread](2024-04-06 16:56:54,644) INFO - qlib.workflow - [exp.py:258] - Experiment 15 starts running ...
+[4153972:MainThread](2024-04-06 16:56:54,662) INFO - qlib.workflow - [recorder.py:341] - Recorder a532de4205c04d3b87e7eb9c05982bf8 starts running under Experiment 15 ...
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2023-11-20 SH600000    0.070206
+           SH600009    0.010318
+           SH600010   -0.016773
+           SH600011   -0.005272
+           SH600015    0.020053
+[0]	train-rmse:0.99752	valid-rmse:0.99829
+[20]	train-rmse:0.98682	valid-rmse:0.99844
+[40]	train-rmse:0.97959	valid-rmse:0.99909
+[55]	train-rmse:0.97571	valid-rmse:0.99961
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [16:56:59] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[4153972:MainThread](2024-04-06 16:57:16,007) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 15
+[4153972:MainThread](2024-04-06 16:57:16,078) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  94%|█████████▍| 49/52 [19:52<01:13, 24.65s/it][4153972:MainThread](2024-04-06 16:57:16,091) INFO - qlib.workflow - [exp.py:258] - Experiment 15 starts running ...
+[4153972:MainThread](2024-04-06 16:57:16,110) INFO - qlib.workflow - [recorder.py:341] - Recorder 2e0d0f2aabfd4e9faa807c6d71e9e35a starts running under Experiment 15 ...
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2023-12-18 SH600000    0.006220
+           SH600009    0.046317
+           SH600010   -0.000745
+           SH600011    0.035558
+           SH600015    0.031452
+[0]	train-rmse:0.99751	valid-rmse:0.99825
+[20]	train-rmse:0.98710	valid-rmse:0.99773
+[40]	train-rmse:0.97999	valid-rmse:0.99815
+[60]	train-rmse:0.97496	valid-rmse:0.99845
+[66]	train-rmse:0.97360	valid-rmse:0.99861
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [16:57:20] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[4153972:MainThread](2024-04-06 16:57:39,594) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 15
+[4153972:MainThread](2024-04-06 16:57:39,667) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  96%|█████████▌| 50/52 [20:15<00:48, 24.33s/it][4153972:MainThread](2024-04-06 16:57:39,680) INFO - qlib.workflow - [exp.py:258] - Experiment 15 starts running ...
+[4153972:MainThread](2024-04-06 16:57:39,698) INFO - qlib.workflow - [recorder.py:341] - Recorder 04f8440fa8c044ed98feefffa7441e6f starts running under Experiment 15 ...
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2024-01-16 SH600000   -0.004176
+           SH600009    0.006526
+           SH600010   -0.008042
+           SH600011    0.090471
+           SH600015    0.089121
+[0]	train-rmse:0.99755	valid-rmse:0.99819
+[20]	train-rmse:0.98717	valid-rmse:0.99693
+[40]	train-rmse:0.98023	valid-rmse:0.99685
+[60]	train-rmse:0.97489	valid-rmse:0.99685
+[76]	train-rmse:0.97179	valid-rmse:0.99710
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [16:57:44] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[4153972:MainThread](2024-04-06 16:58:04,953) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 15
+[4153972:MainThread](2024-04-06 16:58:05,028) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  98%|█████████▊| 51/52 [20:41<00:24, 24.64s/it][4153972:MainThread](2024-04-06 16:58:05,041) INFO - qlib.workflow - [exp.py:258] - Experiment 15 starts running ...
+[4153972:MainThread](2024-04-06 16:58:05,059) INFO - qlib.workflow - [recorder.py:341] - Recorder afc4d078847f49cab1e3b729788d7ac7 starts running under Experiment 15 ...
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2024-02-21 SH600000    0.136802
+           SH600009   -0.045271
+           SH600010   -0.038483
+           SH600011    0.113647
+           SH600015    0.045473
+[0]	train-rmse:0.99755	valid-rmse:0.99807
+[20]	train-rmse:0.98727	valid-rmse:0.99542
+[40]	train-rmse:0.98045	valid-rmse:0.99467
+[60]	train-rmse:0.97540	valid-rmse:0.99461
+[80]	train-rmse:0.97152	valid-rmse:0.99448
+[100]	train-rmse:0.96783	valid-rmse:0.99465
+[120]	train-rmse:0.96421	valid-rmse:0.99487
+[123]	train-rmse:0.96369	valid-rmse:0.99492
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/xgboost/core.py:160: UserWarning: [16:58:10] WARNING: /workspace/src/learner.cc:742: 
+Parameters: { "n_estimators" } are not used.
+
+  warnings.warn(smsg, UserWarning)
+[4153972:MainThread](2024-04-06 16:58:39,105) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 15
+[4153972:MainThread](2024-04-06 16:58:39,176) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks: 100%|██████████| 52/52 [21:15<00:00, 27.49s/it]train tasks: 100%|██████████| 52/52 [21:15<00:00, 24.52s/it]
+[4153972:MainThread](2024-04-06 16:58:39,368) INFO - qlib.timer - [log.py:127] - Time cost: 0.086s | Time to `list_recorders` in RecorderCollector Done
+[4153972:MainThread](2024-04-06 16:58:39,368) INFO - qlib.RecorderCollector - [collect.py:226] - Nubmer of recorders after filter: defaultdict(<class 'int'>, {'FINISHED': 52})
+[4153972:MainThread](2024-04-06 16:58:39,417) INFO - qlib.RollingEnsemble - [ensemble.py:81] - keys in group: ['afc4d078847f49cab1e3b729788d7ac7', '04f8440fa8c044ed98feefffa7441e6f', '2e0d0f2aabfd4e9faa807c6d71e9e35a', 'a532de4205c04d3b87e7eb9c05982bf8', '64d181a7bdd54331a31b1db1eab9b942', '12245d71ef974d2f86cbce85f1d67f56', 'b7092fd80e4b4342ba05fe36d4ea7a26', 'c3b416c872ac4f99a145e4841d6cb317', '1fe04366a02e4e7cb5fce0fdd1025dac', '6efba984d253499d95d67f587678b2b2', '16f7ce1e302d483584325cdb44ee0e46', '14b63026287c4f3b984deb8702dab615', '0b0e684d7203412fb43874a3c5f61275', 'caa86ec48489451ea099650a2f83bfc4', '75eb83d6c725437389c48fe29cf3544c', 'c51fed4ac8be4718a92ea0c61db474de', '3676c4c9043248bf9107550f2ea198d6', '0c5fb18a843a420c861065494898fffb', '19d29306f7ae40a8aad921cf11777155', '3314d2aa7d6149eaa7b11c835eaa0478', '7f00d37f1fda44cf9f8f0d09cb99b7af', '9c1c3b5e2cfa483685ee6b7c49c1c2c9', '008f99af212443fc98d4c783583a3e10', '8ecd33b927984c21bf5b7a4cf60ed5bd', '7d8acf1692004795b7b1b8805ac752d7', 'b0e550f367fa4b76a60f658dec3a3936', '53f363a2ae7d4e0cb916207ee1fddd6e', 'd3e62e909d1a42d0b1f8c735902e68ea', 'cb1ae596ad504dbab1a6f989b2b94c3a', '2b71ac90cefc4757aa190258a90e98c5', '2378392e555f4608a4c944c66719d4fa', '6e3ba81615d34c39b1d9e9c013fec7c9', '9a432eaa7e2b4a689e35e70ddf9b67b6', '49a8bdd7e2e44d53b732c9e1fff879e8', '786d7c74268547f9883a3d11dc50f78d', 'faee01dd69ff4ed1ac3547b692a88497', '5f55ea9a68a046c894f886b54936e396', 'abe2101fc64242599bb6166451b05530', 'ed49cf6c04f04cde9820b3c2084479a2', '0a882e1bc04d410b832930e5eb4fb78f', '8b9c623723904d86a965e8763d65bc73', 'be32902804a64472b90ed3b4b48b9b2f', '56eb8a5271ed4afebb18548d09360bc6', '216cb6a86d5c4462a197973d91b46059', '44fe79bc5f2e43b2a8d8a7ff053ff87e', 'd0a8b3517eb14d3e8523ebadf2c985a8', 'f55caf0d823645039fe889ccec9d8416', 'cda6e2767b674d089b21768b55675922', '1e25c050514a41c497f6f439b62e6847', '9ab6a0ae91a240599beb77653ff3a059', '05379c682a874f6db7a0eac6fde88e52', 'a018e16ed2d447a8a608cbc0bb8f7110']
+[4153972:MainThread](2024-04-06 16:58:39,526) INFO - qlib.RollingEnsemble - [ensemble.py:81] - keys in group: ['afc4d078847f49cab1e3b729788d7ac7', '04f8440fa8c044ed98feefffa7441e6f', '2e0d0f2aabfd4e9faa807c6d71e9e35a', 'a532de4205c04d3b87e7eb9c05982bf8', '64d181a7bdd54331a31b1db1eab9b942', '12245d71ef974d2f86cbce85f1d67f56', 'b7092fd80e4b4342ba05fe36d4ea7a26', 'c3b416c872ac4f99a145e4841d6cb317', '1fe04366a02e4e7cb5fce0fdd1025dac', '6efba984d253499d95d67f587678b2b2', '16f7ce1e302d483584325cdb44ee0e46', '14b63026287c4f3b984deb8702dab615', '0b0e684d7203412fb43874a3c5f61275', 'caa86ec48489451ea099650a2f83bfc4', '75eb83d6c725437389c48fe29cf3544c', 'c51fed4ac8be4718a92ea0c61db474de', '3676c4c9043248bf9107550f2ea198d6', '0c5fb18a843a420c861065494898fffb', '19d29306f7ae40a8aad921cf11777155', '3314d2aa7d6149eaa7b11c835eaa0478', '7f00d37f1fda44cf9f8f0d09cb99b7af', '9c1c3b5e2cfa483685ee6b7c49c1c2c9', '008f99af212443fc98d4c783583a3e10', '8ecd33b927984c21bf5b7a4cf60ed5bd', '7d8acf1692004795b7b1b8805ac752d7', 'b0e550f367fa4b76a60f658dec3a3936', '53f363a2ae7d4e0cb916207ee1fddd6e', 'd3e62e909d1a42d0b1f8c735902e68ea', 'cb1ae596ad504dbab1a6f989b2b94c3a', '2b71ac90cefc4757aa190258a90e98c5', '2378392e555f4608a4c944c66719d4fa', '6e3ba81615d34c39b1d9e9c013fec7c9', '9a432eaa7e2b4a689e35e70ddf9b67b6', '49a8bdd7e2e44d53b732c9e1fff879e8', '786d7c74268547f9883a3d11dc50f78d', 'faee01dd69ff4ed1ac3547b692a88497', '5f55ea9a68a046c894f886b54936e396', 'abe2101fc64242599bb6166451b05530', 'ed49cf6c04f04cde9820b3c2084479a2', '0a882e1bc04d410b832930e5eb4fb78f', '8b9c623723904d86a965e8763d65bc73', 'be32902804a64472b90ed3b4b48b9b2f', '56eb8a5271ed4afebb18548d09360bc6', '216cb6a86d5c4462a197973d91b46059', '44fe79bc5f2e43b2a8d8a7ff053ff87e', 'd0a8b3517eb14d3e8523ebadf2c985a8', 'f55caf0d823645039fe889ccec9d8416', 'cda6e2767b674d089b21768b55675922', '1e25c050514a41c497f6f439b62e6847', '9ab6a0ae91a240599beb77653ff3a059', '05379c682a874f6db7a0eac6fde88e52', 'a018e16ed2d447a8a608cbc0bb8f7110']
+[4153972:MainThread](2024-04-06 16:58:39,640) INFO - qlib.workflow - [exp.py:258] - Experiment 3 starts running ...
+[4153972:MainThread](2024-04-06 16:58:39,655) INFO - qlib.workflow - [recorder.py:341] - Recorder d863f8312da94ed3826da2992423129a starts running under Experiment 3 ...
+[4153972:MainThread](2024-04-06 16:58:39,806) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+[4153972:MainThread](2024-04-06 16:58:41,640) INFO - qlib.backtest caller - [__init__.py:93] - Create new exchange
+'The following are prediction results of the XGBModel model.'
+                          score
+datetime   instrument          
+2024-03-20 SH600000    0.089176
+           SH600009    0.053278
+           SH600010   -0.022415
+           SH600011    0.186932
+           SH600015    0.085671
+{'IC': 0.06546743339159873,
+ 'ICIR': 0.4721513137065869,
+ 'Rank IC': 0.06893526287690661,
+ 'Rank ICIR': 0.47995364975541943}
+[4153972:MainThread](2024-04-06 16:58:49,706) WARNING - qlib.online operator - [exchange.py:219] - $close field data contains nan.
+[4153972:MainThread](2024-04-06 16:58:49,709) WARNING - qlib.online operator - [exchange.py:219] - $close field data contains nan.
+[4153972:MainThread](2024-04-06 16:58:56,252) WARNING - qlib.BaseExecutor - [executor.py:121] - `common_infra` is not set for <qlib.backtest.executor.SimulatorExecutor object at 0x7fe909002e20>
+backtest loop:   0%|          | 0/1025 [00:00<?, ?it/s]/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/qlib/utils/index_data.py:481: RuntimeWarning: Mean of empty slice
+  return np.nanmean(self.data)
+backtest loop:   0%|          | 5/1025 [00:00<00:22, 44.56it/s]backtest loop:   1%|          | 10/1025 [00:00<00:21, 47.44it/s]backtest loop:   1%|▏         | 15/1025 [00:00<00:20, 48.25it/s]backtest loop:   2%|▏         | 20/1025 [00:00<00:20, 47.96it/s]backtest loop:   2%|▏         | 25/1025 [00:00<00:22, 45.37it/s]backtest loop:   3%|▎         | 30/1025 [00:00<00:22, 44.58it/s]backtest loop:   3%|▎         | 35/1025 [00:00<00:21, 46.18it/s]backtest loop:   4%|▍         | 40/1025 [00:00<00:20, 47.33it/s]backtest loop:   4%|▍         | 46/1025 [00:00<00:21, 45.77it/s]backtest loop:   5%|▌         | 52/1025 [00:01<00:20, 47.83it/s]backtest loop:   6%|▌         | 57/1025 [00:01<00:20, 48.32it/s]backtest loop:   6%|▌         | 62/1025 [00:01<00:19, 48.54it/s]backtest loop:   7%|▋         | 67/1025 [00:01<00:19, 48.36it/s]backtest loop:   7%|▋         | 72/1025 [00:01<00:19, 48.54it/s]backtest loop:   8%|▊         | 78/1025 [00:01<00:18, 50.37it/s]backtest loop:   8%|▊         | 84/1025 [00:01<00:19, 48.89it/s]backtest loop:   9%|▉         | 90/1025 [00:01<00:18, 50.81it/s]backtest loop:   9%|▉         | 96/1025 [00:01<00:17, 52.53it/s]backtest loop:  10%|▉         | 102/1025 [00:02<00:18, 50.28it/s]backtest loop:  11%|█         | 108/1025 [00:02<00:17, 51.46it/s]backtest loop:  11%|█         | 114/1025 [00:02<00:17, 52.33it/s]backtest loop:  12%|█▏        | 120/1025 [00:02<00:18, 49.91it/s]backtest loop:  12%|█▏        | 126/1025 [00:02<00:17, 51.24it/s]backtest loop:  13%|█▎        | 132/1025 [00:02<00:17, 52.37it/s]backtest loop:  13%|█▎        | 138/1025 [00:02<00:16, 52.91it/s]backtest loop:  14%|█▍        | 144/1025 [00:02<00:16, 53.47it/s]backtest loop:  15%|█▍        | 150/1025 [00:03<00:17, 50.58it/s]backtest loop:  15%|█▌        | 156/1025 [00:03<00:17, 50.97it/s]backtest loop:  16%|█▌        | 162/1025 [00:03<00:16, 51.83it/s]backtest loop:  16%|█▋        | 168/1025 [00:03<00:16, 52.40it/s]backtest loop:  17%|█▋        | 174/1025 [00:03<00:16, 52.88it/s]backtest loop:  18%|█▊        | 180/1025 [00:03<00:16, 50.21it/s]backtest loop:  18%|█▊        | 186/1025 [00:03<00:17, 48.51it/s]backtest loop:  19%|█▊        | 192/1025 [00:03<00:16, 49.99it/s]backtest loop:  19%|█▉        | 198/1025 [00:03<00:16, 51.25it/s]backtest loop:  20%|█▉        | 204/1025 [00:04<00:16, 49.31it/s]backtest loop:  20%|██        | 210/1025 [00:04<00:16, 50.59it/s]backtest loop:  21%|██        | 216/1025 [00:04<00:15, 51.11it/s]backtest loop:  22%|██▏       | 222/1025 [00:04<00:15, 50.53it/s]backtest loop:  22%|██▏       | 228/1025 [00:04<00:15, 51.77it/s]backtest loop:  23%|██▎       | 234/1025 [00:04<00:15, 49.54it/s]backtest loop:  23%|██▎       | 240/1025 [00:04<00:15, 50.84it/s]backtest loop:  24%|██▍       | 246/1025 [00:04<00:15, 51.44it/s]backtest loop:  25%|██▍       | 252/1025 [00:05<00:14, 52.00it/s]backtest loop:  25%|██▌       | 258/1025 [00:05<00:15, 49.42it/s]backtest loop:  26%|██▌       | 263/1025 [00:05<00:15, 49.31it/s]backtest loop:  26%|██▌       | 269/1025 [00:05<00:15, 50.36it/s]backtest loop:  27%|██▋       | 275/1025 [00:05<00:15, 48.91it/s]backtest loop:  27%|██▋       | 280/1025 [00:05<00:15, 48.75it/s]backtest loop:  28%|██▊       | 285/1025 [00:05<00:15, 46.90it/s]backtest loop:  28%|██▊       | 291/1025 [00:05<00:15, 48.66it/s]backtest loop:  29%|██▉       | 296/1025 [00:05<00:14, 48.83it/s]backtest loop:  29%|██▉       | 301/1025 [00:06<00:15, 47.75it/s]backtest loop:  30%|██▉       | 306/1025 [00:06<00:15, 46.44it/s]backtest loop:  30%|███       | 311/1025 [00:06<00:15, 45.11it/s]backtest loop:  31%|███       | 316/1025 [00:06<00:16, 44.04it/s]backtest loop:  31%|███▏      | 321/1025 [00:06<00:16, 43.64it/s]backtest loop:  32%|███▏      | 326/1025 [00:06<00:17, 40.69it/s]backtest loop:  32%|███▏      | 331/1025 [00:06<00:16, 41.41it/s]backtest loop:  33%|███▎      | 336/1025 [00:06<00:16, 41.39it/s]backtest loop:  33%|███▎      | 341/1025 [00:07<00:16, 40.51it/s]backtest loop:  34%|███▍      | 346/1025 [00:07<00:16, 41.45it/s]backtest loop:  34%|███▍      | 351/1025 [00:07<00:16, 41.12it/s]backtest loop:  35%|███▍      | 356/1025 [00:07<00:16, 41.49it/s]backtest loop:  35%|███▌      | 361/1025 [00:07<00:15, 41.85it/s]backtest loop:  36%|███▌      | 366/1025 [00:07<00:15, 42.16it/s]backtest loop:  36%|███▌      | 371/1025 [00:07<00:15, 42.13it/s]backtest loop:  37%|███▋      | 376/1025 [00:07<00:15, 42.18it/s]backtest loop:  37%|███▋      | 381/1025 [00:07<00:15, 42.31it/s]backtest loop:  38%|███▊      | 386/1025 [00:08<00:15, 41.84it/s]backtest loop:  38%|███▊      | 391/1025 [00:08<00:15, 41.39it/s]backtest loop:  39%|███▊      | 396/1025 [00:08<00:15, 41.49it/s]backtest loop:  39%|███▉      | 401/1025 [00:08<00:14, 41.91it/s]backtest loop:  40%|███▉      | 406/1025 [00:08<00:14, 42.72it/s]backtest loop:  40%|████      | 411/1025 [00:08<00:13, 44.55it/s]backtest loop:  41%|████      | 416/1025 [00:08<00:13, 46.06it/s]backtest loop:  41%|████      | 421/1025 [00:08<00:13, 43.80it/s]backtest loop:  42%|████▏     | 426/1025 [00:09<00:14, 42.68it/s]backtest loop:  42%|████▏     | 431/1025 [00:09<00:13, 44.02it/s]backtest loop:  43%|████▎     | 436/1025 [00:09<00:13, 44.54it/s]backtest loop:  43%|████▎     | 441/1025 [00:09<00:12, 45.81it/s]backtest loop:  44%|████▎     | 446/1025 [00:09<00:12, 46.14it/s]backtest loop:  44%|████▍     | 451/1025 [00:09<00:12, 46.43it/s]backtest loop:  44%|████▍     | 456/1025 [00:09<00:12, 46.45it/s]backtest loop:  45%|████▌     | 462/1025 [00:09<00:11, 48.73it/s]backtest loop:  46%|████▌     | 468/1025 [00:09<00:10, 50.75it/s]backtest loop:  46%|████▌     | 474/1025 [00:09<00:10, 51.61it/s]backtest loop:  47%|████▋     | 480/1025 [00:10<00:10, 52.25it/s]backtest loop:  47%|████▋     | 486/1025 [00:10<00:10, 49.58it/s]backtest loop:  48%|████▊     | 492/1025 [00:10<00:10, 51.25it/s]backtest loop:  49%|████▊     | 498/1025 [00:10<00:10, 51.93it/s]backtest loop:  49%|████▉     | 504/1025 [00:10<00:09, 53.06it/s]backtest loop:  50%|████▉     | 510/1025 [00:10<00:10, 50.13it/s]backtest loop:  50%|█████     | 516/1025 [00:10<00:09, 51.87it/s]backtest loop:  51%|█████     | 522/1025 [00:10<00:09, 53.81it/s]backtest loop:  52%|█████▏    | 528/1025 [00:11<00:08, 55.28it/s]backtest loop:  52%|█████▏    | 534/1025 [00:11<00:08, 56.53it/s]backtest loop:  53%|█████▎    | 540/1025 [00:11<00:09, 53.72it/s]backtest loop:  53%|█████▎    | 546/1025 [00:11<00:08, 55.06it/s]backtest loop:  54%|█████▍    | 552/1025 [00:11<00:08, 56.24it/s]backtest loop:  54%|█████▍    | 558/1025 [00:11<00:08, 53.50it/s]backtest loop:  55%|█████▌    | 565/1025 [00:11<00:08, 52.89it/s]backtest loop:  56%|█████▌    | 571/1025 [00:11<00:08, 54.74it/s]backtest loop:  56%|█████▋    | 577/1025 [00:11<00:08, 55.94it/s]backtest loop:  57%|█████▋    | 583/1025 [00:12<00:07, 56.73it/s]backtest loop:  57%|█████▋    | 589/1025 [00:12<00:08, 54.08it/s]backtest loop:  58%|█████▊    | 596/1025 [00:12<00:07, 56.41it/s]backtest loop:  59%|█████▊    | 602/1025 [00:12<00:07, 57.14it/s]backtest loop:  59%|█████▉    | 608/1025 [00:12<00:07, 57.50it/s]backtest loop:  60%|█████▉    | 614/1025 [00:12<00:07, 54.48it/s]backtest loop:  60%|██████    | 620/1025 [00:12<00:07, 55.76it/s]backtest loop:  61%|██████    | 626/1025 [00:12<00:07, 56.67it/s]backtest loop:  62%|██████▏   | 633/1025 [00:12<00:06, 59.12it/s]backtest loop:  62%|██████▏   | 639/1025 [00:13<00:06, 55.78it/s]backtest loop:  63%|██████▎   | 645/1025 [00:13<00:06, 56.48it/s]backtest loop:  64%|██████▎   | 651/1025 [00:13<00:06, 57.19it/s]backtest loop:  64%|██████▍   | 657/1025 [00:13<00:06, 57.74it/s]backtest loop:  65%|██████▍   | 663/1025 [00:13<00:06, 54.56it/s]backtest loop:  65%|██████▌   | 669/1025 [00:13<00:06, 55.81it/s]backtest loop:  66%|██████▌   | 675/1025 [00:13<00:06, 56.42it/s]backtest loop:  66%|██████▋   | 681/1025 [00:13<00:06, 57.15it/s]backtest loop:  67%|██████▋   | 687/1025 [00:13<00:05, 57.19it/s]backtest loop:  68%|██████▊   | 693/1025 [00:13<00:06, 54.65it/s]backtest loop:  68%|██████▊   | 699/1025 [00:14<00:05, 55.13it/s]backtest loop:  69%|██████▉   | 705/1025 [00:14<00:05, 56.31it/s]backtest loop:  69%|██████▉   | 711/1025 [00:14<00:05, 55.54it/s]backtest loop:  70%|██████▉   | 717/1025 [00:14<00:06, 50.10it/s]backtest loop:  71%|███████   | 723/1025 [00:14<00:06, 49.64it/s]backtest loop:  71%|███████   | 729/1025 [00:14<00:05, 52.07it/s]backtest loop:  72%|███████▏  | 735/1025 [00:14<00:05, 53.72it/s]backtest loop:  72%|███████▏  | 741/1025 [00:14<00:05, 55.17it/s]backtest loop:  73%|███████▎  | 747/1025 [00:14<00:05, 52.85it/s]backtest loop:  73%|███████▎  | 753/1025 [00:15<00:04, 54.53it/s]backtest loop:  74%|███████▍  | 759/1025 [00:15<00:04, 55.84it/s]backtest loop:  75%|███████▍  | 765/1025 [00:15<00:04, 56.82it/s]backtest loop:  75%|███████▌  | 771/1025 [00:15<00:04, 57.48it/s]backtest loop:  76%|███████▌  | 777/1025 [00:15<00:04, 54.45it/s]backtest loop:  76%|███████▋  | 783/1025 [00:15<00:04, 55.09it/s]backtest loop:  77%|███████▋  | 789/1025 [00:15<00:04, 52.93it/s]backtest loop:  78%|███████▊  | 795/1025 [00:15<00:04, 54.70it/s]backtest loop:  78%|███████▊  | 801/1025 [00:15<00:04, 52.53it/s]backtest loop:  79%|███████▊  | 807/1025 [00:16<00:04, 54.48it/s]backtest loop:  79%|███████▉  | 813/1025 [00:16<00:04, 52.56it/s]backtest loop:  80%|███████▉  | 819/1025 [00:16<00:03, 54.39it/s]backtest loop:  80%|████████  | 825/1025 [00:16<00:03, 55.90it/s]backtest loop:  81%|████████  | 831/1025 [00:16<00:03, 56.17it/s]backtest loop:  82%|████████▏ | 837/1025 [00:16<00:03, 57.04it/s]backtest loop:  82%|████████▏ | 843/1025 [00:16<00:03, 54.52it/s]backtest loop:  83%|████████▎ | 849/1025 [00:16<00:03, 55.79it/s]backtest loop:  83%|████████▎ | 855/1025 [00:16<00:02, 56.69it/s]backtest loop:  84%|████████▍ | 861/1025 [00:17<00:03, 53.93it/s]backtest loop:  85%|████████▍ | 867/1025 [00:17<00:04, 39.14it/s]backtest loop:  85%|████████▌ | 873/1025 [00:17<00:03, 43.35it/s]backtest loop:  86%|████████▌ | 879/1025 [00:17<00:03, 46.95it/s]backtest loop:  86%|████████▋ | 885/1025 [00:17<00:02, 49.95it/s]backtest loop:  87%|████████▋ | 891/1025 [00:17<00:02, 49.45it/s]backtest loop:  88%|████████▊ | 897/1025 [00:17<00:02, 51.92it/s]backtest loop:  88%|████████▊ | 903/1025 [00:17<00:02, 53.83it/s]backtest loop:  89%|████████▊ | 909/1025 [00:18<00:02, 55.07it/s]backtest loop:  89%|████████▉ | 915/1025 [00:18<00:02, 52.87it/s]backtest loop:  90%|████████▉ | 921/1025 [00:18<00:01, 54.53it/s]backtest loop:  90%|█████████ | 927/1025 [00:18<00:01, 55.68it/s]backtest loop:  91%|█████████ | 933/1025 [00:18<00:01, 56.62it/s]backtest loop:  92%|█████████▏| 939/1025 [00:18<00:01, 57.29it/s]backtest loop:  92%|█████████▏| 945/1025 [00:18<00:01, 54.26it/s]backtest loop:  93%|█████████▎| 951/1025 [00:18<00:01, 55.63it/s]backtest loop:  93%|█████████▎| 957/1025 [00:18<00:01, 56.68it/s]backtest loop:  94%|█████████▍| 963/1025 [00:19<00:01, 57.35it/s]backtest loop:  95%|█████████▍| 969/1025 [00:19<00:00, 57.43it/s]backtest loop:  95%|█████████▌| 975/1025 [00:19<00:00, 53.94it/s]backtest loop:  96%|█████████▌| 981/1025 [00:19<00:00, 55.33it/s]backtest loop:  96%|█████████▋| 987/1025 [00:19<00:00, 56.37it/s]backtest loop:  97%|█████████▋| 993/1025 [00:19<00:00, 53.96it/s]backtest loop:  97%|█████████▋| 999/1025 [00:19<00:00, 52.01it/s]backtest loop:  98%|█████████▊| 1005/1025 [00:19<00:00, 53.56it/s]backtest loop:  99%|█████████▊| 1011/1025 [00:19<00:00, 55.28it/s]backtest loop:  99%|█████████▉| 1017/1025 [00:19<00:00, 56.20it/s]backtest loop: 100%|█████████▉| 1023/1025 [00:20<00:00, 53.04it/s]backtest loop: 100%|██████████| 1025/1025 [00:20<00:00, 50.86it/s]
+[4153972:MainThread](2024-04-06 16:59:16,489) INFO - qlib.workflow - [record_temp.py:515] - Portfolio analysis record 'port_analysis_1day.pkl' has been saved as the artifact of the Experiment 3
+[4153972:MainThread](2024-04-06 16:59:16,505) INFO - qlib.workflow - [record_temp.py:540] - Indicator analysis record 'indicator_analysis_1day.pkl' has been saved as the artifact of the Experiment 3
+'The following are analysis results of benchmark return(1day).'
+                       risk
+mean              -0.000070
+std                0.011971
+annualized_return -0.016567
+information_ratio -0.089706
+max_drawdown      -0.558443
+'The following are analysis results of the excess return without cost(1day).'
+                       risk
+mean               0.000844
+std                0.005473
+annualized_return  0.200971
+information_ratio  2.380410
+max_drawdown      -0.057960
+'The following are analysis results of the excess return with cost(1day).'
+                       risk
+mean               0.000648
+std                0.005471
+annualized_return  0.154295
+information_ratio  1.827919
+max_drawdown      -0.061050
+'The following are analysis results of indicators(1day).'
+     value
+ffr    1.0
+pa     0.0
+pos    0.0
+Your evaluation results can be found in the experiment named `None`.
