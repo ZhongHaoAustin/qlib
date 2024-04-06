@@ -5,7 +5,9 @@ from typing import Union
 
 import fire
 
+import qlib
 from qlib import auto_init
+from qlib.constant import REG_CN
 from qlib.contrib.rolling.ddgda import DDGDA
 from qlib.tests.data import GetData
 
@@ -23,12 +25,12 @@ class DDGDABench(DDGDA):
     DEFAULT_CONF = CONF_LIST[0]  # Linear by default due to efficiency
 
     def __init__(
-        self, conf_path: Union[str, Path] = DEFAULT_CONF, horizon=20, **kwargs
+        self, conf_path: Union[str, Path] = DEFAULT_CONF, horizon=20, train_meta: bool=False, **kwargs
     ) -> None:
         # This code is for being compatible with the previous old code
         conf_path = Path(conf_path)
         super().__init__(
-            conf_path=conf_path, horizon=horizon, working_dir=DIRNAME, **kwargs
+            conf_path=conf_path, horizon=horizon, working_dir=DIRNAME, train_mate=train_meta, **kwargs
         )
 
         for f in self.CONF_LIST:
@@ -39,6 +41,6 @@ class DDGDABench(DDGDA):
 
 
 if __name__ == "__main__":
-    GetData().qlib_data(exists_skip=True)
-    auto_init()
+    provider_uri = {"day": "~/.qlib/qlib_data/my_data"}  # target_dir
+    qlib.init(provider_uri=provider_uri, region=REG_CN)
     fire.Fire(DDGDABench)
