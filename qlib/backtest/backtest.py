@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     from qlib.strategy.base import BaseStrategy
     from qlib.backtest.executor import BaseExecutor
 
-from tqdm.auto import tqdm
+from tqdm.rich import tqdm
 
 from ..utils.time import Freq
 

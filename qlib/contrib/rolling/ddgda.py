@@ -82,6 +82,7 @@ class DDGDA(Rolling):
         alpha: float = 0.01,
         working_dir: Optional[Union[str, Path]] = None,
         train_mate: bool = False,
+        meta_exp_name: str = "DDG-DA",
         **kwargs,
     ):
         """
@@ -98,7 +99,7 @@ class DDGDA(Rolling):
         """
         # NOTE:
         # the horizon must match the meaning in the base task template
-        self.meta_exp_name = "DDG-DA"
+        self.meta_exp_name = meta_exp_name
         self.sim_task_model: UTIL_MODEL_TYPE = (
             sim_task_model  # The model to capture the distribution of data.
         )
@@ -367,6 +368,8 @@ class DDGDA(Rolling):
             self._dump_meta_ipt()
             # 3) meta model will be stored in `DDG-DA`
             self._train_meta_model()
+            self.logger.info("Meta model is trained and stored in mlruns, exit the program")
+            return
 
         # Run rolling --------------------------------
         # 4) new_tasks are saved in "tasks_s20.pkl" (reweighter is added)

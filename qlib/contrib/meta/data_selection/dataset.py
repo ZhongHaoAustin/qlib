@@ -17,7 +17,7 @@ from qlib.utils.data import deepcopy_basic_type
 from qlib.workflow import R
 from qlib.workflow.task.gen import RollingGen, task_generator
 from qlib.workflow.task.utils import TimeAdjuster
-from tqdm.auto import tqdm
+from tqdm.rich import tqdm
 
 
 class InternalData:

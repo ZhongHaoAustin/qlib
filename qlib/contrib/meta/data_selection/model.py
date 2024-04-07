@@ -6,7 +6,7 @@ import numpy as np
 import torch
 from torch import nn
 from torch import optim
-from tqdm.auto import tqdm
+from tqdm.rich import tqdm
 import copy
 from typing import Union, List
 

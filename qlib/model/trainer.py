@@ -14,7 +14,7 @@ In ``DelayTrainer``, the first step is only to save some necessary info to model
 import socket
 from typing import Callable, List, Optional
 
-from tqdm.auto import tqdm
+from tqdm.rich import tqdm
 
 from qlib.config import C
 from qlib.data.dataset import Dataset
