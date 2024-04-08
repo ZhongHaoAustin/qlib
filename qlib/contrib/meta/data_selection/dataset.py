@@ -353,7 +353,8 @@ class MetaDatasetDS(MetaTaskDataset):
         self.meta_task_l = []
         logger = get_module_logger("MetaDatasetDS")
         logger.info(f"Example task for training meta model: {task_iter[0]}")
-        for t in tqdm(task_iter, desc="creating meta tasks"):
+        logger.info(f"Next create the meta tasks for training the meta model")
+        for t in task_iter:
             try:
                 self.meta_task_l.append(
                     MetaTaskDS(

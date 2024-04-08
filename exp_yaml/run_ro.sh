@@ -5,7 +5,7 @@ cur_time() {
 get_ro_run_cmd() {
     local model_name=$1
     local data_type=$2 # nd or loer
-    local ro_type=$3 # ro or dg_lr, dg_lgb
+    local ro_type=$3 # ro or dg_metalinear or dg_metagbdt
     local work_flow_config="$QLIB_YAML_DIR/${data_type}/workflow_config_${model_name}_Alpha158.yaml"
     echo "model_name: $model_name"
     echo "data_type: $data_type"
@@ -25,15 +25,18 @@ get_ro_run_cmd() {
 
     if [ "$ro_type" = "ro" ]; then
         cd "$ROLLING_DIR" && python rolling_benchmark.py --conf_path="$work_flow_config" --exp_name="ens_ro_${model_name}_$(cur_time)" --rolling_exp="ro_${model_name}_$(cur_time)" run > "$log_dir/${model_name}.log" 2>&1 &
+        echo "run cmd: cd $ROLLING_DIR && python rolling_benchmark.py --conf_path=$work_flow_config --exp_name=ens_ro_${model_name}_$(cur_time) --rolling_exp=ro_${model_name}_$(cur_time) run > $log_dir/${model_name}.log 2>&1 &"
     else
-        echo "run cmd: cd $DDGDA_DIR && python workflow.py --conf_path=$work_flow_config --exp_name=ens_dg_${model_name}_$(cur_time) --rolling_exp=dg_${model_name}_$(cur_time) --working_dir=$log_dir --meta_exp_name=${data_type}_${ro_type} run > $log_dir/${model_name}.log 2>&1 &"
-        cd "$DDGDA_DIR" && python workflow.py --conf_path="$work_flow_config" --exp_name="ens_dg_${model_name}_$(cur_time)" --rolling_exp="dg_${model_name}_$(cur_time)" --working_dir=$log_dir --meta_exp_name="${data_type}_${ro_type}" run > "$log_dir/${model_name}.log" 2>&1 &
+        cd $QLIB_EXP_LOG/${data_type}_${ro_type} && python workflow.py --conf_path="$work_flow_config" --exp_name="ens_dg_${model_name}_$(cur_time)" --rolling_exp="dg_${model_name}_$(cur_time)" --working_dir=$log_dir --meta_exp_name="${data_type}_${ro_type}" run > "$log_dir/${model_name}.log" 2>&1 &
+        # echo "run cmd: cd $log_dir && python workflow.py --conf_path=$work_flow_config --exp_name=ens_dg_${model_name}_$(cur_time) --rolling_exp=dg_${model_name}_$(cur_time) --working_dir=$log_dir --meta_exp_name=${data_type}_${ro_type} run > $log_dir/${model_name}.log 2>&1 &"
     fi
 }
 
-# model_names=("linear" "lightgbm" "mlp" "xgboost" "lstm" "transformer" "gru" "alstm" "doubleensemble_fs" "doubleensemble_sr_fs")
-model_names=("gru")
+model_names=("linear" "lightgbm" "mlp" "xgboost" "catboost")
 for model_name in "${model_names[@]}"
 do
-    get_ro_run_cmd "$model_name" "nd" "dg_metalr"
+    get_ro_run_cmd "$model_name" "nd" "dg_metalinear"
+    # get_ro_run_cmd "$model_name" "nd" "dg_metagbdt"
+    # get_ro_run_cmd "$model_name" "loer" "dg_metagbdt"
+    # get_ro_run_cmd "$model_name" "loer" "dg_metalinear"
 done

@@ -52,3 +52,4 @@ tags
 
 *.gz
 *-ubyte
+catboost_info/
