@@ -3,12 +3,12 @@ qlib_init:
     region: cn
 market: &market csi300
 benchmark: &benchmark SH000300
-data_start_time: &data_start_time 2008-01-01
-end_fit_time: &end_fit_time 2021-03-30
-valid_start_time: &valid_start 2021-03-31
-valid_end_time: &valid_end 2022-03-31
-test_start: &test_start 2022-04-01
-data_end_time: &data_end_time 2024-04-01
+data_start_time: &data_start_time 2009-01-01
+end_fit_time: &end_fit_time 2018-12-31
+valid_start_time: &valid_start 2019-01-01
+valid_end_time: &valid_end 2019-12-31
+test_start: &test_start 2020-01-01
+data_end_time: &data_end_time 2024-03-26
 data_handler_config: &data_handler_config
     start_time: *data_start_time
     end_time: *data_end_time
@@ -36,16 +36,17 @@ port_analysis_config: &port_analysis_config
             min_cost: 5
 task:
     model:
-        class: XGBModel
-        module_path: qlib.contrib.model.xgboost
+        class: CatBoostModel
+        module_path: qlib.contrib.model.catboost_model
         kwargs:
-            eval_metric: rmse
-            colsample_bytree: 0.8879
-            eta: 0.0421
-            max_depth: 8
-            n_estimators: 647
+            loss: RMSE
+            learning_rate: 0.0421
             subsample: 0.8789
-            nthread: 20
+            max_depth: 6
+            num_leaves: 100
+            thread_count: 20
+            grow_policy: Lossguide
+            bootstrap_type: Poisson
     dataset:
         class: DatasetH
         module_path: qlib.data.dataset
