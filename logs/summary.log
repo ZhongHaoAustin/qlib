@@ -1,0 +1,192 @@
+--------------------------------------------
+Summary for baseline
+--------------------------------------------
+Model: /home/zhonghao/code/qlib/logs/baseline/catboost_nd.log
+annualized_return -0.016567
+annualized_return  0.164726
+annualized_return  0.117482
+Model: /home/zhonghao/code/qlib/logs/baseline/linear_loer.log
+annualized_return -0.016567
+annualized_return  0.153955
+annualized_return  0.106528
+Model: /home/zhonghao/code/qlib/logs/baseline/mlp_nd.log
+annualized_return -0.016567
+annualized_return  0.114593
+annualized_return  0.066887
+Model: /home/zhonghao/code/qlib/logs/baseline/xgboost_nd.log
+annualized_return -0.016567
+annualized_return  0.157104
+annualized_return  0.109773
+Model: /home/zhonghao/code/qlib/logs/baseline/catboost_loer.log
+annualized_return -0.016567
+annualized_return  0.161435
+annualized_return  0.114006
+Model: /home/zhonghao/code/qlib/logs/baseline/xgboost_loer.log
+annualized_return -0.016567
+annualized_return  0.157104
+annualized_return  0.109773
+Model: /home/zhonghao/code/qlib/logs/baseline/lightgbm_nd.log
+annualized_return -0.016567
+annualized_return  0.132102
+annualized_return  0.084370
+Model: /home/zhonghao/code/qlib/logs/baseline/mlp_loer.log
+annualized_return -0.016567
+annualized_return  0.138283
+annualized_return  0.090305
+Model: /home/zhonghao/code/qlib/logs/baseline/lightgbm_loer.log
+annualized_return -0.016567
+annualized_return  0.132102
+annualized_return  0.084370
+Model: /home/zhonghao/code/qlib/logs/baseline/linear_nd.log
+annualized_return -0.016567
+annualized_return  0.153955
+annualized_return  0.106528
+--------------------------------------------
+
+--------------------------------------------
+Summary for nd_ro
+--------------------------------------------
+Model: /home/zhonghao/code/qlib/logs/nd_ro/lightgbm.log
+annualized_return -0.016567
+annualized_return  0.138318
+annualized_return  0.091701
+Model: /home/zhonghao/code/qlib/logs/nd_ro/catboost.log
+annualized_return -0.016567
+annualized_return  0.181376
+annualized_return  0.134646
+Model: /home/zhonghao/code/qlib/logs/nd_ro/mlp.log
+annualized_return -0.016567
+annualized_return  0.143846
+annualized_return  0.096671
+Model: /home/zhonghao/code/qlib/logs/nd_ro/linear.log
+annualized_return -0.016567
+annualized_return  0.190650
+annualized_return  0.143834
+Model: /home/zhonghao/code/qlib/logs/nd_ro/xgboost.log
+annualized_return -0.016567
+annualized_return  0.200971
+annualized_return  0.154295
+--------------------------------------------
+
+--------------------------------------------
+Summary for nd_dg_metalinear
+--------------------------------------------
+Model: /home/zhonghao/code/qlib/logs/nd_dg_metalinear/lightgbm.log
+annualized_return -0.016567
+annualized_return  0.204644
+annualized_return  0.157879
+Model: /home/zhonghao/code/qlib/logs/nd_dg_metalinear/catboost.log
+annualized_return -0.016567
+annualized_return  0.207773
+annualized_return  0.161323
+Model: /home/zhonghao/code/qlib/logs/nd_dg_metalinear/mlp.log
+annualized_return -0.016567
+annualized_return  0.202926
+annualized_return  0.155868
+Model: /home/zhonghao/code/qlib/logs/nd_dg_metalinear/linear.log
+annualized_return -0.016567
+annualized_return  0.230254
+annualized_return  0.183652
+Model: /home/zhonghao/code/qlib/logs/nd_dg_metalinear/xgboost.log
+annualized_return -0.016567
+annualized_return  0.195666
+annualized_return  0.149074
+--------------------------------------------
+
+--------------------------------------------
+Summary for nd_dg_metagbdt
+--------------------------------------------
+Model: /home/zhonghao/code/qlib/logs/nd_dg_metagbdt/lightgbm.log
+annualized_return -0.016567
+annualized_return  0.204569
+annualized_return  0.157892
+Model: /home/zhonghao/code/qlib/logs/nd_dg_metagbdt/catboost.log
+annualized_return -0.016567
+annualized_return  0.240614
+annualized_return  0.194102
+Model: /home/zhonghao/code/qlib/logs/nd_dg_metagbdt/mlp.log
+annualized_return -0.016567
+annualized_return  0.197720
+annualized_return  0.150494
+Model: /home/zhonghao/code/qlib/logs/nd_dg_metagbdt/linear.log
+annualized_return -0.016567
+annualized_return  0.216042
+annualized_return  0.168748
+Model: /home/zhonghao/code/qlib/logs/nd_dg_metagbdt/xgboost.log
+annualized_return -0.016567
+annualized_return  0.231276
+annualized_return  0.184641
+--------------------------------------------
+
+--------------------------------------------
+Summary for loer_ro
+--------------------------------------------
+Model: /home/zhonghao/code/qlib/logs/loer_ro/lightgbm.log
+annualized_return -0.074117
+annualized_return  0.179979
+annualized_return  0.132448
+Model: /home/zhonghao/code/qlib/logs/loer_ro/catboost.log
+annualized_return -0.074117
+annualized_return  0.164456
+annualized_return  0.116944
+Model: /home/zhonghao/code/qlib/logs/loer_ro/mlp.log
+annualized_return -0.074117
+annualized_return  0.256333
+annualized_return  0.208956
+Model: /home/zhonghao/code/qlib/logs/loer_ro/linear.log
+annualized_return -0.074117
+annualized_return  0.236715
+annualized_return  0.189692
+Model: /home/zhonghao/code/qlib/logs/loer_ro/xgboost.log
+annualized_return -0.074117
+annualized_return  0.186041
+annualized_return  0.138746
+--------------------------------------------
+
+--------------------------------------------
+Summary for loer_dg_metalinear
+--------------------------------------------
+Model: /home/zhonghao/code/qlib/logs/loer_dg_metalinear/lightgbm.log
+annualized_return -0.074117
+annualized_return  0.202996
+annualized_return  0.155524
+Model: /home/zhonghao/code/qlib/logs/loer_dg_metalinear/catboost.log
+Model: /home/zhonghao/code/qlib/logs/loer_dg_metalinear/mlp.log
+annualized_return -0.074117
+annualized_return  0.191471
+annualized_return  0.143944
+Model: /home/zhonghao/code/qlib/logs/loer_dg_metalinear/linear.log
+annualized_return -0.074117
+annualized_return  0.239503
+annualized_return  0.192589
+Model: /home/zhonghao/code/qlib/logs/loer_dg_metalinear/xgboost.log
+annualized_return -0.074117
+annualized_return  0.234130
+annualized_return  0.187315
+--------------------------------------------
+
+--------------------------------------------
+Summary for loer_dg_metagbdt
+--------------------------------------------
+Model: /home/zhonghao/code/qlib/logs/loer_dg_metagbdt/lightgbm.log
+annualized_return -0.074117
+annualized_return  0.207624
+annualized_return  0.160468
+Model: /home/zhonghao/code/qlib/logs/loer_dg_metagbdt/catboost.log
+annualized_return -0.074117
+annualized_return  0.223882
+annualized_return  0.176504
+Model: /home/zhonghao/code/qlib/logs/loer_dg_metagbdt/mlp.log
+annualized_return -0.074117
+annualized_return  0.205822
+annualized_return  0.158135
+Model: /home/zhonghao/code/qlib/logs/loer_dg_metagbdt/linear.log
+annualized_return -0.074117
+annualized_return  0.247552
+annualized_return  0.200686
+Model: /home/zhonghao/code/qlib/logs/loer_dg_metagbdt/xgboost.log
+annualized_return -0.074117
+annualized_return  0.201049
+annualized_return  0.153819
+--------------------------------------------
+

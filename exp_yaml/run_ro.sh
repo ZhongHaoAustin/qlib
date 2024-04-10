@@ -25,7 +25,6 @@ get_ro_run_cmd() {
 
     if [ "$ro_type" = "ro" ]; then
         cd "$ROLLING_DIR" && python rolling_benchmark.py --conf_path="$work_flow_config" --exp_name="ens_ro_${model_name}_$(cur_time)" --rolling_exp="ro_${model_name}_$(cur_time)" run > "$log_dir/${model_name}.log" 2>&1 &
-        echo "run cmd: cd $ROLLING_DIR && python rolling_benchmark.py --conf_path=$work_flow_config --exp_name=ens_ro_${model_name}_$(cur_time) --rolling_exp=ro_${model_name}_$(cur_time) run > $log_dir/${model_name}.log 2>&1 &"
     else
         cd $QLIB_EXP_LOG/${data_type}_${ro_type} && python workflow.py --conf_path="$work_flow_config" --exp_name="ens_dg_${model_name}_$(cur_time)" --rolling_exp="dg_${model_name}_$(cur_time)" --working_dir=$log_dir --meta_exp_name="${data_type}_${ro_type}" run > "$log_dir/${model_name}.log" 2>&1 &
         # echo "run cmd: cd $log_dir && python workflow.py --conf_path=$work_flow_config --exp_name=ens_dg_${model_name}_$(cur_time) --rolling_exp=dg_${model_name}_$(cur_time) --working_dir=$log_dir --meta_exp_name=${data_type}_${ro_type} run > $log_dir/${model_name}.log 2>&1 &"
@@ -35,8 +34,22 @@ get_ro_run_cmd() {
 model_names=("linear" "lightgbm" "mlp" "xgboost" "catboost")
 for model_name in "${model_names[@]}"
 do
-    get_ro_run_cmd "$model_name" "nd" "dg_metalinear"
+    # get_ro_run_cmd "$model_name" "nd" "dg_metalinear"
     # get_ro_run_cmd "$model_name" "nd" "dg_metagbdt"
     # get_ro_run_cmd "$model_name" "loer" "dg_metagbdt"
     # get_ro_run_cmd "$model_name" "loer" "dg_metalinear"
+    get_ro_run_cmd "$model_name" "nd" "ro"
+    get_ro_run_cmd "$model_name" "loer" "ro"
 done
+
+get_run_baseline_cmd() {
+    if [ -d "$QLIB_EXP_LOG/baseline" ]; then
+        mkdir -p "$QLIB_EXP_LOG/baseline"
+        echo "$QLIB_EXP_LOG/baseline created"
+    fi
+
+    echo "run cmd: cd $QLIB_EXP_LOG && /home/zhonghao/miniconda3/envs/qlib_env/bin/qrun $QLIB_YAML_DIR/nd/workflow_config_$1_Alpha158.yaml --exp_name=baseline_$1_$2 run > $QLIB_EXP_LOG/baseline_$1_$2.log 2>&1 &"
+    # cd $QLIB_EXP_LOG && /home/zhonghao/miniconda3/envs/qlib_env/bin/qrun $QLIB_YAML_DIR/nd/workflow_config_$1_Alpha158.yaml --exp_name=baseline_$1_$2 run > $QLIB_EXP_LOG/baseline_$1_$2.log 2>&1 & 
+}
+
+get_run_baseline_cmd lightgbm nd
