@@ -1,0 +1,69 @@
+2024-04-23 01:09:08.125 | WARNING  | qlib.tests.data:qlib_data:175 - Data already exists: ~/.qlib/qlib_data/cn_data, the data download will be skipped
+	If downloading is required: `exists_skip=False` or `change target_dir`
+[2232630:MainThread](2024-04-23 01:09:08,127) INFO - qlib.Initialization - [config.py:416] - default_conf: client.
+[2232630:MainThread](2024-04-23 01:09:08,132) INFO - qlib.Initialization - [__init__.py:74] - qlib successfully initialized based on client settings.
+[2232630:MainThread](2024-04-23 01:09:08,133) INFO - qlib.Initialization - [__init__.py:76] - data_path={'__DEFAULT_FREQ': PosixPath('/home/zhonghao/.qlib/qlib_data/cn_data')}
+Remove CSRankNorm
+{'class': 'Alpha360', 'module_path': 'qlib.contrib.data.handler', 'kwargs': {'start_time': datetime.date(2008, 1, 1), 'end_time': datetime.date(2020, 8, 1), 'fit_start_time': datetime.date(2008, 1, 1), 'fit_end_time': datetime.date(2014, 12, 31), 'instruments': 'csi300', 'infer_processors': [{'class': 'RobustZScoreNorm', 'kwargs': {'fields_group': 'feature', 'clip_outlier': True}}, {'class': 'Fillna', 'kwargs': {'fields_group': 'feature'}}], 'learn_processors': [{'class': 'DropnaLabel'}, {'class': 'CSZScoreNorm', 'kwargs': {'fields_group': 'label'}}], 'label': ['Ref($close, -2) / Ref($close, -1) - 1']}}
+[2232630:MainThread](2024-04-23 01:09:08,193) INFO - qlib.RollingBenchmark - [rolling_benchmark.py:208] - {'model': {'class': 'ALSTM', 'module_path': 'qlib.contrib.model.pytorch_alstm', 'kwargs': {'d_feat': 6, 'hidden_size': 64, 'num_layers': 2, 'dropout': 0.0, 'n_epochs': 200, 'lr': 0.001, 'early_stop': 8, 'batch_size': 5000, 'metric': 'loss', 'loss': 'mse', 'GPU': 0, 'rnn_type': 'GRU'}}, 'dataset': {'class': 'DatasetH', 'module_path': 'qlib.data.dataset', 'kwargs': {'handler': 'file:///home/zhonghao/sjtu/qlib/examples/benchmarks_dynamic/baseline/cn_data_csi300_rankFalse_alpha360_handler_horizon1.pkl', 'segments': {'train': [datetime.date(2008, 1, 1), datetime.date(2014, 12, 31)], 'valid': [datetime.date(2015, 1, 1), datetime.date(2016, 12, 31)], 'test': [datetime.date(2017, 1, 1), datetime.date(2020, 8, 1)]}}}, 'record': ['qlib.workflow.record_temp.SignalRecord']}
+[2232630:MainThread](2024-04-23 01:09:08,196) WARNING - qlib.data - [data.py:666] - load calendar error: freq=day, future=True; return current calendar!
+[2232630:MainThread](2024-04-23 01:09:08,197) WARNING - qlib.data - [data.py:669] - You can get future calendar by referring to the following document: https://github.com/microsoft/qlib/blob/main/scripts/data_collector/contrib/README.md
+[2232630:MainThread](2024-04-23 01:09:08,275) INFO - qlib.MetaDatasetDS - [dataset.py:316] - Example task for training meta model: {'model': {'class': 'ALSTM', 'module_path': 'qlib.contrib.model.pytorch_alstm', 'kwargs': {'d_feat': 6, 'hidden_size': 64, 'num_layers': 2, 'dropout': 0.0, 'n_epochs': 200, 'lr': 0.001, 'early_stop': 8, 'batch_size': 5000, 'metric': 'loss', 'loss': 'mse', 'GPU': 0, 'rnn_type': 'GRU'}}, 'dataset': {'class': 'DatasetH', 'module_path': 'qlib.data.dataset', 'kwargs': {'handler': 'file:///home/zhonghao/sjtu/qlib/examples/benchmarks_dynamic/baseline/cn_data_csi300_rankFalse_alpha360_handler_horizon1.pkl', 'segments': {'train': (Timestamp('2008-01-02 00:00:00'), Timestamp('2014-12-31 00:00:00')), 'valid': (Timestamp('2015-01-05 00:00:00'), Timestamp('2016-12-29 00:00:00')), 'test': (Timestamp('2017-01-03 00:00:00'), Timestamp('2017-02-06 00:00:00'))}}}, 'record': ['qlib.workflow.record_temp.SignalRecord']}
+creating meta tasks:   0%|          | 0/44 [00:00<?, ?it/s]creating meta tasks:   2%|▏         | 1/44 [00:00<00:19,  2.18it/s]creating meta tasks:   5%|▍         | 2/44 [00:01<00:24,  1.73it/s]creating meta tasks:   7%|▋         | 3/44 [00:01<00:25,  1.63it/s]creating meta tasks:   9%|▉         | 4/44 [00:02<00:25,  1.56it/s]creating meta tasks:  11%|█▏        | 5/44 [00:03<00:26,  1.47it/s]creating meta tasks:  14%|█▎        | 6/44 [00:04<00:28,  1.33it/s]creating meta tasks:  16%|█▌        | 7/44 [00:04<00:26,  1.42it/s]creating meta tasks:  18%|█▊        | 8/44 [00:05<00:25,  1.43it/s]creating meta tasks:  20%|██        | 9/44 [00:06<00:23,  1.49it/s]creating meta tasks:  23%|██▎       | 10/44 [00:06<00:22,  1.52it/s]creating meta tasks:  25%|██▌       | 11/44 [00:07<00:20,  1.58it/s]creating meta tasks:  27%|██▋       | 12/44 [00:07<00:18,  1.73it/s]creating meta tasks:  30%|██▉       | 13/44 [00:08<00:16,  1.91it/s]creating meta tasks:  32%|███▏      | 14/44 [00:08<00:15,  1.99it/s]creating meta tasks:  34%|███▍      | 15/44 [00:08<00:13,  2.11it/s]creating meta tasks:  36%|███▋      | 16/44 [00:09<00:12,  2.19it/s]creating meta tasks:  39%|███▊      | 17/44 [00:09<00:12,  2.19it/s]creating meta tasks:  41%|████      | 18/44 [00:10<00:11,  2.29it/s]creating meta tasks:  43%|████▎     | 19/44 [00:10<00:10,  2.36it/s]creating meta tasks:  45%|████▌     | 20/44 [00:10<00:10,  2.39it/s]creating meta tasks:  48%|████▊     | 21/44 [00:11<00:09,  2.43it/s]creating meta tasks:  50%|█████     | 22/44 [00:11<00:08,  2.45it/s]creating meta tasks:  52%|█████▏    | 23/44 [00:12<00:08,  2.46it/s]creating meta tasks:  55%|█████▍    | 24/44 [00:12<00:08,  2.47it/s]creating meta tasks:  57%|█████▋    | 25/44 [00:12<00:07,  2.46it/s]creating meta tasks:  59%|█████▉    | 26/44 [00:13<00:07,  2.46it/s]creating meta tasks:  61%|██████▏   | 27/44 [00:13<00:06,  2.45it/s]creating meta tasks:  64%|██████▎   | 28/44 [00:14<00:06,  2.45it/s]creating meta tasks:  66%|██████▌   | 29/44 [00:14<00:06,  2.45it/s]creating meta tasks:  68%|██████▊   | 30/44 [00:15<00:05,  2.44it/s]creating meta tasks:  70%|███████   | 31/44 [00:15<00:05,  2.43it/s]creating meta tasks:  73%|███████▎  | 32/44 [00:15<00:04,  2.42it/s]creating meta tasks:  75%|███████▌  | 33/44 [00:16<00:04,  2.41it/s]creating meta tasks:  77%|███████▋  | 34/44 [00:16<00:04,  2.41it/s]creating meta tasks:  80%|███████▉  | 35/44 [00:17<00:03,  2.40it/s]creating meta tasks:  82%|████████▏ | 36/44 [00:17<00:03,  2.39it/s]creating meta tasks:  84%|████████▍ | 37/44 [00:17<00:02,  2.37it/s]creating meta tasks:  86%|████████▋ | 38/44 [00:18<00:02,  2.36it/s]creating meta tasks:  89%|████████▊ | 39/44 [00:18<00:02,  2.35it/s]creating meta tasks:  91%|█████████ | 40/44 [00:19<00:01,  2.35it/s]creating meta tasks:  93%|█████████▎| 41/44 [00:19<00:01,  2.25it/s]creating meta tasks:  95%|█████████▌| 42/44 [00:20<00:00,  2.08it/s]creating meta tasks:  98%|█████████▊| 43/44 [00:20<00:00,  2.05it/s]creating meta tasks: 100%|██████████| 44/44 [00:21<00:00,  2.08it/s]creating meta tasks: 100%|██████████| 44/44 [00:21<00:00,  2.07it/s]
+train tasks:   0%|          | 0/44 [00:00<?, ?it/s][2232630:MainThread](2024-04-23 01:09:29,821) WARNING - qlib.workflow - [expm.py:230] - No valid experiment found. Create a new experiment with name rolling_cn_data_csi300_ALSTM_alpha360_h1_step20_rankFalse_2024-04-23_01:09:29_DDG-DA.
+[2232630:MainThread](2024-04-23 01:09:29,834) INFO - qlib.workflow - [exp.py:258] - Experiment 19 starts running ...
+[2232630:MainThread](2024-04-23 01:09:29,991) INFO - qlib.workflow - [recorder.py:341] - Recorder df55298734d04eac843ba3bedce94247 starts running under Experiment 19 ...
+[2232630:MainThread](2024-04-23 01:09:30,412) INFO - qlib.ALSTM - [pytorch_alstm.py:61] - ALSTM pytorch version...
+[2232630:MainThread](2024-04-23 01:09:30,480) INFO - qlib.ALSTM - [pytorch_alstm.py:78] - ALSTM parameters setting:
+d_feat : 6
+hidden_size : 64
+num_layers : 2
+dropout : 0.0
+n_epochs : 200
+lr : 0.001
+metric : loss
+batch_size : 5000
+early_stop : 8
+optimizer : adam
+loss_type : mse
+device : cuda:0
+use_GPU : True
+seed : None
+[2232630:MainThread](2024-04-23 01:09:30,483) INFO - qlib.ALSTM - [pytorch_alstm.py:121] - model:
+ALSTMModel(
+  (net): Sequential(
+    (fc_in): Linear(in_features=6, out_features=64, bias=True)
+    (act): Tanh()
+  )
+  (rnn): GRU(64, 64, num_layers=2, batch_first=True)
+  (fc_out): Linear(in_features=128, out_features=1, bias=True)
+  (att_net): Sequential(
+    (att_fc_in): Linear(in_features=64, out_features=32, bias=True)
+    (att_dropout): Dropout(p=0.0, inplace=False)
+    (att_act): Tanh()
+    (att_fc_out): Linear(in_features=32, out_features=1, bias=False)
+    (att_softmax): Softmax(dim=1)
+  )
+)
+[2232630:MainThread](2024-04-23 01:09:30,483) INFO - qlib.ALSTM - [pytorch_alstm.py:122] - model size: 0.0502 MB
+[2232630:MainThread](2024-04-23 01:09:42,604) INFO - qlib.data selection - [model.py:40] - Reweighting result: datetime    instrument
+2008-01-02  SH600000      0.531170
+            SH600004      0.531170
+            SH600006      0.531170
+            SH600007      0.531170
+            SH600008      0.531170
+                            ...   
+2014-12-31  SZ300070      1.926194
+            SZ300124      1.926194
+            SZ300133      1.926194
+            SZ300146      1.926194
+            SZ300251      1.926194
+Length: 478007, dtype: float64
+[2232630:MainThread](2024-04-23 01:09:42,606) INFO - qlib.ALSTM - [pytorch_alstm.py:266] - training...
+[2232630:MainThread](2024-04-23 01:09:42,607) INFO - qlib.ALSTM - [pytorch_alstm.py:270] - Epoch0:
+[2232630:MainThread](2024-04-23 01:09:42,607) INFO - qlib.ALSTM - [pytorch_alstm.py:271] - training...
+[2232630:MainThread](2024-04-23 01:09:45,553) INFO - qlib.ALSTM - [pytorch_alstm.py:273] - evaluating...
+[2232630:MainThread](2024-04-23 01:09:45,802) INFO - qlib.ALSTM - [pytorch_alstm.py:276] - valid -0.994226
+[2232630:MainThread](2024-04-23 01:09:45,804) INFO - qlib.ALSTM - [pytorch_alstm.py:270] - Epoch1:
+[2232630:MainThread](2024-04-23 01:09:45,804) INFO - qlib.ALSTM - [pytorch_alstm.py:271] - training...
+Killed

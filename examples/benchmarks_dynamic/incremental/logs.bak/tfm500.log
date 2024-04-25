@@ -1,0 +1,638 @@
+['main.py', 'run_all', '--forecast_model', 'Transformer', '-num_head', '8', '--tau', '10', '--lr_da', '0.001', '--market', 'csi500', '--data_dir', 'crowd_data', '--rank_label', 'False', '--begin_valid_epoch', '20']
+[2167719:MainThread](2024-04-22 17:31:08,690) INFO - qlib.Initialization - [config.py:416] - default_conf: client.
+[2167719:MainThread](2024-04-22 17:31:08,693) INFO - qlib.Initialization - [__init__.py:74] - qlib successfully initialized based on client settings.
+[2167719:MainThread](2024-04-22 17:31:08,693) INFO - qlib.Initialization - [__init__.py:76] - data_path={'__DEFAULT_FREQ': PosixPath('/home/zhonghao/.qlib/qlib_data/crowd_data')}
+Remove CSRankNorm
+{'class': 'Alpha360', 'module_path': 'qlib.contrib.data.handler', 'kwargs': {'start_time': datetime.date(2008, 1, 1), 'end_time': datetime.date(2020, 8, 1), 'fit_start_time': datetime.date(2008, 1, 1), 'fit_end_time': datetime.date(2014, 12, 31), 'instruments': 'csi500', 'infer_processors': [{'class': 'RobustZScoreNorm', 'kwargs': {'fields_group': 'feature', 'clip_outlier': True}}, {'class': 'Fillna', 'kwargs': {'fields_group': 'feature'}}], 'learn_processors': [{'class': 'DropnaLabel'}, {'class': 'CSZScoreNorm', 'kwargs': {'fields_group': 'label'}}], 'label': ['Ref($close, -2) / Ref($close, -1) - 1']}}
+{'model': {'class': 'TransformerModel', 'module_path': 'qlib.contrib.model.pytorch_transformer', 'kwargs': {'d_feat': 6, 'seed': None, 'dim_feedforward': 32, 'reg': 0}}, 'dataset': {'class': 'DatasetH', 'module_path': 'qlib.data.dataset', 'kwargs': {'handler': 'file:///home/zhonghao/sjtu/qlib/examples/benchmarks/crowd_data_csi500_rankFalse_alpha360_handler_horizon1.pkl', 'segments': {'train': [datetime.date(2008, 1, 1), datetime.date(2014, 12, 31)], 'valid': [datetime.date(2015, 1, 1), datetime.date(2016, 12, 31)], 'test': [datetime.date(2017, 1, 1), datetime.date(2020, 8, 1)]}}}, 'record': ['qlib.workflow.record_temp.SignalRecord']}
+[2167719:MainThread](2024-04-22 17:31:16,773) INFO - qlib.MetaDatasetInc - [dataset.py:152] - Example task for training meta model: {'model': {'class': 'TransformerModel', 'module_path': 'qlib.contrib.model.pytorch_transformer', 'kwargs': {'d_feat': 6, 'seed': None, 'dim_feedforward': 32, 'reg': 0}}, 'dataset': {'class': 'DatasetH', 'module_path': 'qlib.data.dataset', 'kwargs': {'handler': 'file:///home/zhonghao/sjtu/qlib/examples/benchmarks/crowd_data_csi500_rankFalse_alpha360_handler_horizon1.pkl', 'segments': {'train': (Timestamp('2008-01-02 00:00:00'), Timestamp('2008-01-29 00:00:00')), 'test': (Timestamp('2008-01-31 00:00:00'), Timestamp('2008-03-05 00:00:00'))}}}, 'record': ['qlib.workflow.record_temp.SignalRecord']}
+creating meta tasks:   0%|          | 0/108 [00:00<?, ?it/s]creating meta tasks:  33%|███▎      | 36/108 [00:00<00:00, 351.90it/s]creating meta tasks:  70%|███████   | 76/108 [00:00<00:00, 377.35it/s]creating meta tasks: 100%|██████████| 108/108 [00:00<00:00, 380.33it/s]
+[2167719:MainThread](2024-04-22 17:31:17,367) INFO - qlib.MetaDatasetInc - [dataset.py:152] - Example task for training meta model: {'model': {'class': 'TransformerModel', 'module_path': 'qlib.contrib.model.pytorch_transformer', 'kwargs': {'d_feat': 6, 'seed': None, 'dim_feedforward': 32, 'reg': 0}}, 'dataset': {'class': 'DatasetH', 'module_path': 'qlib.data.dataset', 'kwargs': {'handler': 'file:///home/zhonghao/sjtu/qlib/examples/benchmarks/crowd_data_csi500_rankFalse_alpha360_handler_horizon1.pkl', 'segments': {'train': (Timestamp('2015-01-05 00:00:00'), Timestamp('2015-01-30 00:00:00')), 'test': (Timestamp('2015-02-03 00:00:00'), Timestamp('2015-03-09 00:00:00'))}}}, 'record': ['qlib.workflow.record_temp.SignalRecord']}
+creating meta tasks:   0%|          | 0/67 [00:00<?, ?it/s]creating meta tasks:  64%|██████▍   | 43/67 [00:00<00:00, 423.18it/s]creating meta tasks: 100%|██████████| 67/67 [00:00<00:00, 425.31it/s]
+Traceback (most recent call last):
+  File "main.py", line 471, in run_all
+    assert self.reload_tag is not None
+AssertionError
+No valid experiment to reload. Restart offline training...
+[2167719:MainThread](2024-04-22 17:31:18,491) INFO - qlib.TransformerModel - [pytorch_transformer.py:66] - Naive Transformer:
+batch_size : 2048
+dim : 32
+epoch:   0%|          | 0/100 [00:00<?, ?it/s]epoch:   1%|          | 1/100 [00:25<42:16, 25.62s/it]epoch:   2%|▏         | 2/100 [00:49<40:25, 24.75s/it]epoch:   3%|▎         | 3/100 [01:14<39:40, 24.54s/it]epoch:   4%|▍         | 4/100 [01:38<38:59, 24.37s/it]epoch:   5%|▌         | 5/100 [02:02<38:41, 24.44s/it]epoch:   6%|▌         | 6/100 [02:26<38:09, 24.36s/it]epoch:   7%|▋         | 7/100 [02:51<37:42, 24.33s/it]epoch:   8%|▊         | 8/100 [03:15<37:06, 24.20s/it]epoch:   9%|▉         | 9/100 [03:39<36:46, 24.24s/it]epoch:  10%|█         | 10/100 [04:03<36:13, 24.15s/it]epoch:  11%|█         | 11/100 [04:27<35:50, 24.17s/it]epoch:  12%|█▏        | 12/100 [04:51<35:30, 24.21s/it]epoch:  13%|█▎        | 13/100 [05:15<35:01, 24.16s/it]epoch:  14%|█▍        | 14/100 [05:40<34:40, 24.19s/it]epoch:  15%|█▌        | 15/100 [06:04<34:07, 24.08s/it]epoch:  16%|█▌        | 16/100 [06:28<33:42, 24.07s/it]epoch:  17%|█▋        | 17/100 [06:52<33:18, 24.07s/it]epoch:  18%|█▊        | 18/100 [07:16<32:59, 24.14s/it]epoch:  19%|█▉        | 19/100 [07:40<32:30, 24.08s/it]epoch:  20%|██        | 20/100 [08:04<32:07, 24.10s/it]0.08776333531734923
+best ic: 0.08776333531734923
+epoch:  21%|██        | 21/100 [08:35<34:32, 26.23s/it]0.08700898230563409
+epoch:  22%|██▏       | 22/100 [09:06<35:58, 27.67s/it]0.08785453016092003
+best ic: 0.08785453016092003
+epoch:  23%|██▎       | 23/100 [09:37<36:41, 28.59s/it]0.09098119222204228
+best ic: 0.09098119222204228
+epoch:  24%|██▍       | 24/100 [10:08<37:05, 29.29s/it]0.09183330648950769
+best ic: 0.09183330648950769
+epoch:  25%|██▌       | 25/100 [10:39<37:13, 29.78s/it]0.0925998863982971
+best ic: 0.0925998863982971
+epoch:  26%|██▌       | 26/100 [11:10<37:08, 30.11s/it]0.09233946578107416
+epoch:  27%|██▋       | 27/100 [11:41<36:55, 30.34s/it]0.09475429761247063
+best ic: 0.09475429761247063
+epoch:  28%|██▊       | 28/100 [12:12<36:37, 30.52s/it]0.09200956754190037
+epoch:  29%|██▉       | 29/100 [12:43<36:21, 30.72s/it]0.09119522569221107
+epoch:  30%|███       | 30/100 [13:13<35:48, 30.69s/it]0.09100204120714059
+epoch:  31%|███       | 31/100 [13:44<35:20, 30.73s/it]0.09269243477431648
+epoch:  32%|███▏      | 32/100 [14:15<34:49, 30.73s/it]0.09340597281557786
+epoch:  33%|███▎      | 33/100 [14:46<34:23, 30.80s/it]0.0884745571617038
+epoch:  34%|███▍      | 34/100 [15:17<33:56, 30.85s/it]0.09406770929420322
+epoch:  35%|███▌      | 35/100 [15:48<33:29, 30.91s/it]0.08922376102801124
+epoch:  35%|███▌      | 35/100 [16:19<30:18, 27.98s/it]
+Test segment: 2017-01-03 00:00:00 2020-07-31 00:00:00
+[2167719:MainThread](2024-04-22 17:47:39,507) WARNING - qlib.workflow - [expm.py:230] - No valid experiment found. Create a new experiment with name csi500_Transformer_alpha360_horizon1_step20_rankFalse_2024-04-22_17:31:18_online.
+[2167719:MainThread](2024-04-22 17:47:39,517) INFO - qlib.workflow - [exp.py:258] - Experiment 15 starts running ...
+[2167719:MainThread](2024-04-22 17:47:40,456) INFO - qlib.workflow - [recorder.py:341] - Recorder 0289a645ccb94ccea893aebc639a02a7 starts running under Experiment 15 ...
+online:   0%|          | 0/67 [00:00<?, ?it/s]online:   1%|▏         | 1/67 [00:00<00:14,  4.61it/s]online:   3%|▎         | 2/67 [00:00<00:18,  3.52it/s]online:   4%|▍         | 3/67 [00:00<00:16,  3.92it/s]online:   6%|▌         | 4/67 [00:01<00:18,  3.48it/s]online:   7%|▋         | 5/67 [00:01<00:18,  3.27it/s]online:   9%|▉         | 6/67 [00:01<00:16,  3.64it/s]online:  10%|█         | 7/67 [00:01<00:15,  3.97it/s]online:  12%|█▏        | 8/67 [00:02<00:13,  4.32it/s]online:  13%|█▎        | 9/67 [00:02<00:15,  3.64it/s]online:  15%|█▍        | 10/67 [00:02<00:18,  3.13it/s]online:  16%|█▋        | 11/67 [00:03<00:17,  3.13it/s]online:  18%|█▊        | 12/67 [00:03<00:15,  3.51it/s]online:  19%|█▉        | 13/67 [00:03<00:15,  3.59it/s]online:  21%|██        | 14/67 [00:03<00:14,  3.72it/s]online:  22%|██▏       | 15/67 [00:04<00:13,  3.98it/s]online:  24%|██▍       | 16/67 [00:04<00:12,  4.22it/s]online:  25%|██▌       | 17/67 [00:04<00:12,  4.02it/s]online:  27%|██▋       | 18/67 [00:04<00:13,  3.61it/s]online:  28%|██▊       | 19/67 [00:05<00:12,  3.71it/s]online:  30%|██▉       | 20/67 [00:05<00:12,  3.91it/s]online:  31%|███▏      | 21/67 [00:05<00:14,  3.17it/s]online:  33%|███▎      | 22/67 [00:06<00:13,  3.43it/s]online:  34%|███▍      | 23/67 [00:06<00:12,  3.58it/s]online:  36%|███▌      | 24/67 [00:06<00:11,  3.87it/s]online:  37%|███▋      | 25/67 [00:06<00:12,  3.30it/s]online:  39%|███▉      | 26/67 [00:07<00:13,  2.94it/s]online:  40%|████      | 27/67 [00:07<00:12,  3.25it/s]online:  42%|████▏     | 28/67 [00:07<00:11,  3.47it/s]online:  43%|████▎     | 29/67 [00:08<00:12,  3.16it/s]online:  45%|████▍     | 30/67 [00:08<00:11,  3.36it/s]online:  46%|████▋     | 31/67 [00:08<00:09,  3.66it/s]online:  48%|████▊     | 32/67 [00:09<00:11,  3.15it/s]online:  49%|████▉     | 33/67 [00:09<00:11,  2.96it/s]online:  51%|█████     | 34/67 [00:09<00:09,  3.33it/s]online:  52%|█████▏    | 35/67 [00:09<00:09,  3.41it/s]online:  54%|█████▎    | 36/67 [00:10<00:08,  3.72it/s]online:  55%|█████▌    | 37/67 [00:10<00:07,  3.95it/s]online:  57%|█████▋    | 38/67 [00:10<00:08,  3.22it/s]online:  58%|█████▊    | 39/67 [00:11<00:08,  3.42it/s]online:  60%|█████▉    | 40/67 [00:11<00:07,  3.57it/s]online:  61%|██████    | 41/67 [00:11<00:06,  3.86it/s]online:  63%|██████▎   | 42/67 [00:11<00:07,  3.40it/s]online:  64%|██████▍   | 43/67 [00:12<00:07,  3.26it/s]online:  66%|██████▌   | 44/67 [00:12<00:06,  3.38it/s]online:  67%|██████▋   | 45/67 [00:12<00:05,  3.69it/s]online:  69%|██████▊   | 46/67 [00:12<00:05,  3.92it/s]online:  70%|███████   | 47/67 [00:13<00:06,  3.14it/s]online:  72%|███████▏  | 48/67 [00:13<00:05,  3.35it/s]online:  73%|███████▎  | 49/67 [00:13<00:05,  3.48it/s]online:  75%|███████▍  | 50/67 [00:14<00:04,  3.73it/s]online:  76%|███████▌  | 51/67 [00:14<00:05,  3.15it/s]online:  78%|███████▊  | 52/67 [00:14<00:04,  3.33it/s]online:  79%|███████▉  | 53/67 [00:15<00:03,  3.61it/s]online:  81%|████████  | 54/67 [00:15<00:04,  3.06it/s]online:  82%|████████▏ | 55/67 [00:15<00:04,  2.85it/s]online:  84%|████████▎ | 56/67 [00:16<00:03,  3.19it/s]online:  85%|████████▌ | 57/67 [00:16<00:03,  3.24it/s]online:  87%|████████▋ | 58/67 [00:16<00:02,  3.55it/s]online:  88%|████████▊ | 59/67 [00:16<00:02,  3.78it/s]online:  90%|████████▉ | 60/67 [00:17<00:02,  3.33it/s]online:  91%|█████████ | 61/67 [00:17<00:01,  3.15it/s]online:  93%|█████████▎| 62/67 [00:17<00:01,  3.26it/s]online:  94%|█████████▍| 63/67 [00:18<00:01,  3.55it/s]online:  96%|█████████▌| 64/67 [00:18<00:00,  3.70it/s]online:  97%|█████████▋| 65/67 [00:18<00:00,  3.02it/s]online:  99%|█████████▊| 66/67 [00:19<00:00,  3.35it/s]online: 100%|██████████| 67/67 [00:19<00:00,  3.45it/s]online: 100%|██████████| 67/67 [00:19<00:00,  3.46it/s]
+lr_model: 0.001 lr_ma: 0.001 lr_da: 0.001
+[2167719:MainThread](2024-04-22 17:48:07,593) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+mse: 0.99628544 mae 0.684156
+{'IC': 0.04360921001798087,
+ 'ICIR': 0.3985560520382319,
+ 'Rank IC': 0.04726922984615095,
+ 'Rank ICIR': 0.48422989982012377}
+[2167719:MainThread](2024-04-22 17:48:09,224) INFO - qlib.backtest caller - [__init__.py:93] - Create new exchange
+[2167719:MainThread](2024-04-22 17:48:19,438) WARNING - qlib.online operator - [exchange.py:219] - $close field data contains nan.
+[2167719:MainThread](2024-04-22 17:48:19,440) WARNING - qlib.online operator - [exchange.py:219] - $close field data contains nan.
+[2167719:MainThread](2024-04-22 17:48:23,733) WARNING - qlib.BaseExecutor - [executor.py:121] - `common_infra` is not set for <qlib.backtest.executor.SimulatorExecutor object at 0x7fa8203d3370>
+backtest loop:   0%|          | 0/872 [00:00<?, ?it/s]/home/zhonghao/miniconda3/envs/sjtu_qlib/lib/python3.8/site-packages/qlib/utils/index_data.py:481: RuntimeWarning: Mean of empty slice
+  return np.nanmean(self.data)
+backtest loop:   1%|          | 6/872 [00:00<00:15, 55.71it/s]backtest loop:   1%|▏         | 12/872 [00:00<00:14, 57.68it/s]backtest loop:   2%|▏         | 18/872 [00:00<00:15, 53.47it/s]backtest loop:   3%|▎         | 24/872 [00:00<00:16, 50.85it/s]backtest loop:   3%|▎         | 30/872 [00:00<00:15, 53.49it/s]backtest loop:   4%|▍         | 36/872 [00:00<00:15, 55.05it/s]backtest loop:   5%|▍         | 42/872 [00:00<00:14, 56.08it/s]backtest loop:   6%|▌         | 48/872 [00:00<00:14, 56.98it/s]backtest loop:   6%|▌         | 54/872 [00:00<00:15, 53.93it/s]backtest loop:   7%|▋         | 60/872 [00:01<00:14, 55.19it/s]backtest loop:   8%|▊         | 67/872 [00:01<00:14, 53.92it/s]backtest loop:   8%|▊         | 73/872 [00:01<00:14, 55.53it/s]backtest loop:   9%|▉         | 79/872 [00:01<00:14, 56.56it/s]backtest loop:  10%|▉         | 85/872 [00:01<00:13, 56.99it/s]backtest loop:  10%|█         | 91/872 [00:01<00:14, 53.86it/s]backtest loop:  11%|█         | 97/872 [00:01<00:13, 55.42it/s]backtest loop:  12%|█▏        | 103/872 [00:01<00:13, 56.44it/s]backtest loop:  12%|█▎        | 109/872 [00:01<00:14, 54.05it/s]backtest loop:  13%|█▎        | 115/872 [00:02<00:13, 55.57it/s]backtest loop:  14%|█▍        | 121/872 [00:02<00:13, 56.75it/s]backtest loop:  15%|█▍        | 128/872 [00:02<00:12, 58.45it/s]backtest loop:  15%|█▌        | 134/872 [00:02<00:13, 55.44it/s]backtest loop:  16%|█▌        | 140/872 [00:02<00:12, 56.60it/s]backtest loop:  17%|█▋        | 146/872 [00:02<00:12, 57.41it/s]backtest loop:  17%|█▋        | 152/872 [00:02<00:12, 58.15it/s]backtest loop:  18%|█▊        | 158/872 [00:02<00:12, 58.33it/s]backtest loop:  19%|█▉        | 164/872 [00:02<00:12, 55.18it/s]backtest loop:  19%|█▉        | 170/872 [00:03<00:12, 56.30it/s]backtest loop:  20%|██        | 176/872 [00:03<00:12, 56.96it/s]backtest loop:  21%|██        | 182/872 [00:03<00:11, 57.83it/s]backtest loop:  22%|██▏       | 189/872 [00:03<00:12, 56.43it/s]backtest loop:  22%|██▏       | 196/872 [00:03<00:11, 58.65it/s]backtest loop:  23%|██▎       | 203/872 [00:03<00:11, 60.32it/s]backtest loop:  24%|██▍       | 210/872 [00:03<00:11, 57.11it/s]backtest loop:  25%|██▍       | 216/872 [00:03<00:11, 57.47it/s]backtest loop:  25%|██▌       | 222/872 [00:03<00:11, 58.13it/s]backtest loop:  26%|██▌       | 228/872 [00:04<00:11, 58.21it/s]backtest loop:  27%|██▋       | 234/872 [00:04<00:11, 55.26it/s]backtest loop:  28%|██▊       | 240/872 [00:04<00:11, 56.51it/s]backtest loop:  28%|██▊       | 247/872 [00:04<00:10, 58.17it/s]backtest loop:  29%|██▉       | 253/872 [00:04<00:11, 55.18it/s]backtest loop:  30%|██▉       | 259/872 [00:04<00:10, 56.44it/s]backtest loop:  30%|███       | 265/872 [00:04<00:10, 57.42it/s]backtest loop:  31%|███       | 272/872 [00:04<00:10, 59.03it/s]backtest loop:  32%|███▏      | 278/872 [00:04<00:11, 52.54it/s]backtest loop:  33%|███▎      | 284/872 [00:05<00:10, 54.40it/s]backtest loop:  33%|███▎      | 290/872 [00:05<00:10, 55.85it/s]backtest loop:  34%|███▍      | 296/872 [00:05<00:10, 56.98it/s]backtest loop:  35%|███▍      | 302/872 [00:05<00:09, 57.62it/s]backtest loop:  35%|███▌      | 308/872 [00:05<00:10, 53.29it/s]backtest loop:  36%|███▌      | 314/872 [00:05<00:10, 55.12it/s]backtest loop:  37%|███▋      | 320/872 [00:05<00:09, 56.32it/s]backtest loop:  37%|███▋      | 326/872 [00:05<00:10, 53.90it/s]backtest loop:  38%|███▊      | 332/872 [00:05<00:09, 55.20it/s]backtest loop:  39%|███▉      | 339/872 [00:06<00:09, 54.05it/s]backtest loop:  40%|███▉      | 345/872 [00:06<00:09, 55.30it/s]backtest loop:  40%|████      | 352/872 [00:06<00:09, 57.41it/s]backtest loop:  41%|████      | 358/872 [00:06<00:09, 54.78it/s]backtest loop:  42%|████▏     | 365/872 [00:06<00:08, 57.11it/s]backtest loop:  43%|████▎     | 371/872 [00:06<00:08, 57.73it/s]backtest loop:  43%|████▎     | 377/872 [00:06<00:08, 58.05it/s]backtest loop:  44%|████▍     | 383/872 [00:06<00:08, 55.28it/s]backtest loop:  45%|████▍     | 389/872 [00:06<00:08, 56.12it/s]backtest loop:  45%|████▌     | 395/872 [00:07<00:08, 57.13it/s]backtest loop:  46%|████▌     | 401/872 [00:07<00:08, 57.53it/s]backtest loop:  47%|████▋     | 408/872 [00:07<00:08, 55.57it/s]backtest loop:  48%|████▊     | 415/872 [00:07<00:07, 57.43it/s]backtest loop:  48%|████▊     | 421/872 [00:07<00:07, 57.90it/s]backtest loop:  49%|████▉     | 427/872 [00:07<00:08, 55.12it/s]backtest loop:  50%|████▉     | 434/872 [00:07<00:07, 57.82it/s]backtest loop:  51%|█████     | 441/872 [00:07<00:07, 59.24it/s]backtest loop:  51%|█████▏    | 447/872 [00:07<00:07, 56.13it/s]backtest loop:  52%|█████▏    | 454/872 [00:08<00:07, 58.00it/s]backtest loop:  53%|█████▎    | 461/872 [00:08<00:06, 59.48it/s]backtest loop:  54%|█████▎    | 467/872 [00:08<00:07, 56.39it/s]backtest loop:  54%|█████▍    | 474/872 [00:08<00:06, 58.17it/s]backtest loop:  55%|█████▌    | 481/872 [00:08<00:06, 59.30it/s]backtest loop:  56%|█████▌    | 487/872 [00:08<00:06, 55.85it/s]backtest loop:  57%|█████▋    | 494/872 [00:08<00:06, 57.74it/s]backtest loop:  57%|█████▋    | 500/872 [00:08<00:06, 55.33it/s]backtest loop:  58%|█████▊    | 506/872 [00:08<00:06, 56.42it/s]backtest loop:  59%|█████▉    | 513/872 [00:09<00:06, 58.21it/s]backtest loop:  60%|█████▉    | 520/872 [00:09<00:06, 56.55it/s]backtest loop:  60%|██████    | 527/872 [00:09<00:05, 58.28it/s]backtest loop:  61%|██████    | 534/872 [00:09<00:05, 59.60it/s]backtest loop:  62%|██████▏   | 540/872 [00:09<00:05, 56.55it/s]backtest loop:  63%|██████▎   | 547/872 [00:09<00:05, 58.47it/s]backtest loop:  64%|██████▎   | 554/872 [00:09<00:05, 56.51it/s]backtest loop:  64%|██████▍   | 560/872 [00:09<00:05, 57.23it/s]backtest loop:  65%|██████▍   | 566/872 [00:10<00:05, 55.16it/s]backtest loop:  66%|██████▌   | 573/872 [00:10<00:05, 57.39it/s]backtest loop:  66%|██████▋   | 579/872 [00:10<00:05, 58.10it/s]backtest loop:  67%|██████▋   | 586/872 [00:10<00:05, 56.33it/s]backtest loop:  68%|██████▊   | 593/872 [00:10<00:04, 58.24it/s]backtest loop:  69%|██████▉   | 600/872 [00:10<00:04, 56.43it/s]backtest loop:  70%|██████▉   | 607/872 [00:10<00:04, 58.16it/s]backtest loop:  70%|███████   | 613/872 [00:10<00:04, 58.32it/s]backtest loop:  71%|███████   | 620/872 [00:10<00:04, 56.25it/s]backtest loop:  72%|███████▏  | 627/872 [00:11<00:04, 58.04it/s]backtest loop:  73%|███████▎  | 633/872 [00:11<00:04, 58.46it/s]backtest loop:  73%|███████▎  | 640/872 [00:11<00:04, 56.42it/s]backtest loop:  74%|███████▍  | 647/872 [00:11<00:03, 58.12it/s]backtest loop:  75%|███████▌  | 654/872 [00:11<00:03, 59.83it/s]backtest loop:  76%|███████▌  | 661/872 [00:11<00:03, 57.49it/s]backtest loop:  77%|███████▋  | 668/872 [00:11<00:03, 58.83it/s]backtest loop:  77%|███████▋  | 674/872 [00:11<00:03, 53.04it/s]backtest loop:  78%|███████▊  | 681/872 [00:12<00:03, 55.50it/s]backtest loop:  79%|███████▉  | 688/872 [00:12<00:03, 57.51it/s]backtest loop:  80%|███████▉  | 694/872 [00:12<00:03, 55.09it/s]backtest loop:  80%|████████  | 701/872 [00:12<00:02, 57.13it/s]backtest loop:  81%|████████  | 708/872 [00:12<00:02, 58.61it/s]backtest loop:  82%|████████▏ | 714/872 [00:12<00:02, 55.83it/s]backtest loop:  83%|████████▎ | 721/872 [00:12<00:02, 57.57it/s]backtest loop:  83%|████████▎ | 728/872 [00:12<00:02, 58.87it/s]backtest loop:  84%|████████▍ | 734/872 [00:12<00:02, 53.13it/s]backtest loop:  85%|████████▍ | 741/872 [00:13<00:02, 55.90it/s]backtest loop:  86%|████████▌ | 747/872 [00:13<00:02, 53.67it/s]backtest loop:  86%|████████▋ | 754/872 [00:13<00:02, 57.11it/s]backtest loop:  87%|████████▋ | 761/872 [00:13<00:01, 58.82it/s]backtest loop:  88%|████████▊ | 767/872 [00:13<00:01, 56.33it/s]backtest loop:  89%|████████▉ | 774/872 [00:13<00:01, 58.30it/s]backtest loop:  90%|████████▉ | 781/872 [00:13<00:01, 59.65it/s]backtest loop:  90%|█████████ | 787/872 [00:13<00:01, 56.69it/s]backtest loop:  91%|█████████ | 793/872 [00:13<00:01, 57.42it/s]backtest loop:  92%|█████████▏| 800/872 [00:14<00:01, 59.22it/s]backtest loop:  92%|█████████▏| 806/872 [00:14<00:01, 56.21it/s]backtest loop:  93%|█████████▎| 812/872 [00:14<00:01, 56.93it/s]backtest loop:  94%|█████████▍| 818/872 [00:14<00:00, 54.63it/s]backtest loop:  94%|█████████▍| 824/872 [00:14<00:00, 56.10it/s]backtest loop:  95%|█████████▌| 830/872 [00:14<00:00, 57.19it/s]backtest loop:  96%|█████████▌| 837/872 [00:14<00:00, 58.86it/s]backtest loop:  97%|█████████▋| 843/872 [00:14<00:00, 56.04it/s]backtest loop:  97%|█████████▋| 850/872 [00:14<00:00, 57.85it/s]backtest loop:  98%|█████████▊| 856/872 [00:15<00:00, 55.20it/s]backtest loop:  99%|█████████▉| 863/872 [00:15<00:00, 58.32it/s]backtest loop: 100%|█████████▉| 870/872 [00:15<00:00, 59.82it/s]backtest loop: 100%|██████████| 872/872 [00:15<00:00, 56.72it/s]
+[2167719:MainThread](2024-04-22 17:48:39,173) INFO - qlib.workflow - [record_temp.py:515] - Portfolio analysis record 'port_analysis_1day.pkl' has been saved as the artifact of the Experiment 15
+'The following are analysis results of benchmark return(1day).'
+                       risk
+mean               0.000188
+std                0.014399
+annualized_return  0.044836
+information_ratio  0.201841
+max_drawdown      -0.487617
+'The following are analysis results of the excess return without cost(1day).'
+                       risk
+mean               0.000580
+std                0.004022
+annualized_return  0.138122
+information_ratio  2.225981
+max_drawdown      -0.120930
+'The following are analysis results of the excess return with cost(1day).'
+                       risk
+mean               0.000388
+std                0.004022
+annualized_return  0.092349
+information_ratio  1.488355
+max_drawdown      -0.160413
+[2167719:MainThread](2024-04-22 17:48:39,189) INFO - qlib.workflow - [record_temp.py:540] - Indicator analysis record 'indicator_analysis_1day.pkl' has been saved as the artifact of the Experiment 15
+'The following are analysis results of indicators(1day).'
+     value
+ffr    1.0
+pa     0.0
+pos    0.0
+Your evaluation results can be found in the experiment named `csi500_Transformer_alpha360_horizon1_step20_rankFalse_2024-04-22_17:31:18_online`.
+{'1day.excess_return_with_cost.annualized_return': [0.09234941244681927],
+ '1day.excess_return_with_cost.information_ratio': [1.4883554518729432],
+ 'IC': [0.04360921001798087],
+ 'ICIR': [0.3985560520382319],
+ 'Rank IC': [0.04726922984615095],
+ 'Rank ICIR': [0.48422989982012377],
+ 'mae': [0.6841560006141663],
+ 'mse': [0.9962854385375977]}
+Traceback (most recent call last):
+  File "main.py", line 471, in run_all
+    assert self.reload_tag is not None
+AssertionError
+No valid experiment to reload. Restart offline training...
+[2167719:MainThread](2024-04-22 17:48:40,308) INFO - qlib.TransformerModel - [pytorch_transformer.py:66] - Naive Transformer:
+batch_size : 2048
+dim : 32
+epoch:   0%|          | 0/100 [00:00<?, ?it/s]epoch:   1%|          | 1/100 [00:24<39:59, 24.24s/it]epoch:   2%|▏         | 2/100 [00:48<39:56, 24.46s/it]epoch:   3%|▎         | 3/100 [01:13<39:27, 24.41s/it]epoch:   4%|▍         | 4/100 [01:37<39:04, 24.42s/it]epoch:   5%|▌         | 5/100 [02:01<38:30, 24.32s/it]epoch:   6%|▌         | 6/100 [02:26<38:04, 24.30s/it]epoch:   7%|▋         | 7/100 [02:50<37:38, 24.28s/it]epoch:   8%|▊         | 8/100 [03:14<37:14, 24.29s/it]epoch:   9%|▉         | 9/100 [03:38<36:45, 24.23s/it]epoch:  10%|█         | 10/100 [04:02<36:18, 24.20s/it]epoch:  11%|█         | 11/100 [04:27<35:57, 24.24s/it]epoch:  12%|█▏        | 12/100 [04:51<35:28, 24.18s/it]epoch:  13%|█▎        | 13/100 [05:15<35:06, 24.21s/it]epoch:  14%|█▍        | 14/100 [05:39<34:35, 24.14s/it]epoch:  15%|█▌        | 15/100 [06:03<34:12, 24.15s/it]epoch:  16%|█▌        | 16/100 [06:27<33:45, 24.11s/it]epoch:  17%|█▋        | 17/100 [06:51<33:23, 24.13s/it]epoch:  18%|█▊        | 18/100 [07:16<33:07, 24.24s/it]epoch:  19%|█▉        | 19/100 [07:40<32:34, 24.13s/it]epoch:  20%|██        | 20/100 [08:04<32:17, 24.22s/it]0.08176594958109774
+best ic: 0.08176594958109774
+epoch:  21%|██        | 21/100 [08:35<34:36, 26.28s/it]0.0786407873829809
+epoch:  22%|██▏       | 22/100 [09:06<36:00, 27.70s/it]0.08032877850634927
+epoch:  23%|██▎       | 23/100 [09:38<37:00, 28.83s/it]0.08763678108627587
+best ic: 0.08763678108627587
+epoch:  24%|██▍       | 24/100 [10:09<37:21, 29.50s/it]0.08483898322120845
+epoch:  25%|██▌       | 25/100 [10:40<37:25, 29.94s/it]0.08479654240606825
+epoch:  26%|██▌       | 26/100 [11:11<37:27, 30.38s/it]0.0879996546599294
+best ic: 0.0879996546599294
+epoch:  27%|██▋       | 27/100 [11:42<37:07, 30.51s/it]0.08767473254354917
+epoch:  28%|██▊       | 28/100 [12:13<36:45, 30.63s/it]0.08780248159324054
+epoch:  29%|██▉       | 29/100 [12:44<36:23, 30.75s/it]0.08705528930625676
+epoch:  30%|███       | 30/100 [13:15<36:01, 30.88s/it]0.08894207265852096
+best ic: 0.08894207265852096
+epoch:  31%|███       | 31/100 [13:46<35:38, 30.99s/it]0.08914347795672868
+best ic: 0.08914347795672868
+epoch:  32%|███▏      | 32/100 [14:17<35:05, 30.97s/it]0.09090083659393192
+best ic: 0.09090083659393192
+epoch:  33%|███▎      | 33/100 [14:48<34:34, 30.97s/it]0.08825765457764545
+epoch:  34%|███▍      | 34/100 [15:19<34:09, 31.05s/it]0.09111261267307613
+best ic: 0.09111261267307613
+epoch:  35%|███▌      | 35/100 [15:51<33:39, 31.07s/it]0.09245561723863335
+best ic: 0.09245561723863335
+epoch:  36%|███▌      | 36/100 [16:21<33:04, 31.02s/it]0.09270595283239394
+best ic: 0.09270595283239394
+epoch:  37%|███▋      | 37/100 [16:52<32:32, 31.00s/it]0.09057628802860235
+epoch:  38%|███▊      | 38/100 [17:23<31:58, 30.94s/it]0.09317645017422858
+best ic: 0.09317645017422858
+epoch:  39%|███▉      | 39/100 [17:55<31:34, 31.06s/it]0.09099287111300329
+epoch:  40%|████      | 40/100 [18:26<31:05, 31.09s/it]0.09089694212969777
+epoch:  41%|████      | 41/100 [18:57<30:31, 31.04s/it]0.09176147825919095
+epoch:  42%|████▏     | 42/100 [19:28<29:59, 31.02s/it]0.09154622599991792
+epoch:  43%|████▎     | 43/100 [19:59<29:35, 31.15s/it]0.0929112566537904
+epoch:  44%|████▍     | 44/100 [20:30<29:02, 31.12s/it]0.091755213916924
+epoch:  45%|████▌     | 45/100 [21:01<28:28, 31.06s/it]0.09454980347539754
+best ic: 0.09454980347539754
+epoch:  46%|████▌     | 46/100 [21:32<27:55, 31.03s/it]0.0938339898420845
+epoch:  47%|████▋     | 47/100 [22:03<27:25, 31.05s/it]0.09228037394783054
+epoch:  48%|████▊     | 48/100 [22:34<26:49, 30.94s/it]0.08990142962757527
+epoch:  49%|████▉     | 49/100 [23:05<26:17, 30.93s/it]0.09237166460225724
+epoch:  50%|█████     | 50/100 [23:36<25:49, 30.99s/it]0.09324694806282964
+epoch:  51%|█████     | 51/100 [24:07<25:17, 30.97s/it]0.09220821955616927
+epoch:  52%|█████▏    | 52/100 [24:38<24:49, 31.04s/it]0.09387874135727041
+epoch:  53%|█████▎    | 53/100 [25:09<24:16, 30.99s/it]0.0944747672095537
+epoch:  53%|█████▎    | 53/100 [25:40<22:45, 29.06s/it]
+Test segment: 2017-01-03 00:00:00 2020-07-31 00:00:00
+[2167719:MainThread](2024-04-22 18:14:20,696) INFO - qlib.workflow - [exp.py:258] - Experiment 15 starts running ...
+[2167719:MainThread](2024-04-22 18:14:20,706) INFO - qlib.workflow - [recorder.py:341] - Recorder 0defe89050eb46bc9f6294cab9874193 starts running under Experiment 15 ...
+online:   0%|          | 0/67 [00:00<?, ?it/s]online:   1%|▏         | 1/67 [00:00<00:11,  5.81it/s]online:   3%|▎         | 2/67 [00:00<00:18,  3.44it/s]online:   4%|▍         | 3/67 [00:00<00:16,  3.80it/s]online:   6%|▌         | 4/67 [00:01<00:16,  3.81it/s]online:   7%|▋         | 5/67 [00:01<00:19,  3.17it/s]online:   9%|▉         | 6/67 [00:01<00:16,  3.68it/s]online:  10%|█         | 7/67 [00:01<00:15,  3.91it/s]online:  12%|█▏        | 8/67 [00:02<00:13,  4.26it/s]online:  13%|█▎        | 9/67 [00:02<00:14,  4.12it/s]online:  15%|█▍        | 10/67 [00:02<00:16,  3.42it/s]online:  16%|█▋        | 11/67 [00:02<00:14,  3.79it/s]online:  18%|█▊        | 12/67 [00:03<00:14,  3.86it/s]online:  19%|█▉        | 13/67 [00:03<00:13,  4.12it/s]online:  21%|██        | 14/67 [00:03<00:14,  3.55it/s]online:  22%|██▏       | 15/67 [00:04<00:14,  3.59it/s]online:  24%|██▍       | 16/67 [00:04<00:13,  3.69it/s]online:  25%|██▌       | 17/67 [00:04<00:12,  3.97it/s]online:  27%|██▋       | 18/67 [00:04<00:14,  3.35it/s]online:  28%|██▊       | 19/67 [00:05<00:14,  3.40it/s]online:  30%|██▉       | 20/67 [00:05<00:13,  3.51it/s]online:  31%|███▏      | 21/67 [00:05<00:12,  3.83it/s]online:  33%|███▎      | 22/67 [00:05<00:12,  3.57it/s]online:  34%|███▍      | 23/67 [00:06<00:13,  3.16it/s]online:  36%|███▌      | 24/67 [00:06<00:12,  3.53it/s]online:  37%|███▋      | 25/67 [00:06<00:11,  3.64it/s]online:  39%|███▉      | 26/67 [00:07<00:10,  3.91it/s]online:  40%|████      | 27/67 [00:07<00:11,  3.51it/s]online:  42%|████▏     | 28/67 [00:07<00:10,  3.56it/s]online:  43%|████▎     | 29/67 [00:07<00:09,  3.87it/s]online:  45%|████▍     | 30/67 [00:08<00:11,  3.23it/s]online:  46%|████▋     | 31/67 [00:08<00:11,  3.03it/s]online:  48%|████▊     | 32/67 [00:08<00:10,  3.39it/s]online:  49%|████▉     | 33/67 [00:09<00:09,  3.46it/s]online:  51%|█████     | 34/67 [00:09<00:08,  3.76it/s]online:  52%|█████▏    | 35/67 [00:09<00:08,  3.94it/s]online:  54%|█████▎    | 36/67 [00:09<00:08,  3.49it/s]online:  55%|█████▌    | 37/67 [00:10<00:08,  3.69it/s]online:  57%|█████▋    | 38/67 [00:10<00:08,  3.53it/s]online:  58%|█████▊    | 39/67 [00:10<00:07,  3.54it/s]online:  60%|█████▉    | 40/67 [00:11<00:07,  3.70it/s]online:  61%|██████    | 41/67 [00:11<00:07,  3.27it/s]online:  63%|██████▎   | 42/67 [00:11<00:07,  3.29it/s]online:  64%|██████▍   | 43/67 [00:11<00:06,  3.45it/s]online:  66%|██████▌   | 44/67 [00:12<00:06,  3.76it/s]online:  67%|██████▋   | 45/67 [00:12<00:06,  3.62it/s]online:  69%|██████▊   | 46/67 [00:12<00:05,  3.56it/s]online:  70%|███████   | 47/67 [00:13<00:05,  3.71it/s]online:  72%|███████▏  | 48/67 [00:13<00:06,  3.13it/s]online:  73%|███████▎  | 49/67 [00:13<00:05,  3.05it/s]online:  75%|███████▍  | 50/67 [00:14<00:05,  3.29it/s]online:  76%|███████▌  | 51/67 [00:14<00:04,  3.44it/s]online:  78%|███████▊  | 52/67 [00:14<00:04,  3.72it/s]online:  79%|███████▉  | 53/67 [00:14<00:04,  3.25it/s]online:  81%|████████  | 54/67 [00:15<00:03,  3.28it/s]online:  82%|████████▏ | 55/67 [00:15<00:03,  3.46it/s]online:  84%|████████▎ | 56/67 [00:15<00:02,  3.71it/s]online:  85%|████████▌ | 57/67 [00:16<00:03,  3.17it/s]online:  87%|████████▋ | 58/67 [00:16<00:02,  3.37it/s]online:  88%|████████▊ | 59/67 [00:16<00:02,  3.67it/s]online:  90%|████████▉ | 60/67 [00:17<00:02,  3.11it/s]online:  91%|█████████ | 61/67 [00:17<00:01,  3.21it/s]online:  93%|█████████▎| 62/67 [00:17<00:01,  3.34it/s]online:  94%|█████████▍| 63/67 [00:17<00:01,  3.66it/s]online:  96%|█████████▌| 64/67 [00:18<00:00,  3.22it/s]online:  97%|█████████▋| 65/67 [00:18<00:00,  3.34it/s]online:  99%|█████████▊| 66/67 [00:18<00:00,  3.59it/s]online: 100%|██████████| 67/67 [00:19<00:00,  3.30it/s]online: 100%|██████████| 67/67 [00:19<00:00,  3.52it/s]
+lr_model: 0.001 lr_ma: 0.001 lr_da: 0.001
+[2167719:MainThread](2024-04-22 18:14:47,734) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+mse: 0.9960439 mae 0.68401086
+{'IC': 0.045548203227840756,
+ 'ICIR': 0.4569207125587222,
+ 'Rank IC': 0.047759165017019906,
+ 'Rank ICIR': 0.5026687157186543}
+[2167719:MainThread](2024-04-22 18:14:49,361) INFO - qlib.backtest caller - [__init__.py:93] - Create new exchange
+[2167719:MainThread](2024-04-22 18:14:59,421) WARNING - qlib.online operator - [exchange.py:219] - $close field data contains nan.
+[2167719:MainThread](2024-04-22 18:14:59,424) WARNING - qlib.online operator - [exchange.py:219] - $close field data contains nan.
+[2167719:MainThread](2024-04-22 18:15:03,650) WARNING - qlib.BaseExecutor - [executor.py:121] - `common_infra` is not set for <qlib.backtest.executor.SimulatorExecutor object at 0x7fa91c04adc0>
+backtest loop:   0%|          | 0/872 [00:00<?, ?it/s]/home/zhonghao/miniconda3/envs/sjtu_qlib/lib/python3.8/site-packages/qlib/utils/index_data.py:481: RuntimeWarning: Mean of empty slice
+  return np.nanmean(self.data)
+backtest loop:   0%|          | 3/872 [00:00<01:04, 13.53it/s]backtest loop:   1%|          | 9/872 [00:00<00:31, 27.74it/s]backtest loop:   2%|▏         | 15/872 [00:00<00:23, 37.16it/s]backtest loop:   2%|▏         | 20/872 [00:00<00:22, 38.65it/s]backtest loop:   3%|▎         | 26/872 [00:00<00:19, 43.57it/s]backtest loop:   4%|▎         | 31/872 [00:00<00:18, 44.94it/s]backtest loop:   4%|▍         | 37/872 [00:00<00:16, 49.25it/s]backtest loop:   5%|▍         | 43/872 [00:01<00:16, 49.78it/s]backtest loop:   6%|▌         | 49/872 [00:01<00:17, 48.01it/s]backtest loop:   6%|▋         | 55/872 [00:01<00:16, 49.95it/s]backtest loop:   7%|▋         | 61/872 [00:01<00:15, 51.23it/s]backtest loop:   8%|▊         | 67/872 [00:01<00:16, 49.13it/s]backtest loop:   8%|▊         | 73/872 [00:01<00:15, 50.73it/s]backtest loop:   9%|▉         | 79/872 [00:01<00:15, 51.94it/s]backtest loop:  10%|▉         | 85/872 [00:01<00:14, 52.61it/s]backtest loop:  10%|█         | 91/872 [00:01<00:15, 50.13it/s]backtest loop:  11%|█         | 97/872 [00:02<00:15, 51.34it/s]backtest loop:  12%|█▏        | 103/872 [00:02<00:14, 52.34it/s]backtest loop:  12%|█▎        | 109/872 [00:02<00:15, 50.16it/s]backtest loop:  13%|█▎        | 115/872 [00:02<00:14, 51.24it/s]backtest loop:  14%|█▍        | 121/872 [00:02<00:14, 52.17it/s]backtest loop:  15%|█▍        | 127/872 [00:02<00:14, 52.84it/s]backtest loop:  15%|█▌        | 133/872 [00:02<00:13, 54.31it/s]backtest loop:  16%|█▌        | 139/872 [00:02<00:13, 52.66it/s]backtest loop:  17%|█▋        | 146/872 [00:02<00:13, 55.54it/s]backtest loop:  18%|█▊        | 153/872 [00:03<00:12, 57.87it/s]backtest loop:  18%|█▊        | 159/872 [00:03<00:12, 55.27it/s]backtest loop:  19%|█▉        | 166/872 [00:03<00:12, 57.45it/s]backtest loop:  20%|█▉        | 173/872 [00:03<00:11, 59.29it/s]backtest loop:  21%|██        | 179/872 [00:03<00:12, 56.06it/s]backtest loop:  21%|██▏       | 186/872 [00:03<00:11, 58.18it/s]backtest loop:  22%|██▏       | 192/872 [00:03<00:11, 58.41it/s]backtest loop:  23%|██▎       | 199/872 [00:03<00:11, 56.46it/s]backtest loop:  24%|██▎       | 206/872 [00:04<00:11, 58.27it/s]backtest loop:  24%|██▍       | 213/872 [00:04<00:11, 59.77it/s]backtest loop:  25%|██▌       | 220/872 [00:04<00:11, 57.42it/s]backtest loop:  26%|██▌       | 227/872 [00:04<00:10, 59.25it/s]backtest loop:  27%|██▋       | 234/872 [00:04<00:10, 58.26it/s]backtest loop:  28%|██▊       | 241/872 [00:04<00:10, 60.80it/s]backtest loop:  28%|██▊       | 248/872 [00:04<00:10, 59.09it/s]backtest loop:  29%|██▉       | 255/872 [00:04<00:10, 61.34it/s]backtest loop:  30%|███       | 262/872 [00:04<00:09, 61.44it/s]backtest loop:  31%|███       | 269/872 [00:05<00:10, 57.49it/s]backtest loop:  32%|███▏      | 276/872 [00:05<00:10, 55.49it/s]backtest loop:  32%|███▏      | 282/872 [00:05<00:10, 56.10it/s]backtest loop:  33%|███▎      | 288/872 [00:05<00:11, 53.01it/s]backtest loop:  34%|███▎      | 294/872 [00:05<00:10, 53.46it/s]backtest loop:  34%|███▍      | 300/872 [00:05<00:10, 53.82it/s]backtest loop:  35%|███▌      | 306/872 [00:05<00:11, 50.88it/s]backtest loop:  36%|███▌      | 312/872 [00:05<00:10, 51.62it/s]backtest loop:  36%|███▋      | 318/872 [00:06<00:10, 52.72it/s]backtest loop:  37%|███▋      | 324/872 [00:06<00:10, 50.10it/s]backtest loop:  38%|███▊      | 330/872 [00:06<00:10, 51.31it/s]backtest loop:  39%|███▊      | 336/872 [00:06<00:10, 52.04it/s]backtest loop:  39%|███▉      | 342/872 [00:06<00:10, 52.71it/s]backtest loop:  40%|███▉      | 348/872 [00:06<00:09, 53.15it/s]backtest loop:  41%|████      | 354/872 [00:06<00:10, 50.27it/s]backtest loop:  41%|████▏     | 360/872 [00:06<00:09, 51.51it/s]backtest loop:  42%|████▏     | 366/872 [00:06<00:09, 51.87it/s]backtest loop:  43%|████▎     | 372/872 [00:07<00:09, 52.56it/s]backtest loop:  43%|████▎     | 378/872 [00:07<00:09, 49.97it/s]backtest loop:  44%|████▍     | 384/872 [00:07<00:09, 51.71it/s]backtest loop:  45%|████▍     | 390/872 [00:07<00:09, 52.59it/s]backtest loop:  45%|████▌     | 396/872 [00:07<00:08, 53.15it/s]backtest loop:  46%|████▌     | 402/872 [00:07<00:08, 53.70it/s]backtest loop:  47%|████▋     | 408/872 [00:07<00:09, 50.92it/s]backtest loop:  47%|████▋     | 414/872 [00:07<00:08, 51.95it/s]backtest loop:  48%|████▊     | 420/872 [00:07<00:08, 52.75it/s]backtest loop:  49%|████▉     | 426/872 [00:08<00:08, 53.43it/s]backtest loop:  50%|████▉     | 432/872 [00:08<00:08, 50.84it/s]backtest loop:  50%|█████     | 438/872 [00:08<00:08, 52.19it/s]backtest loop:  51%|█████     | 444/872 [00:08<00:08, 52.78it/s]backtest loop:  52%|█████▏    | 450/872 [00:08<00:07, 53.32it/s]backtest loop:  52%|█████▏    | 456/872 [00:08<00:07, 53.71it/s]backtest loop:  53%|█████▎    | 462/872 [00:08<00:08, 50.61it/s]backtest loop:  54%|█████▎    | 468/872 [00:08<00:07, 51.70it/s]backtest loop:  54%|█████▍    | 474/872 [00:09<00:07, 52.57it/s]backtest loop:  55%|█████▌    | 480/872 [00:09<00:07, 53.09it/s]backtest loop:  56%|█████▌    | 486/872 [00:09<00:07, 53.52it/s]backtest loop:  56%|█████▋    | 492/872 [00:09<00:07, 50.90it/s]backtest loop:  57%|█████▋    | 498/872 [00:09<00:07, 52.04it/s]backtest loop:  58%|█████▊    | 504/872 [00:09<00:06, 52.62it/s]backtest loop:  58%|█████▊    | 510/872 [00:09<00:07, 49.76it/s]backtest loop:  59%|█████▉    | 516/872 [00:09<00:06, 51.01it/s]backtest loop:  60%|█████▉    | 522/872 [00:09<00:06, 52.63it/s]backtest loop:  61%|██████    | 528/872 [00:10<00:06, 53.50it/s]backtest loop:  61%|██████    | 534/872 [00:10<00:06, 54.12it/s]backtest loop:  62%|██████▏   | 540/872 [00:10<00:06, 51.01it/s]backtest loop:  63%|██████▎   | 546/872 [00:10<00:06, 51.89it/s]backtest loop:  63%|██████▎   | 552/872 [00:10<00:06, 52.76it/s]backtest loop:  64%|██████▍   | 558/872 [00:10<00:05, 53.05it/s]backtest loop:  65%|██████▍   | 564/872 [00:10<00:06, 50.34it/s]backtest loop:  65%|██████▌   | 570/872 [00:10<00:05, 51.59it/s]backtest loop:  66%|██████▌   | 576/872 [00:11<00:05, 49.69it/s]backtest loop:  67%|██████▋   | 582/872 [00:11<00:05, 51.11it/s]backtest loop:  67%|██████▋   | 588/872 [00:11<00:05, 51.54it/s]backtest loop:  68%|██████▊   | 594/872 [00:11<00:05, 52.44it/s]backtest loop:  69%|██████▉   | 600/872 [00:11<00:05, 49.97it/s]backtest loop:  69%|██████▉   | 606/872 [00:11<00:05, 51.33it/s]backtest loop:  70%|███████   | 612/872 [00:11<00:04, 52.31it/s]backtest loop:  71%|███████   | 618/872 [00:11<00:04, 53.24it/s]backtest loop:  72%|███████▏  | 624/872 [00:11<00:04, 53.70it/s]backtest loop:  72%|███████▏  | 630/872 [00:12<00:04, 50.76it/s]backtest loop:  73%|███████▎  | 636/872 [00:12<00:04, 52.02it/s]backtest loop:  74%|███████▎  | 642/872 [00:12<00:04, 52.89it/s]backtest loop:  74%|███████▍  | 648/872 [00:12<00:04, 53.33it/s]backtest loop:  75%|███████▌  | 654/872 [00:12<00:04, 53.79it/s]backtest loop:  76%|███████▌  | 660/872 [00:12<00:04, 50.78it/s]backtest loop:  76%|███████▋  | 666/872 [00:12<00:03, 51.87it/s]backtest loop:  77%|███████▋  | 672/872 [00:12<00:04, 49.65it/s]backtest loop:  78%|███████▊  | 678/872 [00:12<00:03, 51.27it/s]backtest loop:  78%|███████▊  | 684/872 [00:13<00:03, 49.14it/s]backtest loop:  79%|███████▉  | 690/872 [00:13<00:03, 50.93it/s]backtest loop:  80%|███████▉  | 696/872 [00:13<00:03, 51.72it/s]backtest loop:  81%|████████  | 702/872 [00:13<00:03, 52.63it/s]backtest loop:  81%|████████  | 708/872 [00:13<00:03, 53.23it/s]backtest loop:  82%|████████▏ | 714/872 [00:13<00:03, 50.49it/s]backtest loop:  83%|████████▎ | 720/872 [00:13<00:02, 51.64it/s]backtest loop:  83%|████████▎ | 726/872 [00:13<00:02, 52.61it/s]backtest loop:  84%|████████▍ | 732/872 [00:14<00:02, 49.93it/s]backtest loop:  85%|████████▍ | 738/872 [00:14<00:02, 48.08it/s]backtest loop:  85%|████████▌ | 744/872 [00:14<00:02, 49.77it/s]backtest loop:  86%|████████▌ | 750/872 [00:14<00:02, 51.67it/s]backtest loop:  87%|████████▋ | 756/872 [00:14<00:02, 52.85it/s]backtest loop:  87%|████████▋ | 762/872 [00:14<00:02, 49.94it/s]backtest loop:  88%|████████▊ | 768/872 [00:14<00:02, 51.58it/s]backtest loop:  89%|████████▉ | 774/872 [00:14<00:01, 52.53it/s]backtest loop:  89%|████████▉ | 780/872 [00:14<00:01, 52.99it/s]backtest loop:  90%|█████████ | 786/872 [00:15<00:01, 53.79it/s]backtest loop:  91%|█████████ | 792/872 [00:15<00:01, 50.63it/s]backtest loop:  92%|█████████▏| 798/872 [00:15<00:01, 51.82it/s]backtest loop:  92%|█████████▏| 804/872 [00:15<00:01, 52.89it/s]backtest loop:  93%|█████████▎| 810/872 [00:15<00:01, 50.17it/s]backtest loop:  94%|█████████▎| 816/872 [00:15<00:01, 51.44it/s]backtest loop:  94%|█████████▍| 822/872 [00:15<00:00, 52.41it/s]backtest loop:  95%|█████████▍| 828/872 [00:15<00:00, 49.67it/s]backtest loop:  96%|█████████▌| 834/872 [00:16<00:00, 51.18it/s]backtest loop:  96%|█████████▋| 840/872 [00:16<00:00, 51.77it/s]backtest loop:  97%|█████████▋| 846/872 [00:16<00:00, 49.61it/s]backtest loop:  98%|█████████▊| 852/872 [00:16<00:00, 51.32it/s]backtest loop:  98%|█████████▊| 858/872 [00:16<00:00, 53.02it/s]backtest loop:  99%|█████████▉| 864/872 [00:16<00:00, 53.69it/s]backtest loop: 100%|█████████▉| 870/872 [00:16<00:00, 54.27it/s]backtest loop: 100%|██████████| 872/872 [00:16<00:00, 52.11it/s]
+[2167719:MainThread](2024-04-22 18:15:20,449) INFO - qlib.workflow - [record_temp.py:515] - Portfolio analysis record 'port_analysis_1day.pkl' has been saved as the artifact of the Experiment 15
+'The following are analysis results of benchmark return(1day).'
+                       risk
+mean               0.000188
+std                0.014399
+annualized_return  0.044836
+information_ratio  0.201841
+max_drawdown      -0.487617
+'The following are analysis results of the excess return without cost(1day).'
+                       risk
+mean               0.000737
+std                0.004149
+annualized_return  0.175347
+information_ratio  2.739360
+max_drawdown      -0.052807
+'The following are analysis results of the excess return with cost(1day).'
+                       risk
+mean               0.000556
+std                0.004149
+annualized_return  0.132439
+information_ratio  2.069096
+max_drawdown      -0.064475
+[2167719:MainThread](2024-04-22 18:15:20,465) INFO - qlib.workflow - [record_temp.py:540] - Indicator analysis record 'indicator_analysis_1day.pkl' has been saved as the artifact of the Experiment 15
+'The following are analysis results of indicators(1day).'
+     value
+ffr    1.0
+pa     0.0
+pos    0.0
+Your evaluation results can be found in the experiment named `csi500_Transformer_alpha360_horizon1_step20_rankFalse_2024-04-22_17:31:18_online`.
+{'1day.excess_return_with_cost.annualized_return': [0.09234941244681927,
+                                                    0.1324394392750807],
+ '1day.excess_return_with_cost.information_ratio': [1.4883554518729432,
+                                                    2.0690955681589345],
+ 'IC': [0.04360921001798087, 0.045548203227840756],
+ 'ICIR': [0.3985560520382319, 0.4569207125587222],
+ 'Rank IC': [0.04726922984615095, 0.047759165017019906],
+ 'Rank ICIR': [0.48422989982012377, 0.5026687157186543],
+ 'mae': [0.6841560006141663, 0.6840108633041382],
+ 'mse': [0.9962854385375977, 0.9960439205169678]}
+Traceback (most recent call last):
+  File "main.py", line 471, in run_all
+    assert self.reload_tag is not None
+AssertionError
+No valid experiment to reload. Restart offline training...
+[2167719:MainThread](2024-04-22 18:15:21,553) INFO - qlib.TransformerModel - [pytorch_transformer.py:66] - Naive Transformer:
+batch_size : 2048
+dim : 32
+epoch:   0%|          | 0/100 [00:00<?, ?it/s]epoch:   1%|          | 1/100 [00:24<40:29, 24.55s/it]epoch:   2%|▏         | 2/100 [00:48<39:56, 24.45s/it]epoch:   3%|▎         | 3/100 [01:13<39:23, 24.36s/it]epoch:   4%|▍         | 4/100 [01:37<38:55, 24.33s/it]epoch:   5%|▌         | 5/100 [02:01<38:30, 24.32s/it]epoch:   6%|▌         | 6/100 [02:26<38:15, 24.42s/it]epoch:   7%|▋         | 7/100 [02:50<37:48, 24.39s/it]epoch:   8%|▊         | 8/100 [03:14<37:20, 24.35s/it]epoch:   9%|▉         | 9/100 [03:39<36:50, 24.29s/it]epoch:  10%|█         | 10/100 [04:03<36:27, 24.31s/it]epoch:  11%|█         | 11/100 [04:27<36:06, 24.34s/it]epoch:  12%|█▏        | 12/100 [04:51<35:33, 24.24s/it]epoch:  13%|█▎        | 13/100 [05:16<35:11, 24.27s/it]epoch:  14%|█▍        | 14/100 [05:40<34:41, 24.20s/it]epoch:  15%|█▌        | 15/100 [06:04<34:19, 24.23s/it]epoch:  16%|█▌        | 16/100 [06:28<33:58, 24.26s/it]epoch:  17%|█▋        | 17/100 [06:53<33:33, 24.25s/it]epoch:  18%|█▊        | 18/100 [07:17<33:06, 24.23s/it]epoch:  19%|█▉        | 19/100 [07:41<32:42, 24.23s/it]epoch:  20%|██        | 20/100 [08:06<32:23, 24.30s/it]0.08306943158467832
+best ic: 0.08306943158467832
+epoch:  21%|██        | 21/100 [08:36<34:33, 26.25s/it]0.08527744824435946
+best ic: 0.08527744824435946
+epoch:  22%|██▏       | 22/100 [09:07<35:56, 27.65s/it]0.0856635487233936
+best ic: 0.0856635487233936
+epoch:  23%|██▎       | 23/100 [09:38<36:45, 28.65s/it]0.08768765761199421
+best ic: 0.08768765761199421
+epoch:  24%|██▍       | 24/100 [10:09<37:11, 29.36s/it]0.08832994174255938
+best ic: 0.08832994174255938
+epoch:  25%|██▌       | 25/100 [10:40<37:20, 29.87s/it]0.08906135912642382
+best ic: 0.08906135912642382
+epoch:  26%|██▌       | 26/100 [11:11<37:19, 30.26s/it]0.08625231451567016
+epoch:  27%|██▋       | 27/100 [11:42<37:05, 30.49s/it]0.0895163967654329
+best ic: 0.0895163967654329
+epoch:  28%|██▊       | 28/100 [12:14<36:47, 30.66s/it]0.09229061612518019
+best ic: 0.09229061612518019
+epoch:  29%|██▉       | 29/100 [12:45<36:24, 30.77s/it]0.09101199540486071
+epoch:  30%|███       | 30/100 [13:16<36:01, 30.88s/it]0.09452876945562537
+best ic: 0.09452876945562537
+epoch:  31%|███       | 31/100 [13:47<35:32, 30.91s/it]0.09260318840081982
+epoch:  32%|███▏      | 32/100 [14:18<35:05, 30.96s/it]0.09275616813318807
+epoch:  33%|███▎      | 33/100 [14:49<34:36, 30.99s/it]0.09627105301025868
+best ic: 0.09627105301025868
+epoch:  34%|███▍      | 34/100 [15:20<34:14, 31.12s/it]0.09298850254998599
+epoch:  35%|███▌      | 35/100 [15:51<33:40, 31.08s/it]0.09137013550317175
+epoch:  36%|███▌      | 36/100 [16:22<33:07, 31.05s/it]0.09591889684776785
+epoch:  37%|███▋      | 37/100 [16:53<32:35, 31.05s/it]0.09418442962230629
+epoch:  38%|███▊      | 38/100 [17:24<32:06, 31.08s/it]0.09417119079354623
+epoch:  39%|███▉      | 39/100 [17:55<31:32, 31.03s/it]0.09218372059160031
+epoch:  40%|████      | 40/100 [18:26<30:56, 30.94s/it]0.09580858664846989
+epoch:  41%|████      | 41/100 [18:57<30:26, 30.96s/it]0.09335275018564373
+epoch:  41%|████      | 41/100 [19:28<28:01, 28.50s/it]
+Test segment: 2017-01-03 00:00:00 2020-07-31 00:00:00
+[2167719:MainThread](2024-04-22 18:34:50,160) INFO - qlib.workflow - [exp.py:258] - Experiment 15 starts running ...
+[2167719:MainThread](2024-04-22 18:34:50,170) INFO - qlib.workflow - [recorder.py:341] - Recorder 6195b6ccddf3409c94048e70f22aa9ee starts running under Experiment 15 ...
+online:   0%|          | 0/67 [00:00<?, ?it/s]online:   1%|▏         | 1/67 [00:00<00:14,  4.58it/s]online:   3%|▎         | 2/67 [00:00<00:15,  4.20it/s]online:   4%|▍         | 3/67 [00:00<00:14,  4.54it/s]online:   6%|▌         | 4/67 [00:00<00:14,  4.23it/s]online:   7%|▋         | 5/67 [00:01<00:17,  3.51it/s]online:   9%|▉         | 6/67 [00:01<00:15,  3.88it/s]online:  10%|█         | 7/67 [00:01<00:14,  4.21it/s]online:  12%|█▏        | 8/67 [00:01<00:13,  4.27it/s]online:  13%|█▎        | 9/67 [00:02<00:16,  3.46it/s]online:  15%|█▍        | 10/67 [00:02<00:15,  3.64it/s]online:  16%|█▋        | 11/67 [00:02<00:15,  3.73it/s]online:  18%|█▊        | 12/67 [00:03<00:13,  4.02it/s]online:  19%|█▉        | 13/67 [00:03<00:12,  4.23it/s]online:  21%|██        | 14/67 [00:03<00:15,  3.33it/s]online:  22%|██▏       | 15/67 [00:03<00:14,  3.70it/s]online:  24%|██▍       | 16/67 [00:04<00:13,  3.81it/s]online:  25%|██▌       | 17/67 [00:04<00:12,  3.97it/s]online:  27%|██▋       | 18/67 [00:04<00:15,  3.22it/s]online:  28%|██▊       | 19/67 [00:05<00:14,  3.37it/s]online:  30%|██▉       | 20/67 [00:05<00:13,  3.44it/s]online:  31%|███▏      | 21/67 [00:05<00:12,  3.78it/s]online:  33%|███▎      | 22/67 [00:05<00:12,  3.71it/s]online:  34%|███▍      | 23/67 [00:06<00:14,  3.10it/s]online:  36%|███▌      | 24/67 [00:06<00:13,  3.25it/s]online:  37%|███▋      | 25/67 [00:06<00:11,  3.57it/s]online:  39%|███▉      | 26/67 [00:07<00:11,  3.62it/s]online:  40%|████      | 27/67 [00:07<00:10,  3.89it/s]online:  42%|████▏     | 28/67 [00:07<00:09,  3.91it/s]online:  43%|████▎     | 29/67 [00:07<00:11,  3.22it/s]online:  45%|████▍     | 30/67 [00:08<00:10,  3.58it/s]online:  46%|████▋     | 31/67 [00:08<00:09,  3.64it/s]online:  48%|████▊     | 32/67 [00:08<00:08,  3.92it/s]online:  49%|████▉     | 33/67 [00:09<00:10,  3.30it/s]online:  51%|█████     | 34/67 [00:09<00:09,  3.48it/s]online:  52%|█████▏    | 35/67 [00:09<00:08,  3.79it/s]online:  54%|█████▎    | 36/67 [00:09<00:09,  3.37it/s]online:  55%|█████▌    | 37/67 [00:10<00:08,  3.60it/s]online:  57%|█████▋    | 38/67 [00:10<00:07,  3.73it/s]online:  58%|█████▊    | 39/67 [00:10<00:08,  3.13it/s]online:  60%|█████▉    | 40/67 [00:11<00:07,  3.47it/s]online:  61%|██████    | 41/67 [00:11<00:07,  3.66it/s]online:  63%|██████▎   | 42/67 [00:11<00:06,  3.91it/s]online:  64%|██████▍   | 43/67 [00:11<00:06,  3.45it/s]online:  66%|██████▌   | 44/67 [00:12<00:06,  3.60it/s]online:  67%|██████▋   | 45/67 [00:12<00:05,  3.70it/s]online:  69%|██████▊   | 46/67 [00:12<00:06,  3.40it/s]online:  70%|███████   | 47/67 [00:12<00:05,  3.40it/s]online:  72%|███████▏  | 48/67 [00:13<00:05,  3.68it/s]online:  73%|███████▎  | 49/67 [00:13<00:05,  3.06it/s]online:  75%|███████▍  | 50/67 [00:14<00:05,  2.95it/s]online:  76%|███████▌  | 51/67 [00:14<00:04,  3.30it/s]online:  78%|███████▊  | 52/67 [00:14<00:04,  3.38it/s]online:  79%|███████▉  | 53/67 [00:14<00:03,  3.67it/s]online:  81%|████████  | 54/67 [00:14<00:03,  3.72it/s]online:  82%|████████▏ | 55/67 [00:15<00:03,  3.02it/s]online:  84%|████████▎ | 56/67 [00:15<00:03,  3.33it/s]online:  85%|████████▌ | 57/67 [00:15<00:02,  3.43it/s]online:  87%|████████▋ | 58/67 [00:16<00:02,  3.75it/s]online:  88%|████████▊ | 59/67 [00:16<00:02,  3.27it/s]online:  90%|████████▉ | 60/67 [00:16<00:02,  3.13it/s]online:  91%|█████████ | 61/67 [00:17<00:01,  3.26it/s]online:  93%|█████████▎| 62/67 [00:17<00:01,  3.56it/s]online:  94%|█████████▍| 63/67 [00:17<00:01,  3.67it/s]online:  96%|█████████▌| 64/67 [00:18<00:00,  3.02it/s]online:  97%|█████████▋| 65/67 [00:18<00:00,  3.36it/s]online:  99%|█████████▊| 66/67 [00:18<00:00,  3.45it/s]online: 100%|██████████| 67/67 [00:18<00:00,  3.69it/s]online: 100%|██████████| 67/67 [00:18<00:00,  3.55it/s]
+lr_model: 0.001 lr_ma: 0.001 lr_da: 0.001
+[2167719:MainThread](2024-04-22 18:35:17,050) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+mse: 0.99582654 mae 0.68403256
+{'IC': 0.05085605730407467,
+ 'ICIR': 0.49394269251151895,
+ 'Rank IC': 0.05116073103669794,
+ 'Rank ICIR': 0.5217697269552982}
+[2167719:MainThread](2024-04-22 18:35:18,686) INFO - qlib.backtest caller - [__init__.py:93] - Create new exchange
+[2167719:MainThread](2024-04-22 18:35:29,194) WARNING - qlib.online operator - [exchange.py:219] - $close field data contains nan.
+[2167719:MainThread](2024-04-22 18:35:29,196) WARNING - qlib.online operator - [exchange.py:219] - $close field data contains nan.
+[2167719:MainThread](2024-04-22 18:35:33,419) WARNING - qlib.BaseExecutor - [executor.py:121] - `common_infra` is not set for <qlib.backtest.executor.SimulatorExecutor object at 0x7fa923656eb0>
+backtest loop:   0%|          | 0/872 [00:00<?, ?it/s]/home/zhonghao/miniconda3/envs/sjtu_qlib/lib/python3.8/site-packages/qlib/utils/index_data.py:481: RuntimeWarning: Mean of empty slice
+  return np.nanmean(self.data)
+backtest loop:   0%|          | 3/872 [00:00<01:04, 13.52it/s]backtest loop:   1%|          | 9/872 [00:00<00:30, 28.63it/s]backtest loop:   2%|▏         | 15/872 [00:00<00:22, 38.64it/s]backtest loop:   2%|▏         | 20/872 [00:00<00:20, 40.86it/s]backtest loop:   3%|▎         | 26/872 [00:00<00:18, 46.51it/s]backtest loop:   4%|▎         | 32/872 [00:00<00:16, 50.47it/s]backtest loop:   4%|▍         | 39/872 [00:00<00:16, 50.94it/s]backtest loop:   5%|▌         | 45/872 [00:01<00:15, 53.47it/s]backtest loop:   6%|▌         | 51/872 [00:01<00:15, 54.01it/s]backtest loop:   7%|▋         | 57/872 [00:01<00:15, 53.88it/s]backtest loop:   7%|▋         | 63/872 [00:01<00:15, 51.00it/s]backtest loop:   8%|▊         | 69/872 [00:01<00:15, 52.11it/s]backtest loop:   9%|▊         | 75/872 [00:01<00:15, 52.66it/s]backtest loop:   9%|▉         | 81/872 [00:01<00:15, 49.86it/s]backtest loop:  10%|▉         | 87/872 [00:01<00:15, 50.82it/s]backtest loop:  11%|█         | 93/872 [00:01<00:15, 51.79it/s]backtest loop:  11%|█▏        | 99/872 [00:02<00:15, 49.48it/s]backtest loop:  12%|█▏        | 105/872 [00:02<00:15, 50.70it/s]backtest loop:  13%|█▎        | 111/872 [00:02<00:14, 51.64it/s]backtest loop:  13%|█▎        | 117/872 [00:02<00:14, 52.49it/s]backtest loop:  14%|█▍        | 123/872 [00:02<00:14, 52.73it/s]backtest loop:  15%|█▍        | 129/872 [00:02<00:14, 50.26it/s]backtest loop:  15%|█▌        | 135/872 [00:02<00:14, 51.20it/s]backtest loop:  16%|█▌        | 141/872 [00:02<00:14, 51.89it/s]backtest loop:  17%|█▋        | 147/872 [00:02<00:13, 52.58it/s]backtest loop:  18%|█▊        | 153/872 [00:03<00:13, 53.18it/s]backtest loop:  18%|█▊        | 159/872 [00:03<00:14, 50.39it/s]backtest loop:  19%|█▉        | 165/872 [00:03<00:13, 51.61it/s]backtest loop:  20%|█▉        | 171/872 [00:03<00:13, 52.34it/s]backtest loop:  20%|██        | 177/872 [00:03<00:13, 52.95it/s]backtest loop:  21%|██        | 183/872 [00:03<00:12, 53.54it/s]backtest loop:  22%|██▏       | 189/872 [00:03<00:13, 50.86it/s]backtest loop:  22%|██▏       | 195/872 [00:03<00:13, 51.97it/s]backtest loop:  23%|██▎       | 201/872 [00:04<00:12, 52.71it/s]backtest loop:  24%|██▎       | 207/872 [00:04<00:12, 53.13it/s]backtest loop:  24%|██▍       | 213/872 [00:04<00:12, 53.46it/s]backtest loop:  25%|██▌       | 219/872 [00:04<00:12, 50.48it/s]backtest loop:  26%|██▌       | 225/872 [00:04<00:12, 51.64it/s]backtest loop:  26%|██▋       | 231/872 [00:04<00:12, 53.12it/s]backtest loop:  27%|██▋       | 237/872 [00:04<00:11, 54.37it/s]backtest loop:  28%|██▊       | 243/872 [00:04<00:11, 55.21it/s]backtest loop:  29%|██▊       | 249/872 [00:04<00:11, 52.37it/s]backtest loop:  29%|██▉       | 255/872 [00:05<00:11, 53.90it/s]backtest loop:  30%|██▉       | 261/872 [00:05<00:11, 54.80it/s]backtest loop:  31%|███       | 267/872 [00:05<00:10, 55.38it/s]backtest loop:  31%|███▏      | 273/872 [00:05<00:11, 53.02it/s]backtest loop:  32%|███▏      | 279/872 [00:05<00:11, 50.76it/s]backtest loop:  33%|███▎      | 285/872 [00:05<00:11, 52.43it/s]backtest loop:  33%|███▎      | 291/872 [00:05<00:10, 53.31it/s]backtest loop:  34%|███▍      | 297/872 [00:05<00:10, 53.24it/s]backtest loop:  35%|███▍      | 303/872 [00:05<00:11, 50.63it/s]backtest loop:  35%|███▌      | 309/872 [00:06<00:10, 51.47it/s]backtest loop:  36%|███▌      | 315/872 [00:06<00:10, 52.38it/s]backtest loop:  37%|███▋      | 321/872 [00:06<00:11, 49.78it/s]backtest loop:  38%|███▊      | 327/872 [00:06<00:10, 51.14it/s]backtest loop:  38%|███▊      | 333/872 [00:06<00:10, 52.19it/s]backtest loop:  39%|███▉      | 339/872 [00:06<00:10, 49.86it/s]backtest loop:  40%|███▉      | 345/872 [00:06<00:10, 51.11it/s]backtest loop:  40%|████      | 351/872 [00:06<00:09, 52.20it/s]backtest loop:  41%|████      | 357/872 [00:06<00:09, 53.10it/s]backtest loop:  42%|████▏     | 363/872 [00:07<00:10, 50.28it/s]backtest loop:  42%|████▏     | 369/872 [00:07<00:09, 51.42it/s]backtest loop:  43%|████▎     | 375/872 [00:07<00:09, 52.06it/s]backtest loop:  44%|████▎     | 381/872 [00:07<00:09, 52.81it/s]backtest loop:  44%|████▍     | 387/872 [00:07<00:09, 53.72it/s]backtest loop:  45%|████▌     | 393/872 [00:07<00:09, 50.75it/s]backtest loop:  46%|████▌     | 399/872 [00:07<00:09, 51.70it/s]backtest loop:  46%|████▋     | 405/872 [00:07<00:08, 52.64it/s]backtest loop:  47%|████▋     | 411/872 [00:08<00:08, 52.90it/s]backtest loop:  48%|████▊     | 417/872 [00:08<00:08, 53.26it/s]backtest loop:  49%|████▊     | 423/872 [00:08<00:08, 50.14it/s]backtest loop:  49%|████▉     | 429/872 [00:08<00:08, 51.35it/s]backtest loop:  50%|████▉     | 435/872 [00:08<00:08, 51.65it/s]backtest loop:  51%|█████     | 441/872 [00:08<00:07, 53.88it/s]backtest loop:  51%|█████▏    | 447/872 [00:08<00:08, 52.10it/s]backtest loop:  52%|█████▏    | 454/872 [00:08<00:07, 54.63it/s]backtest loop:  53%|█████▎    | 460/872 [00:08<00:07, 55.94it/s]backtest loop:  54%|█████▎    | 467/872 [00:09<00:07, 54.53it/s]backtest loop:  54%|█████▍    | 473/872 [00:09<00:07, 55.86it/s]backtest loop:  55%|█████▍    | 479/872 [00:09<00:06, 56.81it/s]backtest loop:  56%|█████▌    | 485/872 [00:09<00:06, 57.47it/s]backtest loop:  56%|█████▋    | 491/872 [00:09<00:06, 55.29it/s]backtest loop:  57%|█████▋    | 498/872 [00:09<00:06, 57.65it/s]backtest loop:  58%|█████▊    | 504/872 [00:09<00:06, 58.20it/s]backtest loop:  58%|█████▊    | 510/872 [00:09<00:06, 55.22it/s]backtest loop:  59%|█████▉    | 516/872 [00:09<00:06, 56.51it/s]backtest loop:  60%|█████▉    | 523/872 [00:10<00:05, 58.69it/s]backtest loop:  61%|██████    | 530/872 [00:10<00:06, 56.72it/s]backtest loop:  62%|██████▏   | 537/872 [00:10<00:05, 58.23it/s]backtest loop:  62%|██████▏   | 544/872 [00:10<00:05, 59.53it/s]backtest loop:  63%|██████▎   | 550/872 [00:10<00:05, 55.93it/s]backtest loop:  64%|██████▍   | 557/872 [00:10<00:05, 57.85it/s]backtest loop:  65%|██████▍   | 563/872 [00:10<00:05, 58.37it/s]backtest loop:  65%|██████▌   | 569/872 [00:10<00:05, 55.35it/s]backtest loop:  66%|██████▌   | 576/872 [00:10<00:05, 54.42it/s]backtest loop:  67%|██████▋   | 583/872 [00:11<00:05, 56.78it/s]backtest loop:  68%|██████▊   | 589/872 [00:11<00:04, 57.54it/s]backtest loop:  68%|██████▊   | 595/872 [00:11<00:05, 55.25it/s]backtest loop:  69%|██████▉   | 602/872 [00:11<00:04, 57.49it/s]backtest loop:  70%|██████▉   | 609/872 [00:11<00:04, 58.88it/s]backtest loop:  71%|███████   | 615/872 [00:11<00:04, 55.82it/s]backtest loop:  71%|███████   | 621/872 [00:11<00:04, 56.82it/s]backtest loop:  72%|███████▏  | 628/872 [00:11<00:04, 58.42it/s]backtest loop:  73%|███████▎  | 634/872 [00:11<00:04, 58.61it/s]backtest loop:  73%|███████▎  | 640/872 [00:12<00:04, 55.71it/s]backtest loop:  74%|███████▍  | 646/872 [00:12<00:03, 56.85it/s]backtest loop:  75%|███████▍  | 653/872 [00:12<00:03, 58.62it/s]backtest loop:  76%|███████▌  | 659/872 [00:12<00:03, 55.59it/s]backtest loop:  76%|███████▋  | 665/872 [00:12<00:03, 56.32it/s]backtest loop:  77%|███████▋  | 671/872 [00:12<00:03, 54.26it/s]backtest loop:  78%|███████▊  | 678/872 [00:12<00:03, 56.67it/s]backtest loop:  78%|███████▊  | 684/872 [00:12<00:03, 54.04it/s]backtest loop:  79%|███████▉  | 691/872 [00:13<00:03, 56.81it/s]backtest loop:  80%|███████▉  | 697/872 [00:13<00:03, 57.50it/s]backtest loop:  81%|████████  | 704/872 [00:13<00:03, 55.69it/s]backtest loop:  82%|████████▏ | 711/872 [00:13<00:02, 57.55it/s]backtest loop:  82%|████████▏ | 718/872 [00:13<00:02, 58.88it/s]backtest loop:  83%|████████▎ | 724/872 [00:13<00:02, 55.91it/s]backtest loop:  84%|████████▍ | 731/872 [00:13<00:02, 54.67it/s]backtest loop:  85%|████████▍ | 738/872 [00:13<00:02, 54.15it/s]backtest loop:  85%|████████▌ | 744/872 [00:13<00:02, 54.51it/s]backtest loop:  86%|████████▌ | 750/872 [00:14<00:02, 54.97it/s]backtest loop:  87%|████████▋ | 756/872 [00:14<00:02, 55.26it/s]backtest loop:  87%|████████▋ | 762/872 [00:14<00:02, 51.63it/s]backtest loop:  88%|████████▊ | 768/872 [00:14<00:01, 52.52it/s]backtest loop:  89%|████████▉ | 774/872 [00:14<00:01, 53.18it/s]backtest loop:  89%|████████▉ | 780/872 [00:14<00:01, 53.60it/s]backtest loop:  90%|█████████ | 786/872 [00:14<00:01, 53.67it/s]backtest loop:  91%|█████████ | 792/872 [00:14<00:01, 50.70it/s]backtest loop:  92%|█████████▏| 798/872 [00:14<00:01, 51.77it/s]backtest loop:  92%|█████████▏| 804/872 [00:15<00:01, 52.77it/s]backtest loop:  93%|█████████▎| 810/872 [00:15<00:01, 50.42it/s]backtest loop:  94%|█████████▎| 816/872 [00:15<00:01, 51.45it/s]backtest loop:  94%|█████████▍| 822/872 [00:15<00:00, 52.22it/s]backtest loop:  95%|█████████▍| 828/872 [00:15<00:00, 50.20it/s]backtest loop:  96%|█████████▌| 834/872 [00:15<00:00, 51.22it/s]backtest loop:  96%|█████████▋| 840/872 [00:15<00:00, 52.03it/s]backtest loop:  97%|█████████▋| 846/872 [00:15<00:00, 49.61it/s]backtest loop:  98%|█████████▊| 852/872 [00:16<00:00, 51.22it/s]backtest loop:  98%|█████████▊| 858/872 [00:16<00:00, 52.70it/s]backtest loop:  99%|█████████▉| 864/872 [00:16<00:00, 53.36it/s]backtest loop: 100%|█████████▉| 870/872 [00:16<00:00, 53.77it/s]backtest loop: 100%|██████████| 872/872 [00:16<00:00, 53.07it/s]
+[2167719:MainThread](2024-04-22 18:35:49,916) INFO - qlib.workflow - [record_temp.py:515] - Portfolio analysis record 'port_analysis_1day.pkl' has been saved as the artifact of the Experiment 15
+'The following are analysis results of benchmark return(1day).'
+                       risk
+mean               0.000188
+std                0.014399
+annualized_return  0.044836
+information_ratio  0.201841
+max_drawdown      -0.487617
+'The following are analysis results of the excess return without cost(1day).'
+                       risk
+mean               0.000798
+std                0.004037
+annualized_return  0.189861
+information_ratio  3.048371
+max_drawdown      -0.042288
+'The following are analysis results of the excess return with cost(1day).'
+                       risk
+mean               0.000606
+std                0.004038
+annualized_return  0.144231
+information_ratio  2.315318
+max_drawdown      -0.054071
+[2167719:MainThread](2024-04-22 18:35:49,931) INFO - qlib.workflow - [record_temp.py:540] - Indicator analysis record 'indicator_analysis_1day.pkl' has been saved as the artifact of the Experiment 15
+'The following are analysis results of indicators(1day).'
+     value
+ffr    1.0
+pa     0.0
+pos    0.0
+Your evaluation results can be found in the experiment named `csi500_Transformer_alpha360_horizon1_step20_rankFalse_2024-04-22_17:31:18_online`.
+{'1day.excess_return_with_cost.annualized_return': [0.09234941244681927,
+                                                    0.1324394392750807,
+                                                    0.1442305229966907],
+ '1day.excess_return_with_cost.information_ratio': [1.4883554518729432,
+                                                    2.0690955681589345,
+                                                    2.3153181142614274],
+ 'IC': [0.04360921001798087, 0.045548203227840756, 0.05085605730407467],
+ 'ICIR': [0.3985560520382319, 0.4569207125587222, 0.49394269251151895],
+ 'Rank IC': [0.04726922984615095, 0.047759165017019906, 0.05116073103669794],
+ 'Rank ICIR': [0.48422989982012377, 0.5026687157186543, 0.5217697269552982],
+ 'mae': [0.6841560006141663, 0.6840108633041382, 0.6840325593948364],
+ 'mse': [0.9962854385375977, 0.9960439205169678, 0.9958265423774719]}
+Traceback (most recent call last):
+  File "main.py", line 471, in run_all
+    assert self.reload_tag is not None
+AssertionError
+No valid experiment to reload. Restart offline training...
+[2167719:MainThread](2024-04-22 18:35:51,045) INFO - qlib.TransformerModel - [pytorch_transformer.py:66] - Naive Transformer:
+batch_size : 2048
+dim : 32
+epoch:   0%|          | 0/100 [00:00<?, ?it/s]epoch:   1%|          | 1/100 [00:24<40:09, 24.34s/it]epoch:   2%|▏         | 2/100 [00:48<39:45, 24.34s/it]epoch:   3%|▎         | 3/100 [01:13<39:25, 24.39s/it]epoch:   4%|▍         | 4/100 [01:37<39:05, 24.43s/it]epoch:   5%|▌         | 5/100 [02:01<38:36, 24.39s/it]epoch:   6%|▌         | 6/100 [02:26<38:19, 24.46s/it]epoch:   7%|▋         | 7/100 [02:50<37:40, 24.31s/it]epoch:   8%|▊         | 8/100 [03:14<37:12, 24.27s/it]epoch:   9%|▉         | 9/100 [03:38<36:43, 24.21s/it]epoch:  10%|█         | 10/100 [04:02<36:11, 24.13s/it]epoch:  11%|█         | 11/100 [04:27<36:02, 24.29s/it]epoch:  12%|█▏        | 12/100 [04:51<35:30, 24.21s/it]epoch:  13%|█▎        | 13/100 [05:16<35:16, 24.33s/it]epoch:  14%|█▍        | 14/100 [05:39<34:42, 24.21s/it]epoch:  15%|█▌        | 15/100 [06:04<34:17, 24.20s/it]epoch:  16%|█▌        | 16/100 [06:28<33:54, 24.22s/it]epoch:  17%|█▋        | 17/100 [06:52<33:30, 24.23s/it]epoch:  18%|█▊        | 18/100 [07:16<33:06, 24.22s/it]epoch:  19%|█▉        | 19/100 [07:36<30:40, 22.72s/it]epoch:  20%|██        | 20/100 [07:53<28:18, 21.23s/it]0.07424873346048108
+best ic: 0.07424873346048108
+epoch:  21%|██        | 21/100 [08:16<28:30, 21.65s/it]0.07863843889024316
+best ic: 0.07863843889024316
+epoch:  22%|██▏       | 22/100 [08:39<28:37, 22.01s/it]0.07674118522299513
+epoch:  23%|██▎       | 23/100 [09:01<28:25, 22.14s/it]0.0774170512626645
+epoch:  24%|██▍       | 24/100 [09:24<28:13, 22.28s/it]0.07606407242826238
+epoch:  25%|██▌       | 25/100 [09:46<27:57, 22.37s/it]0.07719131582851779
+epoch:  26%|██▌       | 26/100 [10:09<27:49, 22.56s/it]0.08060812755523299
+best ic: 0.08060812755523299
+epoch:  27%|██▋       | 27/100 [10:32<27:29, 22.60s/it]0.07941395614905157
+epoch:  28%|██▊       | 28/100 [10:55<27:11, 22.66s/it]0.08351613822539215
+best ic: 0.08351613822539215
+epoch:  29%|██▉       | 29/100 [11:18<26:47, 22.65s/it]0.08422982019236368
+best ic: 0.08422982019236368
+epoch:  30%|███       | 30/100 [11:40<26:29, 22.71s/it]0.08504853384977222
+best ic: 0.08504853384977222
+epoch:  31%|███       | 31/100 [12:03<26:05, 22.69s/it]0.07799863405473079
+epoch:  32%|███▏      | 32/100 [12:26<25:44, 22.72s/it]0.08178790899087103
+epoch:  33%|███▎      | 33/100 [12:49<25:22, 22.72s/it]0.08546866495301281
+best ic: 0.08546866495301281
+epoch:  34%|███▍      | 34/100 [13:11<25:01, 22.75s/it]0.08468802177390966
+epoch:  35%|███▌      | 35/100 [13:34<24:35, 22.70s/it]0.08396195835010054
+epoch:  36%|███▌      | 36/100 [13:57<24:11, 22.68s/it]0.08390384606974034
+epoch:  37%|███▋      | 37/100 [14:19<23:48, 22.68s/it]0.0870450610895891
+best ic: 0.0870450610895891
+epoch:  38%|███▊      | 38/100 [14:42<23:28, 22.72s/it]0.08477934867153006
+epoch:  39%|███▉      | 39/100 [15:05<23:04, 22.70s/it]0.08648361543451907
+epoch:  40%|████      | 40/100 [15:27<22:40, 22.68s/it]0.08915045621928937
+best ic: 0.08915045621928937
+epoch:  41%|████      | 41/100 [15:50<22:18, 22.69s/it]0.08883453608780328
+epoch:  42%|████▏     | 42/100 [16:13<21:57, 22.71s/it]0.0894247274681613
+best ic: 0.0894247274681613
+epoch:  43%|████▎     | 43/100 [16:36<21:35, 22.73s/it]0.0937116637391133
+best ic: 0.0937116637391133
+epoch:  44%|████▍     | 44/100 [16:58<21:11, 22.70s/it]0.0885589250660329
+epoch:  45%|████▌     | 45/100 [17:21<20:49, 22.72s/it]0.08905570459225998
+epoch:  46%|████▌     | 46/100 [17:44<20:26, 22.71s/it]0.0931329183800839
+epoch:  47%|████▋     | 47/100 [18:06<20:03, 22.72s/it]0.09463280384353329
+best ic: 0.09463280384353329
+epoch:  48%|████▊     | 48/100 [18:29<19:39, 22.68s/it]0.09423219818014374
+epoch:  49%|████▉     | 49/100 [18:52<19:17, 22.69s/it]0.09494638519506181
+best ic: 0.09494638519506181
+epoch:  50%|█████     | 50/100 [19:15<18:55, 22.71s/it]0.0926439818742708
+epoch:  51%|█████     | 51/100 [19:37<18:33, 22.72s/it]0.09764618880577276
+best ic: 0.09764618880577276
+epoch:  52%|█████▏    | 52/100 [20:00<18:07, 22.65s/it]0.09456911750564734
+epoch:  53%|█████▎    | 53/100 [20:22<17:45, 22.68s/it]0.09731712562998522
+epoch:  54%|█████▍    | 54/100 [20:45<17:24, 22.71s/it]0.09237625421174185
+epoch:  55%|█████▌    | 55/100 [21:08<17:03, 22.74s/it]0.09679743217295017
+epoch:  56%|█████▌    | 56/100 [21:31<16:37, 22.67s/it]0.09356738516960804
+epoch:  57%|█████▋    | 57/100 [21:53<16:15, 22.69s/it]0.10034428904668259
+best ic: 0.10034428904668259
+epoch:  58%|█████▊    | 58/100 [22:16<15:51, 22.66s/it]0.09034956518954868
+epoch:  59%|█████▉    | 59/100 [22:39<15:32, 22.74s/it]0.09818587757173895
+epoch:  60%|██████    | 60/100 [23:01<15:07, 22.69s/it]0.09373545783858182
+epoch:  61%|██████    | 61/100 [23:24<14:45, 22.70s/it]0.09650554335233422
+epoch:  62%|██████▏   | 62/100 [23:47<14:22, 22.69s/it]0.09874634665342151
+epoch:  63%|██████▎   | 63/100 [24:10<14:01, 22.74s/it]0.09396173896602154
+epoch:  64%|██████▍   | 64/100 [24:32<13:36, 22.69s/it]0.09087941604130974
+epoch:  65%|██████▌   | 65/100 [24:55<13:15, 22.73s/it]0.09643305023356816
+epoch:  65%|██████▌   | 65/100 [25:18<13:37, 23.36s/it]
+Test segment: 2017-01-03 00:00:00 2020-07-31 00:00:00
+[2167719:MainThread](2024-04-22 19:01:09,332) INFO - qlib.workflow - [exp.py:258] - Experiment 15 starts running ...
+[2167719:MainThread](2024-04-22 19:01:09,342) INFO - qlib.workflow - [recorder.py:341] - Recorder e222fd12d48e41e98f2261614f11473d starts running under Experiment 15 ...
+online:   0%|          | 0/67 [00:00<?, ?it/s]online:   1%|▏         | 1/67 [00:00<00:11,  5.87it/s]online:   3%|▎         | 2/67 [00:00<00:12,  5.22it/s]online:   4%|▍         | 3/67 [00:00<00:12,  5.18it/s]online:   6%|▌         | 4/67 [00:00<00:12,  5.06it/s]online:   7%|▋         | 5/67 [00:00<00:12,  5.11it/s]online:   9%|▉         | 6/67 [00:01<00:11,  5.18it/s]online:  10%|█         | 7/67 [00:01<00:11,  5.34it/s]online:  12%|█▏        | 8/67 [00:01<00:11,  5.33it/s]online:  13%|█▎        | 9/67 [00:01<00:10,  5.37it/s]online:  15%|█▍        | 10/67 [00:01<00:10,  5.29it/s]online:  16%|█▋        | 11/67 [00:02<00:10,  5.18it/s]online:  18%|█▊        | 12/67 [00:02<00:10,  5.14it/s]online:  19%|█▉        | 13/67 [00:02<00:10,  5.07it/s]online:  21%|██        | 14/67 [00:02<00:10,  4.98it/s]online:  22%|██▏       | 15/67 [00:02<00:10,  4.96it/s]online:  24%|██▍       | 16/67 [00:03<00:10,  4.93it/s]online:  25%|██▌       | 17/67 [00:03<00:10,  4.90it/s]online:  27%|██▋       | 18/67 [00:03<00:09,  4.91it/s]online:  28%|██▊       | 19/67 [00:03<00:09,  4.87it/s]online:  30%|██▉       | 20/67 [00:03<00:09,  4.82it/s]online:  31%|███▏      | 21/67 [00:04<00:09,  4.81it/s]online:  33%|███▎      | 22/67 [00:04<00:09,  4.79it/s]online:  34%|███▍      | 23/67 [00:04<00:09,  4.80it/s]online:  36%|███▌      | 24/67 [00:04<00:08,  4.83it/s]online:  37%|███▋      | 25/67 [00:04<00:08,  4.85it/s]online:  39%|███▉      | 26/67 [00:05<00:08,  4.86it/s]online:  40%|████      | 27/67 [00:05<00:08,  4.84it/s]online:  42%|████▏     | 28/67 [00:05<00:08,  4.86it/s]online:  43%|████▎     | 29/67 [00:05<00:07,  4.85it/s]online:  45%|████▍     | 30/67 [00:06<00:07,  4.81it/s]online:  46%|████▋     | 31/67 [00:06<00:09,  3.96it/s]online:  48%|████▊     | 32/67 [00:06<00:08,  4.14it/s]online:  49%|████▉     | 33/67 [00:06<00:07,  4.30it/s]online:  51%|█████     | 34/67 [00:07<00:07,  4.47it/s]online:  52%|█████▏    | 35/67 [00:07<00:07,  4.53it/s]online:  54%|█████▎    | 36/67 [00:07<00:06,  4.61it/s]online:  55%|█████▌    | 37/67 [00:07<00:06,  4.68it/s]online:  57%|█████▋    | 38/67 [00:07<00:06,  4.76it/s]online:  58%|█████▊    | 39/67 [00:08<00:05,  4.78it/s]online:  60%|█████▉    | 40/67 [00:08<00:05,  4.81it/s]online:  61%|██████    | 41/67 [00:08<00:05,  4.85it/s]online:  63%|██████▎   | 42/67 [00:08<00:05,  4.87it/s]online:  64%|██████▍   | 43/67 [00:08<00:04,  4.83it/s]online:  66%|██████▌   | 44/67 [00:09<00:04,  4.83it/s]online:  67%|██████▋   | 45/67 [00:09<00:04,  4.82it/s]online:  69%|██████▊   | 46/67 [00:09<00:04,  4.76it/s]online:  70%|███████   | 47/67 [00:09<00:04,  4.72it/s]online:  72%|███████▏  | 48/67 [00:09<00:04,  4.67it/s]online:  73%|███████▎  | 49/67 [00:10<00:03,  4.65it/s]online:  75%|███████▍  | 50/67 [00:10<00:03,  4.63it/s]online:  76%|███████▌  | 51/67 [00:10<00:03,  4.60it/s]online:  78%|███████▊  | 52/67 [00:10<00:03,  4.60it/s]online:  79%|███████▉  | 53/67 [00:11<00:03,  4.58it/s]online:  81%|████████  | 54/67 [00:11<00:02,  4.60it/s]online:  82%|████████▏ | 55/67 [00:11<00:02,  4.57it/s]online:  84%|████████▎ | 56/67 [00:11<00:02,  4.59it/s]online:  85%|████████▌ | 57/67 [00:11<00:02,  4.59it/s]online:  87%|████████▋ | 58/67 [00:12<00:01,  4.59it/s]online:  88%|████████▊ | 59/67 [00:12<00:01,  4.56it/s]online:  90%|████████▉ | 60/67 [00:12<00:01,  4.56it/s]online:  91%|█████████ | 61/67 [00:12<00:01,  4.59it/s]online:  93%|█████████▎| 62/67 [00:12<00:01,  4.56it/s]online:  94%|█████████▍| 63/67 [00:13<00:00,  4.54it/s]online:  96%|█████████▌| 64/67 [00:13<00:00,  4.58it/s]online:  97%|█████████▋| 65/67 [00:13<00:00,  4.56it/s]online:  99%|█████████▊| 66/67 [00:13<00:00,  4.57it/s]online: 100%|██████████| 67/67 [00:14<00:00,  4.59it/s]online: 100%|██████████| 67/67 [00:14<00:00,  4.76it/s]
+lr_model: 0.001 lr_ma: 0.001 lr_da: 0.001
+[2167719:MainThread](2024-04-22 19:01:31,282) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+mse: 0.99581677 mae 0.6841613
+{'IC': 0.048905230368702465,
+ 'ICIR': 0.48527205346019436,
+ 'Rank IC': 0.04629104218842738,
+ 'Rank ICIR': 0.4726773196207392}
+[2167719:MainThread](2024-04-22 19:01:32,992) INFO - qlib.backtest caller - [__init__.py:93] - Create new exchange
+[2167719:MainThread](2024-04-22 19:01:43,317) WARNING - qlib.online operator - [exchange.py:219] - $close field data contains nan.
+[2167719:MainThread](2024-04-22 19:01:43,320) WARNING - qlib.online operator - [exchange.py:219] - $close field data contains nan.
+[2167719:MainThread](2024-04-22 19:01:47,649) WARNING - qlib.BaseExecutor - [executor.py:121] - `common_infra` is not set for <qlib.backtest.executor.SimulatorExecutor object at 0x7fa92862e610>
+backtest loop:   0%|          | 0/872 [00:00<?, ?it/s]/home/zhonghao/miniconda3/envs/sjtu_qlib/lib/python3.8/site-packages/qlib/utils/index_data.py:481: RuntimeWarning: Mean of empty slice
+  return np.nanmean(self.data)
+backtest loop:   0%|          | 3/872 [00:00<01:05, 13.35it/s]backtest loop:   1%|          | 9/872 [00:00<00:30, 28.63it/s]backtest loop:   2%|▏         | 15/872 [00:00<00:21, 39.05it/s]backtest loop:   2%|▏         | 20/872 [00:00<00:20, 41.33it/s]backtest loop:   3%|▎         | 26/872 [00:00<00:18, 46.71it/s]backtest loop:   4%|▎         | 32/872 [00:00<00:16, 50.60it/s]backtest loop:   4%|▍         | 39/872 [00:00<00:16, 50.72it/s]backtest loop:   5%|▌         | 45/872 [00:01<00:15, 53.23it/s]backtest loop:   6%|▌         | 51/872 [00:01<00:15, 54.45it/s]backtest loop:   7%|▋         | 57/872 [00:01<00:14, 55.85it/s]backtest loop:   7%|▋         | 63/872 [00:01<00:15, 53.58it/s]backtest loop:   8%|▊         | 70/872 [00:01<00:14, 56.26it/s]backtest loop:   9%|▊         | 76/872 [00:01<00:13, 57.25it/s]backtest loop:   9%|▉         | 82/872 [00:01<00:14, 54.54it/s]backtest loop:  10%|█         | 88/872 [00:01<00:14, 55.89it/s]backtest loop:  11%|█         | 95/872 [00:01<00:13, 57.77it/s]backtest loop:  12%|█▏        | 101/872 [00:02<00:13, 55.19it/s]backtest loop:  12%|█▏        | 108/872 [00:02<00:13, 57.71it/s]backtest loop:  13%|█▎        | 114/872 [00:02<00:13, 55.34it/s]backtest loop:  14%|█▍        | 120/872 [00:02<00:13, 56.25it/s]backtest loop:  14%|█▍        | 126/872 [00:02<00:13, 57.17it/s]backtest loop:  15%|█▌        | 133/872 [00:02<00:12, 58.95it/s]backtest loop:  16%|█▌        | 139/872 [00:02<00:12, 56.63it/s]backtest loop:  17%|█▋        | 146/872 [00:02<00:12, 59.08it/s]backtest loop:  18%|█▊        | 153/872 [00:02<00:11, 60.73it/s]backtest loop:  18%|█▊        | 160/872 [00:03<00:12, 58.83it/s]backtest loop:  19%|█▉        | 167/872 [00:03<00:11, 60.38it/s]backtest loop:  20%|█▉        | 174/872 [00:03<00:11, 58.32it/s]backtest loop:  21%|██        | 181/872 [00:03<00:11, 60.32it/s]backtest loop:  22%|██▏       | 188/872 [00:03<00:10, 62.38it/s]backtest loop:  22%|██▏       | 195/872 [00:03<00:11, 60.89it/s]backtest loop:  23%|██▎       | 202/872 [00:03<00:10, 62.67it/s]backtest loop:  24%|██▍       | 209/872 [00:03<00:11, 59.38it/s]backtest loop:  25%|██▍       | 216/872 [00:03<00:10, 60.81it/s]backtest loop:  26%|██▌       | 223/872 [00:04<00:10, 62.02it/s]backtest loop:  26%|██▋       | 230/872 [00:04<00:10, 59.51it/s]backtest loop:  27%|██▋       | 237/872 [00:04<00:10, 61.03it/s]backtest loop:  28%|██▊       | 244/872 [00:04<00:10, 58.86it/s]backtest loop:  29%|██▉       | 251/872 [00:04<00:10, 60.18it/s]backtest loop:  30%|██▉       | 258/872 [00:04<00:10, 58.20it/s]backtest loop:  30%|███       | 264/872 [00:04<00:10, 58.57it/s]backtest loop:  31%|███       | 271/872 [00:04<00:10, 59.73it/s]backtest loop:  32%|███▏      | 277/872 [00:04<00:10, 56.47it/s]backtest loop:  32%|███▏      | 283/872 [00:05<00:10, 54.07it/s]backtest loop:  33%|███▎      | 289/872 [00:05<00:10, 55.64it/s]backtest loop:  34%|███▍      | 295/872 [00:05<00:10, 56.74it/s]backtest loop:  35%|███▍      | 302/872 [00:05<00:09, 58.44it/s]backtest loop:  35%|███▌      | 308/872 [00:05<00:10, 55.19it/s]backtest loop:  36%|███▌      | 314/872 [00:05<00:09, 56.22it/s]backtest loop:  37%|███▋      | 320/872 [00:05<00:09, 57.15it/s]backtest loop:  37%|███▋      | 326/872 [00:05<00:10, 54.37it/s]backtest loop:  38%|███▊      | 332/872 [00:05<00:09, 55.74it/s]backtest loop:  39%|███▉      | 338/872 [00:06<00:09, 56.67it/s]backtest loop:  39%|███▉      | 344/872 [00:06<00:09, 53.75it/s]backtest loop:  40%|████      | 350/872 [00:06<00:09, 55.47it/s]backtest loop:  41%|████      | 357/872 [00:06<00:08, 57.67it/s]backtest loop:  42%|████▏     | 363/872 [00:06<00:09, 54.77it/s]backtest loop:  42%|████▏     | 369/872 [00:06<00:09, 55.82it/s]backtest loop:  43%|████▎     | 375/872 [00:06<00:08, 56.87it/s]backtest loop:  44%|████▍     | 382/872 [00:06<00:08, 58.38it/s]backtest loop:  44%|████▍     | 388/872 [00:06<00:08, 55.58it/s]backtest loop:  45%|████▌     | 394/872 [00:07<00:08, 56.27it/s]backtest loop:  46%|████▌     | 400/872 [00:07<00:08, 57.09it/s]backtest loop:  47%|████▋     | 407/872 [00:07<00:07, 58.73it/s]backtest loop:  47%|████▋     | 413/872 [00:07<00:08, 55.45it/s]backtest loop:  48%|████▊     | 419/872 [00:07<00:07, 56.66it/s]backtest loop:  49%|████▊     | 425/872 [00:07<00:07, 57.43it/s]backtest loop:  50%|████▉     | 432/872 [00:07<00:07, 55.51it/s]backtest loop:  50%|█████     | 439/872 [00:07<00:07, 57.42it/s]backtest loop:  51%|█████     | 445/872 [00:07<00:07, 58.11it/s]backtest loop:  52%|█████▏    | 451/872 [00:08<00:07, 58.58it/s]backtest loop:  52%|█████▏    | 457/872 [00:08<00:07, 55.58it/s]backtest loop:  53%|█████▎    | 464/872 [00:08<00:07, 57.69it/s]backtest loop:  54%|█████▍    | 470/872 [00:08<00:06, 58.33it/s]backtest loop:  55%|█████▍    | 477/872 [00:08<00:07, 56.13it/s]backtest loop:  55%|█████▌    | 483/872 [00:08<00:06, 57.07it/s]backtest loop:  56%|█████▌    | 490/872 [00:08<00:06, 55.56it/s]backtest loop:  57%|█████▋    | 496/872 [00:08<00:06, 56.64it/s]backtest loop:  58%|█████▊    | 502/872 [00:08<00:06, 57.38it/s]backtest loop:  58%|█████▊    | 509/872 [00:09<00:06, 59.02it/s]backtest loop:  59%|█████▉    | 515/872 [00:09<00:06, 55.72it/s]backtest loop:  60%|█████▉    | 522/872 [00:09<00:06, 57.68it/s]backtest loop:  61%|██████    | 529/872 [00:09<00:05, 59.64it/s]backtest loop:  61%|██████▏   | 535/872 [00:09<00:05, 56.23it/s]backtest loop:  62%|██████▏   | 542/872 [00:09<00:05, 57.94it/s]backtest loop:  63%|██████▎   | 548/872 [00:09<00:05, 58.34it/s]backtest loop:  64%|██████▎   | 554/872 [00:09<00:05, 55.65it/s]backtest loop:  64%|██████▍   | 560/872 [00:09<00:05, 56.54it/s]backtest loop:  65%|██████▍   | 566/872 [00:10<00:05, 54.22it/s]backtest loop:  66%|██████▌   | 572/872 [00:10<00:05, 55.56it/s]backtest loop:  66%|██████▋   | 578/872 [00:10<00:05, 56.65it/s]backtest loop:  67%|██████▋   | 584/872 [00:10<00:05, 57.60it/s]backtest loop:  68%|██████▊   | 590/872 [00:10<00:05, 54.60it/s]backtest loop:  68%|██████▊   | 597/872 [00:10<00:04, 56.92it/s]backtest loop:  69%|██████▉   | 603/872 [00:10<00:04, 57.49it/s]backtest loop:  70%|██████▉   | 610/872 [00:10<00:04, 55.60it/s]backtest loop:  71%|███████   | 616/872 [00:10<00:04, 56.39it/s]backtest loop:  71%|███████▏  | 622/872 [00:11<00:04, 57.12it/s]backtest loop:  72%|███████▏  | 628/872 [00:11<00:04, 57.92it/s]backtest loop:  73%|███████▎  | 634/872 [00:11<00:04, 58.48it/s]backtest loop:  73%|███████▎  | 640/872 [00:11<00:04, 55.21it/s]backtest loop:  74%|███████▍  | 647/872 [00:11<00:03, 57.38it/s]backtest loop:  75%|███████▍  | 653/872 [00:11<00:03, 58.11it/s]backtest loop:  76%|███████▌  | 659/872 [00:11<00:03, 55.19it/s]backtest loop:  76%|███████▋  | 665/872 [00:11<00:03, 56.46it/s]backtest loop:  77%|███████▋  | 671/872 [00:11<00:03, 54.13it/s]backtest loop:  78%|███████▊  | 678/872 [00:12<00:03, 56.67it/s]backtest loop:  78%|███████▊  | 684/872 [00:12<00:03, 54.38it/s]backtest loop:  79%|███████▉  | 691/872 [00:12<00:03, 56.96it/s]backtest loop:  80%|████████  | 698/872 [00:12<00:02, 58.43it/s]backtest loop:  81%|████████  | 704/872 [00:12<00:03, 55.31it/s]backtest loop:  81%|████████▏ | 710/872 [00:12<00:02, 56.47it/s]backtest loop:  82%|████████▏ | 716/872 [00:12<00:02, 57.16it/s]backtest loop:  83%|████████▎ | 722/872 [00:12<00:02, 57.83it/s]backtest loop:  84%|████████▎ | 729/872 [00:12<00:02, 55.84it/s]backtest loop:  84%|████████▍ | 735/872 [00:13<00:02, 53.87it/s]backtest loop:  85%|████████▍ | 741/872 [00:13<00:02, 55.43it/s]backtest loop:  86%|████████▌ | 747/872 [00:13<00:02, 53.46it/s]backtest loop:  86%|████████▋ | 754/872 [00:13<00:02, 56.52it/s]backtest loop:  87%|████████▋ | 760/872 [00:13<00:01, 57.25it/s]backtest loop:  88%|████████▊ | 767/872 [00:13<00:01, 55.61it/s]backtest loop:  89%|████████▊ | 773/872 [00:13<00:01, 56.68it/s]backtest loop:  89%|████████▉ | 779/872 [00:13<00:01, 57.54it/s]backtest loop:  90%|█████████ | 785/872 [00:13<00:01, 58.03it/s]backtest loop:  91%|█████████ | 791/872 [00:14<00:01, 58.34it/s]backtest loop:  91%|█████████▏| 797/872 [00:14<00:01, 55.16it/s]backtest loop:  92%|█████████▏| 803/872 [00:14<00:01, 56.46it/s]backtest loop:  93%|█████████▎| 810/872 [00:14<00:01, 54.77it/s]backtest loop:  94%|█████████▎| 816/872 [00:14<00:00, 56.16it/s]backtest loop:  94%|█████████▍| 822/872 [00:14<00:00, 57.18it/s]backtest loop:  95%|█████████▍| 828/872 [00:14<00:00, 54.48it/s]backtest loop:  96%|█████████▌| 835/872 [00:14<00:00, 56.89it/s]backtest loop:  97%|█████████▋| 842/872 [00:14<00:00, 58.91it/s]backtest loop:  97%|█████████▋| 848/872 [00:15<00:00, 55.82it/s]backtest loop:  98%|█████████▊| 855/872 [00:15<00:00, 58.49it/s]backtest loop:  99%|█████████▊| 861/872 [00:15<00:00, 56.09it/s]backtest loop:  99%|█████████▉| 867/872 [00:15<00:00, 57.00it/s]backtest loop: 100%|██████████| 872/872 [00:15<00:00, 56.30it/s]
+[2167719:MainThread](2024-04-22 19:02:03,205) INFO - qlib.workflow - [record_temp.py:515] - Portfolio analysis record 'port_analysis_1day.pkl' has been saved as the artifact of the Experiment 15
+'The following are analysis results of benchmark return(1day).'
+                       risk
+mean               0.000188
+std                0.014399
+annualized_return  0.044836
+information_ratio  0.201841
+max_drawdown      -0.487617
+'The following are analysis results of the excess return without cost(1day).'
+                       risk
+mean               0.000672
+std                0.004273
+annualized_return  0.159894
+information_ratio  2.425656
+max_drawdown      -0.046399
+'The following are analysis results of the excess return with cost(1day).'
+                       risk
+mean               0.000484
+std                0.004274
+annualized_return  0.115145
+information_ratio  1.746434
+max_drawdown      -0.075892
+[2167719:MainThread](2024-04-22 19:02:03,220) INFO - qlib.workflow - [record_temp.py:540] - Indicator analysis record 'indicator_analysis_1day.pkl' has been saved as the artifact of the Experiment 15
+'The following are analysis results of indicators(1day).'
+     value
+ffr    1.0
+pa     0.0
+pos    0.0
+Your evaluation results can be found in the experiment named `csi500_Transformer_alpha360_horizon1_step20_rankFalse_2024-04-22_17:31:18_online`.
+{'1day.excess_return_with_cost.annualized_return': [0.09234941244681927,
+                                                    0.1324394392750807,
+                                                    0.1442305229966907,
+                                                    0.11514516422513338],
+ '1day.excess_return_with_cost.information_ratio': [1.4883554518729432,
+                                                    2.0690955681589345,
+                                                    2.3153181142614274,
+                                                    1.7464344913030523],
+ 'IC': [0.04360921001798087,
+        0.045548203227840756,
+        0.05085605730407467,
+        0.048905230368702465],
+ 'ICIR': [0.3985560520382319,
+          0.4569207125587222,
+          0.49394269251151895,
+          0.48527205346019436],
+ 'Rank IC': [0.04726922984615095,
+             0.047759165017019906,
+             0.05116073103669794,
+             0.04629104218842738],
+ 'Rank ICIR': [0.48422989982012377,
+               0.5026687157186543,
+               0.5217697269552982,
+               0.4726773196207392],
+ 'mae': [0.6841560006141663,
+         0.6840108633041382,
+         0.6840325593948364,
+         0.6841613054275513],
+ 'mse': [0.9962854385375977,
+         0.9960439205169678,
+         0.9958265423774719,
+         0.9958167672157288]}
+Traceback (most recent call last):
+  File "main.py", line 471, in run_all
+    assert self.reload_tag is not None
+AssertionError
+No valid experiment to reload. Restart offline training...
+[2167719:MainThread](2024-04-22 19:02:04,319) INFO - qlib.TransformerModel - [pytorch_transformer.py:66] - Naive Transformer:
+batch_size : 2048
+dim : 32
+epoch:   0%|          | 0/100 [00:00<?, ?it/s]epoch:   1%|          | 1/100 [00:17<29:25, 17.83s/it]epoch:   2%|▏         | 2/100 [00:35<29:07, 17.83s/it]epoch:   3%|▎         | 3/100 [00:53<28:48, 17.82s/it]epoch:   4%|▍         | 4/100 [01:11<28:38, 17.90s/it]epoch:   5%|▌         | 5/100 [01:29<28:14, 17.83s/it]epoch:   6%|▌         | 6/100 [01:46<27:53, 17.81s/it]epoch:   7%|▋         | 7/100 [02:04<27:38, 17.83s/it]epoch:   8%|▊         | 8/100 [02:22<27:17, 17.80s/it]epoch:   9%|▉         | 9/100 [02:40<27:01, 17.81s/it]epoch:  10%|█         | 10/100 [02:58<26:37, 17.75s/it]epoch:  11%|█         | 11/100 [03:15<26:18, 17.73s/it]epoch:  12%|█▏        | 12/100 [03:33<25:58, 17.71s/it]epoch:  13%|█▎        | 13/100 [03:51<25:44, 17.75s/it]epoch:  14%|█▍        | 14/100 [04:08<25:26, 17.75s/it]epoch:  15%|█▌        | 15/100 [04:26<25:09, 17.76s/it]epoch:  16%|█▌        | 16/100 [04:44<24:45, 17.69s/it]epoch:  17%|█▋        | 17/100 [05:01<24:25, 17.65s/it]epoch:  18%|█▊        | 18/100 [05:19<24:09, 17.68s/it]epoch:  19%|█▉        | 19/100 [05:37<23:45, 17.60s/it]epoch:  20%|██        | 20/100 [05:54<23:34, 17.68s/it]0.08233891629611086
+best ic: 0.08233891629611086
+epoch:  21%|██        | 21/100 [06:17<25:15, 19.18s/it]0.08038916456654868
+epoch:  22%|██▏       | 22/100 [06:40<26:18, 20.24s/it]0.08010733582005583
+epoch:  23%|██▎       | 23/100 [07:03<27:00, 21.05s/it]0.0838350608695225
+best ic: 0.0838350608695225
+epoch:  24%|██▍       | 24/100 [07:26<27:21, 21.59s/it]0.08349843771898884
+epoch:  25%|██▌       | 25/100 [07:48<27:26, 21.95s/it]0.08383668350817784
+best ic: 0.08383668350817784
+epoch:  26%|██▌       | 26/100 [08:11<27:23, 22.20s/it]0.08347347110913823
+epoch:  27%|██▋       | 27/100 [08:34<27:16, 22.41s/it]0.08104345236978171
+epoch:  28%|██▊       | 28/100 [08:57<27:03, 22.55s/it]0.08407989646414546
+best ic: 0.08407989646414546
+epoch:  29%|██▉       | 29/100 [09:20<26:49, 22.67s/it]0.08490474744873681
+best ic: 0.08490474744873681
+epoch:  30%|███       | 30/100 [09:43<26:29, 22.70s/it]0.08629180628053629
+best ic: 0.08629180628053629
+epoch:  31%|███       | 31/100 [10:06<26:10, 22.76s/it]0.084237961749895
+epoch:  32%|███▏      | 32/100 [10:28<25:50, 22.80s/it]0.08745908877262207
+best ic: 0.08745908877262207
+epoch:  33%|███▎      | 33/100 [10:51<25:29, 22.83s/it]0.0842465325868942
+epoch:  34%|███▍      | 34/100 [11:14<25:02, 22.77s/it]0.08823397300224384
+best ic: 0.08823397300224384
+epoch:  35%|███▌      | 35/100 [11:37<24:43, 22.83s/it]0.08815999007527925
+epoch:  36%|███▌      | 36/100 [12:00<24:20, 22.82s/it]0.09184802676297875
+best ic: 0.09184802676297875
+epoch:  37%|███▋      | 37/100 [12:23<24:00, 22.86s/it]0.09088204344749864
+epoch:  38%|███▊      | 38/100 [12:46<23:52, 23.10s/it]0.09010582209302373
+epoch:  39%|███▉      | 39/100 [13:10<23:32, 23.15s/it]0.08879245633242831
+epoch:  40%|████      | 40/100 [13:33<23:14, 23.24s/it]0.09458768298232548
+best ic: 0.09458768298232548
+epoch:  41%|████      | 41/100 [13:56<22:47, 23.18s/it]0.09424394142732409
+epoch:  42%|████▏     | 42/100 [14:19<22:22, 23.14s/it]0.0931794836986603
+epoch:  43%|████▎     | 43/100 [14:42<21:55, 23.07s/it]0.09365627995794255
+epoch:  44%|████▍     | 44/100 [15:05<21:34, 23.11s/it]0.0914400605179182
+epoch:  45%|████▌     | 45/100 [15:28<21:07, 23.04s/it]0.09377377888928874
+epoch:  46%|████▌     | 46/100 [15:51<20:44, 23.05s/it]0.09285809346481741
+epoch:  47%|████▋     | 47/100 [16:14<20:15, 22.93s/it]0.0934264708555926
+epoch:  48%|████▊     | 48/100 [16:37<19:50, 22.89s/it]0.09318816787967643
+epoch:  48%|████▊     | 48/100 [16:59<18:24, 21.25s/it]
+Test segment: 2017-01-03 00:00:00 2020-07-31 00:00:00
+[2167719:MainThread](2024-04-22 19:19:04,316) INFO - qlib.workflow - [exp.py:258] - Experiment 15 starts running ...
+[2167719:MainThread](2024-04-22 19:19:04,326) INFO - qlib.workflow - [recorder.py:341] - Recorder 4838eee77e884686b26bc23d4f16e7b9 starts running under Experiment 15 ...
+online:   0%|          | 0/67 [00:00<?, ?it/s]online:   1%|▏         | 1/67 [00:00<00:11,  5.96it/s]online:   3%|▎         | 2/67 [00:00<00:12,  5.27it/s]online:   4%|▍         | 3/67 [00:00<00:12,  5.03it/s]online:   6%|▌         | 4/67 [00:00<00:12,  5.09it/s]online:   7%|▋         | 5/67 [00:00<00:12,  5.10it/s]online:   9%|▉         | 6/67 [00:01<00:11,  5.18it/s]online:  10%|█         | 7/67 [00:01<00:11,  5.45it/s]online:  12%|█▏        | 8/67 [00:01<00:11,  5.35it/s]online:  13%|█▎        | 9/67 [00:01<00:10,  5.29it/s]online:  15%|█▍        | 10/67 [00:01<00:10,  5.35it/s]online:  16%|█▋        | 11/67 [00:02<00:10,  5.18it/s]online:  18%|█▊        | 12/67 [00:02<00:10,  5.14it/s]online:  19%|█▉        | 13/67 [00:02<00:10,  5.07it/s]online:  21%|██        | 14/67 [00:02<00:10,  5.04it/s]online:  22%|██▏       | 15/67 [00:02<00:10,  5.00it/s]online:  24%|██▍       | 16/67 [00:03<00:10,  4.96it/s]online:  25%|██▌       | 17/67 [00:03<00:10,  4.89it/s]online:  27%|██▋       | 18/67 [00:03<00:10,  4.90it/s]online:  28%|██▊       | 19/67 [00:03<00:09,  4.86it/s]online:  30%|██▉       | 20/67 [00:03<00:09,  4.81it/s]online:  31%|███▏      | 21/67 [00:04<00:09,  4.85it/s]online:  33%|███▎      | 22/67 [00:04<00:09,  4.81it/s]online:  34%|███▍      | 23/67 [00:04<00:09,  4.80it/s]online:  36%|███▌      | 24/67 [00:04<00:08,  4.81it/s]online:  37%|███▋      | 25/67 [00:04<00:08,  4.83it/s]online:  39%|███▉      | 26/67 [00:05<00:08,  4.83it/s]online:  40%|████      | 27/67 [00:05<00:08,  4.88it/s]online:  42%|████▏     | 28/67 [00:05<00:08,  4.85it/s]online:  43%|████▎     | 29/67 [00:05<00:07,  4.90it/s]online:  45%|████▍     | 30/67 [00:06<00:07,  4.84it/s]online:  46%|████▋     | 31/67 [00:06<00:07,  4.77it/s]online:  48%|████▊     | 32/67 [00:06<00:07,  4.79it/s]online:  49%|████▉     | 33/67 [00:06<00:07,  4.76it/s]online:  51%|█████     | 34/67 [00:06<00:06,  4.77it/s]online:  52%|█████▏    | 35/67 [00:07<00:06,  4.79it/s]online:  54%|█████▎    | 36/67 [00:07<00:06,  4.84it/s]online:  55%|█████▌    | 37/67 [00:07<00:06,  4.79it/s]online:  57%|█████▋    | 38/67 [00:07<00:05,  4.86it/s]online:  58%|█████▊    | 39/67 [00:07<00:05,  4.89it/s]online:  60%|█████▉    | 40/67 [00:08<00:05,  4.83it/s]online:  61%|██████    | 41/67 [00:08<00:05,  4.88it/s]online:  63%|██████▎   | 42/67 [00:08<00:05,  4.86it/s]online:  64%|██████▍   | 43/67 [00:08<00:04,  4.84it/s]online:  66%|██████▌   | 44/67 [00:08<00:04,  4.79it/s]online:  67%|██████▋   | 45/67 [00:09<00:04,  4.76it/s]online:  69%|██████▊   | 46/67 [00:09<00:04,  4.72it/s]online:  70%|███████   | 47/67 [00:09<00:04,  4.72it/s]online:  72%|███████▏  | 48/67 [00:09<00:04,  4.66it/s]online:  73%|███████▎  | 49/67 [00:10<00:03,  4.62it/s]online:  75%|███████▍  | 50/67 [00:10<00:03,  4.62it/s]online:  76%|███████▌  | 51/67 [00:10<00:03,  4.56it/s]online:  78%|███████▊  | 52/67 [00:10<00:03,  4.56it/s]online:  79%|███████▉  | 53/67 [00:10<00:03,  4.59it/s]online:  81%|████████  | 54/67 [00:11<00:02,  4.57it/s]online:  82%|████████▏ | 55/67 [00:11<00:02,  4.56it/s]online:  84%|████████▎ | 56/67 [00:11<00:02,  4.55it/s]online:  85%|████████▌ | 57/67 [00:11<00:02,  4.59it/s]online:  87%|████████▋ | 58/67 [00:11<00:01,  4.56it/s]online:  88%|████████▊ | 59/67 [00:12<00:01,  4.55it/s]online:  90%|████████▉ | 60/67 [00:12<00:01,  4.52it/s]online:  91%|█████████ | 61/67 [00:12<00:01,  4.51it/s]online:  93%|█████████▎| 62/67 [00:12<00:01,  4.56it/s]online:  94%|█████████▍| 63/67 [00:13<00:00,  4.54it/s]online:  96%|█████████▌| 64/67 [00:13<00:00,  4.57it/s]online:  97%|█████████▋| 65/67 [00:13<00:00,  4.52it/s]online:  99%|█████████▊| 66/67 [00:13<00:00,  4.54it/s]online: 100%|██████████| 67/67 [00:13<00:00,  4.59it/s]online: 100%|██████████| 67/67 [00:13<00:00,  4.80it/s]
+lr_model: 0.001 lr_ma: 0.001 lr_da: 0.001
+[2167719:MainThread](2024-04-22 19:19:34,910) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+mse: 0.9959809 mae 0.68405926
+{'IC': 0.047759470225784764,
+ 'ICIR': 0.46727182134673656,
+ 'Rank IC': 0.04932801568098915,
+ 'Rank ICIR': 0.5103463145072233}
+[2167719:MainThread](2024-04-22 19:19:36,550) INFO - qlib.backtest caller - [__init__.py:93] - Create new exchange
+[2167719:MainThread](2024-04-22 19:19:49,256) WARNING - qlib.online operator - [exchange.py:219] - $close field data contains nan.
+[2167719:MainThread](2024-04-22 19:19:49,259) WARNING - qlib.online operator - [exchange.py:219] - $close field data contains nan.
+[2167719:MainThread](2024-04-22 19:19:53,430) WARNING - qlib.BaseExecutor - [executor.py:121] - `common_infra` is not set for <qlib.backtest.executor.SimulatorExecutor object at 0x7fa923d2ba60>
+backtest loop:   0%|          | 0/872 [00:00<?, ?it/s]/home/zhonghao/miniconda3/envs/sjtu_qlib/lib/python3.8/site-packages/qlib/utils/index_data.py:481: RuntimeWarning: Mean of empty slice
+  return np.nanmean(self.data)
+backtest loop:   0%|          | 3/872 [00:00<00:59, 14.52it/s]backtest loop:   1%|          | 9/872 [00:00<00:28, 30.29it/s]backtest loop:   2%|▏         | 15/872 [00:00<00:21, 40.63it/s]backtest loop:   2%|▏         | 20/872 [00:00<00:20, 42.45it/s]backtest loop:   3%|▎         | 27/872 [00:00<00:17, 49.18it/s]backtest loop:   4%|▍         | 34/872 [00:00<00:16, 50.27it/s]backtest loop:   5%|▍         | 40/872 [00:00<00:15, 52.68it/s]backtest loop:   5%|▌         | 46/872 [00:00<00:15, 54.77it/s]backtest loop:   6%|▌         | 53/872 [00:01<00:14, 57.08it/s]backtest loop:   7%|▋         | 59/872 [00:01<00:14, 54.34it/s]backtest loop:   8%|▊         | 66/872 [00:01<00:14, 57.00it/s]backtest loop:   8%|▊         | 72/872 [00:01<00:14, 54.10it/s]backtest loop:   9%|▉         | 79/872 [00:01<00:14, 56.56it/s]backtest loop:  10%|▉         | 86/872 [00:01<00:14, 54.99it/s]backtest loop:  11%|█         | 93/872 [00:01<00:13, 57.10it/s]backtest loop:  11%|█▏        | 99/872 [00:01<00:14, 54.78it/s]backtest loop:  12%|█▏        | 106/872 [00:02<00:13, 57.23it/s]backtest loop:  13%|█▎        | 112/872 [00:02<00:13, 57.97it/s]backtest loop:  14%|█▎        | 119/872 [00:02<00:13, 55.93it/s]backtest loop:  14%|█▍        | 126/872 [00:02<00:12, 57.83it/s]backtest loop:  15%|█▌        | 133/872 [00:02<00:12, 59.12it/s]backtest loop:  16%|█▌        | 139/872 [00:02<00:13, 56.07it/s]backtest loop:  17%|█▋        | 145/872 [00:02<00:12, 56.96it/s]backtest loop:  17%|█▋        | 152/872 [00:02<00:12, 58.66it/s]backtest loop:  18%|█▊        | 159/872 [00:02<00:12, 56.44it/s]backtest loop:  19%|█▉        | 165/872 [00:03<00:12, 57.36it/s]backtest loop:  20%|█▉        | 171/872 [00:03<00:12, 57.92it/s]backtest loop:  20%|██        | 177/872 [00:03<00:11, 58.38it/s]backtest loop:  21%|██        | 184/872 [00:03<00:12, 56.56it/s]backtest loop:  22%|██▏       | 191/872 [00:03<00:11, 59.32it/s]backtest loop:  23%|██▎       | 198/872 [00:03<00:11, 61.19it/s]backtest loop:  24%|██▎       | 205/872 [00:03<00:11, 58.50it/s]backtest loop:  24%|██▍       | 212/872 [00:03<00:11, 59.62it/s]backtest loop:  25%|██▌       | 219/872 [00:04<00:11, 57.13it/s]backtest loop:  26%|██▌       | 226/872 [00:04<00:11, 58.52it/s]backtest loop:  27%|██▋       | 233/872 [00:04<00:10, 59.57it/s]backtest loop:  27%|██▋       | 239/872 [00:04<00:11, 56.41it/s]backtest loop:  28%|██▊       | 246/872 [00:04<00:10, 58.15it/s]backtest loop:  29%|██▉       | 252/872 [00:04<00:10, 58.30it/s]backtest loop:  30%|██▉       | 258/872 [00:04<00:11, 55.27it/s]backtest loop:  30%|███       | 265/872 [00:04<00:10, 57.25it/s]backtest loop:  31%|███       | 272/872 [00:04<00:10, 59.20it/s]backtest loop:  32%|███▏      | 278/872 [00:05<00:11, 53.29it/s]backtest loop:  33%|███▎      | 284/872 [00:05<00:10, 54.91it/s]backtest loop:  33%|███▎      | 291/872 [00:05<00:10, 57.03it/s]backtest loop:  34%|███▍      | 297/872 [00:05<00:09, 57.72it/s]backtest loop:  35%|███▍      | 303/872 [00:05<00:10, 55.31it/s]backtest loop:  35%|███▌      | 309/872 [00:05<00:09, 56.51it/s]backtest loop:  36%|███▌      | 316/872 [00:05<00:10, 54.87it/s]backtest loop:  37%|███▋      | 323/872 [00:05<00:09, 57.17it/s]backtest loop:  38%|███▊      | 329/872 [00:05<00:09, 54.61it/s]backtest loop:  39%|███▊      | 336/872 [00:06<00:09, 56.78it/s]backtest loop:  39%|███▉      | 342/872 [00:06<00:09, 57.41it/s]backtest loop:  40%|███▉      | 348/872 [00:06<00:09, 58.10it/s]backtest loop:  41%|████      | 354/872 [00:06<00:09, 55.00it/s]backtest loop:  41%|████▏     | 361/872 [00:06<00:08, 57.17it/s]backtest loop:  42%|████▏     | 367/872 [00:06<00:08, 57.85it/s]backtest loop:  43%|████▎     | 373/872 [00:06<00:09, 54.96it/s]backtest loop:  43%|████▎     | 379/872 [00:06<00:08, 55.86it/s]backtest loop:  44%|████▍     | 385/872 [00:06<00:08, 56.87it/s]backtest loop:  45%|████▍     | 391/872 [00:07<00:08, 57.29it/s]backtest loop:  46%|████▌     | 397/872 [00:07<00:08, 57.54it/s]backtest loop:  46%|████▌     | 403/872 [00:07<00:08, 54.63it/s]backtest loop:  47%|████▋     | 409/872 [00:07<00:08, 55.96it/s]backtest loop:  48%|████▊     | 415/872 [00:07<00:08, 56.95it/s]backtest loop:  48%|████▊     | 422/872 [00:07<00:07, 58.65it/s]backtest loop:  49%|████▉     | 428/872 [00:07<00:08, 55.32it/s]backtest loop:  50%|████▉     | 435/872 [00:07<00:07, 57.41it/s]backtest loop:  51%|█████     | 442/872 [00:07<00:07, 55.82it/s]backtest loop:  51%|█████▏    | 449/872 [00:08<00:07, 57.67it/s]backtest loop:  52%|█████▏    | 455/872 [00:08<00:07, 57.79it/s]backtest loop:  53%|█████▎    | 462/872 [00:08<00:07, 56.15it/s]backtest loop:  54%|█████▎    | 468/872 [00:08<00:07, 57.12it/s]backtest loop:  54%|█████▍    | 474/872 [00:08<00:06, 57.80it/s]backtest loop:  55%|█████▌    | 480/872 [00:08<00:06, 58.34it/s]backtest loop:  56%|█████▌    | 486/872 [00:08<00:06, 58.79it/s]backtest loop:  56%|█████▋    | 492/872 [00:08<00:06, 55.62it/s]backtest loop:  57%|█████▋    | 499/872 [00:08<00:06, 57.80it/s]backtest loop:  58%|█████▊    | 505/872 [00:09<00:06, 55.05it/s]backtest loop:  59%|█████▊    | 511/872 [00:09<00:06, 56.31it/s]backtest loop:  59%|█████▉    | 518/872 [00:09<00:06, 58.22it/s]backtest loop:  60%|██████    | 525/872 [00:09<00:06, 56.84it/s]backtest loop:  61%|██████    | 532/872 [00:09<00:05, 59.20it/s]backtest loop:  62%|██████▏   | 539/872 [00:09<00:05, 60.58it/s]backtest loop:  63%|██████▎   | 546/872 [00:09<00:05, 57.95it/s]backtest loop:  63%|██████▎   | 553/872 [00:09<00:05, 59.25it/s]backtest loop:  64%|██████▍   | 559/872 [00:09<00:05, 55.92it/s]backtest loop:  65%|██████▍   | 565/872 [00:10<00:05, 56.93it/s]backtest loop:  65%|██████▌   | 571/872 [00:10<00:05, 54.42it/s]backtest loop:  66%|██████▋   | 578/872 [00:10<00:05, 56.84it/s]backtest loop:  67%|██████▋   | 585/872 [00:10<00:04, 58.49it/s]backtest loop:  68%|██████▊   | 591/872 [00:10<00:05, 55.86it/s]backtest loop:  69%|██████▊   | 598/872 [00:10<00:04, 57.97it/s]backtest loop:  69%|██████▉   | 605/872 [00:10<00:04, 56.29it/s]backtest loop:  70%|███████   | 612/872 [00:10<00:04, 58.07it/s]backtest loop:  71%|███████   | 619/872 [00:11<00:04, 59.44it/s]backtest loop:  72%|███████▏  | 625/872 [00:11<00:04, 56.28it/s]backtest loop:  72%|███████▏  | 632/872 [00:11<00:04, 57.93it/s]backtest loop:  73%|███████▎  | 639/872 [00:11<00:03, 59.27it/s]backtest loop:  74%|███████▍  | 645/872 [00:11<00:04, 56.22it/s]backtest loop:  75%|███████▍  | 652/872 [00:11<00:03, 58.57it/s]backtest loop:  76%|███████▌  | 659/872 [00:11<00:03, 56.54it/s]backtest loop:  76%|███████▋  | 665/872 [00:11<00:03, 57.44it/s]backtest loop:  77%|███████▋  | 671/872 [00:11<00:03, 55.07it/s]backtest loop:  78%|███████▊  | 678/872 [00:12<00:03, 57.59it/s]backtest loop:  78%|███████▊  | 684/872 [00:12<00:03, 54.95it/s]backtest loop:  79%|███████▉  | 691/872 [00:12<00:03, 57.48it/s]backtest loop:  80%|████████  | 698/872 [00:12<00:02, 59.16it/s]backtest loop:  81%|████████  | 704/872 [00:12<00:02, 56.01it/s]backtest loop:  81%|████████▏ | 710/872 [00:12<00:02, 56.93it/s]backtest loop:  82%|████████▏ | 716/872 [00:12<00:02, 57.68it/s]backtest loop:  83%|████████▎ | 722/872 [00:12<00:02, 58.15it/s]backtest loop:  83%|████████▎ | 728/872 [00:12<00:02, 58.68it/s]backtest loop:  84%|████████▍ | 734/872 [00:13<00:02, 52.68it/s]backtest loop:  85%|████████▍ | 741/872 [00:13<00:02, 55.53it/s]backtest loop:  86%|████████▌ | 747/872 [00:13<00:02, 53.52it/s]backtest loop:  86%|████████▋ | 754/872 [00:13<00:02, 56.80it/s]backtest loop:  87%|████████▋ | 761/872 [00:13<00:01, 58.53it/s]backtest loop:  88%|████████▊ | 767/872 [00:13<00:01, 55.76it/s]backtest loop:  89%|████████▉ | 774/872 [00:13<00:01, 57.85it/s]backtest loop:  90%|████████▉ | 781/872 [00:13<00:01, 59.39it/s]backtest loop:  90%|█████████ | 787/872 [00:13<00:01, 56.77it/s]backtest loop:  91%|█████████ | 794/872 [00:14<00:01, 58.46it/s]backtest loop:  92%|█████████▏| 801/872 [00:14<00:01, 56.47it/s]backtest loop:  93%|█████████▎| 808/872 [00:14<00:01, 58.47it/s]backtest loop:  93%|█████████▎| 814/872 [00:14<00:01, 55.76it/s]backtest loop:  94%|█████████▍| 820/872 [00:14<00:00, 56.88it/s]backtest loop:  95%|█████████▍| 827/872 [00:14<00:00, 58.47it/s]backtest loop:  96%|█████████▌| 833/872 [00:14<00:00, 56.08it/s]backtest loop:  96%|█████████▌| 839/872 [00:14<00:00, 57.06it/s]backtest loop:  97%|█████████▋| 845/872 [00:14<00:00, 57.86it/s]backtest loop:  98%|█████████▊| 851/872 [00:15<00:00, 55.30it/s]backtest loop:  98%|█████████▊| 858/872 [00:15<00:00, 57.72it/s]backtest loop:  99%|█████████▉| 865/872 [00:15<00:00, 59.52it/s]backtest loop: 100%|█████████▉| 871/872 [00:15<00:00, 56.01it/s]backtest loop: 100%|██████████| 872/872 [00:15<00:00, 56.42it/s]
+[2167719:MainThread](2024-04-22 19:20:08,946) INFO - qlib.workflow - [record_temp.py:515] - Portfolio analysis record 'port_analysis_1day.pkl' has been saved as the artifact of the Experiment 15
+'The following are analysis results of benchmark return(1day).'
+                       risk
+mean               0.000188
+std                0.014399
+annualized_return  0.044836
+information_ratio  0.201841
+max_drawdown      -0.487617
+'The following are analysis results of the excess return without cost(1day).'
+                       risk
+mean               0.000685
+std                0.004186
+annualized_return  0.163126
+information_ratio  2.525870
+max_drawdown      -0.053665
+'The following are analysis results of the excess return with cost(1day).'
+                       risk
+mean               0.000492
+std                0.004187
+annualized_return  0.117213
+information_ratio  1.814407
+max_drawdown      -0.065215
+[2167719:MainThread](2024-04-22 19:20:08,960) INFO - qlib.workflow - [record_temp.py:540] - Indicator analysis record 'indicator_analysis_1day.pkl' has been saved as the artifact of the Experiment 15
+'The following are analysis results of indicators(1day).'
+     value
+ffr    1.0
+pa     0.0
+pos    0.0
+Your evaluation results can be found in the experiment named `csi500_Transformer_alpha360_horizon1_step20_rankFalse_2024-04-22_17:31:18_online`.
+{'1day.excess_return_with_cost.annualized_return': [0.09234941244681927,
+                                                    0.1324394392750807,
+                                                    0.1442305229966907,
+                                                    0.11514516422513338,
+                                                    0.11721348039709346],
+ '1day.excess_return_with_cost.information_ratio': [1.4883554518729432,
+                                                    2.0690955681589345,
+                                                    2.3153181142614274,
+                                                    1.7464344913030523,
+                                                    1.814406590442018],
+ 'IC': [0.04360921001798087,
+        0.045548203227840756,
+        0.05085605730407467,
+        0.048905230368702465,
+        0.047759470225784764],
+ 'ICIR': [0.3985560520382319,
+          0.4569207125587222,
+          0.49394269251151895,
+          0.48527205346019436,
+          0.46727182134673656],
+ 'Rank IC': [0.04726922984615095,
+             0.047759165017019906,
+             0.05116073103669794,
+             0.04629104218842738,
+             0.04932801568098915],
+ 'Rank ICIR': [0.48422989982012377,
+               0.5026687157186543,
+               0.5217697269552982,
+               0.4726773196207392,
+               0.5103463145072233],
+ 'mae': [0.6841560006141663,
+         0.6840108633041382,
+         0.6840325593948364,
+         0.6841613054275513,
+         0.6840592622756958],
+ 'mse': [0.9962854385375977,
+         0.9960439205169678,
+         0.9958265423774719,
+         0.9958167672157288,
+         0.9959809184074402]}
+[2167719:MainThread](2024-04-22 19:20:10,140) WARNING - qlib.workflow - [expm.py:230] - No valid experiment found. Create a new experiment with name csi500_Transformer_alpha360_horizon1_step20_rankFalse_2024-04-22_17:31:18_final.
+[2167719:MainThread](2024-04-22 19:20:10,150) INFO - qlib.workflow - [exp.py:258] - Experiment 16 starts running ...
+[2167719:MainThread](2024-04-22 19:20:10,159) INFO - qlib.workflow - [recorder.py:341] - Recorder 6b9344ea11944ed398da20b99a30de9f starts running under Experiment 16 ...
+Time cost: 1245.7196136951447	60.67149114608765
+{'1day.excess_return_with_cost.annualized_return': [0.12027560386816352,
+                                                    0.01753492070495481],
+ '1day.excess_return_with_cost.information_ratio': [1.886722043207675,
+                                                    0.2830409008414184],
+ 'IC': [0.0473356342288767, 0.002534474091634488]Exception in thread ,
+ Thread-23:
+Traceback (most recent call last):
+  File "/home/zhonghao/miniconda3/envs/sjtu_qlib/lib/python3.8/site-packages/mlflow/tracking/metric_value_conversion_utils.py", line 12, in _try_get_item
+'ICIR'    : return x.item()[0.46039266638308074, 0.033549164712575984]
+,
+ ValueError: 'Rank IC'can only convert an array of size 1 to a Python scalar: 
+[0.04836163675385707, 0.0017095323299145865]
+During handling of the above exception, another exception occurred:
+
+,
+ Traceback (most recent call last):
+'Rank ICIR':   File "/home/zhonghao/miniconda3/envs/sjtu_qlib/lib/python3.8/threading.py", line 932, in _bootstrap_inner
+[0.4983383953244077, 0.01771727716935328],
+ 'mae'    : self.run()[0.6840839982032776, 6.287652137004921e-05]
+  File "/home/zhonghao/miniconda3/envs/sjtu_qlib/lib/python3.8/threading.py", line 870, in run
+,
+ 'mse'    : self._target(*self._args, **self._kwargs)[0.9959907174110413, 0.00017146384195346998]
+  File "/home/zhonghao/miniconda3/envs/sjtu_qlib/lib/python3.8/site-packages/qlib/utils/paral.py", line 91, in run
+}
+    data()
+  File "/home/zhonghao/miniconda3/envs/sjtu_qlib/lib/python3.8/site-packages/qlib/workflow/recorder.py", line 449, in log_metrics
+    self.client.log_metric(self.id, name, data, step=step)
+  File "/home/zhonghao/miniconda3/envs/sjtu_qlib/lib/python3.8/site-packages/mlflow/tracking/client.py", line 821, in log_metric
+    self._tracking_client.log_metric(run_id, key, value, timestamp, step)
+  File "/home/zhonghao/miniconda3/envs/sjtu_qlib/lib/python3.8/site-packages/mlflow/tracking/_tracking_service/client.py", line 305, in log_metric
+    metric_value = convert_metric_value_to_float_if_possible(value)
+  File "/home/zhonghao/miniconda3/envs/sjtu_qlib/lib/python3.8/site-packages/mlflow/tracking/metric_value_conversion_utils.py", line 47, in convert_metric_value_to_float_if_possible
+    possible_float = converter_fn(x)
+  File "/home/zhonghao/miniconda3/envs/sjtu_qlib/lib/python3.8/site-packages/mlflow/tracking/metric_value_conversion_utils.py", line 29, in wrapper
+    return func(x)
+  File "/home/zhonghao/miniconda3/envs/sjtu_qlib/lib/python3.8/site-packages/mlflow/tracking/metric_value_conversion_utils.py", line 62, in convert_metric_value_to_float_if_ndarray
+    return float(_try_get_item(x))
+  File "/home/zhonghao/miniconda3/envs/sjtu_qlib/lib/python3.8/site-packages/mlflow/tracking/metric_value_conversion_utils.py", line 14, in _try_get_item
+    raise MlflowException(
+mlflow.exceptions.MlflowException: Failed to convert metric value to float: can only convert an array of size 1 to a Python scalar
+[2167719:MainThread](2024-04-22 19:20:11,022) INFO - qlib.timer - [log.py:127] - Time cost: 0.029s | waiting `async_log` Done

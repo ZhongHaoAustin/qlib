@@ -1,0 +1,25 @@
+2024-04-22 19:07:05.615 | WARNING  | qlib.tests.data:qlib_data:175 - Data already exists: ~/.qlib/qlib_data/cn_data, the data download will be skipped
+	If downloading is required: `exists_skip=False` or `change target_dir`
+[2178545:MainThread](2024-04-22 19:07:05,617) INFO - qlib.Initialization - [config.py:416] - default_conf: client.
+[2178545:MainThread](2024-04-22 19:07:05,620) INFO - qlib.Initialization - [__init__.py:74] - qlib successfully initialized based on client settings.
+[2178545:MainThread](2024-04-22 19:07:05,620) INFO - qlib.Initialization - [__init__.py:76] - data_path={'__DEFAULT_FREQ': PosixPath('/home/zhonghao/.qlib/qlib_data/cn_data')}
+[2178545:MainThread](2024-04-22 19:07:05,621) ERROR - qlib.workflow - [utils.py:41] - An exception has been raised[FileNotFoundError: [Errno 2] No such file or directory: '/home/zhonghao/sjtu/qlib/examples/benchmarks/Linear/workflow_config_linear_Alpha360.yaml'].
+  File "workflow.py", line 444, in <module>
+    fire.Fire(DDGDA)
+  File "/home/zhonghao/miniconda3/envs/sjtu_qlib/lib/python3.8/site-packages/fire/core.py", line 143, in Fire
+    component_trace = _Fire(component, args, parsed_flag_args, context, name)
+  File "/home/zhonghao/miniconda3/envs/sjtu_qlib/lib/python3.8/site-packages/fire/core.py", line 477, in _Fire
+    component, remaining_args = _CallAndUpdateTrace(
+  File "/home/zhonghao/miniconda3/envs/sjtu_qlib/lib/python3.8/site-packages/fire/core.py", line 693, in _CallAndUpdateTrace
+    component = fn(*varargs, **kwargs)
+  File "workflow.py", line 373, in run_offline
+    self.dump_data_for_proxy_model()
+  File "workflow.py", line 140, in dump_data_for_proxy_model
+    task = rb.basic_task()
+  File "/home/zhonghao/sjtu/qlib/examples/benchmarks_dynamic/DDG-DA_ours/rolling_benchmark.py", line 137, in basic_task
+    with conf_path.open("r") as f:
+  File "/home/zhonghao/miniconda3/envs/sjtu_qlib/lib/python3.8/pathlib.py", line 1222, in open
+    return io.open(self, mode, buffering, encoding, errors, newline,
+  File "/home/zhonghao/miniconda3/envs/sjtu_qlib/lib/python3.8/pathlib.py", line 1078, in _opener
+    return self._accessor.open(self, flags, mode)
+FileNotFoundError: [Errno 2] No such file or directory: '/home/zhonghao/sjtu/qlib/examples/benchmarks/Linear/workflow_config_linear_Alpha360.yaml'
