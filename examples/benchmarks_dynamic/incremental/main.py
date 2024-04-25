@@ -73,6 +73,10 @@ class Incremental:
             reload_tag: Optional[str] = None,
             tag="",
             h_path=None,
+            train_start=None,
+            train_end=None,
+            valid_start=None,
+            valid_end=None,
             test_start=None,
             test_end=None,
     ):
@@ -196,6 +200,10 @@ class Incremental:
             early_stop=8,
             init_data=False,
             h_path=h_path,
+            train_start=train_start,
+            train_end=train_end,
+            valid_start=valid_start,
+            valid_end=valid_end,
             test_start=test_start,
             test_end=test_end,
         ).basic_task()
@@ -454,7 +462,7 @@ class Incremental:
                 "Rank ICIR",
                 "1day.excess_return_with_cost.annualized_return",
                 "1day.excess_return_with_cost.information_ratio",
-                # "1day.excess_return_with_cost.max_drawdown",
+                "1day.excess_return_with_cost.max_drawdown",
             ]
         }
         # if self.rank_label:
@@ -464,7 +472,7 @@ class Incremental:
         test_time = []
         if not self.tag:
             self.tag = time.strftime('%Y-%m-%d_%H:%M:%S', time.localtime())
-        for i in range(0, 5):
+        for i in range(0, 10):
             start_time = time.time()
             np.random.seed(i)
             try:
@@ -489,12 +497,13 @@ class Incremental:
             metrics = rec.list_metrics()
             for k in all_metrics.keys():
                 all_metrics[k].append(metrics[k])
+            print(f"Round {i + 1} Done!")
             pprint(all_metrics)
 
         with R.start(experiment_name=self.meta_exp_name + "_final"):
             R.save_objects(all_metrics=all_metrics)
             train_time, test_time = np.array(train_time), np.array(test_time)
-            R.log_metrics(train_time=train_time, test_time=train_time)
+            R.log_metrics(train_time=train_time.mean(), test_time=test_time.mean())
             print(f"Time cost: {train_time.mean()}\t{test_time.mean()}")
             res = {}
             for k in all_metrics.keys():
@@ -502,8 +511,10 @@ class Incremental:
                 res[k] = [v.mean(), v.std()]
                 R.log_metrics(**{"final_" + k: res[k][0]})
                 R.log_metrics(**{"final_" + k + "_std": res[k][1]})
+            print("Final results:")
             pprint(res)
-
+            print("Your final results can be found in the experiment named `{}`.".format(self.meta_exp_name + "_final"))
+            print("All Done!")
 
 if __name__ == "__main__":
     print(sys.argv)

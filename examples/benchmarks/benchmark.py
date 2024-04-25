@@ -180,7 +180,18 @@ class Benchmark:
                 h_conf["kwargs"]["learn_processors"].append(
                     {"class": expect_label_processor, "kwargs": {"fields_group": "label"}}
                 )
-        print(h_conf)
+
+        if self.train_start is not None:
+            h_conf["kwargs"]["start_time"] = pd.Timestamp(self.train_start)
+            h_conf["kwargs"]["fit_start_time"] = pd.Timestamp(self.train_start)
+
+        if self.test_end is not None:
+            h_conf["kwargs"]["end_time"] = pd.Timestamp(self.test_end)
+
+        if self.train_end is not None:
+            h_conf["kwargs"]["fit_end_time"] = pd.Timestamp(self.train_end)
+
+        print(f"Handler: {h_conf}")
 
         if not h_path.exists():
             h = init_instance_by_config(h_conf)
@@ -198,7 +209,7 @@ class Benchmark:
 
         if self.train_end is not None:
             seg = task["dataset"]["kwargs"]["segments"]["train"]
-            task["dataset"]["kwargs"]["segments"]["test"] = seg[0], pd.Timestamp(self.train_end)
+            task["dataset"]["kwargs"]["segments"]["train"] = seg[0], pd.Timestamp(self.train_end)
 
         if self.valid_start is not None:
             seg = task["dataset"]["kwargs"]["segments"]["valid"]
@@ -215,7 +226,7 @@ class Benchmark:
         if self.test_end is not None:
             seg = task["dataset"]["kwargs"]["segments"]["test"]
             task["dataset"]["kwargs"]["segments"]["test"] = seg[0], pd.Timestamp(self.test_end)
-        print(task)
+        print(f"Task: {task}")
         return task
 
     def get_fitted_model(self, suffix=""):
@@ -318,11 +329,11 @@ class Benchmark:
                 "Rank ICIR",
                 "1day.excess_return_with_cost.annualized_return",
                 "1day.excess_return_with_cost.information_ratio",
-                # "1day.excess_return_with_cost.max_drawdown",
+                "1day.excess_return_with_cost.max_drawdown",
             ]
         }
         test_time = []
-        for i in range(0, 5 if self.model_type.lower() != 'linear' else 1):
+        for i in range(0, 10 if self.model_type.lower() != 'linear' else 1):
             np.random.seed(43 + i)
             torch.manual_seed(43 + i)
             torch.cuda.manual_seed(43 + i)
@@ -340,18 +351,17 @@ class Benchmark:
         with R.start(
             experiment_name=f"final_{self.data_dir}_{self.market}_{self.alpha}_{self.horizon}_{self.model_type}"
         ):
-            R.save_objects(all_metrics=all_metrics)
+            R.save_objects(**all_metrics)
             test_time = np.array(test_time)
-            R.log_metrics(test_time=test_time)
-            print(f"Time cost: {test_time.mean()}")
+            R.log_metrics(test_time=np.mean(test_time))
+            print(f"Time cost: {np.mean(test_time)}")
             res = {}
             for k in all_metrics.keys():
                 v = np.array(all_metrics[k])
-                res[k] = [v.mean(), v.std()]
-                R.log_metrics(**{"final_" + k: res[k]})
+                res[k] = [np.mean(v), np.std(v)]
+                R.log_metrics(**{"final_" + k: res[k][0]})
+                R.log_metrics(**{"final_" + k + "_std": res[k][1]})
             pprint(res)
-        test_time = np.array(test_time)
-        print(f"Time cost: {test_time.mean()}")
 
 
 if __name__ == "__main__":
