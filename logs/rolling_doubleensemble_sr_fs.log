@@ -1,0 +1,1391 @@
+2024-03-28 19:50:40.563 | WARNING  | qlib.tests.data:qlib_data:175 - Data already exists: ~/.qlib/qlib_data/cn_data, the data download will be skipped
+	If downloading is required: `exists_skip=False` or `change target_dir`
+[3414733:MainThread](2024-03-28 19:50:40,564) INFO - qlib.Initialization - [config.py:416] - default_conf: client.
+[3414733:MainThread](2024-03-28 19:50:40,566) INFO - qlib.Initialization - [__init__.py:74] - qlib successfully initialized based on client settings.
+[3414733:MainThread](2024-03-28 19:50:40,567) INFO - qlib.Initialization - [__init__.py:76] - data_path={'__DEFAULT_FREQ': PosixPath('/home/zhonghao/.qlib/qlib_data/cn_data')}
+[3414733:MainThread](2024-03-28 19:50:40,569) WARNING - qlib.Rolling - [rolling_benchmark.py:30] - Model type is not in the benchmark!
+[3414733:MainThread](2024-03-28 19:50:40,594) INFO - qlib.Rolling - [base.py:162] - The prediction horizon is overrided
+[3414733:MainThread](2024-03-28 19:50:40,594) INFO - qlib.Rolling - [base.py:173] - {'model': {'class': 'DEnsembleModel', 'module_path': 'qlib.contrib.model.double_ensemble', 'kwargs': {'base_model': 'gbm', 'loss': 'mse', 'num_models': 3, 'enable_sr': True, 'enable_fs': True, 'alpha1': 1, 'alpha2': 1, 'bins_sr': 10, 'bins_fs': 5, 'decay': 0.5, 'sample_ratios': [0.8, 0.7, 0.6, 0.5, 0.4], 'sub_weights': [1, 1, 1], 'epochs': 28, 'colsample_bytree': 0.8879, 'learning_rate': 0.2, 'subsample': 0.8789, 'lambda_l1': 205.6999, 'lambda_l2': 580.9768, 'max_depth': 8, 'num_leaves': 210, 'num_threads': 20, 'verbosity': -1}}, 'dataset': {'class': 'DatasetH', 'module_path': 'qlib.data.dataset', 'kwargs': {'handler': 'file:///home/zhonghao/code/qlib/exp_yaml/Alpha158.9a5cdb3f2b.pkl', 'segments': {'train': [datetime.date(2008, 1, 1), datetime.date(2014, 12, 31)], 'valid': [datetime.date(2015, 1, 1), datetime.date(2016, 12, 31)], 'test': [datetime.date(2017, 1, 1), datetime.date(2020, 8, 1)]}}}, 'record': [{'class': 'SignalRecord', 'module_path': 'qlib.workflow.record_temp', 'kwargs': {'model': '<MODEL>', 'dataset': '<DATASET>'}}, {'class': 'SigAnaRecord', 'module_path': 'qlib.workflow.record_temp', 'kwargs': {'ana_long_short': False, 'ann_scaler': 252}}, {'class': 'PortAnaRecord', 'module_path': 'qlib.workflow.record_temp', 'kwargs': {'config': {'strategy': {'class': 'TopkDropoutStrategy', 'module_path': 'qlib.contrib.strategy', 'kwargs': {'signal': '<PRED>', 'topk': 50, 'n_drop': 5}}, 'backtest': {'start_time': datetime.date(2017, 1, 1), 'end_time': datetime.date(2020, 8, 1), 'account': 100000000, 'benchmark': 'SH000300', 'exchange_kwargs': {'limit_threshold': 0.095, 'deal_price': 'close', 'open_cost': 0.0005, 'close_cost': 0.0015, 'min_cost': 5}}}}}]}
+[3414733:MainThread](2024-03-28 19:50:40,596) WARNING - qlib.data - [data.py:666] - load calendar error: freq=day, future=True; return current calendar!
+[3414733:MainThread](2024-03-28 19:50:40,596) WARNING - qlib.data - [data.py:669] - You can get future calendar by referring to the following document: https://github.com/microsoft/qlib/blob/main/scripts/data_collector/contrib/README.md
+[3414733:MainThread](2024-03-28 19:50:40,701) INFO - qlib.Rolling - [base.py:190] - Deleting previous Rolling results
+[3414733:MainThread](2024-03-28 19:50:40,704) INFO - qlib.Rolling - [base.py:196] - No previous rolling results
+
+train tasks:   0%|          | 0/44 [00:00<?, ?it/s][3414733:MainThread](2024-03-28 19:50:40,708) WARNING - qlib.workflow - [expm.py:230] - No valid experiment found. Create a new experiment with name rolling_models_20240328195040.
+[3414733:MainThread](2024-03-28 19:50:40,714) INFO - qlib.workflow - [exp.py:258] - Experiment 9 starts running ...
+[3414733:MainThread](2024-03-28 19:50:40,796) INFO - qlib.workflow - [recorder.py:341] - Recorder 5cdca74c88c34df98265757e3d49a5c9 starts running under Experiment 9 ...
+[3414733:MainThread](2024-03-28 19:50:44,918) INFO - qlib.DEnsembleModel - [double_ensemble.py:57] - Double Ensemble Model...
+[3414733:MainThread](2024-03-28 19:50:45,624) WARNING - qlib.utils - [__init__.py:789] - The parameter `reweighter` with value `None` is ignored.
+[3414733:MainThread](2024-03-28 19:50:47,301) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (1/3)
+[3414733:MainThread](2024-03-28 19:50:52,293) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 19:51:03,051) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 19:51:07,547) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 19:52:42,846) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (2/3)
+[3414733:MainThread](2024-03-28 19:52:45,523) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 19:52:52,115) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 19:52:55,817) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 19:55:19,179) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (3/3)
+[3414733:MainThread](2024-03-28 19:55:22,548) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 9
+[3414733:MainThread](2024-03-28 19:55:22,612) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+
+train tasks:   2%|▏         | 1/44 [04:41<3:22:02, 281.91s/it][3414733:MainThread](2024-03-28 19:55:22,622) INFO - qlib.workflow - [exp.py:258] - Experiment 9 starts running ...
+[3414733:MainThread](2024-03-28 19:55:22,637) INFO - qlib.workflow - [recorder.py:341] - Recorder 540d11d7c6ee4a2cb404d1757a93390c starts running under Experiment 9 ...
+[3414733:MainThread](2024-03-28 19:55:22,860) INFO - qlib.DEnsembleModel - [double_ensemble.py:57] - Double Ensemble Model...
+[3414733:MainThread](2024-03-28 19:55:23,617) WARNING - qlib.utils - [__init__.py:789] - The parameter `reweighter` with value `None` is ignored.
+[3414733:MainThread](2024-03-28 19:55:25,309) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (1/3)
+[3414733:MainThread](2024-03-28 19:55:29,775) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 19:55:40,297) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 19:55:43,973) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 19:57:16,860) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (2/3)
+[3414733:MainThread](2024-03-28 19:57:19,325) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 19:57:25,393) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 19:57:29,064) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 19:59:51,983) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (3/3)
+[3414733:MainThread](2024-03-28 19:59:55,348) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 9
+[3414733:MainThread](2024-03-28 19:59:55,414) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+
+train tasks:   5%|▍         | 2/44 [09:14<3:13:35, 276.55s/it][3414733:MainThread](2024-03-28 19:59:55,424) INFO - qlib.workflow - [exp.py:258] - Experiment 9 starts running ...
+[3414733:MainThread](2024-03-28 19:59:55,440) INFO - qlib.workflow - [recorder.py:341] - Recorder 1060e08e11c54c008ec2c7e0f112858b starts running under Experiment 9 ...
+[3414733:MainThread](2024-03-28 19:59:55,709) INFO - qlib.DEnsembleModel - [double_ensemble.py:57] - Double Ensemble Model...
+[3414733:MainThread](2024-03-28 19:59:56,466) WARNING - qlib.utils - [__init__.py:789] - The parameter `reweighter` with value `None` is ignored.
+[3414733:MainThread](2024-03-28 19:59:58,146) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (1/3)
+[3414733:MainThread](2024-03-28 20:00:02,688) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 20:00:13,549) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 20:00:17,325) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 20:01:48,519) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (2/3)
+[3414733:MainThread](2024-03-28 20:01:51,259) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 20:01:57,956) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 20:02:01,620) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 20:04:24,303) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (3/3)
+[3414733:MainThread](2024-03-28 20:04:27,607) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 9
+[3414733:MainThread](2024-03-28 20:04:27,650) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+
+train tasks:   7%|▋         | 3/44 [13:46<3:07:37, 274.58s/it][3414733:MainThread](2024-03-28 20:04:27,657) INFO - qlib.workflow - [exp.py:258] - Experiment 9 starts running ...
+[3414733:MainThread](2024-03-28 20:04:27,668) INFO - qlib.workflow - [recorder.py:341] - Recorder 9fe4148d3ee5453ab33a169cb9b4a615 starts running under Experiment 9 ...
+[3414733:MainThread](2024-03-28 20:04:27,912) INFO - qlib.DEnsembleModel - [double_ensemble.py:57] - Double Ensemble Model...
+[3414733:MainThread](2024-03-28 20:04:28,682) WARNING - qlib.utils - [__init__.py:789] - The parameter `reweighter` with value `None` is ignored.
+[3414733:MainThread](2024-03-28 20:04:30,351) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (1/3)
+[3414733:MainThread](2024-03-28 20:04:35,043) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 20:04:44,112) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 20:04:47,871) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 20:06:12,497) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (2/3)
+[3414733:MainThread](2024-03-28 20:06:15,306) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 20:06:20,795) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 20:06:24,586) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 20:08:38,480) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (3/3)
+[3414733:MainThread](2024-03-28 20:08:42,033) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 9
+[3414733:MainThread](2024-03-28 20:08:42,094) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+
+train tasks:   9%|▉         | 4/44 [18:01<2:57:45, 266.63s/it][3414733:MainThread](2024-03-28 20:08:42,104) INFO - qlib.workflow - [exp.py:258] - Experiment 9 starts running ...
+[3414733:MainThread](2024-03-28 20:08:42,120) INFO - qlib.workflow - [recorder.py:341] - Recorder b3123c3d9e3d497684ccc5025373f35c starts running under Experiment 9 ...
+[3414733:MainThread](2024-03-28 20:08:42,424) INFO - qlib.DEnsembleModel - [double_ensemble.py:57] - Double Ensemble Model...
+[3414733:MainThread](2024-03-28 20:08:43,190) WARNING - qlib.utils - [__init__.py:789] - The parameter `reweighter` with value `None` is ignored.
+[3414733:MainThread](2024-03-28 20:08:44,838) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (1/3)
+[3414733:MainThread](2024-03-28 20:08:49,618) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 20:09:00,561) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 20:09:04,985) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 20:10:39,726) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (2/3)
+[3414733:MainThread](2024-03-28 20:10:42,342) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 20:10:47,927) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 20:10:52,320) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 20:13:13,187) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (3/3)
+[3414733:MainThread](2024-03-28 20:13:16,495) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 9
+[3414733:MainThread](2024-03-28 20:13:16,554) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+
+train tasks:  11%|█▏        | 5/44 [22:35<2:55:08, 269.45s/it][3414733:MainThread](2024-03-28 20:13:16,564) INFO - qlib.workflow - [exp.py:258] - Experiment 9 starts running ...
+[3414733:MainThread](2024-03-28 20:13:16,580) INFO - qlib.workflow - [recorder.py:341] - Recorder f89e725342824f1995f445648384f103 starts running under Experiment 9 ...
+[3414733:MainThread](2024-03-28 20:13:16,895) INFO - qlib.DEnsembleModel - [double_ensemble.py:57] - Double Ensemble Model...
+[3414733:MainThread](2024-03-28 20:13:17,651) WARNING - qlib.utils - [__init__.py:789] - The parameter `reweighter` with value `None` is ignored.
+[3414733:MainThread](2024-03-28 20:13:19,311) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (1/3)
+[3414733:MainThread](2024-03-28 20:13:24,194) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 20:13:35,126) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 20:13:39,795) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 20:15:13,564) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (2/3)
+[3414733:MainThread](2024-03-28 20:15:16,116) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 20:15:22,142) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 20:15:27,705) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 20:17:59,413) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (3/3)
+[3414733:MainThread](2024-03-28 20:18:03,071) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 9
+[3414733:MainThread](2024-03-28 20:18:03,184) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+
+train tasks:  14%|█▎        | 6/44 [27:22<2:54:21, 275.29s/it][3414733:MainThread](2024-03-28 20:18:03,194) INFO - qlib.workflow - [exp.py:258] - Experiment 9 starts running ...
+[3414733:MainThread](2024-03-28 20:18:03,210) INFO - qlib.workflow - [recorder.py:341] - Recorder c9fb39617bc346669be8b564b72f8227 starts running under Experiment 9 ...
+[3414733:MainThread](2024-03-28 20:18:03,492) INFO - qlib.DEnsembleModel - [double_ensemble.py:57] - Double Ensemble Model...
+[3414733:MainThread](2024-03-28 20:18:04,258) WARNING - qlib.utils - [__init__.py:789] - The parameter `reweighter` with value `None` is ignored.
+[3414733:MainThread](2024-03-28 20:18:05,948) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (1/3)
+[3414733:MainThread](2024-03-28 20:18:10,935) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 20:18:22,224) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 20:18:26,068) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 20:20:02,103) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (2/3)
+[3414733:MainThread](2024-03-28 20:20:04,890) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 20:20:12,087) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 20:20:16,029) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 20:22:45,500) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (3/3)
+[3414733:MainThread](2024-03-28 20:22:48,967) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 9
+[3414733:MainThread](2024-03-28 20:22:49,056) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+
+train tasks:  16%|█▌        | 7/44 [32:08<2:51:53, 278.75s/it][3414733:MainThread](2024-03-28 20:22:49,063) INFO - qlib.workflow - [exp.py:258] - Experiment 9 starts running ...
+[3414733:MainThread](2024-03-28 20:22:49,074) INFO - qlib.workflow - [recorder.py:341] - Recorder 10622e3560604c5fa57309ffff5adb98 starts running under Experiment 9 ...
+[3414733:MainThread](2024-03-28 20:22:49,287) INFO - qlib.DEnsembleModel - [double_ensemble.py:57] - Double Ensemble Model...
+[3414733:MainThread](2024-03-28 20:22:50,057) WARNING - qlib.utils - [__init__.py:789] - The parameter `reweighter` with value `None` is ignored.
+[3414733:MainThread](2024-03-28 20:22:51,740) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (1/3)
+[3414733:MainThread](2024-03-28 20:22:56,094) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 20:23:04,393) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 20:23:09,018) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 20:24:32,991) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (2/3)
+[3414733:MainThread](2024-03-28 20:24:35,607) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 20:24:39,099) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 20:24:43,645) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 20:26:58,323) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (3/3)
+[3414733:MainThread](2024-03-28 20:27:01,846) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 9
+[3414733:MainThread](2024-03-28 20:27:01,932) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+
+train tasks:  18%|█▊        | 8/44 [36:21<2:42:18, 270.51s/it][3414733:MainThread](2024-03-28 20:27:01,942) INFO - qlib.workflow - [exp.py:258] - Experiment 9 starts running ...
+[3414733:MainThread](2024-03-28 20:27:01,958) INFO - qlib.workflow - [recorder.py:341] - Recorder 5ba2751f36e5423f9eb4b3891d883957 starts running under Experiment 9 ...
+[3414733:MainThread](2024-03-28 20:27:02,225) INFO - qlib.DEnsembleModel - [double_ensemble.py:57] - Double Ensemble Model...
+[3414733:MainThread](2024-03-28 20:27:03,001) WARNING - qlib.utils - [__init__.py:789] - The parameter `reweighter` with value `None` is ignored.
+[3414733:MainThread](2024-03-28 20:27:04,705) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (1/3)
+[3414733:MainThread](2024-03-28 20:27:09,388) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 20:27:20,650) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 20:27:24,666) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 20:29:01,032) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (2/3)
+[3414733:MainThread](2024-03-28 20:29:03,756) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 20:29:10,844) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 20:29:14,889) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 20:31:47,441) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (3/3)
+[3414733:MainThread](2024-03-28 20:31:50,833) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 9
+[3414733:MainThread](2024-03-28 20:31:50,914) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+
+train tasks:  20%|██        | 9/44 [41:10<2:41:10, 276.29s/it][3414733:MainThread](2024-03-28 20:31:50,923) INFO - qlib.workflow - [exp.py:258] - Experiment 9 starts running ...
+[3414733:MainThread](2024-03-28 20:31:50,939) INFO - qlib.workflow - [recorder.py:341] - Recorder 88af5748608b4799ab39c55b91274487 starts running under Experiment 9 ...
+[3414733:MainThread](2024-03-28 20:31:51,205) INFO - qlib.DEnsembleModel - [double_ensemble.py:57] - Double Ensemble Model...
+[3414733:MainThread](2024-03-28 20:31:51,967) WARNING - qlib.utils - [__init__.py:789] - The parameter `reweighter` with value `None` is ignored.
+[3414733:MainThread](2024-03-28 20:31:53,673) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (1/3)
+[3414733:MainThread](2024-03-28 20:31:58,304) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 20:32:06,337) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 20:32:10,402) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 20:33:35,945) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (2/3)
+[3414733:MainThread](2024-03-28 20:33:38,616) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 20:33:43,171) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 20:33:47,204) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 20:35:57,141) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (3/3)
+[3414733:MainThread](2024-03-28 20:36:00,532) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 9
+[3414733:MainThread](2024-03-28 20:36:00,638) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+
+train tasks:  23%|██▎       | 10/44 [45:19<2:31:54, 268.09s/it][3414733:MainThread](2024-03-28 20:36:00,648) INFO - qlib.workflow - [exp.py:258] - Experiment 9 starts running ...
+[3414733:MainThread](2024-03-28 20:36:00,664) INFO - qlib.workflow - [recorder.py:341] - Recorder 3fdcf40e843248e39a1a8a22feca3e9b starts running under Experiment 9 ...
+[3414733:MainThread](2024-03-28 20:36:00,899) INFO - qlib.DEnsembleModel - [double_ensemble.py:57] - Double Ensemble Model...
+[3414733:MainThread](2024-03-28 20:36:01,586) WARNING - qlib.utils - [__init__.py:789] - The parameter `reweighter` with value `None` is ignored.
+[3414733:MainThread](2024-03-28 20:36:03,327) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (1/3)
+[3414733:MainThread](2024-03-28 20:36:08,195) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 20:36:16,834) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 20:36:20,929) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 20:37:47,174) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (2/3)
+[3414733:MainThread](2024-03-28 20:37:49,723) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 20:37:54,766) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 20:37:58,724) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 20:40:18,177) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (3/3)
+[3414733:MainThread](2024-03-28 20:40:21,580) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 9
+[3414733:MainThread](2024-03-28 20:40:21,667) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+
+train tasks:  25%|██▌       | 11/44 [49:40<2:26:15, 265.93s/it][3414733:MainThread](2024-03-28 20:40:21,677) INFO - qlib.workflow - [exp.py:258] - Experiment 9 starts running ...
+[3414733:MainThread](2024-03-28 20:40:21,693) INFO - qlib.workflow - [recorder.py:341] - Recorder e1a3ce1074d447acade8ce2a28d36557 starts running under Experiment 9 ...
+[3414733:MainThread](2024-03-28 20:40:21,933) INFO - qlib.DEnsembleModel - [double_ensemble.py:57] - Double Ensemble Model...
+[3414733:MainThread](2024-03-28 20:40:22,693) WARNING - qlib.utils - [__init__.py:789] - The parameter `reweighter` with value `None` is ignored.
+[3414733:MainThread](2024-03-28 20:40:24,358) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (1/3)
+[3414733:MainThread](2024-03-28 20:40:29,041) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 20:40:40,762) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 20:40:45,539) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 20:42:25,171) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (2/3)
+[3414733:MainThread](2024-03-28 20:42:27,786) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 20:42:34,167) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 20:42:39,049) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 20:45:19,655) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (3/3)
+[3414733:MainThread](2024-03-28 20:45:23,001) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 9
+[3414733:MainThread](2024-03-28 20:45:23,084) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+
+train tasks:  27%|██▋       | 12/44 [54:42<2:27:35, 276.72s/it][3414733:MainThread](2024-03-28 20:45:23,094) INFO - qlib.workflow - [exp.py:258] - Experiment 9 starts running ...
+[3414733:MainThread](2024-03-28 20:45:23,110) INFO - qlib.workflow - [recorder.py:341] - Recorder ac662c6930da4b51838d52b8195171bd starts running under Experiment 9 ...
+[3414733:MainThread](2024-03-28 20:45:23,372) INFO - qlib.DEnsembleModel - [double_ensemble.py:57] - Double Ensemble Model...
+[3414733:MainThread](2024-03-28 20:45:24,132) WARNING - qlib.utils - [__init__.py:789] - The parameter `reweighter` with value `None` is ignored.
+[3414733:MainThread](2024-03-28 20:45:25,819) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (1/3)
+[3414733:MainThread](2024-03-28 20:45:30,630) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 20:45:40,453) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 20:45:44,671) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 20:47:15,784) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (2/3)
+[3414733:MainThread](2024-03-28 20:47:18,401) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 20:47:24,273) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 20:47:28,459) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 20:49:50,418) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (3/3)
+[3414733:MainThread](2024-03-28 20:49:53,853) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 9
+[3414733:MainThread](2024-03-28 20:49:53,932) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+
+train tasks:  30%|██▉       | 13/44 [59:13<2:22:03, 274.94s/it][3414733:MainThread](2024-03-28 20:49:53,942) INFO - qlib.workflow - [exp.py:258] - Experiment 9 starts running ...
+[3414733:MainThread](2024-03-28 20:49:53,958) INFO - qlib.workflow - [recorder.py:341] - Recorder 0245744cf38740e19d0ca0081f203524 starts running under Experiment 9 ...
+[3414733:MainThread](2024-03-28 20:49:54,286) INFO - qlib.DEnsembleModel - [double_ensemble.py:57] - Double Ensemble Model...
+[3414733:MainThread](2024-03-28 20:49:55,055) WARNING - qlib.utils - [__init__.py:789] - The parameter `reweighter` with value `None` is ignored.
+[3414733:MainThread](2024-03-28 20:49:56,809) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (1/3)
+[3414733:MainThread](2024-03-28 20:50:01,543) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 20:50:13,464) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 20:50:17,748) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 20:51:57,619) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (2/3)
+[3414733:MainThread](2024-03-28 20:52:00,341) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 20:52:07,497) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 20:52:11,825) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 20:54:45,290) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (3/3)
+[3414733:MainThread](2024-03-28 20:54:49,025) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 9
+[3414733:MainThread](2024-03-28 20:54:49,093) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+
+train tasks:  32%|███▏      | 14/44 [1:04:08<2:20:31, 281.05s/it][3414733:MainThread](2024-03-28 20:54:49,103) INFO - qlib.workflow - [exp.py:258] - Experiment 9 starts running ...
+[3414733:MainThread](2024-03-28 20:54:49,120) INFO - qlib.workflow - [recorder.py:341] - Recorder a2cb9fe5a8524236861cad0cd514c051 starts running under Experiment 9 ...
+[3414733:MainThread](2024-03-28 20:54:49,432) INFO - qlib.DEnsembleModel - [double_ensemble.py:57] - Double Ensemble Model...
+[3414733:MainThread](2024-03-28 20:54:50,218) WARNING - qlib.utils - [__init__.py:789] - The parameter `reweighter` with value `None` is ignored.
+[3414733:MainThread](2024-03-28 20:54:52,181) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (1/3)
+[3414733:MainThread](2024-03-28 20:54:57,432) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 20:55:12,080) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 20:55:17,033) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 20:57:00,725) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (2/3)
+[3414733:MainThread](2024-03-28 20:57:03,638) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 20:57:10,883) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 20:57:15,098) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 20:59:48,672) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (3/3)
+[3414733:MainThread](2024-03-28 20:59:52,424) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 9
+[3414733:MainThread](2024-03-28 20:59:52,499) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+
+train tasks:  34%|███▍      | 15/44 [1:09:11<2:19:05, 287.79s/it][3414733:MainThread](2024-03-28 20:59:52,512) INFO - qlib.workflow - [exp.py:258] - Experiment 9 starts running ...
+[3414733:MainThread](2024-03-28 20:59:52,529) INFO - qlib.workflow - [recorder.py:341] - Recorder bb1715e00716405e9e4badfcd5fca96e starts running under Experiment 9 ...
+[3414733:MainThread](2024-03-28 20:59:52,806) INFO - qlib.DEnsembleModel - [double_ensemble.py:57] - Double Ensemble Model...
+[3414733:MainThread](2024-03-28 20:59:53,536) WARNING - qlib.utils - [__init__.py:789] - The parameter `reweighter` with value `None` is ignored.
+[3414733:MainThread](2024-03-28 20:59:55,196) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (1/3)
+[3414733:MainThread](2024-03-28 21:00:00,385) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 21:00:10,810) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 21:00:14,998) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 21:01:50,433) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (2/3)
+[3414733:MainThread](2024-03-28 21:01:53,836) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 21:02:01,581) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 21:02:06,126) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 21:04:41,245) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (3/3)
+[3414733:MainThread](2024-03-28 21:04:44,815) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 9
+[3414733:MainThread](2024-03-28 21:04:44,887) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+
+train tasks:  36%|███▋      | 16/44 [1:14:04<2:14:56, 289.17s/it][3414733:MainThread](2024-03-28 21:04:44,896) INFO - qlib.workflow - [exp.py:258] - Experiment 9 starts running ...
+[3414733:MainThread](2024-03-28 21:04:44,912) INFO - qlib.workflow - [recorder.py:341] - Recorder 7e54acf2e86e4e14b5324c83c46849da starts running under Experiment 9 ...
+[3414733:MainThread](2024-03-28 21:04:45,204) INFO - qlib.DEnsembleModel - [double_ensemble.py:57] - Double Ensemble Model...
+[3414733:MainThread](2024-03-28 21:04:45,883) WARNING - qlib.utils - [__init__.py:789] - The parameter `reweighter` with value `None` is ignored.
+[3414733:MainThread](2024-03-28 21:04:47,507) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (1/3)
+[3414733:MainThread](2024-03-28 21:04:52,194) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 21:05:01,228) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 21:05:05,592) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 21:06:39,054) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (2/3)
+[3414733:MainThread](2024-03-28 21:06:41,857) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 21:06:47,139) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 21:06:51,549) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 21:09:09,127) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (3/3)
+[3414733:MainThread](2024-03-28 21:09:12,456) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 9
+[3414733:MainThread](2024-03-28 21:09:12,524) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+
+train tasks:  39%|███▊      | 17/44 [1:18:31<2:07:12, 282.70s/it][3414733:MainThread](2024-03-28 21:09:12,534) INFO - qlib.workflow - [exp.py:258] - Experiment 9 starts running ...
+[3414733:MainThread](2024-03-28 21:09:12,550) INFO - qlib.workflow - [recorder.py:341] - Recorder 7c08387a8e034919b449a0a4eca77ff9 starts running under Experiment 9 ...
+[3414733:MainThread](2024-03-28 21:09:12,931) INFO - qlib.DEnsembleModel - [double_ensemble.py:57] - Double Ensemble Model...
+[3414733:MainThread](2024-03-28 21:09:13,587) WARNING - qlib.utils - [__init__.py:789] - The parameter `reweighter` with value `None` is ignored.
+[3414733:MainThread](2024-03-28 21:09:15,350) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (1/3)
+[3414733:MainThread](2024-03-28 21:09:20,189) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 21:09:30,843) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 21:09:35,128) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 21:11:13,792) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (2/3)
+[3414733:MainThread](2024-03-28 21:11:16,514) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 21:11:22,931) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 21:11:27,195) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 21:13:57,043) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (3/3)
+[3414733:MainThread](2024-03-28 21:14:00,746) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 9
+[3414733:MainThread](2024-03-28 21:14:00,884) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+
+train tasks:  41%|████      | 18/44 [1:23:20<2:03:14, 284.40s/it][3414733:MainThread](2024-03-28 21:14:00,894) INFO - qlib.workflow - [exp.py:258] - Experiment 9 starts running ...
+[3414733:MainThread](2024-03-28 21:14:00,910) INFO - qlib.workflow - [recorder.py:341] - Recorder 76e3d7721f9943e3926c56c0569852de starts running under Experiment 9 ...
+[3414733:MainThread](2024-03-28 21:14:01,080) INFO - qlib.DEnsembleModel - [double_ensemble.py:57] - Double Ensemble Model...
+[3414733:MainThread](2024-03-28 21:14:01,828) WARNING - qlib.utils - [__init__.py:789] - The parameter `reweighter` with value `None` is ignored.
+[3414733:MainThread](2024-03-28 21:14:03,527) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (1/3)
+[3414733:MainThread](2024-03-28 21:14:08,156) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 21:14:20,382) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 21:14:24,623) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 21:16:09,861) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (2/3)
+[3414733:MainThread](2024-03-28 21:16:12,777) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 21:16:20,591) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 21:16:25,045) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 21:19:03,990) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (3/3)
+[3414733:MainThread](2024-03-28 21:19:07,633) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 9
+ModuleNotFoundError. CatBoostModel are skipped. (optional: maybe installing CatBoostModel can fix it.)
+[20]	train's l2: 0.959367	valid's l2: 0.992537
+[20]	train's l2: 1.23085	valid's l2: 1.01067
+[20]	train's l2: 1.18401	valid's l2: 1.00931
+'The following are prediction results of the DEnsembleModel model.'
+                          score
+datetime   instrument          
+2017-01-03 SH600000   -0.025607
+           SH600008   -0.047808
+           SH600009    0.216583
+           SH600010   -0.239151
+           SH600015    0.147377
+[20]	train's l2: 0.958234	valid's l2: 0.99265
+[20]	train's l2: 1.2367	valid's l2: 1.00487
+[20]	train's l2: 1.19077	valid's l2: 1.00272
+'The following are prediction results of the DEnsembleModel model.'
+                          score
+datetime   instrument          
+2017-02-07 SH600000    0.236019
+           SH600008    0.167980
+           SH600009    0.359778
+           SH600010    0.058260
+           SH600015    0.420309
+[20]	train's l2: 0.959314	valid's l2: 0.99082
+[20]	train's l2: 1.23049	valid's l2: 1.0057
+[20]	train's l2: 1.19051	valid's l2: 1.00477
+'The following are prediction results of the DEnsembleModel model.'
+                          score
+datetime   instrument          
+2017-03-07 SH600000    0.138816
+           SH600008    0.027375
+           SH600009    0.061691
+           SH600010   -0.002687
+           SH600015    0.302233
+[20]	train's l2: 0.962053	valid's l2: 0.989665
+[20]	train's l2: 1.23404	valid's l2: 1.00049
+[20]	train's l2: 1.18593	valid's l2: 1.00006
+'The following are prediction results of the DEnsembleModel model.'
+                          score
+datetime   instrument          
+2017-04-06 SH600000   -0.052927
+           SH600008   -0.096145
+           SH600009    0.104331
+           SH600010    0.233797
+           SH600015    0.062211
+[20]	train's l2: 0.961213	valid's l2: 0.988351
+[20]	train's l2: 1.23339	valid's l2: 1.002
+[20]	train's l2: 1.18658	valid's l2: 0.997988
+'The following are prediction results of the DEnsembleModel model.'
+                          score
+datetime   instrument          
+2017-05-05 SH600000    0.112243
+           SH600008    0.033880
+           SH600009    0.127619
+           SH600010   -0.142236
+           SH600015   -0.001920
+[20]	train's l2: 0.960769	valid's l2: 0.986068
+[20]	train's l2: 1.23842	valid's l2: 0.99655
+[20]	train's l2: 1.19275	valid's l2: 0.994794
+'The following are prediction results of the DEnsembleModel model.'
+                          score
+datetime   instrument          
+2017-06-06 SH600000    0.173455
+           SH600008    0.307672
+           SH600009    0.147728
+           SH600010    0.185744
+           SH600015    0.424536
+[20]	train's l2: 0.961615	valid's l2: 0.985323
+[20]	train's l2: 1.23624	valid's l2: 0.995822
+[20]	train's l2: 1.19018	valid's l2: 0.997447
+'The following are prediction results of the DEnsembleModel model.'
+                          score
+datetime   instrument          
+2017-07-04 SH600000    0.023562
+           SH600008   -0.210647
+           SH600009    0.068089
+           SH600010    0.079166
+           SH600015    0.058416
+[20]	train's l2: 0.962384	valid's l2: 0.985773
+[20]	train's l2: 1.23799	valid's l2: 0.997201
+[20]	train's l2: 1.19042	valid's l2: 0.995601
+'The following are prediction results of the DEnsembleModel model.'
+                          score
+datetime   instrument          
+2017-08-01 SH600000    0.254975
+           SH600008    0.091143
+           SH600009    0.275788
+           SH600010    0.041432
+           SH600015    0.210945
+[20]	train's l2: 0.961116	valid's l2: 0.988279
+[20]	train's l2: 1.23894	valid's l2: 1.00207
+[20]	train's l2: 1.19015	valid's l2: 1.00055
+'The following are prediction results of the DEnsembleModel model.'
+                          score
+datetime   instrument          
+2017-08-29 SH600000    0.167727
+           SH600008   -0.217702
+           SH600009    0.164951
+           SH600010    0.061535
+           SH600015    0.150737
+[20]	train's l2: 0.960275	valid's l2: 0.988674
+[20]	train's l2: 1.23813	valid's l2: 1.00364
+[20]	train's l2: 1.17841	valid's l2: 0.999399
+'The following are prediction results of the DEnsembleModel model.'
+                          score
+datetime   instrument          
+2017-09-26 SH600000    0.119315
+           SH600008   -0.318145
+           SH600009   -0.005061
+           SH600010   -0.189353
+           SH600015   -0.218863
+[20]	train's l2: 0.960258	valid's l2: 0.986968
+[20]	train's l2: 1.23849	valid's l2: 1.00064
+[20]	train's l2: 1.18458	valid's l2: 0.9974
+'The following are prediction results of the DEnsembleModel model.'
+                          score
+datetime   instrument          
+2017-10-31 SH600000    0.068125
+           SH600008   -0.230995
+           SH600009    0.125504
+           SH600010    0.021224
+           SH600015   -0.006955
+[20]	train's l2: 0.96149	valid's l2: 0.984764
+[20]	train's l2: 1.23734	valid's l2: 0.992753
+[20]	train's l2: 1.17727	valid's l2: 0.991372
+'The following are prediction results of the DEnsembleModel model.'
+                          score
+datetime   instrument          
+2017-11-28 SH600000    0.308814
+           SH600008    0.022471
+           SH600009    0.018471
+           SH600010   -0.093627
+           SH600015    0.391796
+[20]	train's l2: 0.961703	valid's l2: 0.984826
+[20]	train's l2: 1.24015	valid's l2: 0.993368
+[20]	train's l2: 1.18823	valid's l2: 0.988701
+'The following are prediction results of the DEnsembleModel model.'
+                          score
+datetime   instrument          
+2017-12-26 SH600000    0.059392
+           SH600008   -0.131003
+           SH600009    0.306763
+           SH600010   -0.023099
+           SH600011    0.065154
+[20]	train's l2: 0.962079	valid's l2: 0.984711
+[20]	train's l2: 1.24134	valid's l2: 0.992483
+[20]	train's l2: 1.18082	valid's l2: 0.992328
+'The following are prediction results of the DEnsembleModel model.'
+                          score
+datetime   instrument          
+2018-01-24 SH600000    0.103674
+           SH600008   -0.076674
+           SH600009   -0.008053
+           SH600010    0.087080
+           SH600011    0.156395
+[20]	train's l2: 0.962233	valid's l2: 0.984933
+[20]	train's l2: 1.2409	valid's l2: 0.996679
+[20]	train's l2: 1.18519	valid's l2: 0.991946
+'The following are prediction results of the DEnsembleModel model.'
+                          score
+datetime   instrument          
+2018-02-28 SH600000   -0.258008
+           SH600008    0.178483
+           SH600009    0.026144
+           SH600010    0.025097
+           SH600011    0.240434
+[20]	train's l2: 0.962328	valid's l2: 0.984029
+[20]	train's l2: 1.24107	valid's l2: 0.994871
+[20]	train's l2: 1.17908	valid's l2: 0.991132
+'The following are prediction results of the DEnsembleModel model.'
+                          score
+datetime   instrument          
+2018-03-28 SH600000   -0.040048
+           SH600008    0.082760
+           SH600009    0.255765
+           SH600010    0.269928
+           SH600011   -0.003615
+[20]	train's l2: 0.961634	valid's l2: 0.983326
+[20]	train's l2: 1.24001	valid's l2: 0.993474
+[20]	train's l2: 1.17905	valid's l2: 0.988246
+'The following are prediction results of the DEnsembleModel model.'
+                          score
+datetime   instrument          
+2018-04-27 SH600000   -0.200515
+           SH600008   -0.107581
+           SH600009    0.229536
+           SH600010   -0.024570
+           SH600011   -0.032857
+[20]	train's l2: 0.961921	valid's l2: 0.981653
+[20]	train's l2: 1.24224	valid's l2: 0.987127
+[20]	train's l2: 1.19444	valid's l2: 0.984264
+'The following are prediction results of the DEnsembleModel model.'
+                          score
+datetime   instrument          
+2018-05-29 SH600000   -0.024256
+           SH600008   -0.085870
+           SH600009    0.208846
+           SH600010    0.052237
+           SH600011   -0.216699
+[20]	train's l2: 0.962792	valid's l2: 0.98113
+[20]	train's l2: 1.24624	valid's l2: 0.989493
+[20]	train's l2: 1.18138	valid's l2: 0.985326
+'The following are prediction results of the DEnsembleModel model.'
+[3414733:MainThread](2024-03-28 21:19:07,715) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+
+train tasks:  43%|████▎     | 19/44 [1:28:27<2:01:18, 291.14s/it][3414733:MainThread](2024-03-28 21:19:07,725) INFO - qlib.workflow - [exp.py:258] - Experiment 9 starts running ...
+[3414733:MainThread](2024-03-28 21:19:07,741) INFO - qlib.workflow - [recorder.py:341] - Recorder c688592b977740ddb7b524a6de67d3e8 starts running under Experiment 9 ...
+[3414733:MainThread](2024-03-28 21:19:08,000) INFO - qlib.DEnsembleModel - [double_ensemble.py:57] - Double Ensemble Model...
+[3414733:MainThread](2024-03-28 21:19:08,768) WARNING - qlib.utils - [__init__.py:789] - The parameter `reweighter` with value `None` is ignored.
+[3414733:MainThread](2024-03-28 21:19:10,477) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (1/3)
+[3414733:MainThread](2024-03-28 21:19:15,318) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 21:19:25,478) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 21:19:29,770) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 21:21:08,354) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (2/3)
+[3414733:MainThread](2024-03-28 21:21:11,027) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 21:21:17,091) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 21:21:21,513) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 21:23:53,610) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (3/3)
+[3414733:MainThread](2024-03-28 21:23:57,232) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 9
+[3414733:MainThread](2024-03-28 21:23:57,305) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+
+train tasks:  45%|████▌     | 20/44 [1:33:16<1:56:16, 290.67s/it][3414733:MainThread](2024-03-28 21:23:57,312) INFO - qlib.workflow - [exp.py:258] - Experiment 9 starts running ...
+[3414733:MainThread](2024-03-28 21:23:57,323) INFO - qlib.workflow - [recorder.py:341] - Recorder 5f4bee79a8474f05a7f5019e8d6e66e1 starts running under Experiment 9 ...
+[3414733:MainThread](2024-03-28 21:23:57,497) INFO - qlib.DEnsembleModel - [double_ensemble.py:57] - Double Ensemble Model...
+[3414733:MainThread](2024-03-28 21:23:58,261) WARNING - qlib.utils - [__init__.py:789] - The parameter `reweighter` with value `None` is ignored.
+[3414733:MainThread](2024-03-28 21:23:59,930) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (1/3)
+[3414733:MainThread](2024-03-28 21:24:04,740) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 21:24:13,675) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 21:24:18,013) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 21:25:54,075) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (2/3)
+[3414733:MainThread](2024-03-28 21:25:56,746) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 21:26:01,801) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 21:26:06,417) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 21:28:24,026) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (3/3)
+[3414733:MainThread](2024-03-28 21:28:27,992) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 9
+[3414733:MainThread](2024-03-28 21:28:28,085) INFO - qlib.timer - [log.py:127] - Time cost: 0.002s | waiting `async_log` Done
+
+train tasks:  48%|████▊     | 21/44 [1:37:47<1:49:08, 284.70s/it][3414733:MainThread](2024-03-28 21:28:28,095) INFO - qlib.workflow - [exp.py:258] - Experiment 9 starts running ...
+[3414733:MainThread](2024-03-28 21:28:28,111) INFO - qlib.workflow - [recorder.py:341] - Recorder 1639143f7c834dad9fc462ce48299a9f starts running under Experiment 9 ...
+[3414733:MainThread](2024-03-28 21:28:28,353) INFO - qlib.DEnsembleModel - [double_ensemble.py:57] - Double Ensemble Model...
+[3414733:MainThread](2024-03-28 21:28:29,131) WARNING - qlib.utils - [__init__.py:789] - The parameter `reweighter` with value `None` is ignored.
+[3414733:MainThread](2024-03-28 21:28:30,851) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (1/3)
+[3414733:MainThread](2024-03-28 21:28:35,771) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 21:28:48,617) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 21:28:53,228) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 21:30:42,100) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (2/3)
+[3414733:MainThread](2024-03-28 21:30:45,106) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 21:30:52,388) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 21:30:56,770) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 21:33:44,957) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (3/3)
+[3414733:MainThread](2024-03-28 21:33:48,484) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 9
+[3414733:MainThread](2024-03-28 21:33:48,557) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+
+train tasks:  50%|█████     | 22/44 [1:43:07<1:48:19, 295.44s/it][3414733:MainThread](2024-03-28 21:33:48,568) INFO - qlib.workflow - [exp.py:258] - Experiment 9 starts running ...
+[3414733:MainThread](2024-03-28 21:33:48,584) INFO - qlib.workflow - [recorder.py:341] - Recorder 6a0b5673b77a4e1caa5519d44476ea09 starts running under Experiment 9 ...
+[3414733:MainThread](2024-03-28 21:33:48,859) INFO - qlib.DEnsembleModel - [double_ensemble.py:57] - Double Ensemble Model...
+[3414733:MainThread](2024-03-28 21:33:49,627) WARNING - qlib.utils - [__init__.py:789] - The parameter `reweighter` with value `None` is ignored.
+[3414733:MainThread](2024-03-28 21:33:51,358) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (1/3)
+[3414733:MainThread](2024-03-28 21:33:56,227) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 21:34:09,026) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 21:34:13,468) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 21:36:04,127) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (2/3)
+[3414733:MainThread](2024-03-28 21:36:07,074) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 21:36:15,183) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 21:36:19,726) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 21:39:06,346) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (3/3)
+[3414733:MainThread](2024-03-28 21:39:10,011) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 9
+[3414733:MainThread](2024-03-28 21:39:10,086) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+
+train tasks:  52%|█████▏    | 23/44 [1:48:29<1:46:08, 303.27s/it][3414733:MainThread](2024-03-28 21:39:10,096) INFO - qlib.workflow - [exp.py:258] - Experiment 9 starts running ...
+[3414733:MainThread](2024-03-28 21:39:10,112) INFO - qlib.workflow - [recorder.py:341] - Recorder 3be6709daf1e45f4af812fc416a217ee starts running under Experiment 9 ...
+[3414733:MainThread](2024-03-28 21:39:10,350) INFO - qlib.DEnsembleModel - [double_ensemble.py:57] - Double Ensemble Model...
+[3414733:MainThread](2024-03-28 21:39:11,117) WARNING - qlib.utils - [__init__.py:789] - The parameter `reweighter` with value `None` is ignored.
+[3414733:MainThread](2024-03-28 21:39:12,829) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (1/3)
+[3414733:MainThread](2024-03-28 21:39:17,905) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 21:39:28,613) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 21:39:33,115) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 21:41:15,904) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (2/3)
+[3414733:MainThread](2024-03-28 21:41:18,842) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 21:41:25,807) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 21:41:30,243) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 21:44:16,585) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (3/3)
+[3414733:MainThread](2024-03-28 21:44:20,128) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 9
+[3414733:MainThread](2024-03-28 21:44:20,205) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+
+train tasks:  55%|█████▍    | 24/44 [1:53:39<1:41:46, 305.32s/it][3414733:MainThread](2024-03-28 21:44:20,215) INFO - qlib.workflow - [exp.py:258] - Experiment 9 starts running ...
+[3414733:MainThread](2024-03-28 21:44:20,231) INFO - qlib.workflow - [recorder.py:341] - Recorder 8d3f73b468e94ca2a48085899867f9d8 starts running under Experiment 9 ...
+[3414733:MainThread](2024-03-28 21:44:20,440) INFO - qlib.DEnsembleModel - [double_ensemble.py:57] - Double Ensemble Model...
+[3414733:MainThread](2024-03-28 21:44:21,200) WARNING - qlib.utils - [__init__.py:789] - The parameter `reweighter` with value `None` is ignored.
+[3414733:MainThread](2024-03-28 21:44:22,934) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (1/3)
+[3414733:MainThread](2024-03-28 21:44:27,982) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 21:44:40,847) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 21:44:45,323) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 21:46:37,821) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (2/3)
+[3414733:MainThread](2024-03-28 21:46:40,774) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 21:46:48,882) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 21:46:53,653) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 21:49:47,538) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (3/3)
+[3414733:MainThread](2024-03-28 21:49:51,392) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 9
+[3414733:MainThread](2024-03-28 21:49:51,498) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+
+train tasks:  57%|█████▋    | 25/44 [1:59:10<1:39:09, 313.11s/it][3414733:MainThread](2024-03-28 21:49:51,508) INFO - qlib.workflow - [exp.py:258] - Experiment 9 starts running ...
+[3414733:MainThread](2024-03-28 21:49:51,524) INFO - qlib.workflow - [recorder.py:341] - Recorder e16f17920e524a8aadcd42f6f0bed96f starts running under Experiment 9 ...
+[3414733:MainThread](2024-03-28 21:49:51,709) INFO - qlib.DEnsembleModel - [double_ensemble.py:57] - Double Ensemble Model...
+[3414733:MainThread](2024-03-28 21:49:52,475) WARNING - qlib.utils - [__init__.py:789] - The parameter `reweighter` with value `None` is ignored.
+[3414733:MainThread](2024-03-28 21:49:54,155) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (1/3)
+[3414733:MainThread](2024-03-28 21:49:59,059) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 21:50:08,861) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 21:50:13,536) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 21:51:53,614) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (2/3)
+[3414733:MainThread](2024-03-28 21:51:56,456) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 21:52:02,278) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 21:52:07,131) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 21:54:28,795) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (3/3)
+[3414733:MainThread](2024-03-28 21:54:32,405) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 9
+[3414733:MainThread](2024-03-28 21:54:32,475) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+
+train tasks:  59%|█████▉    | 26/44 [2:03:51<1:31:02, 303.47s/it][3414733:MainThread](2024-03-28 21:54:32,485) INFO - qlib.workflow - [exp.py:258] - Experiment 9 starts running ...
+[3414733:MainThread](2024-03-28 21:54:32,501) INFO - qlib.workflow - [recorder.py:341] - Recorder c5f5824ca90e401c844939383a56b362 starts running under Experiment 9 ...
+[3414733:MainThread](2024-03-28 21:54:32,730) INFO - qlib.DEnsembleModel - [double_ensemble.py:57] - Double Ensemble Model...
+[3414733:MainThread](2024-03-28 21:54:33,500) WARNING - qlib.utils - [__init__.py:789] - The parameter `reweighter` with value `None` is ignored.
+[3414733:MainThread](2024-03-28 21:54:35,212) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (1/3)
+[3414733:MainThread](2024-03-28 21:54:40,287) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 21:54:53,331) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 21:54:57,920) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 21:56:51,318) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (2/3)
+[3414733:MainThread](2024-03-28 21:56:54,246) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 21:57:02,219) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 21:57:07,120) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 22:00:05,795) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (3/3)
+[3414733:MainThread](2024-03-28 22:00:09,506) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 9
+[3414733:MainThread](2024-03-28 22:00:09,562) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+
+train tasks:  61%|██████▏   | 27/44 [2:09:28<1:28:50, 313.56s/it][3414733:MainThread](2024-03-28 22:00:09,569) INFO - qlib.workflow - [exp.py:258] - Experiment 9 starts running ...
+[3414733:MainThread](2024-03-28 22:00:09,580) INFO - qlib.workflow - [recorder.py:341] - Recorder a5b5778200b245b28236003a89186a55 starts running under Experiment 9 ...
+[3414733:MainThread](2024-03-28 22:00:09,930) INFO - qlib.DEnsembleModel - [double_ensemble.py:57] - Double Ensemble Model...
+[3414733:MainThread](2024-03-28 22:00:10,708) WARNING - qlib.utils - [__init__.py:789] - The parameter `reweighter` with value `None` is ignored.
+[3414733:MainThread](2024-03-28 22:00:12,614) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (1/3)
+[3414733:MainThread](2024-03-28 22:00:17,875) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 22:00:28,812) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 22:00:33,622) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 22:02:18,135) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (2/3)
+[3414733:MainThread](2024-03-28 22:02:21,170) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 22:02:28,264) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 22:02:33,008) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 22:05:19,832) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (3/3)
+[3414733:MainThread](2024-03-28 22:05:23,518) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 9
+[3414733:MainThread](2024-03-28 22:05:23,621) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+
+train tasks:  64%|██████▎   | 28/44 [2:14:42<1:23:39, 313.71s/it][3414733:MainThread](2024-03-28 22:05:23,631) INFO - qlib.workflow - [exp.py:258] - Experiment 9 starts running ...
+[3414733:MainThread](2024-03-28 22:05:23,647) INFO - qlib.workflow - [recorder.py:341] - Recorder 745536ceb9d8414eb2c5060ed626e85e starts running under Experiment 9 ...
+[3414733:MainThread](2024-03-28 22:05:23,844) INFO - qlib.DEnsembleModel - [double_ensemble.py:57] - Double Ensemble Model...
+[3414733:MainThread](2024-03-28 22:05:24,595) WARNING - qlib.utils - [__init__.py:789] - The parameter `reweighter` with value `None` is ignored.
+[3414733:MainThread](2024-03-28 22:05:26,281) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (1/3)
+[3414733:MainThread](2024-03-28 22:05:31,411) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 22:05:44,793) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 22:05:49,564) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 22:07:52,138) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (2/3)
+[3414733:MainThread](2024-03-28 22:07:55,173) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 22:08:03,465) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 22:08:08,418) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 22:11:03,113) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (3/3)
+[3414733:MainThread](2024-03-28 22:11:07,221) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 9
+[3414733:MainThread](2024-03-28 22:11:07,337) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+
+train tasks:  66%|██████▌   | 29/44 [2:20:26<1:20:40, 322.71s/it][3414733:MainThread](2024-03-28 22:11:07,347) INFO - qlib.workflow - [exp.py:258] - Experiment 9 starts running ...
+[3414733:MainThread](2024-03-28 22:11:07,363) INFO - qlib.workflow - [recorder.py:341] - Recorder 7845b5d014064f57b48df92fa658317d starts running under Experiment 9 ...
+[3414733:MainThread](2024-03-28 22:11:07,576) INFO - qlib.DEnsembleModel - [double_ensemble.py:57] - Double Ensemble Model...
+[3414733:MainThread](2024-03-28 22:11:08,409) WARNING - qlib.utils - [__init__.py:789] - The parameter `reweighter` with value `None` is ignored.
+[3414733:MainThread](2024-03-28 22:11:10,122) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (1/3)
+[3414733:MainThread](2024-03-28 22:11:15,608) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 22:11:26,407) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 22:11:31,426) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 22:13:22,334) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (2/3)
+[3414733:MainThread](2024-03-28 22:13:25,614) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 22:13:31,700) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 22:13:36,630) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 22:16:15,184) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (3/3)
+[3414733:MainThread](2024-03-28 22:16:18,874) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 9
+[3414733:MainThread](2024-03-28 22:16:18,960) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+
+train tasks:  68%|██████▊   | 30/44 [2:25:38<1:14:31, 319.38s/it][3414733:MainThread](2024-03-28 22:16:18,970) INFO - qlib.workflow - [exp.py:258] - Experiment 9 starts running ...
+[3414733:MainThread](2024-03-28 22:16:18,986) INFO - qlib.workflow - [recorder.py:341] - Recorder e1b86ef53caf4a02b4f47426c41b8efd starts running under Experiment 9 ...
+[3414733:MainThread](2024-03-28 22:16:19,282) INFO - qlib.DEnsembleModel - [double_ensemble.py:57] - Double Ensemble Model...
+[3414733:MainThread](2024-03-28 22:16:20,104) WARNING - qlib.utils - [__init__.py:789] - The parameter `reweighter` with value `None` is ignored.
+[3414733:MainThread](2024-03-28 22:16:21,887) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (1/3)
+[3414733:MainThread](2024-03-28 22:16:27,425) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 22:16:38,946) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 22:16:43,788) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 22:18:33,458) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (2/3)
+[3414733:MainThread](2024-03-28 22:18:36,669) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 22:18:43,714) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 22:18:48,819) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 22:21:32,113) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (3/3)
+[3414733:MainThread](2024-03-28 22:21:35,819) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 9
+[3414733:MainThread](2024-03-28 22:21:35,904) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+
+train tasks:  70%|███████   | 31/44 [2:30:55<1:09:02, 318.65s/it][3414733:MainThread](2024-03-28 22:21:35,914) INFO - qlib.workflow - [exp.py:258] - Experiment 9 starts running ...
+[3414733:MainThread](2024-03-28 22:21:35,978) INFO - qlib.workflow - [recorder.py:341] - Recorder dbd61ad818554f28a94f04c52285ea30 starts running under Experiment 9 ...
+[3414733:MainThread](2024-03-28 22:21:36,211) INFO - qlib.DEnsembleModel - [double_ensemble.py:57] - Double Ensemble Model...
+[3414733:MainThread](2024-03-28 22:21:36,979) WARNING - qlib.utils - [__init__.py:789] - The parameter `reweighter` with value `None` is ignored.
+[3414733:MainThread](2024-03-28 22:21:38,717) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (1/3)
+[3414733:MainThread](2024-03-28 22:21:44,225) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 22:21:57,649) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 22:22:02,528) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 22:24:00,592) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (2/3)
+[3414733:MainThread](2024-03-28 22:24:03,707) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 22:24:12,475) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 22:24:17,604) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 22:27:19,484) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (3/3)
+[3414733:MainThread](2024-03-28 22:27:23,514) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 9
+[3414733:MainThread](2024-03-28 22:27:23,587) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+
+train tasks:  73%|███████▎  | 32/44 [2:36:42<1:05:28, 327.36s/it][3414733:MainThread](2024-03-28 22:27:23,597) INFO - qlib.workflow - [exp.py:258] - Experiment 9 starts running ...
+[3414733:MainThread](2024-03-28 22:27:23,613) INFO - qlib.workflow - [recorder.py:341] - Recorder 02412fc2c078416db52378fb655aaeb7 starts running under Experiment 9 ...
+[3414733:MainThread](2024-03-28 22:27:23,855) INFO - qlib.DEnsembleModel - [double_ensemble.py:57] - Double Ensemble Model...
+[3414733:MainThread](2024-03-28 22:27:24,616) WARNING - qlib.utils - [__init__.py:789] - The parameter `reweighter` with value `None` is ignored.
+[3414733:MainThread](2024-03-28 22:27:26,308) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (1/3)
+[3414733:MainThread](2024-03-28 22:27:31,769) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 22:27:42,068) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 22:27:46,952) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 22:29:34,180) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (2/3)
+[3414733:MainThread](2024-03-28 22:29:37,281) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 22:29:43,548) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 22:29:48,578) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 22:32:32,901) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (3/3)
+[3414733:MainThread](2024-03-28 22:32:36,835) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 9
+[3414733:MainThread](2024-03-28 22:32:36,904) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+
+train tasks:  75%|███████▌  | 33/44 [2:41:56<59:14, 323.15s/it]  [3414733:MainThread](2024-03-28 22:32:36,914) INFO - qlib.workflow - [exp.py:258] - Experiment 9 starts running ...
+[3414733:MainThread](2024-03-28 22:32:36,930) INFO - qlib.workflow - [recorder.py:341] - Recorder f92ceacad179482890c2617dc0d7f9dd starts running under Experiment 9 ...
+[3414733:MainThread](2024-03-28 22:32:37,167) INFO - qlib.DEnsembleModel - [double_ensemble.py:57] - Double Ensemble Model...
+[3414733:MainThread](2024-03-28 22:32:37,924) WARNING - qlib.utils - [__init__.py:789] - The parameter `reweighter` with value `None` is ignored.
+[3414733:MainThread](2024-03-28 22:32:39,643) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (1/3)
+[3414733:MainThread](2024-03-28 22:32:44,926) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 22:32:55,329) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 22:33:00,252) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 22:34:48,035) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (2/3)
+[3414733:MainThread](2024-03-28 22:34:51,295) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 22:34:57,616) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 22:35:02,726) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 22:37:42,221) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (3/3)
+[3414733:MainThread](2024-03-28 22:37:46,176) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 9
+[3414733:MainThread](2024-03-28 22:37:46,388) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+
+train tasks:  77%|███████▋  | 34/44 [2:47:05<53:10, 319.05s/it][3414733:MainThread](2024-03-28 22:37:46,395) INFO - qlib.workflow - [exp.py:258] - Experiment 9 starts running ...
+[3414733:MainThread](2024-03-28 22:37:46,407) INFO - qlib.workflow - [recorder.py:341] - Recorder 10e9de50a40a47aa9449d97c90712472 starts running under Experiment 9 ...
+[3414733:MainThread](2024-03-28 22:37:46,641) INFO - qlib.DEnsembleModel - [double_ensemble.py:57] - Double Ensemble Model...
+[3414733:MainThread](2024-03-28 22:37:47,417) WARNING - qlib.utils - [__init__.py:789] - The parameter `reweighter` with value `None` is ignored.
+[3414733:MainThread](2024-03-28 22:37:49,166) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (1/3)
+[3414733:MainThread](2024-03-28 22:37:54,554) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 22:38:06,070) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 22:38:11,061) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 22:40:03,614) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (2/3)
+[3414733:MainThread](2024-03-28 22:40:06,747) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 22:40:14,988) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 22:40:20,253) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 22:43:07,324) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (3/3)
+[3414733:MainThread](2024-03-28 22:43:11,260) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 9
+[3414733:MainThread](2024-03-28 22:43:11,341) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+
+train tasks:  80%|███████▉  | 35/44 [2:52:30<48:07, 320.82s/it][3414733:MainThread](2024-03-28 22:43:11,351) INFO - qlib.workflow - [exp.py:258] - Experiment 9 starts running ...
+[3414733:MainThread](2024-03-28 22:43:11,368) INFO - qlib.workflow - [recorder.py:341] - Recorder 2f6b53cd44124df6a0b4cd8c6d2fa5b7 starts running under Experiment 9 ...
+[3414733:MainThread](2024-03-28 22:43:11,608) INFO - qlib.DEnsembleModel - [double_ensemble.py:57] - Double Ensemble Model...
+[3414733:MainThread](2024-03-28 22:43:12,383) WARNING - qlib.utils - [__init__.py:789] - The parameter `reweighter` with value `None` is ignored.
+[3414733:MainThread](2024-03-28 22:43:14,151) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (1/3)
+[3414733:MainThread](2024-03-28 22:43:19,720) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 22:43:33,642) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 22:43:38,689) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 22:45:42,453) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (2/3)
+[3414733:MainThread](2024-03-28 22:45:45,610) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 22:45:54,342) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 22:45:59,530) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 22:49:05,336) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (3/3)
+[3414733:MainThread](2024-03-28 22:49:09,222) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 9
+[3414733:MainThread](2024-03-28 22:49:09,291) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+
+train tasks:  82%|████████▏ | 36/44 [2:58:28<44:15, 331.96s/it][3414733:MainThread](2024-03-28 22:49:09,301) INFO - qlib.workflow - [exp.py:258] - Experiment 9 starts running ...
+[3414733:MainThread](2024-03-28 22:49:09,318) INFO - qlib.workflow - [recorder.py:341] - Recorder 782b31e58fb349b6978a04273d52dc2d starts running under Experiment 9 ...
+[3414733:MainThread](2024-03-28 22:49:09,545) INFO - qlib.DEnsembleModel - [double_ensemble.py:57] - Double Ensemble Model...
+[3414733:MainThread](2024-03-28 22:49:10,309) WARNING - qlib.utils - [__init__.py:789] - The parameter `reweighter` with value `None` is ignored.
+[3414733:MainThread](2024-03-28 22:49:12,043) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (1/3)
+[3414733:MainThread](2024-03-28 22:49:17,549) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 22:49:31,487) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 22:49:36,614) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 22:51:43,557) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (2/3)
+[3414733:MainThread](2024-03-28 22:51:47,098) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 22:51:56,029) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 22:52:01,232) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 22:55:08,582) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (3/3)
+[3414733:MainThread](2024-03-28 22:55:12,717) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 9
+[3414733:MainThread](2024-03-28 22:55:12,787) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+
+train tasks:  84%|████████▍ | 37/44 [3:04:32<39:49, 341.42s/it][3414733:MainThread](2024-03-28 22:55:12,797) INFO - qlib.workflow - [exp.py:258] - Experiment 9 starts running ...
+[3414733:MainThread](2024-03-28 22:55:12,814) INFO - qlib.workflow - [recorder.py:341] - Recorder dc608a46637548e4a0fc73dd506933e8 starts running under Experiment 9 ...
+[3414733:MainThread](2024-03-28 22:55:13,041) INFO - qlib.DEnsembleModel - [double_ensemble.py:57] - Double Ensemble Model...
+[3414733:MainThread](2024-03-28 22:55:13,790) WARNING - qlib.utils - [__init__.py:789] - The parameter `reweighter` with value `None` is ignored.
+[3414733:MainThread](2024-03-28 22:55:15,504) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (1/3)
+[3414733:MainThread](2024-03-28 22:55:20,893) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 22:55:34,813) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 22:55:40,068) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 22:57:46,383) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (2/3)
+[3414733:MainThread](2024-03-28 22:57:49,816) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 22:57:58,726) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 22:58:03,773) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 23:01:19,488) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (3/3)
+[3414733:MainThread](2024-03-28 23:01:23,395) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 9
+                          score
+datetime   instrument          
+2018-06-27 SH600000    0.167524
+           SH600008   -0.189064
+           SH600009    0.160073
+           SH600010    0.039297
+           SH600011   -0.134407
+[20]	train's l2: 0.962724	valid's l2: 0.980486
+[20]	train's l2: 1.24556	valid's l2: 0.987211
+[20]	train's l2: 1.18342	valid's l2: 0.983735
+'The following are prediction results of the DEnsembleModel model.'
+                          score
+datetime   instrument          
+2018-07-25 SH600000    0.250390
+           SH600008   -0.022663
+           SH600009    0.077219
+           SH600010   -0.238962
+           SH600011    0.143013
+[20]	train's l2: 0.963072	valid's l2: 0.980619
+[20]	train's l2: 1.2546	valid's l2: 0.985806
+[20]	train's l2: 1.18562	valid's l2: 0.981536
+'The following are prediction results of the DEnsembleModel model.'
+                          score
+datetime   instrument          
+2018-08-22 SH600000    0.161872
+           SH600008   -0.315815
+           SH600009    0.205143
+           SH600010   -0.033949
+           SH600011    0.066556
+[20]	train's l2: 0.96371	valid's l2: 0.982351
+[20]	train's l2: 1.24599	valid's l2: 0.991299
+[20]	train's l2: 1.18424	valid's l2: 0.986512
+'The following are prediction results of the DEnsembleModel model.'
+                          score
+datetime   instrument          
+2018-09-19 SH600000    0.228519
+           SH600008   -0.137963
+           SH600009   -0.067240
+           SH600010   -0.018655
+           SH600011    0.231924
+[20]	train's l2: 0.963053	valid's l2: 0.984016
+[20]	train's l2: 1.24423	valid's l2: 0.993328
+[20]	train's l2: 1.18213	valid's l2: 0.990693
+'The following are prediction results of the DEnsembleModel model.'
+                          score
+datetime   instrument          
+2018-10-25 SH600000    0.278981
+           SH600008    0.096511
+           SH600009    0.145417
+           SH600010   -0.242199
+           SH600011    0.079001
+[20]	train's l2: 0.963846	valid's l2: 0.982901
+[20]	train's l2: 1.24729	valid's l2: 0.99452
+[20]	train's l2: 1.19797	valid's l2: 0.993128
+'The following are prediction results of the DEnsembleModel model.'
+                          score
+datetime   instrument          
+2018-11-22 SH600000    0.220660
+           SH600008   -0.043981
+           SH600009    0.163363
+           SH600010    0.132583
+           SH600011    0.158166
+[20]	train's l2: 0.964146	valid's l2: 0.983938
+[20]	train's l2: 1.24752	valid's l2: 0.996458
+[20]	train's l2: 1.19596	valid's l2: 0.991369
+'The following are prediction results of the DEnsembleModel model.'
+                          score
+datetime   instrument          
+2018-12-20 SH600000    0.211499
+           SH600004   -0.000394
+           SH600009    0.027773
+           SH600010    0.249196
+           SH600011    0.171487
+[20]	train's l2: 0.963146	valid's l2: 0.98468
+[20]	train's l2: 1.24848	valid's l2: 0.996465
+[20]	train's l2: 1.18364	valid's l2: 0.992763
+'The following are prediction results of the DEnsembleModel model.'
+                          score
+datetime   instrument          
+2019-01-21 SH600000    0.214316
+           SH600004    0.160725
+           SH600009    0.151584
+           SH600010    0.174483
+           SH600011    0.135543
+[20]	train's l2: 0.96349	valid's l2: 0.987424
+[20]	train's l2: 1.24681	valid's l2: 1.00032
+[20]	train's l2: 1.18632	valid's l2: 0.99361
+'The following are prediction results of the DEnsembleModel model.'
+                          score
+datetime   instrument          
+2019-02-25 SH600000   -0.032348
+           SH600004   -0.164895
+           SH600009    0.078716
+           SH600010    0.016013
+           SH600011   -0.054743
+[20]	train's l2: 0.9621	valid's l2: 0.992248
+[20]	train's l2: 1.24237	valid's l2: 1.01221
+[20]	train's l2: 1.18045	valid's l2: 1.00431
+'The following are prediction results of the DEnsembleModel model.'
+                          score
+datetime   instrument          
+2019-03-25 SH600000    0.031999
+           SH600004   -0.164869
+           SH600009    0.106825
+           SH600010    0.104376
+           SH600011   -0.085049
+[20]	train's l2: 0.964057	valid's l2: 0.991786
+[20]	train's l2: 1.24636	valid's l2: 1.00799
+[20]	train's l2: 1.18674	valid's l2: 1.00247
+'The following are prediction results of the DEnsembleModel model.'
+                          score
+datetime   instrument          
+2019-04-23 SH600000    0.178483
+           SH600004    0.011702
+           SH600009   -0.028539
+           SH600010   -0.047704
+           SH600011   -0.000733
+[20]	train's l2: 0.96274	valid's l2: 0.988599
+[20]	train's l2: 1.24836	valid's l2: 1.00325
+[20]	train's l2: 1.18825	valid's l2: 0.999631
+'The following are prediction results of the DEnsembleModel model.'
+                          score
+datetime   instrument          
+2019-05-24 SH600000   -0.196440
+           SH600004    0.179993
+           SH600009    0.118771
+           SH600010   -0.189582
+           SH600011   -0.224102
+[20]	train's l2: 0.963487	valid's l2: 0.988653
+[20]	train's l2: 1.24807	valid's l2: 1.00196
+[20]	train's l2: 1.19636	valid's l2: 0.999566
+'The following are prediction results of the DEnsembleModel model.'
+                          score
+datetime   instrument          
+2019-06-24 SH600000    0.325711
+           SH600004    0.218363
+           SH600009    0.175210
+           SH600010   -0.151418
+           SH600011    0.202092
+[20]	train's l2: 0.964173	valid's l2: 0.988427
+[20]	train's l2: 1.2488	valid's l2: 0.999209
+[20]	train's l2: 1.18321	valid's l2: 0.996498
+'The following are prediction results of the DEnsembleModel model.'
+                          score
+datetime   instrument          
+2019-07-22 SH600000    0.177729
+           SH600004    0.219269
+           SH600009    0.236409
+           SH600010   -0.159722
+           SH600011    0.077146
+[20]	train's l2: 0.963162	valid's l2: 0.988928
+[20]	train's l2: 1.24952	valid's l2: 1.00453
+[20]	train's l2: 1.1904	valid's l2: 0.999071
+'The following are prediction results of the DEnsembleModel model.'
+                          score
+datetime   instrument          
+2019-08-19 SH600000    0.163137
+           SH600004    0.062085
+           SH600009    0.283594
+           SH600010   -0.043789
+           SH600011    0.118650
+[20]	train's l2: 0.962832	valid's l2: 0.991136
+[20]	train's l2: 1.24858	valid's l2: 1.00936
+[20]	train's l2: 1.19682	valid's l2: 1.00594
+'The following are prediction results of the DEnsembleModel model.'
+                          score
+datetime   instrument          
+2019-09-17 SH600000    0.340426
+           SH600004    0.429588
+           SH600009    0.390581
+           SH600010   -0.014317
+           SH600011    0.002437
+[20]	train's l2: 0.96354	valid's l2: 0.992216
+[20]	train's l2: 1.24702	valid's l2: 1.01253
+[20]	train's l2: 1.18899	valid's l2: 1.00611
+'The following are prediction results of the DEnsembleModel model.'
+                          score
+datetime   instrument          
+2019-10-22 SH600000    0.374036
+           SH600004    0.317222
+           SH600009    0.100447
+           SH600010   -0.116512
+           SH600011   -0.121654
+[20]	train's l2: 0.963368	valid's l2: 0.990127
+[20]	train's l2: 1.25077	valid's l2: 1.00779
+[20]	train's l2: 1.18568	valid's l2: 1.00305
+'The following are prediction results of the DEnsembleModel model.'
+                          score
+datetime   instrument          
+2019-11-19 SH600000   -0.134685
+           SH600004    0.016981
+           SH600009    0.126209
+           SH600010    0.039832
+           SH600011    0.165317
+[20]	train's l2: 0.964078	valid's l2: 0.992043
+[20]	train's l2: 1.24952	valid's l2: 1.01218
+[20]	train's l2: 1.18447	valid's l2: 1.00583
+'The following are prediction results of the DEnsembleModel model.'
+                          score
+datetime   instrument          
+2019-12-17 SH600000    0.093411
+           SH600004    0.179250
+           SH600009    0.269375
+           SH600010   -0.029745
+           SH600011    0.137665
+[20]	train's l2: 0.963288	valid's l2: 0.99607
+[20]	train's l2: 1.24691	valid's l2: 1.01972
+[20]	train's l2: 1.18573	valid's l2: 1.01378
+'The following are prediction results of the DEnsembleModel model.'
+[3414733:MainThread](2024-03-28 23:01:23,468) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+
+train tasks:  86%|████████▋ | 38/44 [3:10:42<35:01, 350.20s/it][3414733:MainThread](2024-03-28 23:01:23,478) INFO - qlib.workflow - [exp.py:258] - Experiment 9 starts running ...
+[3414733:MainThread](2024-03-28 23:01:23,499) INFO - qlib.workflow - [recorder.py:341] - Recorder 6dcc5026958740648601ad90722c7dfa starts running under Experiment 9 ...
+[3414733:MainThread](2024-03-28 23:01:23,756) INFO - qlib.DEnsembleModel - [double_ensemble.py:57] - Double Ensemble Model...
+[3414733:MainThread](2024-03-28 23:01:24,534) WARNING - qlib.utils - [__init__.py:789] - The parameter `reweighter` with value `None` is ignored.
+[3414733:MainThread](2024-03-28 23:01:26,439) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (1/3)
+[3414733:MainThread](2024-03-28 23:01:31,967) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 23:01:44,075) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 23:01:49,444) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 23:03:47,916) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (2/3)
+[3414733:MainThread](2024-03-28 23:03:51,054) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 23:03:57,946) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 23:04:03,038) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 23:07:04,190) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (3/3)
+[3414733:MainThread](2024-03-28 23:07:08,183) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 9
+[3414733:MainThread](2024-03-28 23:07:08,253) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+
+train tasks:  89%|████████▊ | 39/44 [3:16:27<29:02, 348.57s/it][3414733:MainThread](2024-03-28 23:07:08,263) INFO - qlib.workflow - [exp.py:258] - Experiment 9 starts running ...
+[3414733:MainThread](2024-03-28 23:07:08,281) INFO - qlib.workflow - [recorder.py:341] - Recorder 8a2d65dec0b247cdbd6a5679dcad44a6 starts running under Experiment 9 ...
+[3414733:MainThread](2024-03-28 23:07:08,511) INFO - qlib.DEnsembleModel - [double_ensemble.py:57] - Double Ensemble Model...
+[3414733:MainThread](2024-03-28 23:07:09,282) WARNING - qlib.utils - [__init__.py:789] - The parameter `reweighter` with value `None` is ignored.
+[3414733:MainThread](2024-03-28 23:07:11,005) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (1/3)
+[3414733:MainThread](2024-03-28 23:07:16,250) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 23:07:26,201) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 23:07:31,441) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 23:09:22,541) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (2/3)
+[3414733:MainThread](2024-03-28 23:09:25,933) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 23:09:32,179) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 23:09:37,378) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 23:12:25,242) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (3/3)
+[3414733:MainThread](2024-03-28 23:12:29,165) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 9
+[3414733:MainThread](2024-03-28 23:12:29,241) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+
+train tasks:  91%|█████████ | 40/44 [3:21:48<22:41, 340.30s/it][3414733:MainThread](2024-03-28 23:12:29,251) INFO - qlib.workflow - [exp.py:258] - Experiment 9 starts running ...
+[3414733:MainThread](2024-03-28 23:12:29,267) INFO - qlib.workflow - [recorder.py:341] - Recorder ca75f6a545eb4f9e93dfc35d5403ce42 starts running under Experiment 9 ...
+[3414733:MainThread](2024-03-28 23:12:29,481) INFO - qlib.DEnsembleModel - [double_ensemble.py:57] - Double Ensemble Model...
+[3414733:MainThread](2024-03-28 23:12:30,241) WARNING - qlib.utils - [__init__.py:789] - The parameter `reweighter` with value `None` is ignored.
+[3414733:MainThread](2024-03-28 23:12:31,948) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (1/3)
+[3414733:MainThread](2024-03-28 23:12:37,669) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 23:12:49,671) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 23:12:55,054) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 23:14:53,262) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (2/3)
+[3414733:MainThread](2024-03-28 23:14:56,494) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 23:15:03,707) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 23:15:08,933) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 23:18:10,383) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (3/3)
+[3414733:MainThread](2024-03-28 23:18:14,485) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 9
+[3414733:MainThread](2024-03-28 23:18:14,555) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+
+train tasks:  93%|█████████▎| 41/44 [3:27:33<17:05, 341.80s/it][3414733:MainThread](2024-03-28 23:18:14,565) INFO - qlib.workflow - [exp.py:258] - Experiment 9 starts running ...
+[3414733:MainThread](2024-03-28 23:18:14,582) INFO - qlib.workflow - [recorder.py:341] - Recorder c4a4d007f42549b692073a35a133462d starts running under Experiment 9 ...
+[3414733:MainThread](2024-03-28 23:18:14,798) INFO - qlib.DEnsembleModel - [double_ensemble.py:57] - Double Ensemble Model...
+[3414733:MainThread](2024-03-28 23:18:15,564) WARNING - qlib.utils - [__init__.py:789] - The parameter `reweighter` with value `None` is ignored.
+[3414733:MainThread](2024-03-28 23:18:17,311) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (1/3)
+[3414733:MainThread](2024-03-28 23:18:22,887) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 23:18:35,077) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 23:18:40,626) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 23:20:42,770) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (2/3)
+[3414733:MainThread](2024-03-28 23:20:46,098) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 23:20:54,827) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 23:21:01,192) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 23:24:08,315) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (3/3)
+[3414733:MainThread](2024-03-28 23:24:12,417) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 9
+[3414733:MainThread](2024-03-28 23:24:12,488) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+
+train tasks:  95%|█████████▌| 42/44 [3:33:31<11:33, 346.64s/it][3414733:MainThread](2024-03-28 23:24:12,498) INFO - qlib.workflow - [exp.py:258] - Experiment 9 starts running ...
+[3414733:MainThread](2024-03-28 23:24:12,515) INFO - qlib.workflow - [recorder.py:341] - Recorder ad1183dd6ac045a9b550b9b346c205f3 starts running under Experiment 9 ...
+[3414733:MainThread](2024-03-28 23:24:12,765) INFO - qlib.DEnsembleModel - [double_ensemble.py:57] - Double Ensemble Model...
+[3414733:MainThread](2024-03-28 23:24:13,524) WARNING - qlib.utils - [__init__.py:789] - The parameter `reweighter` with value `None` is ignored.
+[3414733:MainThread](2024-03-28 23:24:15,243) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (1/3)
+[3414733:MainThread](2024-03-28 23:24:20,869) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 23:24:31,713) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 23:24:37,204) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 23:26:34,673) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (2/3)
+[3414733:MainThread](2024-03-28 23:26:38,095) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 23:26:44,674) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 23:26:49,976) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 23:29:46,698) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (3/3)
+[3414733:MainThread](2024-03-28 23:29:51,089) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 9
+[3414733:MainThread](2024-03-28 23:29:51,171) INFO - qlib.timer - [log.py:127] - Time cost: 0.004s | waiting `async_log` Done
+
+train tasks:  98%|█████████▊| 43/44 [3:39:10<05:44, 344.25s/it][3414733:MainThread](2024-03-28 23:29:51,182) INFO - qlib.workflow - [exp.py:258] - Experiment 9 starts running ...
+[3414733:MainThread](2024-03-28 23:29:51,199) INFO - qlib.workflow - [recorder.py:341] - Recorder 922cf5e31abc41dd94c92d36ea54aeac starts running under Experiment 9 ...
+[3414733:MainThread](2024-03-28 23:29:51,428) INFO - qlib.DEnsembleModel - [double_ensemble.py:57] - Double Ensemble Model...
+[3414733:MainThread](2024-03-28 23:29:52,201) WARNING - qlib.utils - [__init__.py:789] - The parameter `reweighter` with value `None` is ignored.
+[3414733:MainThread](2024-03-28 23:29:53,942) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (1/3)
+[3414733:MainThread](2024-03-28 23:30:00,280) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 23:30:14,970) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 23:30:20,424) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 23:32:35,457) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (2/3)
+[3414733:MainThread](2024-03-28 23:32:38,952) INFO - qlib.DEnsembleModel - [double_ensemble.py:88] - Retrieving loss curve and loss values...
+[3414733:MainThread](2024-03-28 23:32:48,107) INFO - qlib.DEnsembleModel - [double_ensemble.py:98] - Sample re-weighting...
+[3414733:MainThread](2024-03-28 23:32:53,715) INFO - qlib.DEnsembleModel - [double_ensemble.py:102] - Feature selection...
+[3414733:MainThread](2024-03-28 23:36:18,210) INFO - qlib.DEnsembleModel - [double_ensemble.py:81] - Training sub-model: (3/3)
+[3414733:MainThread](2024-03-28 23:36:22,260) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 9
+[3414733:MainThread](2024-03-28 23:36:22,332) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+
+train tasks: 100%|██████████| 44/44 [3:45:41<00:00, 358.33s/it]
+train tasks: 100%|██████████| 44/44 [3:45:41<00:00, 307.76s/it]
+[3414733:MainThread](2024-03-28 23:36:22,518) INFO - qlib.timer - [log.py:127] - Time cost: 0.104s | Time to `list_recorders` in RecorderCollector Done
+[3414733:MainThread](2024-03-28 23:36:22,519) INFO - qlib.RecorderCollector - [collect.py:226] - Nubmer of recorders after filter: defaultdict(<class 'int'>, {'FINISHED': 44})
+[3414733:MainThread](2024-03-28 23:36:22,559) INFO - qlib.RollingEnsemble - [ensemble.py:81] - keys in group: ['922cf5e31abc41dd94c92d36ea54aeac', 'ad1183dd6ac045a9b550b9b346c205f3', 'c4a4d007f42549b692073a35a133462d', 'ca75f6a545eb4f9e93dfc35d5403ce42', '8a2d65dec0b247cdbd6a5679dcad44a6', '6dcc5026958740648601ad90722c7dfa', 'dc608a46637548e4a0fc73dd506933e8', '782b31e58fb349b6978a04273d52dc2d', '2f6b53cd44124df6a0b4cd8c6d2fa5b7', '10e9de50a40a47aa9449d97c90712472', 'f92ceacad179482890c2617dc0d7f9dd', '02412fc2c078416db52378fb655aaeb7', 'dbd61ad818554f28a94f04c52285ea30', 'e1b86ef53caf4a02b4f47426c41b8efd', '7845b5d014064f57b48df92fa658317d', '745536ceb9d8414eb2c5060ed626e85e', 'a5b5778200b245b28236003a89186a55', 'c5f5824ca90e401c844939383a56b362', 'e16f17920e524a8aadcd42f6f0bed96f', '8d3f73b468e94ca2a48085899867f9d8', '3be6709daf1e45f4af812fc416a217ee', '6a0b5673b77a4e1caa5519d44476ea09', '1639143f7c834dad9fc462ce48299a9f', '5f4bee79a8474f05a7f5019e8d6e66e1', 'c688592b977740ddb7b524a6de67d3e8', '76e3d7721f9943e3926c56c0569852de', '7c08387a8e034919b449a0a4eca77ff9', '7e54acf2e86e4e14b5324c83c46849da', 'bb1715e00716405e9e4badfcd5fca96e', 'a2cb9fe5a8524236861cad0cd514c051', '0245744cf38740e19d0ca0081f203524', 'ac662c6930da4b51838d52b8195171bd', 'e1a3ce1074d447acade8ce2a28d36557', '3fdcf40e843248e39a1a8a22feca3e9b', '88af5748608b4799ab39c55b91274487', '5ba2751f36e5423f9eb4b3891d883957', '10622e3560604c5fa57309ffff5adb98', 'c9fb39617bc346669be8b564b72f8227', 'f89e725342824f1995f445648384f103', 'b3123c3d9e3d497684ccc5025373f35c', '9fe4148d3ee5453ab33a169cb9b4a615', '1060e08e11c54c008ec2c7e0f112858b', '540d11d7c6ee4a2cb404d1757a93390c', '5cdca74c88c34df98265757e3d49a5c9']
+[3414733:MainThread](2024-03-28 23:36:22,658) INFO - qlib.RollingEnsemble - [ensemble.py:81] - keys in group: ['922cf5e31abc41dd94c92d36ea54aeac', 'ad1183dd6ac045a9b550b9b346c205f3', 'c4a4d007f42549b692073a35a133462d', 'ca75f6a545eb4f9e93dfc35d5403ce42', '8a2d65dec0b247cdbd6a5679dcad44a6', '6dcc5026958740648601ad90722c7dfa', 'dc608a46637548e4a0fc73dd506933e8', '782b31e58fb349b6978a04273d52dc2d', '2f6b53cd44124df6a0b4cd8c6d2fa5b7', '10e9de50a40a47aa9449d97c90712472', 'f92ceacad179482890c2617dc0d7f9dd', '02412fc2c078416db52378fb655aaeb7', 'dbd61ad818554f28a94f04c52285ea30', 'e1b86ef53caf4a02b4f47426c41b8efd', '7845b5d014064f57b48df92fa658317d', '745536ceb9d8414eb2c5060ed626e85e', 'a5b5778200b245b28236003a89186a55', 'c5f5824ca90e401c844939383a56b362', 'e16f17920e524a8aadcd42f6f0bed96f', '8d3f73b468e94ca2a48085899867f9d8', '3be6709daf1e45f4af812fc416a217ee', '6a0b5673b77a4e1caa5519d44476ea09', '1639143f7c834dad9fc462ce48299a9f', '5f4bee79a8474f05a7f5019e8d6e66e1', 'c688592b977740ddb7b524a6de67d3e8', '76e3d7721f9943e3926c56c0569852de', '7c08387a8e034919b449a0a4eca77ff9', '7e54acf2e86e4e14b5324c83c46849da', 'bb1715e00716405e9e4badfcd5fca96e', 'a2cb9fe5a8524236861cad0cd514c051', '0245744cf38740e19d0ca0081f203524', 'ac662c6930da4b51838d52b8195171bd', 'e1a3ce1074d447acade8ce2a28d36557', '3fdcf40e843248e39a1a8a22feca3e9b', '88af5748608b4799ab39c55b91274487', '5ba2751f36e5423f9eb4b3891d883957', '10622e3560604c5fa57309ffff5adb98', 'c9fb39617bc346669be8b564b72f8227', 'f89e725342824f1995f445648384f103', 'b3123c3d9e3d497684ccc5025373f35c', '9fe4148d3ee5453ab33a169cb9b4a615', '1060e08e11c54c008ec2c7e0f112858b', '540d11d7c6ee4a2cb404d1757a93390c', '5cdca74c88c34df98265757e3d49a5c9']
+[3414733:MainThread](2024-03-28 23:36:22,758) INFO - qlib.workflow - [exp.py:258] - Experiment 3 starts running ...
+[3414733:MainThread](2024-03-28 23:36:22,769) INFO - qlib.workflow - [recorder.py:341] - Recorder 7f579543f44d4637915138ef767d4589 starts running under Experiment 3 ...
+[3414733:MainThread](2024-03-28 23:36:22,991) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+[3414733:MainThread](2024-03-28 23:36:24,544) INFO - qlib.backtest caller - [__init__.py:93] - Create new exchange
+                          score
+datetime   instrument          
+2020-01-15 SH600000    0.129633
+           SH600004    0.178717
+           SH600009    0.185396
+           SH600010    0.097611
+           SH600011    0.141476
+[20]	train's l2: 0.963373	valid's l2: 0.997565
+[20]	train's l2: 1.25007	valid's l2: 1.02041
+[20]	train's l2: 1.18689	valid's l2: 1.01374
+'The following are prediction results of the DEnsembleModel model.'
+                          score
+datetime   instrument          
+2020-02-20 SH600000    0.260400
+           SH600004    0.194399
+           SH600009    0.041092
+           SH600010    0.115303
+           SH600011    0.155259
+[20]	train's l2: 0.963325	valid's l2: 0.999363
+[20]	train's l2: 1.24692	valid's l2: 1.02549
+[20]	train's l2: 1.18578	valid's l2: 1.01785
+'The following are prediction results of the DEnsembleModel model.'
+                          score
+datetime   instrument          
+2020-03-19 SH600000    0.022336
+           SH600004    0.245444
+           SH600009    0.139708
+           SH600010   -0.143517
+           SH600011    0.401609
+[20]	train's l2: 0.964443	valid's l2: 1.00147
+[20]	train's l2: 1.25062	valid's l2: 1.02777
+[20]	train's l2: 1.18622	valid's l2: 1.02152
+'The following are prediction results of the DEnsembleModel model.'
+                          score
+datetime   instrument          
+2020-04-17 SH600000   -0.165763
+           SH600004    0.139270
+           SH600009    0.341444
+           SH600010   -0.218793
+           SH600011    0.055661
+[20]	train's l2: 0.963701	valid's l2: 1.00027
+[20]	train's l2: 1.24599	valid's l2: 1.0253
+[20]	train's l2: 1.18667	valid's l2: 1.01735
+'The following are prediction results of the DEnsembleModel model.'
+                          score
+datetime   instrument          
+2020-05-20 SH600000   -0.108649
+           SH600004   -0.162207
+           SH600009    0.160028
+           SH600010   -0.050123
+           SH600011   -0.060109
+[20]	train's l2: 0.96439	valid's l2: 0.998577
+[20]	train's l2: 1.25148	valid's l2: 1.02096
+[20]	train's l2: 1.19808	valid's l2: 1.01527
+'The following are prediction results of the DEnsembleModel model.'
+                          score
+datetime   instrument          
+2020-06-17 SH600000    0.325825
+           SH600004    0.254431
+           SH600009    0.330865
+           SH600010    0.056735
+           SH600011   -0.092374
+[20]	train's l2: 0.964891	valid's l2: 0.998092
+[20]	train's l2: 1.25241	valid's l2: 1.0176
+[20]	train's l2: 1.19559	valid's l2: 1.01671
+'The following are prediction results of the DEnsembleModel model.'
+                          score
+datetime   instrument          
+2020-07-17 SH600000   -0.177868
+           SH600004   -0.203293
+           SH600009   -0.023681
+           SH600010   -0.217848
+           SH600011    0.293369
+{'IC': 0.08504532846662216,
+ 'ICIR': 0.5882252963349477,
+ 'Rank IC': 0.09415561406287613,
+ 'Rank ICIR': 0.608973804150309}
+[3414733:MainThread](2024-03-28 23:36:30,240) WARNING - qlib.online operator - [exchange.py:219] - $close field data contains nan.
+[3414733:MainThread](2024-03-28 23:36:30,242) WARNING - qlib.online operator - [exchange.py:219] - $close field data contains nan.
+[3414733:MainThread](2024-03-28 23:36:30,252) WARNING - qlib.online operator - [exchange.py:226] - factor.day.bin file not exists or factor contains `nan`. Order using adjusted_price.
+[3414733:MainThread](2024-03-28 23:36:30,252) WARNING - qlib.online operator - [exchange.py:228] - trade unit 100 is not supported in adjusted_price mode.
+[3414733:MainThread](2024-03-28 23:36:34,448) WARNING - qlib.BaseExecutor - [executor.py:121] - `common_infra` is not set for <qlib.backtest.executor.SimulatorExecutor object at 0x7f7486751cd0>
+
+backtest loop:   0%|          | 0/871 [00:00<?, ?it/s]/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/qlib/utils/index_data.py:481: RuntimeWarning: Mean of empty slice
+  return np.nanmean(self.data)
+
+backtest loop:   1%|          | 6/871 [00:00<00:14, 58.90it/s]
+backtest loop:   1%|▏         | 12/871 [00:00<00:14, 59.50it/s]
+backtest loop:   2%|▏         | 18/871 [00:00<00:15, 54.77it/s]
+backtest loop:   3%|▎         | 24/871 [00:00<00:15, 53.58it/s]
+backtest loop:   4%|▎         | 31/871 [00:00<00:14, 58.46it/s]
+backtest loop:   4%|▍         | 38/871 [00:00<00:13, 61.56it/s]
+backtest loop:   5%|▌         | 45/871 [00:00<00:13, 59.40it/s]
+backtest loop:   6%|▌         | 52/871 [00:00<00:13, 61.79it/s]
+backtest loop:   7%|▋         | 59/871 [00:01<00:13, 59.04it/s]
+backtest loop:   8%|▊         | 66/871 [00:01<00:13, 60.43it/s]
+backtest loop:   8%|▊         | 73/871 [00:01<00:13, 57.82it/s]
+backtest loop:   9%|▉         | 80/871 [00:01<00:13, 59.06it/s]
+backtest loop:  10%|▉         | 86/871 [00:01<00:14, 55.97it/s]
+backtest loop:  11%|█         | 93/871 [00:01<00:13, 58.05it/s]
+backtest loop:  11%|█▏        | 99/871 [00:01<00:13, 55.57it/s]
+backtest loop:  12%|█▏        | 106/871 [00:01<00:13, 57.57it/s]
+backtest loop:  13%|█▎        | 113/871 [00:01<00:12, 59.93it/s]
+backtest loop:  14%|█▍        | 120/871 [00:02<00:13, 57.01it/s]
+backtest loop:  15%|█▍        | 127/871 [00:02<00:12, 58.89it/s]
+backtest loop:  15%|█▌        | 134/871 [00:02<00:12, 57.60it/s]
+backtest loop:  16%|█▌        | 141/871 [00:02<00:12, 59.30it/s]
+backtest loop:  17%|█▋        | 148/871 [00:02<00:11, 61.70it/s]
+backtest loop:  18%|█▊        | 155/871 [00:02<00:11, 60.44it/s]
+backtest loop:  19%|█▊        | 162/871 [00:02<00:11, 61.69it/s]
+backtest loop:  19%|█▉        | 169/871 [00:02<00:12, 57.31it/s]
+backtest loop:  20%|██        | 176/871 [00:02<00:11, 59.26it/s]
+backtest loop:  21%|██        | 183/871 [00:03<00:11, 61.03it/s]
+backtest loop:  22%|██▏       | 190/871 [00:03<00:11, 59.20it/s]
+backtest loop:  23%|██▎       | 197/871 [00:03<00:11, 61.14it/s]
+backtest loop:  23%|██▎       | 204/871 [00:03<00:11, 59.31it/s]
+backtest loop:  24%|██▍       | 210/871 [00:03<00:11, 59.43it/s]
+backtest loop:  25%|██▍       | 216/871 [00:03<00:11, 59.20it/s]
+backtest loop:  26%|██▌       | 223/871 [00:03<00:10, 60.25it/s]
+backtest loop:  26%|██▋       | 230/871 [00:03<00:10, 59.46it/s]
+backtest loop:  27%|██▋       | 236/871 [00:03<00:10, 59.49it/s]
+backtest loop:  28%|██▊       | 243/871 [00:04<00:10, 61.83it/s]
+backtest loop:  29%|██▊       | 250/871 [00:04<00:10, 59.40it/s]
+backtest loop:  30%|██▉       | 257/871 [00:04<00:09, 62.01it/s]
+backtest loop:  30%|███       | 264/871 [00:04<00:09, 61.16it/s]
+backtest loop:  31%|███       | 272/871 [00:04<00:09, 65.21it/s]
+backtest loop:  32%|███▏      | 279/871 [00:04<00:09, 59.44it/s]
+backtest loop:  33%|███▎      | 287/871 [00:04<00:09, 64.31it/s]
+backtest loop:  34%|███▍      | 294/871 [00:04<00:09, 63.75it/s]
+backtest loop:  35%|███▍      | 302/871 [00:05<00:08, 66.34it/s]
+backtest loop:  35%|███▌      | 309/871 [00:05<00:09, 61.92it/s]
+backtest loop:  36%|███▋      | 316/871 [00:05<00:08, 61.83it/s]
+backtest loop:  37%|███▋      | 324/871 [00:05<00:08, 62.39it/s]
+backtest loop:  38%|███▊      | 332/871 [00:05<00:08, 65.59it/s]
+backtest loop:  39%|███▉      | 339/871 [00:05<00:08, 64.22it/s]
+backtest loop:  40%|███▉      | 347/871 [00:05<00:07, 68.01it/s]
+backtest loop:  41%|████      | 354/871 [00:05<00:07, 66.54it/s]
+backtest loop:  42%|████▏     | 362/871 [00:05<00:07, 69.88it/s]
+backtest loop:  42%|████▏     | 370/871 [00:06<00:07, 68.73it/s]/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/qlib/utils/index_data.py:481: RuntimeWarning: Mean of empty slice
+  return np.nanmean(self.data)
+
+backtest loop:  43%|████▎     | 378/871 [00:06<00:07, 68.44it/s]
+backtest loop:  44%|████▍     | 385/871 [00:06<00:07, 68.30it/s]
+backtest loop:  45%|████▌     | 392/871 [00:06<00:07, 66.47it/s]
+backtest loop:  46%|████▌     | 399/871 [00:06<00:07, 63.69it/s]
+backtest loop:  47%|████▋     | 407/871 [00:06<00:07, 66.23it/s]
+backtest loop:  48%|████▊     | 414/871 [00:06<00:07, 63.66it/s]
+backtest loop:  48%|████▊     | 422/871 [00:06<00:06, 66.17it/s]
+backtest loop:  49%|████▉     | 429/871 [00:06<00:06, 63.62it/s]
+backtest loop:  50%|█████     | 437/871 [00:07<00:06, 63.48it/s]
+backtest loop:  51%|█████     | 445/871 [00:07<00:06, 67.36it/s]
+backtest loop:  52%|█████▏    | 452/871 [00:07<00:06, 65.28it/s]
+backtest loop:  53%|█████▎    | 460/871 [00:07<00:06, 67.84it/s]
+backtest loop:  54%|█████▎    | 467/871 [00:07<00:06, 63.95it/s]
+backtest loop:  54%|█████▍    | 474/871 [00:07<00:06, 64.01it/s]
+backtest loop:  55%|█████▌    | 481/871 [00:07<00:06, 63.96it/s]
+backtest loop:  56%|█████▌    | 488/871 [00:07<00:06, 60.36it/s]
+backtest loop:  57%|█████▋    | 495/871 [00:08<00:06, 58.25it/s]
+backtest loop:  58%|█████▊    | 502/871 [00:08<00:06, 59.42it/s]
+backtest loop:  58%|█████▊    | 509/871 [00:08<00:06, 60.31it/s]
+backtest loop:  59%|█████▉    | 516/871 [00:08<00:06, 57.92it/s]
+backtest loop:  60%|██████    | 523/871 [00:08<00:05, 59.36it/s]
+backtest loop:  61%|██████    | 530/871 [00:08<00:05, 57.93it/s]
+backtest loop:  62%|██████▏   | 537/871 [00:08<00:05, 59.01it/s]
+backtest loop:  62%|██████▏   | 544/871 [00:08<00:05, 59.96it/s]
+backtest loop:  63%|██████▎   | 551/871 [00:08<00:05, 57.98it/s]
+backtest loop:  64%|██████▍   | 558/871 [00:09<00:05, 59.18it/s]
+backtest loop:  65%|██████▍   | 564/871 [00:09<00:05, 56.26it/s]/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/qlib/utils/index_data.py:481: RuntimeWarning: Mean of empty slice
+  return np.nanmean(self.data)
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/qlib/utils/index_data.py:481: RuntimeWarning: Mean of empty slice
+  return np.nanmean(self.data)
+
+backtest loop:  66%|██████▌   | 571/871 [00:09<00:05, 59.32it/s]
+backtest loop:  66%|██████▋   | 578/871 [00:09<00:04, 60.26it/s]
+backtest loop:  67%|██████▋   | 585/871 [00:09<00:04, 61.71it/s]
+backtest loop:  68%|██████▊   | 592/871 [00:09<00:04, 58.98it/s]
+backtest loop:  69%|██████▉   | 599/871 [00:09<00:04, 60.05it/s]
+backtest loop:  70%|██████▉   | 606/871 [00:09<00:04, 57.62it/s]
+backtest loop:  70%|███████   | 613/871 [00:10<00:04, 59.24it/s]
+backtest loop:  71%|███████   | 619/871 [00:10<00:04, 59.27it/s]
+backtest loop:  72%|███████▏  | 625/871 [00:10<00:04, 56.12it/s]
+backtest loop:  72%|███████▏  | 631/871 [00:10<00:04, 55.45it/s]
+backtest loop:  73%|███████▎  | 637/871 [00:10<00:04, 55.81it/s]
+backtest loop:  74%|███████▍  | 643/871 [00:10<00:04, 55.48it/s]
+backtest loop:  75%|███████▍  | 649/871 [00:10<00:03, 55.73it/s]
+backtest loop:  75%|███████▌  | 655/871 [00:10<00:04, 53.65it/s]
+backtest loop:  76%|███████▌  | 661/871 [00:10<00:03, 54.41it/s]
+backtest loop:  77%|███████▋  | 667/871 [00:11<00:03, 55.26it/s]
+backtest loop:  77%|███████▋  | 673/871 [00:11<00:03, 51.94it/s]
+backtest loop:  78%|███████▊  | 679/871 [00:11<00:03, 50.08it/s]
+backtest loop:  79%|███████▊  | 685/871 [00:11<00:03, 52.13it/s]
+backtest loop:  79%|███████▉  | 691/871 [00:11<00:03, 53.49it/s]
+backtest loop:  80%|████████  | 697/871 [00:11<00:03, 54.83it/s]
+backtest loop:  81%|████████  | 703/871 [00:11<00:03, 54.88it/s]
+backtest loop:  81%|████████▏ | 709/871 [00:11<00:03, 51.85it/s]
+backtest loop:  82%|████████▏ | 715/871 [00:11<00:02, 53.81it/s]
+backtest loop:  83%|████████▎ | 721/871 [00:12<00:02, 54.87it/s]
+backtest loop:  83%|████████▎ | 727/871 [00:12<00:02, 55.82it/s]
+backtest loop:  84%|████████▍ | 733/871 [00:12<00:02, 49.70it/s]
+backtest loop:  85%|████████▍ | 739/871 [00:12<00:02, 51.28it/s]
+backtest loop:  86%|████████▌ | 745/871 [00:12<00:02, 53.25it/s]
+backtest loop:  86%|████████▌ | 751/871 [00:12<00:02, 54.89it/s]
+backtest loop:  87%|████████▋ | 757/871 [00:12<00:02, 52.51it/s]
+backtest loop:  88%|████████▊ | 763/871 [00:12<00:02, 53.22it/s]
+backtest loop:  88%|████████▊ | 769/871 [00:12<00:01, 53.71it/s]
+backtest loop:  89%|████████▉ | 775/871 [00:13<00:01, 55.16it/s]
+backtest loop:  90%|████████▉ | 781/871 [00:13<00:01, 56.48it/s]
+backtest loop:  90%|█████████ | 787/871 [00:13<00:01, 53.85it/s]
+backtest loop:  91%|█████████ | 794/871 [00:13<00:01, 56.11it/s]
+backtest loop:  92%|█████████▏| 800/871 [00:13<00:01, 56.31it/s]
+backtest loop:  93%|█████████▎| 806/871 [00:13<00:01, 54.17it/s]
+backtest loop:  93%|█████████▎| 813/871 [00:13<00:01, 54.19it/s]
+backtest loop:  94%|█████████▍| 820/871 [00:13<00:00, 56.78it/s]
+backtest loop:  95%|█████████▍| 826/871 [00:13<00:00, 57.05it/s]
+backtest loop:  96%|█████████▌| 832/871 [00:14<00:00, 57.05it/s]
+backtest loop:  96%|█████████▌| 838/871 [00:14<00:00, 53.52it/s]
+backtest loop:  97%|█████████▋| 844/871 [00:14<00:00, 55.20it/s]
+backtest loop:  98%|█████████▊| 850/871 [00:14<00:00, 56.13it/s]
+backtest loop:  98%|█████████▊| 856/871 [00:14<00:00, 53.42it/s]
+backtest loop:  99%|█████████▉| 862/871 [00:14<00:00, 54.03it/s]
+backtest loop: 100%|█████████▉| 868/871 [00:14<00:00, 54.61it/s]
+backtest loop: 100%|██████████| 871/871 [00:14<00:00, 58.88it/s]
+[3414733:MainThread](2024-03-28 23:36:49,310) INFO - qlib.workflow - [record_temp.py:515] - Portfolio analysis record 'port_analysis_1day.pkl' has been saved as the artifact of the Experiment 3
+[3414733:MainThread](2024-03-28 23:36:49,326) INFO - qlib.workflow - [record_temp.py:540] - Indicator analysis record 'indicator_analysis_1day.pkl' has been saved as the artifact of the Experiment 3
+'The following are analysis results of benchmark return(1day).'
+                       risk
+mean               0.000477
+std                0.012295
+annualized_return  0.113561
+information_ratio  0.598699
+max_drawdown      -0.370479
+'The following are analysis results of the excess return without cost(1day).'
+                       risk
+mean               0.000415
+std                0.003846
+annualized_return  0.098705
+information_ratio  1.663479
+max_drawdown      -0.059302
+'The following are analysis results of the excess return with cost(1day).'
+                       risk
+mean               0.000255
+std                0.003850
+annualized_return  0.060673
+information_ratio  1.021620
+max_drawdown      -0.066046
+'The following are analysis results of indicators(1day).'
+     value
+ffr    1.0
+pa     0.0
+pos    0.0
+Your evaluation results can be found in the experiment named `None`.

@@ -1,0 +1,52 @@
+[3793509:MainThread](2024-04-06 06:00:30,921) INFO - qlib.Initialization - [config.py:416] - default_conf: client.
+[3793509:MainThread](2024-04-06 06:00:30,924) INFO - qlib.Initialization - [__init__.py:74] - qlib successfully initialized based on client settings.
+[3793509:MainThread](2024-04-06 06:00:30,924) INFO - qlib.Initialization - [__init__.py:76] - data_path={'day': PosixPath('/home/zhonghao/.qlib/qlib_data/my_data')}
+[3793509:MainThread](2024-04-06 06:00:30,926) WARNING - qlib.Rolling - [workflow.py:40] - Model type is not in the benchmark!
+[3793509:MainThread](2024-04-06 06:00:30,950) INFO - qlib.Rolling - [base.py:162] - The prediction horizon is overrided
+[3793509:MainThread](2024-04-06 06:00:30,950) INFO - qlib.Rolling - [base.py:173] - {'model': {'class': 'ADARNN', 'module_path': 'qlib.contrib.model.pytorch_adarnn', 'kwargs': {'d_feat': 6, 'hidden_size': 64, 'num_layers': 2, 'dropout': 0.0, 'n_epochs': 200, 'early_stop': 20, 'batch_size': 800, 'metric': 'loss', 'loss': 'mse', 'GPU': 0}}, 'dataset': {'class': 'DatasetH', 'module_path': 'qlib.data.dataset', 'kwargs': {'handler': 'file:///home/zhonghao/code/qlib/exp_yaml/new_data/Alpha158.cb44c8ed2f.pkl', 'segments': {'train': [datetime.date(2009, 1, 1), datetime.date(2018, 12, 31)], 'valid': [datetime.date(2019, 1, 1), datetime.date(2019, 12, 31)], 'test': [datetime.date(2020, 1, 1), datetime.date(2024, 3, 26)]}}}, 'record': [{'class': 'SignalRecord', 'module_path': 'qlib.workflow.record_temp', 'kwargs': {'model': '<MODEL>', 'dataset': '<DATASET>'}}, {'class': 'SigAnaRecord', 'module_path': 'qlib.workflow.record_temp', 'kwargs': {'ana_long_short': False, 'ann_scaler': 252}}, {'class': 'PortAnaRecord', 'module_path': 'qlib.workflow.record_temp', 'kwargs': {'config': {'strategy': {'class': 'TopkDropoutStrategy', 'module_path': 'qlib.contrib.strategy', 'kwargs': {'signal': '<PRED>', 'topk': 50, 'n_drop': 5}}, 'backtest': {'start_time': datetime.date(2020, 1, 1), 'end_time': datetime.date(2024, 3, 26), 'account': 100000000, 'benchmark': 'SH000300', 'exchange_kwargs': {'limit_threshold': 0.095, 'deal_price': 'close', 'open_cost': 0.0005, 'close_cost': 0.0015, 'min_cost': 5}}}}}]}
+[3793509:MainThread](2024-04-06 06:00:31,003) INFO - qlib.MetaDatasetDS - [dataset.py:355] - Example task for training meta model: {'model': {'class': 'ADARNN', 'module_path': 'qlib.contrib.model.pytorch_adarnn', 'kwargs': {'d_feat': 6, 'hidden_size': 64, 'num_layers': 2, 'dropout': 0.0, 'n_epochs': 200, 'early_stop': 20, 'batch_size': 800, 'metric': 'loss', 'loss': 'mse', 'GPU': 0}}, 'dataset': {'class': 'DatasetH', 'module_path': 'qlib.data.dataset', 'kwargs': {'handler': 'file:///home/zhonghao/code/qlib/exp_yaml/new_data/Alpha158.cb44c8ed2f.pkl', 'segments': {'train': (Timestamp('2009-01-05 00:00:00'), Timestamp('2018-12-28 00:00:00')), 'valid': (Timestamp('2019-01-02 00:00:00'), Timestamp('2019-12-03 00:00:00')), 'test': (Timestamp('2020-01-02 00:00:00'), Timestamp('2020-02-06 00:00:00'))}}}, 'record': ['qlib.workflow.record_temp.SignalRecord']}
+creating meta tasks:   0%|          | 0/52 [00:00<?, ?it/s]creating meta tasks:   2%|▏         | 1/52 [00:00<00:26,  1.91it/s]creating meta tasks:   4%|▍         | 2/52 [00:00<00:23,  2.11it/s]creating meta tasks:   6%|▌         | 3/52 [00:01<00:22,  2.13it/s]creating meta tasks:   8%|▊         | 4/52 [00:01<00:22,  2.14it/s]creating meta tasks:  10%|▉         | 5/52 [00:02<00:21,  2.16it/s]creating meta tasks:  12%|█▏        | 6/52 [00:02<00:21,  2.16it/s]creating meta tasks:  13%|█▎        | 7/52 [00:03<00:20,  2.16it/s]creating meta tasks:  15%|█▌        | 8/52 [00:03<00:20,  2.16it/s]creating meta tasks:  17%|█▋        | 9/52 [00:04<00:19,  2.16it/s]creating meta tasks:  19%|█▉        | 10/52 [00:04<00:19,  2.15it/s]creating meta tasks:  21%|██        | 11/52 [00:05<00:19,  2.14it/s]creating meta tasks:  23%|██▎       | 12/52 [00:05<00:18,  2.14it/s]creating meta tasks:  25%|██▌       | 13/52 [00:06<00:18,  2.13it/s]creating meta tasks:  27%|██▋       | 14/52 [00:06<00:17,  2.13it/s]creating meta tasks:  29%|██▉       | 15/52 [00:07<00:17,  2.12it/s]creating meta tasks:  31%|███       | 16/52 [00:07<00:17,  2.11it/s]creating meta tasks:  33%|███▎      | 17/52 [00:07<00:16,  2.11it/s]creating meta tasks:  35%|███▍      | 18/52 [00:08<00:16,  2.11it/s]creating meta tasks:  37%|███▋      | 19/52 [00:08<00:15,  2.10it/s]creating meta tasks:  38%|███▊      | 20/52 [00:09<00:15,  2.10it/s]creating meta tasks:  40%|████      | 21/52 [00:09<00:14,  2.07it/s]creating meta tasks:  42%|████▏     | 22/52 [00:10<00:14,  2.05it/s]creating meta tasks:  44%|████▍     | 23/52 [00:10<00:14,  2.03it/s]creating meta tasks:  46%|████▌     | 24/52 [00:11<00:13,  2.01it/s]creating meta tasks:  48%|████▊     | 25/52 [00:11<00:13,  2.00it/s]creating meta tasks:  50%|█████     | 26/52 [00:12<00:13,  1.99it/s]creating meta tasks:  52%|█████▏    | 27/52 [00:12<00:12,  1.98it/s]creating meta tasks:  54%|█████▍    | 28/52 [00:13<00:12,  1.98it/s]creating meta tasks:  56%|█████▌    | 29/52 [00:13<00:11,  1.97it/s]creating meta tasks:  58%|█████▊    | 30/52 [00:14<00:11,  1.97it/s]creating meta tasks:  60%|█████▉    | 31/52 [00:14<00:10,  1.96it/s]creating meta tasks:  62%|██████▏   | 32/52 [00:15<00:10,  1.96it/s]creating meta tasks:  63%|██████▎   | 33/52 [00:16<00:09,  1.95it/s]creating meta tasks:  65%|██████▌   | 34/52 [00:16<00:09,  1.94it/s]creating meta tasks:  67%|██████▋   | 35/52 [00:17<00:08,  1.94it/s]creating meta tasks:  69%|██████▉   | 36/52 [00:17<00:08,  1.93it/s]creating meta tasks:  71%|███████   | 37/52 [00:18<00:07,  1.93it/s]creating meta tasks:  73%|███████▎  | 38/52 [00:18<00:07,  1.92it/s]creating meta tasks:  75%|███████▌  | 39/52 [00:19<00:06,  1.92it/s]creating meta tasks:  77%|███████▋  | 40/52 [00:19<00:06,  1.91it/s]creating meta tasks:  79%|███████▉  | 41/52 [00:20<00:05,  1.90it/s]creating meta tasks:  81%|████████  | 42/52 [00:20<00:05,  1.90it/s]creating meta tasks:  83%|████████▎ | 43/52 [00:21<00:04,  1.89it/s]creating meta tasks:  85%|████████▍ | 44/52 [00:21<00:04,  1.80it/s]creating meta tasks:  87%|████████▋ | 45/52 [00:22<00:03,  1.82it/s]creating meta tasks:  88%|████████▊ | 46/52 [00:22<00:03,  1.86it/s]creating meta tasks:  90%|█████████ | 47/52 [00:23<00:02,  1.88it/s]creating meta tasks:  92%|█████████▏| 48/52 [00:23<00:02,  1.90it/s]creating meta tasks:  94%|█████████▍| 49/52 [00:24<00:01,  1.91it/s]creating meta tasks:  96%|█████████▌| 50/52 [00:25<00:01,  1.91it/s]creating meta tasks:  98%|█████████▊| 51/52 [00:25<00:00,  1.91it/s]creating meta tasks: 100%|██████████| 52/52 [00:26<00:00,  1.91it/s]creating meta tasks: 100%|██████████| 52/52 [00:26<00:00,  2.00it/s]
+[3793509:MainThread](2024-04-06 06:00:57,449) INFO - qlib.Rolling - [base.py:190] - Deleting previous Rolling results
+[3793509:MainThread](2024-04-06 06:00:57,453) INFO - qlib.Rolling - [base.py:196] - No previous rolling results
+train tasks:   0%|          | 0/52 [00:00<?, ?it/s][3793509:MainThread](2024-04-06 06:00:57,458) WARNING - qlib.workflow - [expm.py:230] - No valid experiment found. Create a new experiment with name rolling_models_20240406060030.
+[3793509:MainThread](2024-04-06 06:00:57,465) INFO - qlib.workflow - [exp.py:258] - Experiment 7 starts running ...
+[3793509:MainThread](2024-04-06 06:00:57,713) INFO - qlib.workflow - [recorder.py:341] - Recorder a73954d07e514cb99ffcd5147d806c9e starts running under Experiment 7 ...
+[3793509:MainThread](2024-04-06 06:00:58,019) INFO - qlib.ADARNN - [pytorch_adarnn.py:63] - ADARNN pytorch version...
+[3793509:MainThread](2024-04-06 06:00:58,140) INFO - qlib.ADARNN - [pytorch_adarnn.py:87] - ADARNN parameters setting:
+d_feat : 6
+hidden_size : 64
+num_layers : 2
+dropout : 0.0
+n_epochs : 200
+lr : 0.001
+metric : loss
+batch_size : 800
+early_stop : 20
+optimizer : adam
+loss_type : mse
+visible_GPU : 0
+use_GPU : True
+seed : None
+[3793509:MainThread](2024-04-06 06:00:58,150) INFO - qlib.ADARNN - [pytorch_adarnn.py:136] - model:
+AdaRNN(
+  (features): Sequential(
+    (0): GRU(6, 64, batch_first=True)
+    (1): GRU(64, 64, batch_first=True)
+  )
+  (fc_out): Linear(in_features=64, out_features=1, bias=True)
+  (gate): ModuleList(
+    (0): Linear(in_features=3328, out_features=26, bias=True)
+    (1): Linear(in_features=3328, out_features=26, bias=True)
+  )
+  (bn_lst): ModuleList(
+    (0): BatchNorm1d(26, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (1): BatchNorm1d(26, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  )
+  (softmax): Softmax(dim=0)
+)
+[3793509:MainThread](2024-04-06 06:00:58,150) INFO - qlib.ADARNN - [pytorch_adarnn.py:137] - model size: 0.2022 MB
+[3793509:MainThread](2024-04-06 06:01:06,721) WARNING - qlib.utils - [__init__.py:789] - The parameter `reweighter` with value `<qlib.contrib.meta.data_selection.model.TimeReweighter object at 0x7f38ac8a9b80>` is ignored.
+[3793509:MainThread](2024-04-06 06:01:08,006) INFO - qlib.ADARNN - [pytorch_adarnn.py:266] - training...
+[3793509:MainThread](2024-04-06 06:01:08,007) INFO - qlib.ADARNN - [pytorch_adarnn.py:273] - Epoch0:
+[3793509:MainThread](2024-04-06 06:01:08,007) INFO - qlib.ADARNN - [pytorch_adarnn.py:274] - training...
+Terminated

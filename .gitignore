@@ -50,4 +50,6 @@ tags
 ./pretrain
 .idea/
 
-*.log
+*.gz
+*-ubyte
+catboost_info/

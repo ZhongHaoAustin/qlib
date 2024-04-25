@@ -1,0 +1,506 @@
+[852894:MainThread](2024-04-06 19:22:02,491) INFO - qlib.Initialization - [config.py:416] - default_conf: client.
+[852894:MainThread](2024-04-06 19:22:02,494) INFO - qlib.Initialization - [__init__.py:74] - qlib successfully initialized based on client settings.
+[852894:MainThread](2024-04-06 19:22:02,494) INFO - qlib.Initialization - [__init__.py:76] - data_path={'day': PosixPath('/home/zhonghao/.qlib/qlib_data/my_data')}
+[852894:MainThread](2024-04-06 19:22:02,496) WARNING - qlib.Rolling - [base.py:104] - Using user specifiied name for rolling models. So the experiment names duplicateds. Please manually remove your experiment for rolling model with command like `rm -r mlruns`. Otherwise it will prevents the creating of experimen with same name
+[852894:MainThread](2024-04-06 19:22:02,496) WARNING - qlib.Rolling - [rolling_benchmark.py:32] - Model type is not in the benchmark!
+[852894:MainThread](2024-04-06 19:22:02,506) INFO - qlib.Rolling - [base.py:162] - The prediction horizon is overrided
+[852894:MainThread](2024-04-06 19:24:47,466) INFO - qlib.timer - [log.py:127] - Time cost: 164.958s | Loading data Done
+[852894:MainThread](2024-04-06 19:24:49,357) INFO - qlib.timer - [log.py:127] - Time cost: 0.647s | DropnaLabel Done
+[852894:MainThread](2024-04-06 19:25:00,534) INFO - qlib.timer - [log.py:127] - Time cost: 11.175s | CSZScoreNorm Done
+[852894:MainThread](2024-04-06 19:25:00,538) INFO - qlib.timer - [log.py:127] - Time cost: 13.071s | fit & process data Done
+[852894:MainThread](2024-04-06 19:25:00,539) INFO - qlib.timer - [log.py:127] - Time cost: 178.031s | Init data Done
+[852894:MainThread](2024-04-06 19:25:05,367) INFO - qlib.Rolling - [base.py:173] - {'model': {'class': 'LGBModel', 'module_path': 'qlib.contrib.model.gbdt', 'kwargs': {'loss': 'mse', 'colsample_bytree': 0.8879, 'learning_rate': 0.2, 'subsample': 0.8789, 'lambda_l1': 205.6999, 'lambda_l2': 580.9768, 'max_depth': 8, 'num_leaves': 210, 'num_threads': 20}}, 'dataset': {'class': 'DatasetH', 'module_path': 'qlib.data.dataset', 'kwargs': {'handler': 'file:///home/zhonghao/code/qlib/exp_yaml/longer_data/Alpha158.cfb0d40f7d.pkl', 'segments': {'train': [datetime.date(2008, 1, 1), datetime.date(2021, 3, 30)], 'valid': [datetime.date(2021, 3, 31), datetime.date(2022, 3, 31)], 'test': [datetime.date(2022, 4, 1), datetime.date(2024, 4, 1)]}}}, 'record': [{'class': 'SignalRecord', 'module_path': 'qlib.workflow.record_temp', 'kwargs': {'model': '<MODEL>', 'dataset': '<DATASET>'}}, {'class': 'SigAnaRecord', 'module_path': 'qlib.workflow.record_temp', 'kwargs': {'ana_long_short': False, 'ann_scaler': 252}}, {'class': 'PortAnaRecord', 'module_path': 'qlib.workflow.record_temp', 'kwargs': {'config': {'strategy': {'class': 'TopkDropoutStrategy', 'module_path': 'qlib.contrib.strategy', 'kwargs': {'signal': '<PRED>', 'topk': 50, 'n_drop': 5}}, 'backtest': {'start_time': datetime.date(2022, 4, 1), 'end_time': datetime.date(2024, 4, 1), 'account': 100000000, 'benchmark': 'SH000300', 'exchange_kwargs': {'limit_threshold': 0.095, 'deal_price': 'close', 'open_cost': 0.0005, 'close_cost': 0.0015, 'min_cost': 5}}}}}]}
+[852894:MainThread](2024-04-06 19:25:05,405) INFO - qlib.Rolling - [base.py:190] - Deleting previous Rolling results
+[852894:MainThread](2024-04-06 19:25:05,411) INFO - qlib.Rolling - [base.py:196] - No previous rolling results
+train tasks:   0%|          | 0/25 [00:00<?, ?it/s][852894:MainThread](2024-04-06 19:25:05,416) WARNING - qlib.workflow - [expm.py:230] - No valid experiment found. Create a new experiment with name rolling_lgb_20240406192200673422472.
+[852894:MainThread](2024-04-06 19:25:05,424) INFO - qlib.workflow - [exp.py:258] - Experiment 9 starts running ...
+[852894:MainThread](2024-04-06 19:25:05,745) INFO - qlib.workflow - [recorder.py:341] - Recorder 441057a2d26a4ad2bf1874f6fabc667c starts running under Experiment 9 ...
+[852894:MainThread](2024-04-06 19:25:48,887) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 9
+[852894:MainThread](2024-04-06 19:25:48,951) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:   4%|▍         | 1/25 [00:43<17:25, 43.54s/it][852894:MainThread](2024-04-06 19:25:48,961) INFO - qlib.workflow - [exp.py:258] - Experiment 9 starts running ...
+[852894:MainThread](2024-04-06 19:25:48,975) INFO - qlib.workflow - [recorder.py:341] - Recorder 75b113a7d64d40c88af7acc4d3042890 starts running under Experiment 9 ...
+[852894:MainThread](2024-04-06 19:26:40,590) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 9
+[852894:MainThread](2024-04-06 19:26:40,851) INFO - qlib.timer - [log.py:127] - Time cost: 0.003s | waiting `async_log` Done
+train tasks:   8%|▊         | 2/25 [01:35<18:34, 48.46s/it][852894:MainThread](2024-04-06 19:26:40,869) INFO - qlib.workflow - [exp.py:258] - Experiment 9 starts running ...
+[852894:MainThread](2024-04-06 19:26:40,925) INFO - qlib.workflow - [recorder.py:341] - Recorder 8a03e39c212546f29dee2dc959cdd366 starts running under Experiment 9 ...
+[852894:MainThread](2024-04-06 19:27:49,290) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 9
+[852894:MainThread](2024-04-06 19:27:49,520) INFO - qlib.timer - [log.py:127] - Time cost: 0.001s | waiting `async_log` Done
+train tasks:  12%|█▏        | 3/25 [02:44<21:09, 57.69s/it][852894:MainThread](2024-04-06 19:27:49,534) INFO - qlib.workflow - [exp.py:258] - Experiment 9 starts running ...
+[852894:MainThread](2024-04-06 19:27:49,556) INFO - qlib.workflow - [recorder.py:341] - Recorder 920d1ed9724c4d889c1b11ba23d4077b starts running under Experiment 9 ...
+[852894:MainThread](2024-04-06 19:28:59,895) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 9
+[852894:MainThread](2024-04-06 19:28:59,987) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  16%|█▌        | 4/25 [03:54<21:57, 62.73s/it][852894:MainThread](2024-04-06 19:29:00,001) INFO - qlib.workflow - [exp.py:258] - Experiment 9 starts running ...
+[852894:MainThread](2024-04-06 19:29:00,018) INFO - qlib.workflow - [recorder.py:341] - Recorder e38cdcfff95c4af38a0b5ff68bac908c starts running under Experiment 9 ...
+[852894:MainThread](2024-04-06 19:31:44,566) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 9
+[852894:MainThread](2024-04-06 19:31:44,766) INFO - qlib.timer - [log.py:127] - Time cost: 0.003s | waiting `async_log` Done
+train tasks:  20%|██        | 5/25 [06:39<33:10, 99.53s/it][852894:MainThread](2024-04-06 19:31:44,783) INFO - qlib.workflow - [exp.py:258] - Experiment 9 starts running ...
+[852894:MainThread](2024-04-06 19:31:44,819) INFO - qlib.workflow - [recorder.py:341] - Recorder 19d902ff242b45d590587145f48a428f starts running under Experiment 9 ...
+[852894:MainThread](2024-04-06 19:33:36,123) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 9
+[852894:MainThread](2024-04-06 19:33:36,274) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  24%|██▍       | 6/25 [08:30<32:48, 103.60s/it][852894:MainThread](2024-04-06 19:33:36,287) INFO - qlib.workflow - [exp.py:258] - Experiment 9 starts running ...
+[852894:MainThread](2024-04-06 19:33:36,314) INFO - qlib.workflow - [recorder.py:341] - Recorder 6b1ae348a2024d17b427ba74d7574fe0 starts running under Experiment 9 ...
+[852894:MainThread](2024-04-06 19:34:51,442) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 9
+[852894:MainThread](2024-04-06 19:34:51,536) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  28%|██▊       | 7/25 [09:46<28:18, 94.34s/it] [852894:MainThread](2024-04-06 19:34:51,558) INFO - qlib.workflow - [exp.py:258] - Experiment 9 starts running ...
+[852894:MainThread](2024-04-06 19:34:51,605) INFO - qlib.workflow - [recorder.py:341] - Recorder 636eeb9d23b04cfaa33073221dd9cc7b starts running under Experiment 9 ...
+[852894:MainThread](2024-04-06 19:35:56,590) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 9
+[852894:MainThread](2024-04-06 19:35:56,812) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  32%|███▏      | 8/25 [10:51<24:06, 85.09s/it][852894:MainThread](2024-04-06 19:35:56,832) INFO - qlib.workflow - [exp.py:258] - Experiment 9 starts running ...
+[852894:MainThread](2024-04-06 19:35:56,855) INFO - qlib.workflow - [recorder.py:341] - Recorder e98fc9dcd1f64386826620b07197d82a starts running under Experiment 9 ...
+[852894:MainThread](2024-04-06 19:36:40,406) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 9
+[852894:MainThread](2024-04-06 19:36:40,514) INFO - qlib.timer - [log.py:127] - Time cost: 0.008s | waiting `async_log` Done
+train tasks:  36%|███▌      | 9/25 [11:35<19:14, 72.15s/it][852894:MainThread](2024-04-06 19:36:40,529) INFO - qlib.workflow - [exp.py:258] - Experiment 9 starts running ...
+[852894:MainThread](2024-04-06 19:36:40,546) INFO - qlib.workflow - [recorder.py:341] - Recorder 2a9fd736d3bc4cf88c1d8017560f15e1 starts running under Experiment 9 ...
+[852894:MainThread](2024-04-06 19:37:49,051) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 9
+[852894:MainThread](2024-04-06 19:37:49,261) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  40%|████      | 10/25 [12:43<17:46, 71.10s/it][852894:MainThread](2024-04-06 19:37:49,276) INFO - qlib.workflow - [exp.py:258] - Experiment 9 starts running ...
+[852894:MainThread](2024-04-06 19:37:49,299) INFO - qlib.workflow - [recorder.py:341] - Recorder bfd4d416046142df8a10e25f5d13b173 starts running under Experiment 9 ...
+[852894:MainThread](2024-04-06 19:38:37,789) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 9
+[852894:MainThread](2024-04-06 19:38:37,987) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  44%|████▍     | 11/25 [13:32<14:59, 64.25s/it][852894:MainThread](2024-04-06 19:38:38,006) INFO - qlib.workflow - [exp.py:258] - Experiment 9 starts running ...
+[852894:MainThread](2024-04-06 19:38:38,029) INFO - qlib.workflow - [recorder.py:341] - Recorder 348a79a4558a419d806ddadc24c60acf starts running under Experiment 9 ...
+[852894:MainThread](2024-04-06 19:39:27,764) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 9
+[852894:MainThread](2024-04-06 19:39:27,863) INFO - qlib.timer - [log.py:127] - Time cost: 0.004s | waiting `async_log` Done
+train tasks:  48%|████▊     | 12/25 [14:22<12:58, 59.88s/it][852894:MainThread](2024-04-06 19:39:27,911) INFO - qlib.workflow - [exp.py:258] - Experiment 9 starts running ...
+[852894:MainThread](2024-04-06 19:39:27,953) INFO - qlib.workflow - [recorder.py:341] - Recorder e9279e25de464d9b9037350dd6b9f779 starts running under Experiment 9 ...
+[852894:MainThread](2024-04-06 19:40:28,424) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 9
+[852894:MainThread](2024-04-06 19:40:28,547) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  52%|█████▏    | 13/25 [15:23<12:01, 60.12s/it][852894:MainThread](2024-04-06 19:40:28,570) INFO - qlib.workflow - [exp.py:258] - Experiment 9 starts running ...
+[852894:MainThread](2024-04-06 19:40:28,607) INFO - qlib.workflow - [recorder.py:341] - Recorder 07a3cf6b1a7e4bd9917452aed6c4158c starts running under Experiment 9 ...
+[852894:MainThread](2024-04-06 19:41:12,384) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 9
+[852894:MainThread](2024-04-06 19:41:12,481) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  56%|█████▌    | 14/25 [16:07<10:07, 55.23s/it][852894:MainThread](2024-04-06 19:41:12,499) INFO - qlib.workflow - [exp.py:258] - Experiment 9 starts running ...
+[852894:MainThread](2024-04-06 19:41:12,569) INFO - qlib.workflow - [recorder.py:341] - Recorder 1e7a137ba1924ccd96a15de85b6518c9 starts running under Experiment 9 ...
+ModuleNotFoundError. CatBoostModel are skipped. (optional: maybe installing CatBoostModel can fix it.)
+Training until validation scores don't improve for 50 rounds
+[20]	train's l2: 0.968001	valid's l2: 1.00239
+[40]	train's l2: 0.955829	valid's l2: 1.00475
+Early stopping, best iteration is:
+[1]	train's l2: 0.992567	valid's l2: 0.996242
+'The following are prediction results of the LGBModel model.'
+                              score
+datetime   instrument              
+2022-04-01 SH600000    3.261771e-02
+           SH600009    1.799267e-02
+           SH600010   -3.689878e-10
+           SH600011   -2.308941e-02
+           SH600015    3.261771e-02
+Training until validation scores don't improve for 50 rounds
+[20]	train's l2: 0.968687	valid's l2: 1.00384
+[40]	train's l2: 0.956752	valid's l2: 1.00576
+Early stopping, best iteration is:
+[1]	train's l2: 0.992531	valid's l2: 0.99692
+'The following are prediction results of the LGBModel model.'
+                              score
+datetime   instrument              
+2022-05-06 SH600000    8.744359e-03
+           SH600009    2.319716e-02
+           SH600010    4.884627e-02
+           SH600011   -3.277401e-10
+           SH600015   -3.485294e-03
+Training until validation scores don't improve for 50 rounds
+[20]	train's l2: 0.968682	valid's l2: 0.998858
+[40]	train's l2: 0.956352	valid's l2: 1.00038
+Early stopping, best iteration is:
+[3]	train's l2: 0.986979	valid's l2: 0.995927
+'The following are prediction results of the LGBModel model.'
+                          score
+datetime   instrument          
+2022-06-06 SH600000    0.017682
+           SH600009    0.034830
+           SH600010   -0.039223
+           SH600011   -0.029200
+           SH600015    0.016150
+Training until validation scores don't improve for 50 rounds
+[20]	train's l2: 0.96942	valid's l2: 0.997611
+[40]	train's l2: 0.95801	valid's l2: 0.998079
+Early stopping, best iteration is:
+[4]	train's l2: 0.984967	valid's l2: 0.994782
+'The following are prediction results of the LGBModel model.'
+                          score
+datetime   instrument          
+2022-07-04 SH600000    0.008858
+           SH600009   -0.044345
+           SH600010   -0.070267
+           SH600011    0.045779
+           SH600015    0.037920
+Training until validation scores don't improve for 50 rounds
+[20]	train's l2: 0.970484	valid's l2: 0.990832
+[40]	train's l2: 0.958906	valid's l2: 0.990944
+[60]	train's l2: 0.949065	valid's l2: 0.991399
+[80]	train's l2: 0.938513	valid's l2: 0.992814
+Early stopping, best iteration is:
+[44]	train's l2: 0.956997	valid's l2: 0.990478
+'The following are prediction results of the LGBModel model.'
+                          score
+datetime   instrument          
+2022-08-01 SH600000    0.104372
+           SH600009   -0.104104
+           SH600010   -0.055270
+           SH600011    0.006334
+           SH600015    0.036100
+Training until validation scores don't improve for 50 rounds
+[20]	train's l2: 0.970419	valid's l2: 0.988001
+[40]	train's l2: 0.958832	valid's l2: 0.987522
+[60]	train's l2: 0.948269	valid's l2: 0.988375
+[80]	train's l2: 0.936717	valid's l2: 0.990615
+Early stopping, best iteration is:
+[35]	train's l2: 0.961414	valid's l2: 0.986987
+'The following are prediction results of the LGBModel model.'
+                          score
+datetime   instrument          
+2022-08-29 SH600000   -0.073239
+           SH600009   -0.004999
+           SH600010   -0.050336
+           SH600011   -0.008427
+           SH600015    0.017353
+Training until validation scores don't improve for 50 rounds
+[20]	train's l2: 0.970476	valid's l2: 0.992319
+[40]	train's l2: 0.958759	valid's l2: 0.992523
+[60]	train's l2: 0.948562	valid's l2: 0.9942
+Early stopping, best iteration is:
+[29]	train's l2: 0.965124	valid's l2: 0.991709
+'The following are prediction results of the LGBModel model.'
+                          score
+datetime   instrument          
+2022-09-27 SH600000    0.010432
+           SH600009   -0.037789
+           SH600010   -0.046487
+           SH600011    0.060689
+           SH600015   -0.030748
+Training until validation scores don't improve for 50 rounds
+[20]	train's l2: 0.970258	valid's l2: 0.992638
+[40]	train's l2: 0.958113	valid's l2: 0.993961
+[60]	train's l2: 0.947156	valid's l2: 0.994065
+Early stopping, best iteration is:
+[23]	train's l2: 0.968868	valid's l2: 0.992362
+'The following are prediction results of the LGBModel model.'
+                          score
+datetime   instrument          
+2022-11-01 SH600000   -0.007195
+           SH600009   -0.022163
+           SH600010   -0.062515
+           SH600011    0.072734
+           SH600015   -0.036795
+Training until validation scores don't improve for 50 rounds
+[20]	train's l2: 0.970811	valid's l2: 0.99317
+[40]	train's l2: 0.95844	valid's l2: 0.994564
+[60]	train's l2: 0.948005	valid's l2: 0.996628
+Early stopping, best iteration is:
+[13]	train's l2: 0.975084	valid's l2: 0.992428
+'The following are prediction results of the LGBModel model.'
+                          score
+datetime   instrument          
+2022-11-29 SH600000    0.024897
+           SH600009    0.023597
+           SH600010   -0.137970
+           SH600011    0.057821
+           SH600015   -0.007560
+Training until validation scores don't improve for 50 rounds
+[20]	train's l2: 0.97041	valid's l2: 0.990334
+[40]	train's l2: 0.958959	valid's l2: 0.992154
+[60]	train's l2: 0.948484	valid's l2: 0.994422
+Early stopping, best iteration is:
+[18]	train's l2: 0.971683	valid's l2: 0.990231
+'The following are prediction results of the LGBModel model.'
+                          score
+datetime   instrument          
+2022-12-27 SH600000    0.031450
+           SH600009    0.062695
+           SH600010   -0.058197
+           SH600011   -0.025767
+           SH600015    0.087617
+Training until validation scores don't improve for 50 rounds
+[20]	train's l2: 0.970686	valid's l2: 0.98908
+[40]	train's l2: 0.959369	valid's l2: 0.989718
+[60]	train's l2: 0.948588	valid's l2: 0.992802
+Early stopping, best iteration is:
+[12]	train's l2: 0.976131	valid's l2: 0.988943
+'The following are prediction results of the LGBModel model.'
+                          score
+datetime   instrument          
+2023-02-01 SH600000    0.043186
+           SH600009    0.067487
+           SH600010    0.091173
+           SH600011   -0.027732
+           SH600015    0.045168
+Training until validation scores don't improve for 50 rounds
+[20]	train's l2: 0.971172	valid's l2: 0.989598
+[40]	train's l2: 0.959406	valid's l2: 0.991765
+[60]	train's l2: 0.949219	valid's l2: 0.993845
+Early stopping, best iteration is:
+[15]	train's l2: 0.973896	valid's l2: 0.989483
+'The following are prediction results of the LGBModel model.'
+                          score
+datetime   instrument          
+2023-03-01 SH600000   -0.015922
+           SH600009    0.003141
+           SH600010    0.037206
+           SH600011    0.100450
+           SH600015    0.059917
+Training until validation scores don't improve for 50 rounds
+[20]	train's l2: 0.970565	valid's l2: 0.991158
+[40]	train's l2: 0.958515	valid's l2: 0.992752
+[60]	train's l2: 0.948488	valid's l2: 0.995145
+Early stopping, best iteration is:
+[13]	train's l2: 0.974812	valid's l2: 0.990497
+'The following are prediction results of the LGBModel model.'
+                          score
+datetime   instrument          
+2023-03-29 SH600000   -0.002971
+           SH600009   -0.025547
+           SH600010   -0.114160
+           SH600011    0.098726
+           SH600015    0.057376
+Training until validation scores don't improve for 50 rounds
+[20]	train's l2: 0.970812	valid's l2: 0.995148
+[40]	train's l2: 0.959362	valid's l2: 0.997487
+Early stopping, best iteration is:
+[4]	train's l2: 0.985764	valid's l2: 0.993657
+'The following are prediction results of the LGBModel model.'
+                          score
+datetime   instrument          
+2023-04-27 SH600000    0.056115
+           SH600009    0.031625
+           SH600010    0.013086
+           SH600011    0.065100
+           SH600015    0.004098
+Training until validation scores don't improve for 50 rounds
+[20]	train's l2: 0.970334	valid's l2: 0.994519
+[40]	train's l2: 0.959899	valid's l2: 0.99654
+[60]	train's l2: 0.949975	valid's l2: 0.998103
+[852894:MainThread](2024-04-06 19:41:59,400) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 9
+[852894:MainThread](2024-04-06 19:41:59,502) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  60%|██████    | 15/25 [16:54<08:47, 52.76s/it][852894:MainThread](2024-04-06 19:41:59,516) INFO - qlib.workflow - [exp.py:258] - Experiment 9 starts running ...
+[852894:MainThread](2024-04-06 19:41:59,537) INFO - qlib.workflow - [recorder.py:341] - Recorder 6009917aa048479692b97bbc52f91d04 starts running under Experiment 9 ...
+[852894:MainThread](2024-04-06 19:42:45,307) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 9
+[852894:MainThread](2024-04-06 19:42:45,479) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  64%|██████▍   | 16/25 [17:40<07:36, 50.72s/it][852894:MainThread](2024-04-06 19:42:45,502) INFO - qlib.workflow - [exp.py:258] - Experiment 9 starts running ...
+[852894:MainThread](2024-04-06 19:42:45,532) INFO - qlib.workflow - [recorder.py:341] - Recorder 3a7e982df1ea478d92ef71e870489319 starts running under Experiment 9 ...
+[852894:MainThread](2024-04-06 19:43:30,164) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 9
+[852894:MainThread](2024-04-06 19:43:30,319) INFO - qlib.timer - [log.py:127] - Time cost: 0.001s | waiting `async_log` Done
+train tasks:  68%|██████▊   | 17/25 [18:24<06:31, 48.95s/it][852894:MainThread](2024-04-06 19:43:30,349) INFO - qlib.workflow - [exp.py:258] - Experiment 9 starts running ...
+[852894:MainThread](2024-04-06 19:43:30,376) INFO - qlib.workflow - [recorder.py:341] - Recorder d97ff8ec4cb74e78b4886b76b91ee3e0 starts running under Experiment 9 ...
+[852894:MainThread](2024-04-06 19:44:30,099) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 9
+[852894:MainThread](2024-04-06 19:44:30,171) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  72%|███████▏  | 18/25 [19:24<06:05, 52.22s/it][852894:MainThread](2024-04-06 19:44:30,184) INFO - qlib.workflow - [exp.py:258] - Experiment 9 starts running ...
+[852894:MainThread](2024-04-06 19:44:30,201) INFO - qlib.workflow - [recorder.py:341] - Recorder 88f0e3fea9c54c07aa84bf579b73eb94 starts running under Experiment 9 ...
+[852894:MainThread](2024-04-06 19:45:25,240) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 9
+[852894:MainThread](2024-04-06 19:45:25,340) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  76%|███████▌  | 19/25 [20:19<05:18, 53.11s/it][852894:MainThread](2024-04-06 19:45:25,362) INFO - qlib.workflow - [exp.py:258] - Experiment 9 starts running ...
+[852894:MainThread](2024-04-06 19:45:25,394) INFO - qlib.workflow - [recorder.py:341] - Recorder e5e9884b50134f1692215c0b6a766210 starts running under Experiment 9 ...
+[852894:MainThread](2024-04-06 19:46:06,025) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 9
+[852894:MainThread](2024-04-06 19:46:06,128) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  80%|████████  | 20/25 [21:00<04:07, 49.41s/it][852894:MainThread](2024-04-06 19:46:06,142) INFO - qlib.workflow - [exp.py:258] - Experiment 9 starts running ...
+[852894:MainThread](2024-04-06 19:46:06,159) INFO - qlib.workflow - [recorder.py:341] - Recorder 39e43d3ebf53420fa9118cf48cce5f56 starts running under Experiment 9 ...
+[852894:MainThread](2024-04-06 19:46:51,344) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 9
+[852894:MainThread](2024-04-06 19:46:51,555) INFO - qlib.timer - [log.py:127] - Time cost: 0.002s | waiting `async_log` Done
+train tasks:  84%|████████▍ | 21/25 [21:46<03:12, 48.22s/it][852894:MainThread](2024-04-06 19:46:51,633) INFO - qlib.workflow - [exp.py:258] - Experiment 9 starts running ...
+[852894:MainThread](2024-04-06 19:46:51,714) INFO - qlib.workflow - [recorder.py:341] - Recorder c37d8a16c32247f08fe27419b4f56dcd starts running under Experiment 9 ...
+[852894:MainThread](2024-04-06 19:47:50,807) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 9
+[852894:MainThread](2024-04-06 19:47:50,885) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  88%|████████▊ | 22/25 [22:45<02:34, 51.55s/it][852894:MainThread](2024-04-06 19:47:50,904) INFO - qlib.workflow - [exp.py:258] - Experiment 9 starts running ...
+[852894:MainThread](2024-04-06 19:47:50,944) INFO - qlib.workflow - [recorder.py:341] - Recorder cb4314cf2cc8446a8b755437be3f8394 starts running under Experiment 9 ...
+[852894:MainThread](2024-04-06 19:48:44,013) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 9
+[852894:MainThread](2024-04-06 19:48:44,096) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  92%|█████████▏| 23/25 [23:38<01:44, 52.05s/it][852894:MainThread](2024-04-06 19:48:44,110) INFO - qlib.workflow - [exp.py:258] - Experiment 9 starts running ...
+[852894:MainThread](2024-04-06 19:48:44,133) INFO - qlib.workflow - [recorder.py:341] - Recorder 17eef300c5bc463a98579b9fb0d1e803 starts running under Experiment 9 ...
+[852894:MainThread](2024-04-06 19:49:37,864) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 9
+[852894:MainThread](2024-04-06 19:49:38,203) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks:  96%|█████████▌| 24/25 [24:32<00:52, 52.67s/it][852894:MainThread](2024-04-06 19:49:38,223) INFO - qlib.workflow - [exp.py:258] - Experiment 9 starts running ...
+[852894:MainThread](2024-04-06 19:49:38,243) INFO - qlib.workflow - [recorder.py:341] - Recorder 6f57b635d48e4032ad8eeba4eaf5faa3 starts running under Experiment 9 ...
+[852894:MainThread](2024-04-06 19:50:55,306) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 9
+[852894:MainThread](2024-04-06 19:50:55,418) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+train tasks: 100%|██████████| 25/25 [25:50<00:00, 60.03s/it]train tasks: 100%|██████████| 25/25 [25:50<00:00, 62.00s/it]
+[852894:MainThread](2024-04-06 19:50:55,634) INFO - qlib.timer - [log.py:127] - Time cost: 0.106s | Time to `list_recorders` in RecorderCollector Done
+[852894:MainThread](2024-04-06 19:50:55,635) INFO - qlib.RecorderCollector - [collect.py:226] - Nubmer of recorders after filter: defaultdict(<class 'int'>, {'FINISHED': 25})
+[852894:MainThread](2024-04-06 19:50:55,670) INFO - qlib.RollingEnsemble - [ensemble.py:81] - keys in group: ['6f57b635d48e4032ad8eeba4eaf5faa3', '17eef300c5bc463a98579b9fb0d1e803', 'cb4314cf2cc8446a8b755437be3f8394', 'c37d8a16c32247f08fe27419b4f56dcd', '39e43d3ebf53420fa9118cf48cce5f56', 'e5e9884b50134f1692215c0b6a766210', '88f0e3fea9c54c07aa84bf579b73eb94', 'd97ff8ec4cb74e78b4886b76b91ee3e0', '3a7e982df1ea478d92ef71e870489319', '6009917aa048479692b97bbc52f91d04', '1e7a137ba1924ccd96a15de85b6518c9', '07a3cf6b1a7e4bd9917452aed6c4158c', 'e9279e25de464d9b9037350dd6b9f779', '348a79a4558a419d806ddadc24c60acf', 'bfd4d416046142df8a10e25f5d13b173', '2a9fd736d3bc4cf88c1d8017560f15e1', 'e98fc9dcd1f64386826620b07197d82a', '636eeb9d23b04cfaa33073221dd9cc7b', '6b1ae348a2024d17b427ba74d7574fe0', '19d902ff242b45d590587145f48a428f', 'e38cdcfff95c4af38a0b5ff68bac908c', '920d1ed9724c4d889c1b11ba23d4077b', '8a03e39c212546f29dee2dc959cdd366', '75b113a7d64d40c88af7acc4d3042890', '441057a2d26a4ad2bf1874f6fabc667c']
+[852894:MainThread](2024-04-06 19:50:55,759) INFO - qlib.RollingEnsemble - [ensemble.py:81] - keys in group: ['6f57b635d48e4032ad8eeba4eaf5faa3', '17eef300c5bc463a98579b9fb0d1e803', 'cb4314cf2cc8446a8b755437be3f8394', 'c37d8a16c32247f08fe27419b4f56dcd', '39e43d3ebf53420fa9118cf48cce5f56', 'e5e9884b50134f1692215c0b6a766210', '88f0e3fea9c54c07aa84bf579b73eb94', 'd97ff8ec4cb74e78b4886b76b91ee3e0', '3a7e982df1ea478d92ef71e870489319', '6009917aa048479692b97bbc52f91d04', '1e7a137ba1924ccd96a15de85b6518c9', '07a3cf6b1a7e4bd9917452aed6c4158c', 'e9279e25de464d9b9037350dd6b9f779', '348a79a4558a419d806ddadc24c60acf', 'bfd4d416046142df8a10e25f5d13b173', '2a9fd736d3bc4cf88c1d8017560f15e1', 'e98fc9dcd1f64386826620b07197d82a', '636eeb9d23b04cfaa33073221dd9cc7b', '6b1ae348a2024d17b427ba74d7574fe0', '19d902ff242b45d590587145f48a428f', 'e38cdcfff95c4af38a0b5ff68bac908c', '920d1ed9724c4d889c1b11ba23d4077b', '8a03e39c212546f29dee2dc959cdd366', '75b113a7d64d40c88af7acc4d3042890', '441057a2d26a4ad2bf1874f6fabc667c']
+[852894:MainThread](2024-04-06 19:50:55,877) WARNING - qlib.workflow - [expm.py:230] - No valid experiment found. Create a new experiment with name lgb_20240406192200670790177.
+[852894:MainThread](2024-04-06 19:50:55,895) INFO - qlib.workflow - [exp.py:258] - Experiment 18 starts running ...
+[852894:MainThread](2024-04-06 19:50:55,914) INFO - qlib.workflow - [recorder.py:341] - Recorder 047b7fbc5656414385fc20ae7d8e7237 starts running under Experiment 18 ...
+[852894:MainThread](2024-04-06 19:50:56,449) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+[852894:MainThread](2024-04-06 19:50:57,599) INFO - qlib.backtest caller - [__init__.py:93] - Create new exchange
+Early stopping, best iteration is:
+[10]	train's l2: 0.977373	valid's l2: 0.993946
+'The following are prediction results of the LGBModel model.'
+                          score
+datetime   instrument          
+2023-05-30 SH600000    0.004052
+           SH600009    0.009241
+           SH600010   -0.088292
+           SH600011    0.105685
+           SH600015   -0.080098
+Training until validation scores don't improve for 50 rounds
+[20]	train's l2: 0.970844	valid's l2: 0.99634
+[40]	train's l2: 0.959557	valid's l2: 0.998731
+Early stopping, best iteration is:
+[8]	train's l2: 0.979486	valid's l2: 0.994856
+'The following are prediction results of the LGBModel model.'
+                          score
+datetime   instrument          
+2023-06-29 SH600000   -0.003251
+           SH600009   -0.007748
+           SH600010   -0.035286
+           SH600011    0.044104
+           SH600015   -0.039031
+Training until validation scores don't improve for 50 rounds
+[20]	train's l2: 0.971173	valid's l2: 0.995281
+[40]	train's l2: 0.96003	valid's l2: 0.997098
+Early stopping, best iteration is:
+[7]	train's l2: 0.980947	valid's l2: 0.994341
+'The following are prediction results of the LGBModel model.'
+                          score
+datetime   instrument          
+2023-07-27 SH600000    0.058720
+           SH600009   -0.018280
+           SH600010    0.094005
+           SH600011    0.041887
+           SH600015    0.056342
+Training until validation scores don't improve for 50 rounds
+[20]	train's l2: 0.97029	valid's l2: 0.994101
+[40]	train's l2: 0.959106	valid's l2: 0.995455
+[60]	train's l2: 0.948515	valid's l2: 0.996899
+Early stopping, best iteration is:
+[10]	train's l2: 0.97713	valid's l2: 0.992997
+'The following are prediction results of the LGBModel model.'
+                          score
+datetime   instrument          
+2023-08-24 SH600000   -0.003994
+           SH600009   -0.023678
+           SH600010   -0.060083
+           SH600011    0.003200
+           SH600015    0.104280
+Training until validation scores don't improve for 50 rounds
+[20]	train's l2: 0.970633	valid's l2: 0.995298
+[40]	train's l2: 0.958675	valid's l2: 0.995897
+Early stopping, best iteration is:
+[8]	train's l2: 0.979601	valid's l2: 0.99391
+'The following are prediction results of the LGBModel model.'
+                          score
+datetime   instrument          
+2023-09-21 SH600000    0.043146
+           SH600009   -0.008275
+           SH600010   -0.023927
+           SH600011    0.031404
+           SH600015    0.025946
+Training until validation scores don't improve for 50 rounds
+[20]	train's l2: 0.971222	valid's l2: 0.995067
+[40]	train's l2: 0.958911	valid's l2: 0.996518
+Early stopping, best iteration is:
+[9]	train's l2: 0.979026	valid's l2: 0.994038
+'The following are prediction results of the LGBModel model.'
+                          score
+datetime   instrument          
+2023-10-27 SH600000    0.039756
+           SH600009    0.027084
+           SH600010    0.058692
+           SH600011    0.053639
+           SH600015    0.041398
+Training until validation scores don't improve for 50 rounds
+[20]	train's l2: 0.97043	valid's l2: 0.996293
+[40]	train's l2: 0.959068	valid's l2: 0.997494
+Early stopping, best iteration is:
+[4]	train's l2: 0.98546	valid's l2: 0.994924
+'The following are prediction results of the LGBModel model.'
+                          score
+datetime   instrument          
+2023-11-24 SH600000    0.031918
+           SH600009    0.011289
+           SH600010   -0.008843
+           SH600011    0.004932
+           SH600015    0.021168
+Training until validation scores don't improve for 50 rounds
+[20]	train's l2: 0.970925	valid's l2: 0.99954
+[40]	train's l2: 0.958616	valid's l2: 1.00327
+Early stopping, best iteration is:
+[2]	train's l2: 0.989909	valid's l2: 0.995637
+'The following are prediction results of the LGBModel model.'
+                          score
+datetime   instrument          
+2023-12-22 SH600000    0.002456
+           SH600009    0.013713
+           SH600010   -0.000069
+           SH600011    0.019002
+           SH600015    0.037329
+Training until validation scores don't improve for 50 rounds
+[20]	train's l2: 0.970639	valid's l2: 0.996374
+[40]	train's l2: 0.959593	valid's l2: 0.999605
+Early stopping, best iteration is:
+[5]	train's l2: 0.98351	valid's l2: 0.993873
+'The following are prediction results of the LGBModel model.'
+                          score
+datetime   instrument          
+2024-01-22 SH600000   -0.002781
+           SH600009    0.002660
+           SH600010   -0.012488
+           SH600011    0.041604
+           SH600015    0.040282
+Training until validation scores don't improve for 50 rounds
+[20]	train's l2: 0.970468	valid's l2: 0.992611
+[40]	train's l2: 0.958697	valid's l2: 0.994964
+[60]	train's l2: 0.948027	valid's l2: 0.996338
+Early stopping, best iteration is:
+[13]	train's l2: 0.975787	valid's l2: 0.991981
+'The following are prediction results of the LGBModel model.'
+                          score
+datetime   instrument          
+2024-02-27 SH600000    0.105239
+           SH600009    0.072607
+           SH600010    0.057432
+           SH600011    0.126574
+           SH600015    0.083835
+Training until validation scores don't improve for 50 rounds
+[20]	train's l2: 0.971172	valid's l2: 0.989209
+[40]	train's l2: 0.960786	valid's l2: 0.989637
+[60]	train's l2: 0.949652	valid's l2: 0.991345
+[80]	train's l2: 0.939667	valid's l2: 0.992494
+Early stopping, best iteration is:
+[32]	train's l2: 0.965582	valid's l2: 0.988458
+'The following are prediction results of the LGBModel model.'
+                          score
+datetime   instrument          
+2024-03-26 SH600000    0.082396
+           SH600009    0.080608
+           SH600010   -0.081428
+           SH600011    0.137934
+           SH600015    0.165874
+{'IC': 0.06282903401427167,
+ 'ICIR': 0.5179472599495476,
+ 'Rank IC': 0.0656217172993657,
+ 'Rank ICIR': 0.5614318188406683}
+[852894:MainThread](2024-04-06 19:51:21,577) WARNING - qlib.online operator - [exchange.py:219] - $close field data contains nan.
+[852894:MainThread](2024-04-06 19:51:21,581) WARNING - qlib.online operator - [exchange.py:219] - $close field data contains nan.
+[852894:MainThread](2024-04-06 19:51:31,280) WARNING - qlib.BaseExecutor - [executor.py:121] - `common_infra` is not set for <qlib.backtest.executor.SimulatorExecutor object at 0x7f3770b04940>
+backtest loop:   0%|          | 0/485 [00:00<?, ?it/s]/home/zhonghao/miniconda3/envs/exp_qlib_env/lib/python3.8/site-packages/qlib/utils/index_data.py:481: RuntimeWarning: Mean of empty slice
+  return np.nanmean(self.data)
+backtest loop:   1%|          | 3/485 [00:00<00:16, 28.48it/s]backtest loop:   1%|          | 6/485 [00:00<00:20, 23.17it/s]backtest loop:   2%|▏         | 9/485 [00:00<00:28, 16.64it/s]backtest loop:   3%|▎         | 13/485 [00:00<00:21, 22.37it/s]backtest loop:   3%|▎         | 16/485 [00:00<00:19, 23.50it/s]backtest loop:   4%|▍         | 19/485 [00:00<00:19, 24.39it/s]backtest loop:   5%|▍         | 22/485 [00:00<00:18, 24.41it/s]backtest loop:   5%|▌         | 25/485 [00:01<00:19, 24.04it/s]backtest loop:   6%|▌         | 28/485 [00:01<00:20, 22.40it/s]backtest loop:   7%|▋         | 32/485 [00:01<00:17, 26.12it/s]backtest loop:   7%|▋         | 36/485 [00:01<00:15, 28.97it/s]backtest loop:   8%|▊         | 40/485 [00:01<00:14, 31.00it/s]backtest loop:   9%|▉         | 45/485 [00:01<00:14, 30.50it/s]backtest loop:  10%|█         | 50/485 [00:01<00:13, 33.20it/s]backtest loop:  11%|█▏        | 55/485 [00:01<00:12, 34.61it/s]backtest loop:  12%|█▏        | 59/485 [00:02<00:13, 31.69it/s]backtest loop:  13%|█▎        | 63/485 [00:02<00:18, 22.47it/s]backtest loop:  14%|█▎        | 66/485 [00:02<00:17, 23.58it/s]backtest loop:  14%|█▍        | 70/485 [00:02<00:16, 25.37it/s]backtest loop:  16%|█▌        | 76/485 [00:02<00:13, 30.94it/s]backtest loop:  17%|█▋        | 81/485 [00:02<00:11, 35.22it/s]backtest loop:  18%|█▊        | 85/485 [00:03<00:13, 30.51it/s]backtest loop:  19%|█▊        | 90/485 [00:03<00:12, 31.46it/s]backtest loop:  20%|█▉        | 95/485 [00:03<00:12, 31.74it/s]backtest loop:  20%|██        | 99/485 [00:03<00:15, 24.85it/s]backtest loop:  21%|██        | 102/485 [00:03<00:15, 25.33it/s]backtest loop:  22%|██▏       | 105/485 [00:03<00:15, 25.19it/s]backtest loop:  22%|██▏       | 109/485 [00:04<00:13, 27.67it/s]backtest loop:  23%|██▎       | 112/485 [00:04<00:14, 26.17it/s]backtest loop:  24%|██▎       | 115/485 [00:04<00:14, 25.43it/s]backtest loop:  24%|██▍       | 118/485 [00:04<00:16, 21.95it/s]backtest loop:  25%|██▍       | 121/485 [00:04<00:16, 22.73it/s]backtest loop:  26%|██▌       | 124/485 [00:04<00:15, 23.04it/s]backtest loop:  27%|██▋       | 129/485 [00:04<00:13, 25.69it/s]backtest loop:  28%|██▊       | 134/485 [00:05<00:12, 27.82it/s]backtest loop:  29%|██▊       | 139/485 [00:05<00:10, 31.68it/s]backtest loop:  29%|██▉       | 143/485 [00:05<00:10, 31.60it/s]backtest loop:  30%|███       | 147/485 [00:05<00:11, 29.15it/s]backtest loop:  31%|███       | 150/485 [00:05<00:11, 28.10it/s]backtest loop:  32%|███▏      | 154/485 [00:05<00:11, 27.74it/s]backtest loop:  33%|███▎      | 159/485 [00:05<00:11, 27.86it/s]backtest loop:  34%|███▍      | 164/485 [00:06<00:11, 28.67it/s]backtest loop:  35%|███▍      | 169/485 [00:06<00:10, 29.30it/s]backtest loop:  36%|███▌      | 173/485 [00:06<00:10, 30.37it/s]backtest loop:  36%|███▋      | 177/485 [00:06<00:10, 29.68it/s]backtest loop:  37%|███▋      | 180/485 [00:06<00:10, 28.90it/s]backtest loop:  38%|███▊      | 183/485 [00:06<00:10, 28.59it/s]backtest loop:  39%|███▊      | 187/485 [00:06<00:09, 30.36it/s]backtest loop:  39%|███▉      | 191/485 [00:06<00:09, 31.75it/s]backtest loop:  40%|████      | 195/485 [00:07<00:08, 32.33it/s]backtest loop:  41%|████      | 199/485 [00:07<00:09, 30.49it/s]backtest loop:  42%|████▏     | 203/485 [00:07<00:09, 29.57it/s]backtest loop:  43%|████▎     | 208/485 [00:07<00:09, 28.65it/s]backtest loop:  44%|████▍     | 213/485 [00:07<00:09, 28.63it/s]backtest loop:  45%|████▍     | 218/485 [00:07<00:08, 30.11it/s]backtest loop:  46%|████▌     | 223/485 [00:07<00:08, 31.73it/s]backtest loop:  47%|████▋     | 228/485 [00:08<00:08, 30.80it/s]backtest loop:  48%|████▊     | 232/485 [00:08<00:07, 32.55it/s]backtest loop:  49%|████▊     | 236/485 [00:08<00:08, 30.46it/s]backtest loop:  49%|████▉     | 240/485 [00:08<00:08, 28.43it/s]backtest loop:  50%|█████     | 243/485 [00:08<00:09, 26.66it/s]backtest loop:  51%|█████     | 246/485 [00:08<00:09, 26.43it/s]backtest loop:  51%|█████▏    | 249/485 [00:08<00:09, 25.18it/s]backtest loop:  52%|█████▏    | 253/485 [00:09<00:08, 27.93it/s]backtest loop:  53%|█████▎    | 257/485 [00:09<00:08, 28.22it/s]backtest loop:  54%|█████▍    | 262/485 [00:09<00:06, 31.94it/s]backtest loop:  55%|█████▍    | 266/485 [00:09<00:07, 31.12it/s]backtest loop:  56%|█████▌    | 270/485 [00:09<00:07, 30.21it/s]backtest loop:  56%|█████▋    | 274/485 [00:09<00:07, 29.43it/s]backtest loop:  57%|█████▋    | 278/485 [00:09<00:06, 31.12it/s]backtest loop:  58%|█████▊    | 282/485 [00:10<00:07, 25.42it/s]backtest loop:  59%|█████▉    | 285/485 [00:10<00:08, 24.93it/s]backtest loop:  60%|█████▉    | 289/485 [00:10<00:07, 27.90it/s]backtest loop:  61%|██████    | 294/485 [00:10<00:06, 31.37it/s]backtest loop:  61%|██████▏   | 298/485 [00:10<00:06, 27.70it/s]backtest loop:  62%|██████▏   | 301/485 [00:10<00:07, 23.03it/s]backtest loop:  63%|██████▎   | 305/485 [00:10<00:06, 26.02it/s]backtest loop:  64%|██████▎   | 309/485 [00:11<00:06, 28.29it/s]backtest loop:  65%|██████▍   | 313/485 [00:11<00:05, 29.48it/s]backtest loop:  65%|██████▌   | 317/485 [00:11<00:05, 30.44it/s]backtest loop:  66%|██████▌   | 321/485 [00:11<00:05, 31.63it/s]backtest loop:  67%|██████▋   | 325/485 [00:11<00:04, 33.47it/s]backtest loop:  68%|██████▊   | 329/485 [00:11<00:04, 35.00it/s]backtest loop:  69%|██████▊   | 333/485 [00:11<00:04, 33.35it/s]backtest loop:  69%|██████▉   | 337/485 [00:11<00:04, 34.70it/s]backtest loop:  70%|███████   | 341/485 [00:11<00:04, 34.13it/s]backtest loop:  71%|███████   | 345/485 [00:12<00:03, 35.07it/s]backtest loop:  72%|███████▏  | 349/485 [00:12<00:04, 33.51it/s]backtest loop:  73%|███████▎  | 353/485 [00:12<00:03, 34.18it/s]backtest loop:  74%|███████▎  | 357/485 [00:12<00:03, 33.91it/s]backtest loop:  75%|███████▍  | 362/485 [00:12<00:03, 33.37it/s]backtest loop:  75%|███████▌  | 366/485 [00:12<00:03, 34.48it/s]backtest loop:  76%|███████▋  | 371/485 [00:12<00:03, 34.58it/s]backtest loop:  78%|███████▊  | 376/485 [00:13<00:03, 32.54it/s]backtest loop:  79%|███████▊  | 381/485 [00:13<00:03, 32.63it/s]backtest loop:  79%|███████▉  | 385/485 [00:13<00:02, 33.99it/s]backtest loop:  80%|████████  | 389/485 [00:13<00:02, 32.51it/s]backtest loop:  81%|████████  | 393/485 [00:13<00:02, 33.59it/s]backtest loop:  82%|████████▏ | 397/485 [00:13<00:02, 32.98it/s]backtest loop:  83%|████████▎ | 401/485 [00:13<00:02, 33.73it/s]backtest loop:  84%|████████▎ | 405/485 [00:13<00:02, 34.76it/s]backtest loop:  84%|████████▍ | 409/485 [00:14<00:02, 28.68it/s]backtest loop:  85%|████████▌ | 413/485 [00:14<00:02, 29.12it/s]backtest loop:  86%|████████▌ | 417/485 [00:14<00:02, 28.84it/s]backtest loop:  87%|████████▋ | 421/485 [00:14<00:02, 29.48it/s]backtest loop:  88%|████████▊ | 426/485 [00:14<00:01, 32.33it/s]backtest loop:  89%|████████▊ | 430/485 [00:14<00:01, 30.85it/s]backtest loop:  90%|████████▉ | 435/485 [00:14<00:01, 31.80it/s]backtest loop:  91%|█████████ | 440/485 [00:15<00:01, 33.62it/s]backtest loop:  92%|█████████▏| 445/485 [00:15<00:01, 35.91it/s]backtest loop:  93%|█████████▎| 449/485 [00:15<00:01, 33.18it/s]backtest loop:  93%|█████████▎| 453/485 [00:15<00:02, 15.49it/s]backtest loop:  94%|█████████▍| 456/485 [00:16<00:01, 17.08it/s]backtest loop:  95%|█████████▍| 459/485 [00:16<00:01, 15.84it/s]backtest loop:  95%|█████████▌| 462/485 [00:16<00:01, 16.60it/s]backtest loop:  96%|█████████▌| 465/485 [00:16<00:01, 14.27it/s]backtest loop:  96%|█████████▋| 467/485 [00:16<00:01, 14.98it/s]backtest loop:  97%|█████████▋| 470/485 [00:16<00:00, 17.01it/s]backtest loop:  98%|█████████▊| 474/485 [00:17<00:00, 19.61it/s]backtest loop:  99%|█████████▉| 479/485 [00:17<00:00, 22.76it/s]backtest loop: 100%|█████████▉| 483/485 [00:17<00:00, 25.92it/s]backtest loop: 100%|██████████| 485/485 [00:17<00:00, 27.47it/s]
+[852894:MainThread](2024-04-06 19:51:49,209) INFO - qlib.workflow - [record_temp.py:515] - Portfolio analysis record 'port_analysis_1day.pkl' has been saved as the artifact of the Experiment 18
+[852894:MainThread](2024-04-06 19:51:49,236) INFO - qlib.workflow - [record_temp.py:540] - Indicator analysis record 'indicator_analysis_1day.pkl' has been saved as the artifact of the Experiment 18
+[852894:MainThread](2024-04-06 19:51:50,928) INFO - qlib.Rolling - [base.py:233] - Your evaluation results can be found in the experiment named `lgb_20240406192200670790177`, rid=047b7fbc5656414385fc20ae7d8e7237
+'The following are analysis results of benchmark return(1day).'
+                       risk
+mean              -0.000278
+std                0.010303
+annualized_return -0.066260
+information_ratio -0.416884
+max_drawdown      -0.328619
+'The following are analysis results of the excess return without cost(1day).'
+                       risk
+mean               0.000893
+std                0.005117
+annualized_return  0.212605
+information_ratio  2.693419
+max_drawdown      -0.054086
+'The following are analysis results of the excess return with cost(1day).'
+                       risk
+mean               0.000695
+std                0.005115
+annualized_return  0.165398
+information_ratio  2.095850
+max_drawdown      -0.056696
+'The following are analysis results of indicators(1day).'
+     value
+ffr    1.0
+pa     0.0
+pos    0.0

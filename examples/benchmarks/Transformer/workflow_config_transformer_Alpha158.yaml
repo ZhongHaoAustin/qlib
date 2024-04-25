@@ -57,6 +57,7 @@ task:
         kwargs:
             seed: 0
             n_jobs: 20
+            GPU: 1
     dataset:
         class: TSDatasetH
         module_path: qlib.data.dataset

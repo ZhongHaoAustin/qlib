@@ -97,7 +97,7 @@ class Rolling:
         assert horizon is not None, "Current version does not support extracting horizon from the underlying dataset"
         self.horizon = horizon
         if rolling_exp is None:
-            datetime_suffix = pd.Timestamp.now().strftime("%Y%m%d%H%M%S")
+            datetime_suffix = pd.Timestamp.now().strftime("%Y%m%d%H%M%S.%f")
             self.rolling_exp = f"rolling_models_{datetime_suffix}"
         else:
             self.rolling_exp = rolling_exp
@@ -230,7 +230,7 @@ class Rolling:
                 default_module="qlib.workflow.record_temp",
             )
             r.generate()
-        print(f"Your evaluation results can be found in the experiment named `{self.exp_name}`.")
+        self.logger.info(f"Your evaluation results can be found in the experiment named `{self.exp_name}`, rid={self._rid}")
 
     def run(self):
         # the results will be  save in mlruns.

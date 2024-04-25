@@ -45,7 +45,7 @@ class ADARNN(Model):
         pre_epoch=40,
         dw=0.5,
         loss_type="cosine",
-        len_seq=60,
+        len_seq=26,
         len_win=0,
         lr=0.001,
         metric="mse",
@@ -345,7 +345,7 @@ class data_loader(Dataset):
         self.df_label_reg = df["label"]
         self.df_index = df.index
         self.df_feature = torch.tensor(
-            self.df_feature.values.reshape(-1, 6, 60).transpose(0, 2, 1), dtype=torch.float32
+            self.df_feature.values.reshape(-1, 6, 26).transpose(0, 2, 1), dtype=torch.float32
         )
         self.df_label_reg = torch.tensor(self.df_label_reg.values.reshape(-1), dtype=torch.float32)
 
@@ -583,7 +583,7 @@ class TransferLoss:
         elif self.loss_type == "js":
             loss = js(X, Y)
         elif self.loss_type == "mine":
-            mine_model = Mine_estimator(input_dim=self.input_dim, hidden_dim=60).to(self.device)
+            mine_model = Mine_estimator(input_dim=self.input_dim, hidden_dim=26).to(self.device)
             loss = mine_model(X, Y)
         elif self.loss_type == "adv":
             loss = adv(X, Y, self.device, input_dim=self.input_dim, hidden_dim=32)

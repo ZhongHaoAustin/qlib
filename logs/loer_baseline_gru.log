@@ -1,0 +1,146 @@
+[3807415:MainThread](2024-04-06 06:19:12,531) INFO - qlib.Initialization - [config.py:416] - default_conf: client.
+[3807415:MainThread](2024-04-06 06:19:12,535) INFO - qlib.Initialization - [__init__.py:74] - qlib successfully initialized based on client settings.
+[3807415:MainThread](2024-04-06 06:19:12,536) INFO - qlib.Initialization - [__init__.py:76] - data_path={'__DEFAULT_FREQ': PosixPath('/home/zhonghao/.qlib/qlib_data/my_data')}
+[3807415:MainThread](2024-04-06 06:19:12,538) INFO - qlib.workflow - [exp.py:258] - Experiment 1 starts running ...
+[3807415:MainThread](2024-04-06 06:19:12,652) INFO - qlib.workflow - [recorder.py:341] - Recorder a71941382f784403945d778087f449d6 starts running under Experiment 1 ...
+[3807415:MainThread](2024-04-06 06:19:14,089) INFO - qlib.GRU - [pytorch_gru_ts.py:61] - GRU pytorch version...
+[3807415:MainThread](2024-04-06 06:19:14,797) INFO - qlib.GRU - [pytorch_gru_ts.py:79] - GRU parameters setting:
+d_feat : 20
+hidden_size : 64
+num_layers : 2
+dropout : 0.0
+n_epochs : 200
+lr : 0.0002
+metric : loss
+batch_size : 800
+early_stop : 10
+optimizer : adam
+loss_type : mse
+device : cuda:0
+n_jobs : 20
+use_GPU : True
+seed : None
+[3807415:MainThread](2024-04-06 06:19:14,828) INFO - qlib.GRU - [pytorch_gru_ts.py:124] - model:
+GRUModel(
+  (rnn): GRU(20, 64, num_layers=2, batch_first=True)
+  (fc_out): Linear(in_features=64, out_features=1, bias=True)
+)
+[3807415:MainThread](2024-04-06 06:19:14,830) INFO - qlib.GRU - [pytorch_gru_ts.py:125] - model size: 0.0396 MB
+ModuleNotFoundError. CatBoostModel are skipped. (optional: maybe installing CatBoostModel can fix it.)
+[3807415:MainThread](2024-04-06 06:23:33,100) INFO - qlib.timer - [log.py:127] - Time cost: 194.622s | Loading data Done
+[3807415:MainThread](2024-04-06 06:23:35,706) INFO - qlib.timer - [log.py:127] - Time cost: 0.111s | FilterCol Done
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/qlib/data/dataset/processor.py:313: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  df[self.cols] = X
+[3807415:MainThread](2024-04-06 06:23:39,711) INFO - qlib.timer - [log.py:127] - Time cost: 4.004s | RobustZScoreNorm Done
+[3807415:MainThread](2024-04-06 06:23:39,960) INFO - qlib.timer - [log.py:127] - Time cost: 0.247s | Fillna Done
+[3807415:MainThread](2024-04-06 06:23:40,236) INFO - qlib.timer - [log.py:127] - Time cost: 0.162s | DropnaLabel Done
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/qlib/data/dataset/processor.py:379: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  df[cols] = t
+[3807415:MainThread](2024-04-06 06:23:40,900) INFO - qlib.timer - [log.py:127] - Time cost: 0.663s | CSRankNorm Done
+[3807415:MainThread](2024-04-06 06:23:40,902) INFO - qlib.timer - [log.py:127] - Time cost: 7.801s | fit & process data Done
+[3807415:MainThread](2024-04-06 06:23:40,903) INFO - qlib.timer - [log.py:127] - Time cost: 202.426s | Init data Done
+[3807415:MainThread](2024-04-06 06:24:00,059) INFO - qlib.GRU - [pytorch_gru_ts.py:249] - training...
+[3807415:MainThread](2024-04-06 06:24:00,084) INFO - qlib.GRU - [pytorch_gru_ts.py:253] - Epoch0:
+[3807415:MainThread](2024-04-06 06:24:00,090) INFO - qlib.GRU - [pytorch_gru_ts.py:254] - training...
+[3807415:MainThread](2024-04-06 06:25:49,815) INFO - qlib.GRU - [pytorch_gru_ts.py:256] - evaluating...
+[3807415:MainThread](2024-04-06 06:27:23,781) INFO - qlib.GRU - [pytorch_gru_ts.py:259] - train -0.994149, valid -0.996673
+[3807415:MainThread](2024-04-06 06:27:23,784) INFO - qlib.GRU - [pytorch_gru_ts.py:253] - Epoch1:
+[3807415:MainThread](2024-04-06 06:27:23,784) INFO - qlib.GRU - [pytorch_gru_ts.py:254] - training...
+[3807415:MainThread](2024-04-06 06:28:47,057) INFO - qlib.GRU - [pytorch_gru_ts.py:256] - evaluating...
+[3807415:MainThread](2024-04-06 06:30:13,667) INFO - qlib.GRU - [pytorch_gru_ts.py:259] - train -0.993264, valid -0.997448
+[3807415:MainThread](2024-04-06 06:30:13,670) INFO - qlib.GRU - [pytorch_gru_ts.py:253] - Epoch2:
+[3807415:MainThread](2024-04-06 06:30:13,671) INFO - qlib.GRU - [pytorch_gru_ts.py:254] - training...
+[3807415:MainThread](2024-04-06 06:31:32,117) INFO - qlib.GRU - [pytorch_gru_ts.py:256] - evaluating...
+[3807415:MainThread](2024-04-06 06:32:43,286) INFO - qlib.GRU - [pytorch_gru_ts.py:259] - train -0.991746, valid -0.996743
+[3807415:MainThread](2024-04-06 06:32:43,288) INFO - qlib.GRU - [pytorch_gru_ts.py:253] - Epoch3:
+[3807415:MainThread](2024-04-06 06:32:43,289) INFO - qlib.GRU - [pytorch_gru_ts.py:254] - training...
+[3807415:MainThread](2024-04-06 06:33:45,066) INFO - qlib.GRU - [pytorch_gru_ts.py:256] - evaluating...
+[3807415:MainThread](2024-04-06 06:34:51,781) INFO - qlib.GRU - [pytorch_gru_ts.py:259] - train -0.991170, valid -0.997928
+[3807415:MainThread](2024-04-06 06:34:51,782) INFO - qlib.GRU - [pytorch_gru_ts.py:253] - Epoch4:
+[3807415:MainThread](2024-04-06 06:34:51,784) INFO - qlib.GRU - [pytorch_gru_ts.py:254] - training...
+[3807415:MainThread](2024-04-06 06:35:58,779) INFO - qlib.GRU - [pytorch_gru_ts.py:256] - evaluating...
+[3807415:MainThread](2024-04-06 06:37:04,224) INFO - qlib.GRU - [pytorch_gru_ts.py:259] - train -0.989670, valid -0.998885
+[3807415:MainThread](2024-04-06 06:37:04,225) INFO - qlib.GRU - [pytorch_gru_ts.py:253] - Epoch5:
+[3807415:MainThread](2024-04-06 06:37:04,227) INFO - qlib.GRU - [pytorch_gru_ts.py:254] - training...
+[3807415:MainThread](2024-04-06 06:38:00,908) INFO - qlib.GRU - [pytorch_gru_ts.py:256] - evaluating...
+[3807415:MainThread](2024-04-06 06:39:03,897) INFO - qlib.GRU - [pytorch_gru_ts.py:259] - train -0.988930, valid -0.998674
+[3807415:MainThread](2024-04-06 06:39:03,902) INFO - qlib.GRU - [pytorch_gru_ts.py:253] - Epoch6:
+[3807415:MainThread](2024-04-06 06:39:03,907) INFO - qlib.GRU - [pytorch_gru_ts.py:254] - training...
+[3807415:MainThread](2024-04-06 06:39:59,287) INFO - qlib.GRU - [pytorch_gru_ts.py:256] - evaluating...
+[3807415:MainThread](2024-04-06 06:40:59,285) INFO - qlib.GRU - [pytorch_gru_ts.py:259] - train -0.988665, valid -1.000934
+[3807415:MainThread](2024-04-06 06:40:59,287) INFO - qlib.GRU - [pytorch_gru_ts.py:253] - Epoch7:
+[3807415:MainThread](2024-04-06 06:40:59,287) INFO - qlib.GRU - [pytorch_gru_ts.py:254] - training...
+[3807415:MainThread](2024-04-06 06:41:53,559) INFO - qlib.GRU - [pytorch_gru_ts.py:256] - evaluating...
+[3807415:MainThread](2024-04-06 06:42:54,498) INFO - qlib.GRU - [pytorch_gru_ts.py:259] - train -0.987687, valid -1.000311
+[3807415:MainThread](2024-04-06 06:42:54,501) INFO - qlib.GRU - [pytorch_gru_ts.py:253] - Epoch8:
+[3807415:MainThread](2024-04-06 06:42:54,502) INFO - qlib.GRU - [pytorch_gru_ts.py:254] - training...
+[3807415:MainThread](2024-04-06 06:43:49,606) INFO - qlib.GRU - [pytorch_gru_ts.py:256] - evaluating...
+[3807415:MainThread](2024-04-06 06:44:47,521) INFO - qlib.GRU - [pytorch_gru_ts.py:259] - train -0.986716, valid -0.999424
+[3807415:MainThread](2024-04-06 06:44:47,522) INFO - qlib.GRU - [pytorch_gru_ts.py:253] - Epoch9:
+[3807415:MainThread](2024-04-06 06:44:47,523) INFO - qlib.GRU - [pytorch_gru_ts.py:254] - training...
+[3807415:MainThread](2024-04-06 06:45:43,919) INFO - qlib.GRU - [pytorch_gru_ts.py:256] - evaluating...
+[3807415:MainThread](2024-04-06 06:46:48,227) INFO - qlib.GRU - [pytorch_gru_ts.py:259] - train -0.986388, valid -1.001370
+[3807415:MainThread](2024-04-06 06:46:48,228) INFO - qlib.GRU - [pytorch_gru_ts.py:253] - Epoch10:
+[3807415:MainThread](2024-04-06 06:46:48,229) INFO - qlib.GRU - [pytorch_gru_ts.py:254] - training...
+[3807415:MainThread](2024-04-06 06:47:49,117) INFO - qlib.GRU - [pytorch_gru_ts.py:256] - evaluating...
+[3807415:MainThread](2024-04-06 06:48:56,884) INFO - qlib.GRU - [pytorch_gru_ts.py:259] - train -0.985718, valid -1.001740
+[3807415:MainThread](2024-04-06 06:48:56,886) INFO - qlib.GRU - [pytorch_gru_ts.py:271] - early stop
+[3807415:MainThread](2024-04-06 06:48:56,887) INFO - qlib.GRU - [pytorch_gru_ts.py:274] - best score: -0.996673 @ 0
+[3807415:MainThread](2024-04-06 06:48:57,152) INFO - qlib.fill_placeholder - [__init__.py:739] - <PRED> lookes like a placeholder, but it can't match to any given values
+[3807415:MainThread](2024-04-06 06:49:07,934) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 1
+[3807415:MainThread](2024-04-06 06:49:15,036) INFO - qlib.backtest caller - [__init__.py:93] - Create new exchange
+'The following are prediction results of the GRU model.'
+                          score
+datetime   instrument          
+2022-04-01 SH600000   -0.018227
+2022-04-06 SH600000   -0.010812
+2022-04-07 SH600000    0.016088
+2022-04-08 SH600000    0.023097
+2022-04-11 SH600000    0.039891
+{'IC': 0.013992429317780535,
+ 'ICIR': 0.09949757326280938,
+ 'Rank IC': 0.025277647355917806,
+ 'Rank ICIR': 0.18047809504583134}
+[3807415:MainThread](2024-04-06 06:49:51,322) WARNING - qlib.online operator - [exchange.py:219] - $close field data contains nan.
+[3807415:MainThread](2024-04-06 06:49:51,325) WARNING - qlib.online operator - [exchange.py:219] - $close field data contains nan.
+[3807415:MainThread](2024-04-06 06:50:01,586) WARNING - qlib.BaseExecutor - [executor.py:121] - `common_infra` is not set for <qlib.backtest.executor.SimulatorExecutor object at 0x7ffa6cc91eb0>
+backtest loop:   0%|          | 0/485 [00:00<?, ?it/s]/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/qlib/utils/index_data.py:481: RuntimeWarning: Mean of empty slice
+  return np.nanmean(self.data)
+backtest loop:   0%|          | 2/485 [00:00<00:26, 18.23it/s]backtest loop:   1%|          | 4/485 [00:00<00:46, 10.43it/s]backtest loop:   1%|          | 6/485 [00:00<00:51,  9.33it/s]backtest loop:   2%|▏         | 8/485 [00:00<01:06,  7.15it/s]backtest loop:   2%|▏         | 9/485 [00:01<01:22,  5.80it/s]backtest loop:   2%|▏         | 10/485 [00:01<01:18,  6.08it/s]backtest loop:   2%|▏         | 11/485 [00:01<01:18,  6.04it/s]backtest loop:   2%|▏         | 12/485 [00:01<01:23,  5.69it/s]backtest loop:   3%|▎         | 13/485 [00:01<01:21,  5.77it/s]backtest loop:   3%|▎         | 14/485 [00:02<01:30,  5.19it/s]backtest loop:   3%|▎         | 15/485 [00:02<01:21,  5.79it/s]backtest loop:   3%|▎         | 16/485 [00:02<01:28,  5.31it/s]backtest loop:   4%|▎         | 17/485 [00:02<01:43,  4.53it/s]backtest loop:   4%|▎         | 18/485 [00:03<01:37,  4.78it/s]backtest loop:   4%|▍         | 19/485 [00:03<01:59,  3.89it/s]backtest loop:   4%|▍         | 20/485 [00:03<01:47,  4.34it/s]backtest loop:   4%|▍         | 21/485 [00:03<01:34,  4.90it/s]backtest loop:   5%|▍         | 23/485 [00:03<01:11,  6.48it/s]backtest loop:   5%|▌         | 25/485 [00:04<00:56,  8.09it/s]backtest loop:   6%|▌         | 27/485 [00:04<00:48,  9.42it/s]backtest loop:   6%|▌         | 29/485 [00:04<00:42, 10.61it/s]backtest loop:   6%|▋         | 31/485 [00:04<00:45, 10.01it/s]backtest loop:   7%|▋         | 33/485 [00:04<00:55,  8.12it/s]backtest loop:   7%|▋         | 34/485 [00:05<01:04,  6.96it/s]backtest loop:   7%|▋         | 35/485 [00:05<01:01,  7.38it/s]backtest loop:   7%|▋         | 36/485 [00:05<01:00,  7.48it/s]backtest loop:   8%|▊         | 38/485 [00:05<00:47,  9.31it/s]backtest loop:   8%|▊         | 40/485 [00:05<00:46,  9.63it/s]backtest loop:   9%|▊         | 42/485 [00:05<00:50,  8.83it/s]backtest loop:   9%|▉         | 43/485 [00:06<01:04,  6.81it/s]backtest loop:   9%|▉         | 44/485 [00:06<01:03,  6.98it/s]backtest loop:   9%|▉         | 45/485 [00:06<01:06,  6.61it/s]backtest loop:  10%|▉         | 47/485 [00:06<00:54,  8.11it/s]backtest loop:  10%|█         | 49/485 [00:06<00:44,  9.77it/s]backtest loop:  11%|█         | 51/485 [00:07<00:40, 10.77it/s]backtest loop:  11%|█         | 53/485 [00:07<00:35, 12.29it/s]backtest loop:  11%|█▏        | 55/485 [00:07<00:34, 12.51it/s]backtest loop:  12%|█▏        | 57/485 [00:07<00:31, 13.65it/s]backtest loop:  12%|█▏        | 59/485 [00:07<00:29, 14.24it/s]backtest loop:  13%|█▎        | 61/485 [00:07<00:31, 13.32it/s]backtest loop:  13%|█▎        | 63/485 [00:07<00:30, 13.63it/s]backtest loop:  13%|█▎        | 65/485 [00:08<00:41, 10.01it/s]backtest loop:  14%|█▍        | 67/485 [00:08<00:41, 10.14it/s]backtest loop:  14%|█▍        | 69/485 [00:08<00:36, 11.35it/s]backtest loop:  15%|█▍        | 71/485 [00:08<00:40, 10.30it/s]backtest loop:  15%|█▌        | 73/485 [00:08<00:36, 11.41it/s]backtest loop:  15%|█▌        | 75/485 [00:09<00:36, 11.26it/s]backtest loop:  16%|█▌        | 77/485 [00:09<00:46,  8.77it/s]backtest loop:  16%|█▋        | 79/485 [00:09<00:41,  9.88it/s]backtest loop:  17%|█▋        | 81/485 [00:09<00:39, 10.18it/s]backtest loop:  17%|█▋        | 83/485 [00:09<00:35, 11.21it/s]backtest loop:  18%|█▊        | 85/485 [00:10<00:36, 10.91it/s]backtest loop:  18%|█▊        | 87/485 [00:10<00:37, 10.74it/s]backtest loop:  18%|█▊        | 89/485 [00:10<00:37, 10.60it/s]backtest loop:  19%|█▉        | 91/485 [00:10<00:45,  8.57it/s]backtest loop:  19%|█▉        | 93/485 [00:10<00:39,  9.97it/s]backtest loop:  20%|█▉        | 95/485 [00:11<00:41,  9.45it/s]backtest loop:  20%|██        | 97/485 [00:11<00:44,  8.71it/s]backtest loop:  20%|██        | 99/485 [00:11<00:41,  9.21it/s]backtest loop:  21%|██        | 100/485 [00:11<00:41,  9.32it/s]backtest loop:  21%|██        | 102/485 [00:11<00:34, 10.96it/s]backtest loop:  21%|██▏       | 104/485 [00:11<00:30, 12.42it/s]backtest loop:  22%|██▏       | 106/485 [00:12<00:30, 12.40it/s]backtest loop:  22%|██▏       | 108/485 [00:12<00:27, 13.64it/s]backtest loop:  23%|██▎       | 110/485 [00:12<00:28, 13.07it/s]backtest loop:  23%|██▎       | 112/485 [00:12<00:31, 11.92it/s]backtest loop:  24%|██▎       | 114/485 [00:12<00:37,  9.95it/s]backtest loop:  24%|██▍       | 117/485 [00:12<00:29, 12.53it/s]backtest loop:  25%|██▍       | 119/485 [00:13<00:27, 13.19it/s]backtest loop:  25%|██▍       | 121/485 [00:13<00:26, 13.79it/s]backtest loop:  25%|██▌       | 123/485 [00:13<00:31, 11.33it/s]backtest loop:  26%|██▌       | 125/485 [00:14<00:54,  6.65it/s]backtest loop:  26%|██▌       | 127/485 [00:14<00:44,  7.98it/s]backtest loop:  27%|██▋       | 129/485 [00:14<00:40,  8.90it/s]backtest loop:  27%|██▋       | 131/485 [00:14<00:33, 10.52it/s]backtest loop:  27%|██▋       | 133/485 [00:14<00:35,  9.81it/s]backtest loop:  28%|██▊       | 135/485 [00:15<00:47,  7.42it/s]backtest loop:  28%|██▊       | 137/485 [00:15<00:40,  8.56it/s]backtest loop:  29%|██▊       | 139/485 [00:15<00:39,  8.77it/s]backtest loop:  29%|██▉       | 141/485 [00:15<00:35,  9.83it/s]backtest loop:  29%|██▉       | 143/485 [00:15<00:31, 10.85it/s]backtest loop:  30%|██▉       | 145/485 [00:16<00:33, 10.20it/s]backtest loop:  30%|███       | 147/485 [00:16<00:30, 11.04it/s]backtest loop:  31%|███       | 149/485 [00:16<00:32, 10.29it/s]backtest loop:  31%|███       | 151/485 [00:16<00:33, 10.11it/s]backtest loop:  32%|███▏      | 153/485 [00:16<00:35,  9.44it/s]backtest loop:  32%|███▏      | 154/485 [00:17<00:40,  8.16it/s]backtest loop:  32%|███▏      | 155/485 [00:17<00:39,  8.40it/s]backtest loop:  32%|███▏      | 156/485 [00:17<00:38,  8.63it/s]backtest loop:  33%|███▎      | 158/485 [00:17<00:30, 10.56it/s]backtest loop:  33%|███▎      | 160/485 [00:17<00:33,  9.58it/s]backtest loop:  33%|███▎      | 162/485 [00:18<00:54,  5.89it/s]backtest loop:  34%|███▎      | 163/485 [00:18<00:58,  5.47it/s]backtest loop:  34%|███▍      | 164/485 [00:18<00:54,  5.87it/s]backtest loop:  34%|███▍      | 166/485 [00:18<00:42,  7.51it/s]backtest loop:  35%|███▍      | 168/485 [00:18<00:35,  8.87it/s]backtest loop:  35%|███▌      | 170/485 [00:19<00:33,  9.43it/s]backtest loop:  35%|███▌      | 172/485 [00:19<00:29, 10.69it/s]backtest loop:  36%|███▌      | 174/485 [00:19<00:28, 10.91it/s]backtest loop:  36%|███▋      | 176/485 [00:19<00:28, 10.99it/s]backtest loop:  37%|███▋      | 178/485 [00:19<00:33,  9.13it/s]backtest loop:  37%|███▋      | 180/485 [00:20<00:51,  5.97it/s]backtest loop:  37%|███▋      | 181/485 [00:20<00:48,  6.25it/s]backtest loop:  38%|███▊      | 182/485 [00:20<00:48,  6.27it/s]backtest loop:  38%|███▊      | 184/485 [00:20<00:43,  6.87it/s]backtest loop:  38%|███▊      | 185/485 [00:21<00:48,  6.18it/s]backtest loop:  38%|███▊      | 186/485 [00:21<00:48,  6.19it/s]backtest loop:  39%|███▊      | 187/485 [00:21<00:43,  6.79it/s]backtest loop:  39%|███▉      | 188/485 [00:21<00:43,  6.83it/s]backtest loop:  39%|███▉      | 190/485 [00:21<00:34,  8.66it/s]backtest loop:  40%|███▉      | 192/485 [00:21<00:28, 10.16it/s]backtest loop:  40%|████      | 194/485 [00:22<00:27, 10.52it/s]backtest loop:  40%|████      | 196/485 [00:22<00:25, 11.45it/s]backtest loop:  41%|████      | 198/485 [00:22<00:24, 11.69it/s]backtest loop:  41%|████      | 200/485 [00:22<00:23, 11.92it/s]backtest loop:  42%|████▏     | 202/485 [00:22<00:21, 12.98it/s]backtest loop:  42%|████▏     | 204/485 [00:22<00:21, 12.88it/s]backtest loop:  42%|████▏     | 206/485 [00:22<00:20, 13.87it/s]backtest loop:  43%|████▎     | 208/485 [00:23<00:23, 11.64it/s]backtest loop:  43%|████▎     | 210/485 [00:23<00:26, 10.53it/s]backtest loop:  44%|████▎     | 212/485 [00:23<00:34,  7.83it/s]backtest loop:  44%|████▍     | 213/485 [00:24<00:37,  7.22it/s]backtest loop:  44%|████▍     | 214/485 [00:24<00:35,  7.55it/s]backtest loop:  45%|████▍     | 216/485 [00:24<00:31,  8.47it/s]backtest loop:  45%|████▍     | 218/485 [00:24<00:30,  8.62it/s]backtest loop:  45%|████▌     | 220/485 [00:24<00:31,  8.29it/s]backtest loop:  46%|████▌     | 221/485 [00:25<00:37,  7.00it/s]backtest loop:  46%|████▌     | 223/485 [00:25<00:33,  7.84it/s]backtest loop:  46%|████▋     | 225/485 [00:25<00:30,  8.42it/s]backtest loop:  47%|████▋     | 226/485 [00:25<00:29,  8.65it/s]backtest loop:  47%|████▋     | 228/485 [00:25<00:27,  9.30it/s]backtest loop:  47%|████▋     | 230/485 [00:25<00:23, 10.75it/s]backtest loop:  48%|████▊     | 232/485 [00:25<00:21, 11.65it/s]backtest loop:  48%|████▊     | 234/485 [00:26<00:22, 11.00it/s]backtest loop:  49%|████▊     | 236/485 [00:26<00:25,  9.65it/s]backtest loop:  49%|████▉     | 238/485 [00:26<00:24, 10.00it/s]backtest loop:  49%|████▉     | 240/485 [00:26<00:21, 11.46it/s]backtest loop:  50%|████▉     | 242/485 [00:26<00:20, 12.10it/s]backtest loop:  50%|█████     | 244/485 [00:27<00:20, 11.92it/s]backtest loop:  51%|█████     | 246/485 [00:27<00:20, 11.68it/s]backtest loop:  51%|█████     | 248/485 [00:27<00:21, 11.27it/s]backtest loop:  52%|█████▏    | 250/485 [00:27<00:20, 11.62it/s]backtest loop:  52%|█████▏    | 252/485 [00:27<00:19, 11.74it/s]backtest loop:  52%|█████▏    | 254/485 [00:27<00:17, 12.92it/s]backtest loop:  53%|█████▎    | 256/485 [00:28<00:17, 13.42it/s]backtest loop:  53%|█████▎    | 258/485 [00:28<00:17, 12.89it/s]backtest loop:  54%|█████▍    | 261/485 [00:28<00:14, 15.13it/s]backtest loop:  54%|█████▍    | 263/485 [00:28<00:14, 15.46it/s]backtest loop:  55%|█████▍    | 265/485 [00:28<00:13, 15.87it/s]backtest loop:  55%|█████▌    | 268/485 [00:28<00:12, 16.85it/s]backtest loop:  56%|█████▌    | 270/485 [00:28<00:13, 15.48it/s]backtest loop:  56%|█████▌    | 272/485 [00:29<00:14, 14.80it/s]backtest loop:  56%|█████▋    | 274/485 [00:29<00:15, 13.87it/s]backtest loop:  57%|█████▋    | 276/485 [00:29<00:14, 14.50it/s]backtest loop:  57%|█████▋    | 278/485 [00:29<00:14, 14.72it/s]backtest loop:  58%|█████▊    | 280/485 [00:29<00:14, 14.22it/s]backtest loop:  58%|█████▊    | 282/485 [00:29<00:13, 14.79it/s]backtest loop:  59%|█████▊    | 284/485 [00:29<00:14, 13.88it/s]backtest loop:  59%|█████▉    | 286/485 [00:30<00:13, 14.65it/s]backtest loop:  59%|█████▉    | 288/485 [00:30<00:13, 14.93it/s]backtest loop:  60%|█████▉    | 290/485 [00:30<00:12, 15.36it/s]backtest loop:  60%|██████    | 292/485 [00:30<00:12, 15.76it/s]backtest loop:  61%|██████    | 294/485 [00:30<00:13, 14.44it/s]backtest loop:  61%|██████    | 296/485 [00:30<00:13, 13.90it/s]backtest loop:  61%|██████▏   | 298/485 [00:30<00:15, 12.12it/s]backtest loop:  62%|██████▏   | 300/485 [00:31<00:13, 13.28it/s]backtest loop:  62%|██████▏   | 302/485 [00:31<00:14, 12.86it/s]backtest loop:  63%|██████▎   | 304/485 [00:31<00:12, 14.17it/s]backtest loop:  63%|██████▎   | 306/485 [00:31<00:11, 15.09it/s]backtest loop:  64%|██████▎   | 308/485 [00:31<00:11, 15.78it/s]backtest loop:  64%|██████▍   | 311/485 [00:31<00:09, 17.87it/s]backtest loop:  65%|██████▍   | 313/485 [00:31<00:10, 16.70it/s]backtest loop:  65%|██████▍   | 315/485 [00:31<00:11, 15.19it/s]backtest loop:  65%|██████▌   | 317/485 [00:32<00:11, 14.97it/s]backtest loop:  66%|██████▌   | 319/485 [00:32<00:10, 15.80it/s]backtest loop:  66%|██████▌   | 321/485 [00:32<00:09, 16.61it/s]backtest loop:  67%|██████▋   | 323/485 [00:32<00:10, 16.10it/s]backtest loop:  67%|██████▋   | 325/485 [00:32<00:10, 15.24it/s]backtest loop:  67%|██████▋   | 327/485 [00:32<00:10, 15.14it/s]backtest loop:  68%|██████▊   | 329/485 [00:32<00:10, 14.29it/s]backtest loop:  68%|██████▊   | 331/485 [00:33<00:10, 14.52it/s]backtest loop:  69%|██████▊   | 333/485 [00:33<00:10, 13.99it/s]backtest loop:  69%|██████▉   | 335/485 [00:33<00:10, 14.83it/s]backtest loop:  69%|██████▉   | 337/485 [00:33<00:09, 15.17it/s]backtest loop:  70%|██████▉   | 339/485 [00:33<00:09, 15.12it/s]backtest loop:  70%|███████   | 341/485 [00:33<00:10, 13.50it/s]backtest loop:  71%|███████   | 343/485 [00:33<00:10, 13.08it/s]backtest loop:  71%|███████   | 345/485 [00:34<00:10, 13.72it/s]backtest loop:  72%|███████▏  | 347/485 [00:34<00:10, 12.73it/s]backtest loop:  72%|███████▏  | 349/485 [00:34<00:11, 11.84it/s]backtest loop:  72%|███████▏  | 351/485 [00:34<00:11, 11.45it/s]backtest loop:  73%|███████▎  | 353/485 [00:34<00:11, 11.07it/s]backtest loop:  73%|███████▎  | 355/485 [00:35<00:11, 10.92it/s]backtest loop:  74%|███████▎  | 357/485 [00:35<00:11, 11.31it/s]backtest loop:  74%|███████▍  | 359/485 [00:35<00:10, 11.99it/s]backtest loop:  74%|███████▍  | 361/485 [00:35<00:09, 13.17it/s]backtest loop:  75%|███████▍  | 363/485 [00:35<00:09, 12.41it/s]backtest loop:  75%|███████▌  | 365/485 [00:35<00:09, 12.86it/s]backtest loop:  76%|███████▌  | 367/485 [00:35<00:09, 12.25it/s]backtest loop:  76%|███████▌  | 369/485 [00:36<00:11, 10.10it/s]backtest loop:  76%|███████▋  | 371/485 [00:36<00:13,  8.67it/s]backtest loop:  77%|███████▋  | 373/485 [00:36<00:11,  9.75it/s]backtest loop:  77%|███████▋  | 375/485 [00:36<00:09, 11.04it/s]backtest loop:  78%|███████▊  | 377/485 [00:36<00:08, 12.22it/s]backtest loop:  78%|███████▊  | 379/485 [00:37<00:07, 13.68it/s]backtest loop:  79%|███████▊  | 381/485 [00:37<00:07, 14.25it/s]backtest loop:  79%|███████▉  | 383/485 [00:37<00:06, 15.33it/s]backtest loop:  79%|███████▉  | 385/485 [00:37<00:06, 16.14it/s]backtest loop:  80%|███████▉  | 387/485 [00:37<00:06, 15.18it/s]backtest loop:  80%|████████  | 389/485 [00:37<00:05, 16.00it/s]backtest loop:  81%|████████  | 391/485 [00:37<00:05, 16.22it/s]backtest loop:  81%|████████  | 394/485 [00:37<00:05, 17.84it/s]backtest loop:  82%|████████▏ | 396/485 [00:38<00:05, 16.79it/s]backtest loop:  82%|████████▏ | 398/485 [00:38<00:05, 16.26it/s]backtest loop:  82%|████████▏ | 400/485 [00:38<00:05, 16.34it/s]backtest loop:  83%|████████▎ | 402/485 [00:38<00:05, 15.81it/s]backtest loop:  84%|████████▎ | 405/485 [00:38<00:04, 17.63it/s]backtest loop:  84%|████████▍ | 407/485 [00:38<00:04, 17.44it/s]backtest loop:  85%|████████▍ | 410/485 [00:38<00:04, 18.56it/s]backtest loop:  85%|████████▍ | 412/485 [00:38<00:04, 16.39it/s]backtest loop:  85%|████████▌ | 414/485 [00:39<00:04, 16.62it/s]backtest loop:  86%|████████▌ | 416/485 [00:39<00:04, 16.21it/s]backtest loop:  86%|████████▋ | 419/485 [00:39<00:03, 18.02it/s]backtest loop:  87%|████████▋ | 421/485 [00:39<00:03, 16.65it/s]backtest loop:  87%|████████▋ | 423/485 [00:39<00:03, 16.44it/s]backtest loop:  88%|████████▊ | 425/485 [00:39<00:03, 16.69it/s]backtest loop:  88%|████████▊ | 427/485 [00:39<00:03, 16.38it/s]backtest loop:  88%|████████▊ | 429/485 [00:40<00:04, 12.72it/s]backtest loop:  89%|████████▉ | 431/485 [00:40<00:05, 10.19it/s]backtest loop:  89%|████████▉ | 433/485 [00:40<00:04, 11.71it/s]backtest loop:  90%|████████▉ | 435/485 [00:40<00:04, 12.07it/s]backtest loop:  90%|█████████ | 438/485 [00:40<00:03, 14.72it/s]backtest loop:  91%|█████████ | 440/485 [00:40<00:02, 15.58it/s]backtest loop:  91%|█████████ | 442/485 [00:41<00:03, 13.57it/s]backtest loop:  92%|█████████▏| 444/485 [00:41<00:03, 13.31it/s]backtest loop:  92%|█████████▏| 446/485 [00:41<00:02, 13.70it/s]backtest loop:  92%|█████████▏| 448/485 [00:41<00:02, 14.49it/s]backtest loop:  93%|█████████▎| 450/485 [00:41<00:02, 14.11it/s]backtest loop:  93%|█████████▎| 452/485 [00:41<00:02, 14.98it/s]backtest loop:  94%|█████████▎| 454/485 [00:41<00:02, 14.68it/s]backtest loop:  94%|█████████▍| 456/485 [00:42<00:01, 15.62it/s]backtest loop:  94%|█████████▍| 458/485 [00:42<00:01, 14.40it/s]backtest loop:  95%|█████████▍| 460/485 [00:42<00:02, 10.99it/s]backtest loop:  95%|█████████▌| 462/485 [00:42<00:01, 12.66it/s]backtest loop:  96%|█████████▌| 464/485 [00:42<00:01, 12.96it/s]backtest loop:  96%|█████████▌| 466/485 [00:42<00:01, 14.18it/s]backtest loop:  97%|█████████▋| 469/485 [00:42<00:01, 15.68it/s]backtest loop:  97%|█████████▋| 472/485 [00:43<00:00, 17.50it/s]backtest loop:  98%|█████████▊| 474/485 [00:43<00:00, 12.50it/s]backtest loop:  98%|█████████▊| 476/485 [00:43<00:00, 12.62it/s]backtest loop:  99%|█████████▉| 479/485 [00:43<00:00, 13.89it/s]backtest loop:  99%|█████████▉| 481/485 [00:43<00:00, 14.71it/s]backtest loop: 100%|█████████▉| 483/485 [00:43<00:00, 15.49it/s]backtest loop: 100%|██████████| 485/485 [00:44<00:00, 15.09it/s]backtest loop: 100%|██████████| 485/485 [00:44<00:00, 10.99it/s]
+[3807415:MainThread](2024-04-06 06:50:45,773) INFO - qlib.workflow - [record_temp.py:515] - Portfolio analysis record 'port_analysis_1day.pkl' has been saved as the artifact of the Experiment 1
+[3807415:MainThread](2024-04-06 06:50:45,791) INFO - qlib.workflow - [record_temp.py:540] - Indicator analysis record 'indicator_analysis_1day.pkl' has been saved as the artifact of the Experiment 1
+[3807415:MainThread](2024-04-06 06:50:46,854) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+'The following are analysis results of benchmark return(1day).'
+                       risk
+mean              -0.000278
+std                0.010303
+annualized_return -0.066260
+information_ratio -0.416884
+max_drawdown      -0.328619
+'The following are analysis results of the excess return without cost(1day).'
+                       risk
+mean               0.000208
+std                0.004988
+annualized_return  0.049468
+information_ratio  0.642891
+max_drawdown      -0.125342
+'The following are analysis results of the excess return with cost(1day).'
+                       risk
+mean               0.000008
+std                0.004986
+annualized_return  0.001962
+information_ratio  0.025506
+max_drawdown      -0.167310
+'The following are analysis results of indicators(1day).'
+     value
+ffr    1.0
+pa     0.0
+pos    0.0

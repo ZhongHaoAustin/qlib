@@ -1,0 +1,111 @@
+[3807419:MainThread](2024-04-06 06:19:12,418) INFO - qlib.Initialization - [config.py:416] - default_conf: client.
+[3807419:MainThread](2024-04-06 06:19:12,420) INFO - qlib.Initialization - [__init__.py:74] - qlib successfully initialized based on client settings.
+[3807419:MainThread](2024-04-06 06:19:12,421) INFO - qlib.Initialization - [__init__.py:76] - data_path={'__DEFAULT_FREQ': PosixPath('/home/zhonghao/.qlib/qlib_data/my_data')}
+[3807419:MainThread](2024-04-06 06:19:12,422) INFO - qlib.workflow - [exp.py:258] - Experiment 1 starts running ...
+[3807419:MainThread](2024-04-06 06:19:12,519) INFO - qlib.workflow - [recorder.py:341] - Recorder e29c300f8eda415288e688c54ea68356 starts running under Experiment 1 ...
+[3807419:MainThread](2024-04-06 06:19:14,007) INFO - qlib.ADD - [pytorch_add.py:70] - ADD pytorch version...
+[3807419:MainThread](2024-04-06 06:19:14,595) INFO - qlib.ADD - [pytorch_add.py:93] - ADD parameters setting:
+d_feat : 6
+hidden_size : 64
+num_layers : 2
+dropout : 0.1
+dec_dropout : 0.0
+n_epochs : 200
+lr : 0.001
+metric : ic
+batch_size : 5000
+early_stop : 20
+optimizer : adam
+base_model : GRU
+model_path : None
+gamma : 0.1
+gamma_clip : 0.2
+mu : 0.2
+device : cuda:0
+use_GPU : True
+seed : None
+[3807419:MainThread](2024-04-06 06:19:14,629) INFO - qlib.ADD - [pytorch_add.py:150] - model:
+ADDModel(
+  (enc_excess): GRU(6, 64, num_layers=2, batch_first=True, dropout=0.1)
+  (enc_market): GRU(6, 64, num_layers=2, batch_first=True, dropout=0.1)
+  (dec): Decoder(
+    (rnn): GRU(6, 128, num_layers=2, batch_first=True)
+    (fc): Linear(in_features=128, out_features=6, bias=True)
+  )
+  (pred_excess): Sequential(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+    (1): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (2): Tanh()
+    (3): Linear(in_features=128, out_features=1, bias=True)
+  )
+  (adv_excess): Sequential(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+    (1): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (2): Tanh()
+    (3): Linear(in_features=128, out_features=1, bias=True)
+  )
+  (adv_market): Sequential(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+    (1): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (2): Tanh()
+    (3): Linear(in_features=128, out_features=3, bias=True)
+  )
+  (pred_market): Sequential(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+    (1): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (2): Tanh()
+    (3): Linear(in_features=128, out_features=3, bias=True)
+  )
+  (before_adv_market): RevGrad()
+  (before_adv_excess): RevGrad()
+)
+[3807419:MainThread](2024-04-06 06:19:14,630) INFO - qlib.ADD - [pytorch_add.py:151] - model size: 0.2839 MB
+ModuleNotFoundError. CatBoostModel are skipped. (optional: maybe installing CatBoostModel can fix it.)
+[3807419:MainThread](2024-04-06 06:23:21,695) INFO - qlib.timer - [log.py:127] - Time cost: 184.986s | Loading data Done
+[3807419:MainThread](2024-04-06 06:26:26,364) INFO - qlib.timer - [log.py:127] - Time cost: 180.922s | RobustZScoreNorm Done
+[3807419:MainThread](2024-04-06 06:26:35,379) INFO - qlib.timer - [log.py:127] - Time cost: 9.014s | Fillna Done
+[3807419:MainThread](2024-04-06 06:26:40,888) INFO - qlib.timer - [log.py:127] - Time cost: 3.285s | DropnaLabel Done
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/qlib/data/dataset/processor.py:379: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  df[cols] = t
+[3807419:MainThread](2024-04-06 06:26:47,883) INFO - qlib.timer - [log.py:127] - Time cost: 6.971s | CSRankNorm Done
+[3807419:MainThread](2024-04-06 06:26:47,895) INFO - qlib.timer - [log.py:127] - Time cost: 206.198s | fit & process data Done
+[3807419:MainThread](2024-04-06 06:26:47,895) INFO - qlib.timer - [log.py:127] - Time cost: 391.187s | Init data Done
+[3807419:MainThread](2024-04-06 06:26:47,897) WARNING - qlib.utils - [__init__.py:789] - The parameter `reweighter` with value `None` is ignored.
+[3807419:MainThread](2024-04-06 06:26:59,482) INFO - qlib.ADD - [pytorch_add.py:315] - training...
+[3807419:MainThread](2024-04-06 06:26:59,492) INFO - qlib.ADD - [pytorch_add.py:322] - Epoch0:
+[3807419:MainThread](2024-04-06 06:26:59,504) INFO - qlib.ADD - [pytorch_add.py:323] - training...
+[3807419:MainThread](2024-04-06 06:26:59,812) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+[3807419:MainThread](2024-04-06 06:26:59,816) ERROR - qlib.workflow - [utils.py:41] - An exception has been raised[RuntimeError: shape '[5000, 6, -1]' is invalid for input of size 790000].
+  File "/home/zhonghao/miniconda3/envs/qlib_env/bin/qrun", line 8, in <module>
+    sys.exit(run())
+  File "/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/qlib/workflow/cli.py", line 115, in run
+    fire.Fire(workflow)
+  File "/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/fire/core.py", line 143, in Fire
+    component_trace = _Fire(component, args, parsed_flag_args, context, name)
+  File "/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/fire/core.py", line 477, in _Fire
+    component, remaining_args = _CallAndUpdateTrace(
+  File "/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/fire/core.py", line 693, in _CallAndUpdateTrace
+    component = fn(*varargs, **kwargs)
+  File "/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/qlib/workflow/cli.py", line 109, in workflow
+    recorder = task_train(config.get("task"), experiment_name=experiment_name)
+  File "/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/qlib/model/trainer.py", line 127, in task_train
+    _exe_task(task_config)
+  File "/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/qlib/model/trainer.py", line 49, in _exe_task
+    auto_filter_kwargs(model.fit)(dataset, reweighter=reweighter)
+  File "/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/qlib/utils/__init__.py", line 792, in _func
+    return func(*args, **new_kwargs)
+  File "/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/qlib/contrib/model/pytorch_add.py", line 411, in fit
+    self.bootstrap_fit(x_train, y_train, m_train, x_valid, y_valid, m_valid)
+  File "/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/qlib/contrib/model/pytorch_add.py", line 324, in bootstrap_fit
+    self.train_epoch(x_train_values, y_train_values, m_train_values)
+  File "/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/qlib/contrib/model/pytorch_add.py", line 294, in train_epoch
+    preds = self.ADD_model(feature)
+  File "/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/qlib/contrib/model/pytorch_add.py", line 495, in forward
+    x = x.reshape(len(x), self.d_feat, -1)
+RuntimeError: shape '[5000, 6, -1]' is invalid for input of size 790000

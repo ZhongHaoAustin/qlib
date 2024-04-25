@@ -1,0 +1,81 @@
+[3684733:MainThread](2024-04-06 05:25:32,178) INFO - qlib.Initialization - [config.py:416] - default_conf: client.
+[3684733:MainThread](2024-04-06 05:25:32,181) INFO - qlib.Initialization - [__init__.py:74] - qlib successfully initialized based on client settings.
+[3684733:MainThread](2024-04-06 05:25:32,181) INFO - qlib.Initialization - [__init__.py:76] - data_path={'__DEFAULT_FREQ': PosixPath('/home/zhonghao/.qlib/qlib_data/my_data')}
+[3684733:MainThread](2024-04-06 05:25:32,183) INFO - qlib.workflow - [exp.py:258] - Experiment 1 starts running ...
+[3684733:MainThread](2024-04-06 05:25:32,293) INFO - qlib.workflow - [recorder.py:341] - Recorder 8a3278b9caa54a6e88ca07707d876df7 starts running under Experiment 1 ...
+[3684733:MainThread](2024-04-06 05:25:33,837) INFO - qlib.GRU - [pytorch_gru_ts.py:61] - GRU pytorch version...
+[3684733:MainThread](2024-04-06 05:25:34,031) INFO - qlib.GRU - [pytorch_gru_ts.py:79] - GRU parameters setting:
+d_feat : 20
+hidden_size : 64
+num_layers : 2
+dropout : 0.0
+n_epochs : 200
+lr : 0.0002
+metric : loss
+batch_size : 800
+early_stop : 10
+optimizer : adam
+loss_type : mse
+device : cuda:0
+n_jobs : 20
+use_GPU : True
+seed : None
+[3684733:MainThread](2024-04-06 05:25:34,038) INFO - qlib.GRU - [pytorch_gru_ts.py:124] - model:
+GRUModel(
+  (rnn): GRU(20, 64, num_layers=2, batch_first=True)
+  (fc_out): Linear(in_features=64, out_features=1, bias=True)
+)
+[3684733:MainThread](2024-04-06 05:25:34,039) INFO - qlib.GRU - [pytorch_gru_ts.py:125] - model size: 0.0396 MB
+[3684733:MainThread](2024-04-06 05:25:40,870) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+ModuleNotFoundError. CatBoostModel are skipped. (optional: maybe installing CatBoostModel can fix it.)
+[3684733:MainThread](2024-04-06 05:25:40,873) ERROR - qlib.workflow - [utils.py:41] - An exception has been raised[ValueError: could not convert string to Timestamp].
+  File "/home/zhonghao/miniconda3/envs/qlib_env/bin/qrun", line 8, in <module>
+    sys.exit(run())
+  File "/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/qlib/workflow/cli.py", line 115, in run
+    fire.Fire(workflow)
+  File "/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/fire/core.py", line 143, in Fire
+    component_trace = _Fire(component, args, parsed_flag_args, context, name)
+  File "/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/fire/core.py", line 477, in _Fire
+    component, remaining_args = _CallAndUpdateTrace(
+  File "/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/fire/core.py", line 693, in _CallAndUpdateTrace
+    component = fn(*varargs, **kwargs)
+  File "/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/qlib/workflow/cli.py", line 109, in workflow
+    recorder = task_train(config.get("task"), experiment_name=experiment_name)
+  File "/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/qlib/model/trainer.py", line 127, in task_train
+    _exe_task(task_config)
+  File "/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/qlib/model/trainer.py", line 46, in _exe_task
+    dataset: Dataset = init_instance_by_config(task_config["dataset"], accept_types=Dataset)
+  File "/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/qlib/utils/mod.py", line 174, in init_instance_by_config
+    return klass(**cls_kwargs, **try_kwargs, **kwargs)
+  File "/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/qlib/data/dataset/__init__.py", line 666, in __init__
+    super().__init__(**kwargs)
+  File "/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/qlib/data/dataset/__init__.py", line 119, in __init__
+    self.handler: DataHandler = init_instance_by_config(handler, accept_types=DataHandler)
+  File "/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/qlib/utils/mod.py", line 174, in init_instance_by_config
+    return klass(**cls_kwargs, **try_kwargs, **kwargs)
+  File "/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/qlib/contrib/data/handler.py", line 173, in __init__
+    super().__init__(
+  File "/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/qlib/data/dataset/handler.py", line 468, in __init__
+    super().__init__(instruments, start_time, end_time, data_loader, **kwargs)
+  File "/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/qlib/data/dataset/handler.py", line 100, in __init__
+    self.setup_data()
+  File "/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/qlib/data/dataset/handler.py", line 610, in setup_data
+    super().setup_data(**kwargs)
+  File "/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/qlib/data/dataset/handler.py", line 144, in setup_data
+    self._data = lazy_sort_index(self.data_loader.load(self.instruments, self.start_time, self.end_time))
+  File "/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/qlib/data/dataset/loader.py", line 135, in load
+    {
+  File "/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/qlib/data/dataset/loader.py", line 136, in <dictcomp>
+    grp: self.load_group_df(instruments, exprs, names, start_time, end_time, grp)
+  File "/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/qlib/data/dataset/loader.py", line 217, in load_group_df
+    df = D.features(instruments, exprs, start_time, end_time, freq=freq, inst_processors=inst_processors)
+  File "/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/qlib/data/data.py", line 1191, in features
+    return DatasetD.dataset(instruments, fields, start_time, end_time, freq, inst_processors=inst_processors)
+  File "/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/qlib/data/data.py", line 917, in dataset
+    cal = Cal.calendar(start_time, end_time, freq)
+  File "/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/qlib/data/data.py", line 103, in calendar
+    end_time = pd.Timestamp(end_time)
+  File "pandas/_libs/tslibs/timestamps.pyx", line 1698, in pandas._libs.tslibs.timestamps.Timestamp.__new__
+  File "pandas/_libs/tslibs/conversion.pyx", line 249, in pandas._libs.tslibs.conversion.convert_to_tsobject
+  File "pandas/_libs/tslibs/conversion.pyx", line 533, in pandas._libs.tslibs.conversion._convert_str_to_tsobject
+ValueError: could not convert string to Timestamp

@@ -5,6 +5,8 @@ from typing import Union
 
 import fire
 
+import qlib
+from qlib.constant import REG_CN
 from qlib import auto_init
 from qlib.contrib.rolling.base import Rolling
 from qlib.tests.data import GetData
@@ -31,6 +33,6 @@ class RollingBenchmark(Rolling):
 
 
 if __name__ == "__main__":
-    GetData().qlib_data(exists_skip=True)
-    auto_init()
+    provider_uri = {"day": "~/.qlib/qlib_data/my_data"}  # target_dir
+    qlib.init(provider_uri=provider_uri, region=REG_CN)
     fire.Fire(RollingBenchmark)

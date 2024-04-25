@@ -1,0 +1,161 @@
+[3807418:MainThread](2024-04-06 06:19:12,414) INFO - qlib.Initialization - [config.py:416] - default_conf: client.
+[3807418:MainThread](2024-04-06 06:19:12,418) INFO - qlib.Initialization - [__init__.py:74] - qlib successfully initialized based on client settings.
+[3807418:MainThread](2024-04-06 06:19:12,418) INFO - qlib.Initialization - [__init__.py:76] - data_path={'__DEFAULT_FREQ': PosixPath('/home/zhonghao/.qlib/qlib_data/my_data')}
+[3807418:MainThread](2024-04-06 06:19:12,421) INFO - qlib.workflow - [exp.py:258] - Experiment 1 starts running ...
+[3807418:MainThread](2024-04-06 06:19:12,534) INFO - qlib.workflow - [recorder.py:341] - Recorder 7b4cf2b9bc734cb1942be88dec298fca starts running under Experiment 1 ...
+[3807418:MainThread](2024-04-06 06:19:14,048) INFO - qlib.ALSTM - [pytorch_alstm_ts.py:63] - ALSTM pytorch version...
+[3807418:MainThread](2024-04-06 06:19:14,700) INFO - qlib.ALSTM - [pytorch_alstm_ts.py:81] - ALSTM parameters setting:
+d_feat : 20
+hidden_size : 64
+num_layers : 2
+dropout : 0.0
+n_epochs : 200
+lr : 0.001
+metric : loss
+batch_size : 800
+early_stop : 10
+optimizer : adam
+loss_type : mse
+device : cuda:0
+n_jobs : 20
+use_GPU : True
+seed : None
+[3807418:MainThread](2024-04-06 06:19:14,708) INFO - qlib.ALSTM - [pytorch_alstm_ts.py:126] - model:
+ALSTMModel(
+  (net): Sequential(
+    (fc_in): Linear(in_features=20, out_features=64, bias=True)
+    (act): Tanh()
+  )
+  (rnn): GRU(64, 64, num_layers=2, batch_first=True)
+  (fc_out): Linear(in_features=128, out_features=1, bias=True)
+  (att_net): Sequential(
+    (att_fc_in): Linear(in_features=64, out_features=32, bias=True)
+    (att_dropout): Dropout(p=0.0, inplace=False)
+    (att_act): Tanh()
+    (att_fc_out): Linear(in_features=32, out_features=1, bias=False)
+    (att_softmax): Softmax(dim=1)
+  )
+)
+[3807418:MainThread](2024-04-06 06:19:14,708) INFO - qlib.ALSTM - [pytorch_alstm_ts.py:127] - model size: 0.0510 MB
+ModuleNotFoundError. CatBoostModel are skipped. (optional: maybe installing CatBoostModel can fix it.)
+[3807418:MainThread](2024-04-06 06:23:28,078) INFO - qlib.timer - [log.py:127] - Time cost: 186.777s | Loading data Done
+[3807418:MainThread](2024-04-06 06:23:31,387) INFO - qlib.timer - [log.py:127] - Time cost: 0.076s | FilterCol Done
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/qlib/data/dataset/processor.py:313: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  df[self.cols] = X
+[3807418:MainThread](2024-04-06 06:23:35,061) INFO - qlib.timer - [log.py:127] - Time cost: 3.674s | RobustZScoreNorm Done
+[3807418:MainThread](2024-04-06 06:23:35,370) INFO - qlib.timer - [log.py:127] - Time cost: 0.307s | Fillna Done
+[3807418:MainThread](2024-04-06 06:23:35,752) INFO - qlib.timer - [log.py:127] - Time cost: 0.241s | DropnaLabel Done
+/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/qlib/data/dataset/processor.py:379: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  df[cols] = t
+[3807418:MainThread](2024-04-06 06:23:36,515) INFO - qlib.timer - [log.py:127] - Time cost: 0.757s | CSRankNorm Done
+[3807418:MainThread](2024-04-06 06:23:36,518) INFO - qlib.timer - [log.py:127] - Time cost: 8.438s | fit & process data Done
+[3807418:MainThread](2024-04-06 06:23:36,520) INFO - qlib.timer - [log.py:127] - Time cost: 195.220s | Init data Done
+[3807418:MainThread](2024-04-06 06:23:51,645) INFO - qlib.ALSTM - [pytorch_alstm_ts.py:251] - training...
+[3807418:MainThread](2024-04-06 06:23:51,646) INFO - qlib.ALSTM - [pytorch_alstm_ts.py:255] - Epoch0:
+[3807418:MainThread](2024-04-06 06:23:51,648) INFO - qlib.ALSTM - [pytorch_alstm_ts.py:256] - training...
+[3807418:MainThread](2024-04-06 06:25:45,308) INFO - qlib.ALSTM - [pytorch_alstm_ts.py:258] - evaluating...
+[3807418:MainThread](2024-04-06 06:27:21,642) INFO - qlib.ALSTM - [pytorch_alstm_ts.py:261] - train -0.992273, valid -0.998983
+[3807418:MainThread](2024-04-06 06:27:21,646) INFO - qlib.ALSTM - [pytorch_alstm_ts.py:255] - Epoch1:
+[3807418:MainThread](2024-04-06 06:27:21,647) INFO - qlib.ALSTM - [pytorch_alstm_ts.py:256] - training...
+[3807418:MainThread](2024-04-06 06:28:55,331) INFO - qlib.ALSTM - [pytorch_alstm_ts.py:258] - evaluating...
+[3807418:MainThread](2024-04-06 06:30:32,416) INFO - qlib.ALSTM - [pytorch_alstm_ts.py:261] - train -0.988651, valid -0.998912
+[3807418:MainThread](2024-04-06 06:30:32,418) INFO - qlib.ALSTM - [pytorch_alstm_ts.py:255] - Epoch2:
+[3807418:MainThread](2024-04-06 06:30:32,419) INFO - qlib.ALSTM - [pytorch_alstm_ts.py:256] - training...
+[3807418:MainThread](2024-04-06 06:31:44,734) INFO - qlib.ALSTM - [pytorch_alstm_ts.py:258] - evaluating...
+[3807418:MainThread](2024-04-06 06:32:45,280) INFO - qlib.ALSTM - [pytorch_alstm_ts.py:261] - train -0.986458, valid -1.001680
+[3807418:MainThread](2024-04-06 06:32:45,281) INFO - qlib.ALSTM - [pytorch_alstm_ts.py:255] - Epoch3:
+[3807418:MainThread](2024-04-06 06:32:45,282) INFO - qlib.ALSTM - [pytorch_alstm_ts.py:256] - training...
+[3807418:MainThread](2024-04-06 06:33:53,467) INFO - qlib.ALSTM - [pytorch_alstm_ts.py:258] - evaluating...
+[3807418:MainThread](2024-04-06 06:35:07,114) INFO - qlib.ALSTM - [pytorch_alstm_ts.py:261] - train -0.983041, valid -1.000332
+[3807418:MainThread](2024-04-06 06:35:07,116) INFO - qlib.ALSTM - [pytorch_alstm_ts.py:255] - Epoch4:
+[3807418:MainThread](2024-04-06 06:35:07,117) INFO - qlib.ALSTM - [pytorch_alstm_ts.py:256] - training...
+[3807418:MainThread](2024-04-06 06:36:29,788) INFO - qlib.ALSTM - [pytorch_alstm_ts.py:258] - evaluating...
+[3807418:MainThread](2024-04-06 06:37:33,432) INFO - qlib.ALSTM - [pytorch_alstm_ts.py:261] - train -0.979226, valid -1.002404
+[3807418:MainThread](2024-04-06 06:37:33,435) INFO - qlib.ALSTM - [pytorch_alstm_ts.py:255] - Epoch5:
+[3807418:MainThread](2024-04-06 06:37:33,435) INFO - qlib.ALSTM - [pytorch_alstm_ts.py:256] - training...
+[3807418:MainThread](2024-04-06 06:38:39,340) INFO - qlib.ALSTM - [pytorch_alstm_ts.py:258] - evaluating...
+[3807418:MainThread](2024-04-06 06:39:44,819) INFO - qlib.ALSTM - [pytorch_alstm_ts.py:261] - train -0.975618, valid -1.004283
+[3807418:MainThread](2024-04-06 06:39:44,821) INFO - qlib.ALSTM - [pytorch_alstm_ts.py:255] - Epoch6:
+[3807418:MainThread](2024-04-06 06:39:44,822) INFO - qlib.ALSTM - [pytorch_alstm_ts.py:256] - training...
+[3807418:MainThread](2024-04-06 06:40:43,329) INFO - qlib.ALSTM - [pytorch_alstm_ts.py:258] - evaluating...
+[3807418:MainThread](2024-04-06 06:41:39,043) INFO - qlib.ALSTM - [pytorch_alstm_ts.py:261] - train -0.971255, valid -1.011462
+[3807418:MainThread](2024-04-06 06:41:39,046) INFO - qlib.ALSTM - [pytorch_alstm_ts.py:255] - Epoch7:
+[3807418:MainThread](2024-04-06 06:41:39,048) INFO - qlib.ALSTM - [pytorch_alstm_ts.py:256] - training...
+[3807418:MainThread](2024-04-06 06:42:35,505) INFO - qlib.ALSTM - [pytorch_alstm_ts.py:258] - evaluating...
+[3807418:MainThread](2024-04-06 06:43:33,963) INFO - qlib.ALSTM - [pytorch_alstm_ts.py:261] - train -0.967036, valid -1.009483
+[3807418:MainThread](2024-04-06 06:43:33,963) INFO - qlib.ALSTM - [pytorch_alstm_ts.py:255] - Epoch8:
+[3807418:MainThread](2024-04-06 06:43:33,964) INFO - qlib.ALSTM - [pytorch_alstm_ts.py:256] - training...
+[3807418:MainThread](2024-04-06 06:44:30,782) INFO - qlib.ALSTM - [pytorch_alstm_ts.py:258] - evaluating...
+[3807418:MainThread](2024-04-06 06:45:29,756) INFO - qlib.ALSTM - [pytorch_alstm_ts.py:261] - train -0.961430, valid -1.018307
+[3807418:MainThread](2024-04-06 06:45:29,760) INFO - qlib.ALSTM - [pytorch_alstm_ts.py:255] - Epoch9:
+[3807418:MainThread](2024-04-06 06:45:29,761) INFO - qlib.ALSTM - [pytorch_alstm_ts.py:256] - training...
+[3807418:MainThread](2024-04-06 06:46:27,885) INFO - qlib.ALSTM - [pytorch_alstm_ts.py:258] - evaluating...
+[3807418:MainThread](2024-04-06 06:47:24,724) INFO - qlib.ALSTM - [pytorch_alstm_ts.py:261] - train -0.955619, valid -1.019563
+[3807418:MainThread](2024-04-06 06:47:24,725) INFO - qlib.ALSTM - [pytorch_alstm_ts.py:255] - Epoch10:
+[3807418:MainThread](2024-04-06 06:47:24,725) INFO - qlib.ALSTM - [pytorch_alstm_ts.py:256] - training...
+[3807418:MainThread](2024-04-06 06:48:19,101) INFO - qlib.ALSTM - [pytorch_alstm_ts.py:258] - evaluating...
+[3807418:MainThread](2024-04-06 06:49:14,032) INFO - qlib.ALSTM - [pytorch_alstm_ts.py:261] - train -0.951155, valid -1.021957
+[3807418:MainThread](2024-04-06 06:49:14,033) INFO - qlib.ALSTM - [pytorch_alstm_ts.py:255] - Epoch11:
+[3807418:MainThread](2024-04-06 06:49:14,034) INFO - qlib.ALSTM - [pytorch_alstm_ts.py:256] - training...
+[3807418:MainThread](2024-04-06 06:49:58,671) INFO - qlib.ALSTM - [pytorch_alstm_ts.py:258] - evaluating...
+[3807418:MainThread](2024-04-06 06:50:32,624) INFO - qlib.ALSTM - [pytorch_alstm_ts.py:261] - train -0.945141, valid -1.026823
+[3807418:MainThread](2024-04-06 06:50:32,625) INFO - qlib.ALSTM - [pytorch_alstm_ts.py:273] - early stop
+[3807418:MainThread](2024-04-06 06:50:32,626) INFO - qlib.ALSTM - [pytorch_alstm_ts.py:276] - best score: -0.998912 @ 1
+[3807418:MainThread](2024-04-06 06:50:32,721) INFO - qlib.fill_placeholder - [__init__.py:739] - <PRED> lookes like a placeholder, but it can't match to any given values
+[3807418:MainThread](2024-04-06 06:50:38,386) INFO - qlib.workflow - [record_temp.py:198] - Signal record 'pred.pkl' has been saved as the artifact of the Experiment 1
+[3807418:MainThread](2024-04-06 06:50:42,985) INFO - qlib.backtest caller - [__init__.py:93] - Create new exchange
+'The following are prediction results of the ALSTM model.'
+                          score
+datetime   instrument          
+2022-04-01 SH600000    0.028539
+2022-04-06 SH600000    0.055259
+2022-04-07 SH600000    0.186014
+2022-04-08 SH600000    0.110210
+2022-04-11 SH600000    0.146568
+{'IC': 0.029547806622730332,
+ 'ICIR': 0.22019855793052293,
+ 'Rank IC': 0.04119568132364026,
+ 'Rank ICIR': 0.3107317244586383}
+[3807418:MainThread](2024-04-06 06:50:56,835) WARNING - qlib.online operator - [exchange.py:219] - $close field data contains nan.
+[3807418:MainThread](2024-04-06 06:50:56,838) WARNING - qlib.online operator - [exchange.py:219] - $close field data contains nan.
+[3807418:MainThread](2024-04-06 06:51:02,282) WARNING - qlib.BaseExecutor - [executor.py:121] - `common_infra` is not set for <qlib.backtest.executor.SimulatorExecutor object at 0x7feee370edc0>
+backtest loop:   0%|          | 0/485 [00:00<?, ?it/s]/home/zhonghao/miniconda3/envs/qlib_env/lib/python3.8/site-packages/qlib/utils/index_data.py:481: RuntimeWarning: Mean of empty slice
+  return np.nanmean(self.data)
+backtest loop:   0%|          | 2/485 [00:00<00:29, 16.36it/s]backtest loop:   1%|          | 4/485 [00:00<00:33, 14.54it/s]backtest loop:   1%|▏         | 7/485 [00:00<00:27, 17.67it/s]backtest loop:   2%|▏         | 9/485 [00:00<00:29, 16.36it/s]backtest loop:   2%|▏         | 12/485 [00:00<00:25, 18.48it/s]backtest loop:   3%|▎         | 14/485 [00:00<00:32, 14.65it/s]backtest loop:   3%|▎         | 16/485 [00:01<00:30, 15.33it/s]backtest loop:   4%|▎         | 18/485 [00:01<00:28, 16.17it/s]backtest loop:   4%|▍         | 20/485 [00:01<00:29, 15.90it/s]backtest loop:   5%|▍         | 22/485 [00:01<00:27, 16.80it/s]backtest loop:   5%|▌         | 25/485 [00:01<00:24, 19.07it/s]backtest loop:   6%|▌         | 27/485 [00:01<00:23, 19.16it/s]backtest loop:   6%|▌         | 30/485 [00:01<00:22, 19.81it/s]backtest loop:   7%|▋         | 32/485 [00:01<00:25, 17.84it/s]backtest loop:   7%|▋         | 34/485 [00:01<00:24, 18.16it/s]backtest loop:   7%|▋         | 36/485 [00:02<00:25, 17.95it/s]backtest loop:   8%|▊         | 39/485 [00:02<00:22, 19.94it/s]backtest loop:   9%|▊         | 42/485 [00:02<00:21, 20.23it/s]backtest loop:   9%|▉         | 45/485 [00:02<00:22, 19.48it/s]backtest loop:  10%|▉         | 47/485 [00:02<00:22, 19.07it/s]backtest loop:  10%|█         | 49/485 [00:02<00:23, 18.32it/s]backtest loop:  11%|█         | 51/485 [00:02<00:24, 18.04it/s]backtest loop:  11%|█         | 54/485 [00:03<00:22, 19.10it/s]backtest loop:  12%|█▏        | 56/485 [00:03<00:23, 18.59it/s]backtest loop:  12%|█▏        | 59/485 [00:03<00:21, 19.53it/s]backtest loop:  13%|█▎        | 61/485 [00:03<00:22, 18.77it/s]backtest loop:  13%|█▎        | 64/485 [00:03<00:21, 19.50it/s]backtest loop:  14%|█▎        | 66/485 [00:03<00:22, 18.49it/s]backtest loop:  14%|█▍        | 69/485 [00:03<00:21, 19.24it/s]backtest loop:  15%|█▍        | 71/485 [00:03<00:22, 18.72it/s]backtest loop:  15%|█▌        | 74/485 [00:04<00:21, 19.40it/s]backtest loop:  16%|█▌        | 76/485 [00:04<00:22, 18.59it/s]backtest loop:  16%|█▋        | 79/485 [00:04<00:21, 19.14it/s]backtest loop:  17%|█▋        | 81/485 [00:04<00:21, 18.51it/s]backtest loop:  17%|█▋        | 84/485 [00:04<00:20, 19.41it/s]backtest loop:  18%|█▊        | 86/485 [00:04<00:21, 18.93it/s]backtest loop:  18%|█▊        | 89/485 [00:04<00:20, 19.48it/s]backtest loop:  19%|█▉        | 91/485 [00:04<00:21, 18.14it/s]backtest loop:  19%|█▉        | 94/485 [00:05<00:20, 18.87it/s]backtest loop:  20%|█▉        | 96/485 [00:05<00:21, 18.39it/s]backtest loop:  20%|██        | 99/485 [00:05<00:19, 19.33it/s]backtest loop:  21%|██        | 101/485 [00:05<00:20, 18.82it/s]backtest loop:  21%|██▏       | 104/485 [00:05<00:19, 19.90it/s]backtest loop:  22%|██▏       | 106/485 [00:05<00:19, 19.13it/s]backtest loop:  22%|██▏       | 108/485 [00:05<00:19, 18.86it/s]backtest loop:  23%|██▎       | 110/485 [00:05<00:20, 18.49it/s]backtest loop:  23%|██▎       | 113/485 [00:06<00:19, 19.54it/s]backtest loop:  24%|██▎       | 115/485 [00:06<00:19, 19.06it/s]backtest loop:  24%|██▍       | 118/485 [00:06<00:18, 19.97it/s]backtest loop:  25%|██▍       | 120/485 [00:06<00:18, 19.46it/s]backtest loop:  25%|██▌       | 123/485 [00:06<00:18, 19.96it/s]backtest loop:  26%|██▌       | 125/485 [00:06<00:18, 19.29it/s]backtest loop:  26%|██▋       | 128/485 [00:06<00:17, 20.11it/s]backtest loop:  27%|██▋       | 130/485 [00:06<00:18, 19.44it/s]backtest loop:  27%|██▋       | 133/485 [00:07<00:16, 20.75it/s]backtest loop:  28%|██▊       | 136/485 [00:07<00:17, 20.52it/s]backtest loop:  29%|██▊       | 139/485 [00:07<00:17, 19.82it/s]backtest loop:  29%|██▉       | 142/485 [00:07<00:16, 20.69it/s]backtest loop:  30%|██▉       | 145/485 [00:07<00:16, 20.11it/s]backtest loop:  31%|███       | 148/485 [00:07<00:15, 21.07it/s]backtest loop:  31%|███       | 151/485 [00:07<00:16, 20.68it/s]backtest loop:  32%|███▏      | 154/485 [00:08<00:18, 17.44it/s]backtest loop:  32%|███▏      | 156/485 [00:08<00:19, 17.15it/s]backtest loop:  33%|███▎      | 158/485 [00:08<00:18, 17.37it/s]backtest loop:  33%|███▎      | 160/485 [00:08<00:18, 17.13it/s]backtest loop:  33%|███▎      | 162/485 [00:08<00:18, 17.73it/s]backtest loop:  34%|███▍      | 164/485 [00:08<00:18, 17.19it/s]backtest loop:  34%|███▍      | 167/485 [00:08<00:17, 18.34it/s]backtest loop:  35%|███▍      | 169/485 [00:09<00:17, 18.01it/s]backtest loop:  35%|███▌      | 172/485 [00:09<00:16, 18.92it/s]backtest loop:  36%|███▌      | 174/485 [00:09<00:16, 18.33it/s]backtest loop:  36%|███▋      | 176/485 [00:09<00:16, 18.59it/s]backtest loop:  37%|███▋      | 178/485 [00:09<00:16, 18.77it/s]backtest loop:  37%|███▋      | 180/485 [00:09<00:17, 17.80it/s]backtest loop:  38%|███▊      | 183/485 [00:09<00:15, 18.99it/s]backtest loop:  38%|███▊      | 185/485 [00:09<00:16, 18.43it/s]backtest loop:  39%|███▉      | 188/485 [00:10<00:16, 18.26it/s]backtest loop:  39%|███▉      | 190/485 [00:10<00:15, 18.61it/s]backtest loop:  40%|███▉      | 192/485 [00:10<00:15, 18.88it/s]backtest loop:  40%|████      | 194/485 [00:10<00:16, 18.00it/s]backtest loop:  41%|████      | 197/485 [00:10<00:15, 19.05it/s]backtest loop:  41%|████      | 199/485 [00:10<00:15, 18.88it/s]backtest loop:  42%|████▏     | 202/485 [00:10<00:13, 20.24it/s]backtest loop:  42%|████▏     | 205/485 [00:10<00:14, 19.75it/s]backtest loop:  43%|████▎     | 208/485 [00:11<00:14, 19.11it/s]backtest loop:  44%|████▎     | 211/485 [00:11<00:13, 19.59it/s]backtest loop:  44%|████▍     | 213/485 [00:11<00:14, 18.99it/s]backtest loop:  45%|████▍     | 216/485 [00:11<00:13, 19.92it/s]backtest loop:  45%|████▍     | 218/485 [00:11<00:14, 18.99it/s]backtest loop:  46%|████▌     | 221/485 [00:11<00:13, 19.51it/s]backtest loop:  46%|████▌     | 223/485 [00:11<00:14, 18.66it/s]backtest loop:  46%|████▋     | 225/485 [00:11<00:13, 18.92it/s]backtest loop:  47%|████▋     | 227/485 [00:12<00:13, 18.57it/s]backtest loop:  47%|████▋     | 229/485 [00:12<00:16, 15.93it/s]backtest loop:  48%|████▊     | 231/485 [00:12<00:15, 16.00it/s]backtest loop:  48%|████▊     | 233/485 [00:12<00:15, 16.18it/s]backtest loop:  49%|████▊     | 236/485 [00:12<00:13, 18.60it/s]backtest loop:  49%|████▉     | 238/485 [00:12<00:13, 18.71it/s]backtest loop:  50%|████▉     | 241/485 [00:12<00:11, 20.35it/s]backtest loop:  50%|█████     | 244/485 [00:13<00:12, 19.78it/s]backtest loop:  51%|█████     | 246/485 [00:13<00:12, 19.70it/s]backtest loop:  51%|█████     | 248/485 [00:13<00:12, 19.31it/s]backtest loop:  52%|█████▏    | 251/485 [00:13<00:11, 20.91it/s]backtest loop:  52%|█████▏    | 254/485 [00:13<00:11, 20.70it/s]backtest loop:  53%|█████▎    | 257/485 [00:13<00:11, 20.55it/s]backtest loop:  54%|█████▎    | 260/485 [00:13<00:10, 21.60it/s]backtest loop:  54%|█████▍    | 263/485 [00:13<00:10, 21.14it/s]backtest loop:  55%|█████▍    | 266/485 [00:14<00:10, 20.61it/s]backtest loop:  55%|█████▌    | 269/485 [00:14<00:10, 20.69it/s]backtest loop:  56%|█████▌    | 272/485 [00:14<00:10, 21.29it/s]backtest loop:  57%|█████▋    | 275/485 [00:14<00:10, 20.91it/s]backtest loop:  57%|█████▋    | 278/485 [00:14<00:09, 21.73it/s]backtest loop:  58%|█████▊    | 281/485 [00:14<00:09, 21.15it/s]backtest loop:  59%|█████▊    | 284/485 [00:14<00:09, 21.12it/s]backtest loop:  59%|█████▉    | 287/485 [00:15<00:08, 22.17it/s]backtest loop:  60%|█████▉    | 290/485 [00:15<00:08, 21.74it/s]backtest loop:  60%|██████    | 293/485 [00:15<00:08, 22.61it/s]backtest loop:  61%|██████    | 296/485 [00:15<00:08, 22.13it/s]backtest loop:  62%|██████▏   | 299/485 [00:15<00:08, 21.82it/s]backtest loop:  62%|██████▏   | 302/485 [00:15<00:08, 21.58it/s]backtest loop:  63%|██████▎   | 305/485 [00:15<00:08, 21.56it/s]backtest loop:  64%|██████▎   | 308/485 [00:16<00:08, 19.90it/s]backtest loop:  64%|██████▍   | 311/485 [00:16<00:08, 20.84it/s]backtest loop:  65%|██████▍   | 314/485 [00:16<00:08, 20.70it/s]backtest loop:  65%|██████▌   | 317/485 [00:16<00:08, 20.90it/s]backtest loop:  66%|██████▌   | 320/485 [00:16<00:07, 21.91it/s]backtest loop:  67%|██████▋   | 323/485 [00:16<00:07, 21.67it/s]backtest loop:  67%|██████▋   | 326/485 [00:16<00:07, 22.47it/s]backtest loop:  68%|██████▊   | 329/485 [00:17<00:07, 21.92it/s]backtest loop:  68%|██████▊   | 332/485 [00:17<00:07, 21.44it/s]backtest loop:  69%|██████▉   | 335/485 [00:17<00:06, 22.15it/s]backtest loop:  70%|██████▉   | 338/485 [00:17<00:06, 21.72it/s]backtest loop:  70%|███████   | 341/485 [00:17<00:06, 22.29it/s]backtest loop:  71%|███████   | 344/485 [00:17<00:06, 21.87it/s]backtest loop:  72%|███████▏  | 347/485 [00:17<00:06, 21.52it/s]backtest loop:  72%|███████▏  | 350/485 [00:17<00:06, 22.35it/s]backtest loop:  73%|███████▎  | 353/485 [00:18<00:05, 22.01it/s]backtest loop:  73%|███████▎  | 356/485 [00:18<00:05, 22.88it/s]backtest loop:  74%|███████▍  | 359/485 [00:18<00:05, 22.37it/s]backtest loop:  75%|███████▍  | 362/485 [00:18<00:05, 22.05it/s]backtest loop:  75%|███████▌  | 365/485 [00:18<00:05, 22.81it/s]backtest loop:  76%|███████▌  | 368/485 [00:18<00:05, 22.25it/s]backtest loop:  76%|███████▋  | 371/485 [00:18<00:05, 21.94it/s]backtest loop:  77%|███████▋  | 374/485 [00:19<00:04, 22.65it/s]backtest loop:  78%|███████▊  | 377/485 [00:19<00:04, 22.19it/s]backtest loop:  78%|███████▊  | 380/485 [00:19<00:04, 22.87it/s]backtest loop:  79%|███████▉  | 383/485 [00:19<00:04, 20.81it/s]backtest loop:  80%|███████▉  | 386/485 [00:19<00:04, 19.82it/s]backtest loop:  80%|████████  | 389/485 [00:19<00:04, 21.02it/s]backtest loop:  81%|████████  | 392/485 [00:19<00:04, 20.93it/s]backtest loop:  81%|████████▏ | 395/485 [00:20<00:04, 21.90it/s]backtest loop:  82%|████████▏ | 398/485 [00:20<00:04, 21.59it/s]backtest loop:  83%|████████▎ | 401/485 [00:20<00:03, 21.24it/s]backtest loop:  83%|████████▎ | 404/485 [00:20<00:03, 22.21it/s]backtest loop:  84%|████████▍ | 407/485 [00:20<00:03, 21.96it/s]backtest loop:  85%|████████▍ | 410/485 [00:20<00:03, 22.92it/s]backtest loop:  85%|████████▌ | 413/485 [00:20<00:03, 22.52it/s]backtest loop:  86%|████████▌ | 416/485 [00:20<00:03, 22.25it/s]backtest loop:  86%|████████▋ | 419/485 [00:21<00:02, 22.93it/s]backtest loop:  87%|████████▋ | 422/485 [00:21<00:02, 22.48it/s]backtest loop:  88%|████████▊ | 425/485 [00:21<00:02, 23.25it/s]backtest loop:  88%|████████▊ | 428/485 [00:21<00:02, 22.76it/s]backtest loop:  89%|████████▉ | 431/485 [00:21<00:02, 22.40it/s]backtest loop:  89%|████████▉ | 434/485 [00:21<00:02, 23.21it/s]backtest loop:  90%|█████████ | 437/485 [00:21<00:02, 22.66it/s]backtest loop:  91%|█████████ | 440/485 [00:22<00:02, 22.12it/s]backtest loop:  91%|█████████▏| 443/485 [00:22<00:01, 23.02it/s]backtest loop:  92%|█████████▏| 446/485 [00:22<00:01, 22.56it/s]backtest loop:  93%|█████████▎| 449/485 [00:22<00:01, 23.40it/s]backtest loop:  93%|█████████▎| 452/485 [00:22<00:01, 22.84it/s]backtest loop:  94%|█████████▍| 455/485 [00:22<00:01, 22.43it/s]backtest loop:  94%|█████████▍| 458/485 [00:22<00:01, 22.91it/s]backtest loop:  95%|█████████▌| 461/485 [00:22<00:01, 22.43it/s]backtest loop:  96%|█████████▌| 464/485 [00:23<00:00, 22.13it/s]backtest loop:  96%|█████████▋| 467/485 [00:23<00:00, 22.99it/s]backtest loop:  97%|█████████▋| 470/485 [00:23<00:00, 22.52it/s]backtest loop:  98%|█████████▊| 473/485 [00:23<00:00, 23.15it/s]backtest loop:  98%|█████████▊| 476/485 [00:23<00:00, 22.26it/s]backtest loop:  99%|█████████▉| 479/485 [00:23<00:00, 20.99it/s]backtest loop:  99%|█████████▉| 482/485 [00:23<00:00, 22.18it/s]backtest loop: 100%|██████████| 485/485 [00:24<00:00, 21.59it/s]backtest loop: 100%|██████████| 485/485 [00:24<00:00, 20.17it/s]
+[3807418:MainThread](2024-04-06 06:51:26,379) INFO - qlib.workflow - [record_temp.py:515] - Portfolio analysis record 'port_analysis_1day.pkl' has been saved as the artifact of the Experiment 1
+[3807418:MainThread](2024-04-06 06:51:26,392) INFO - qlib.workflow - [record_temp.py:540] - Indicator analysis record 'indicator_analysis_1day.pkl' has been saved as the artifact of the Experiment 1
+[3807418:MainThread](2024-04-06 06:51:26,959) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+'The following are analysis results of benchmark return(1day).'
+                       risk
+mean              -0.000278
+std                0.010303
+annualized_return -0.066260
+information_ratio -0.416884
+max_drawdown      -0.328619
+'The following are analysis results of the excess return without cost(1day).'
+                       risk
+mean               0.000461
+std                0.003872
+annualized_return  0.109711
+information_ratio  1.836865
+max_drawdown      -0.037801
+'The following are analysis results of the excess return with cost(1day).'
+                       risk
+mean               0.000263
+std                0.003870
+annualized_return  0.062520
+information_ratio  1.047306
+max_drawdown      -0.057439
+'The following are analysis results of indicators(1day).'
+     value
+ffr    1.0
+pa     0.0
+pos    0.0
