@@ -1,0 +1,97 @@
+[3430943:MainThread](2024-04-25 20:55:00,298) INFO - qlib.Initialization - [config.py:416] - default_conf: client.
+[3430943:MainThread](2024-04-25 20:55:00,301) INFO - qlib.Initialization - [__init__.py:74] - qlib successfully initialized based on client settings.
+[3430943:MainThread](2024-04-25 20:55:00,301) INFO - qlib.Initialization - [__init__.py:76] - data_path={'__DEFAULT_FREQ': PosixPath('/home/zhonghao/.qlib/qlib_data/crowd_data')}
+Remove CSRankNorm
+Handler: {'class': 'Alpha360', 'module_path': 'qlib.contrib.data.handler', 'kwargs': {'start_time': Timestamp('2008-01-01 00:00:00'), 'end_time': Timestamp('2024-03-31 00:00:00'), 'fit_start_time': Timestamp('2008-01-01 00:00:00'), 'fit_end_time': Timestamp('2018-12-31 00:00:00'), 'instruments': 'csi300', 'infer_processors': [{'class': 'RobustZScoreNorm', 'kwargs': {'fields_group': 'feature', 'clip_outlier': True}}, {'class': 'Fillna', 'kwargs': {'fields_group': 'feature'}}], 'learn_processors': [{'class': 'DropnaLabel'}, {'class': 'CSZScoreNorm', 'kwargs': {'fields_group': 'label'}}], 'label': ['Ref($close, -2) / Ref($close, -1) - 1']}}
+Task: {'model': {'class': 'LSTM', 'module_path': 'qlib.contrib.model.pytorch_lstm', 'kwargs': {'d_feat': 6, 'hidden_size': 64, 'num_layers': 2, 'dropout': 0.0, 'n_epochs': 200, 'lr': 0.001, 'early_stop': 8, 'batch_size': 800, 'metric': 'loss', 'loss': 'mse', 'GPU': 0}}, 'dataset': {'class': 'DatasetH', 'module_path': 'qlib.data.dataset', 'kwargs': {'handler': 'file:///home/zhonghao/sjtu/qlib/examples/benchmarks/crowd_data_csi300_rankFalse_alpha360_handler_horizon1.pkl', 'segments': {'train': (Timestamp('2008-01-01 00:00:00'), Timestamp('2018-12-31 00:00:00')), 'valid': (Timestamp('2019-01-01 00:00:00'), Timestamp('2020-03-31 00:00:00')), 'test': (Timestamp('2020-04-01 00:00:00'), Timestamp('2024-03-31 00:00:00'))}}}, 'record': ['qlib.workflow.record_temp.SignalRecord']}
+[3430943:MainThread](2024-04-25 20:55:06,634) INFO - qlib.MetaDatasetInc - [dataset.py:152] - Example task for training meta model: {'model': {'class': 'LSTM', 'module_path': 'qlib.contrib.model.pytorch_lstm', 'kwargs': {'d_feat': 6, 'hidden_size': 64, 'num_layers': 2, 'dropout': 0.0, 'n_epochs': 200, 'lr': 0.001, 'early_stop': 8, 'batch_size': 800, 'metric': 'loss', 'loss': 'mse', 'GPU': 0}}, 'dataset': {'class': 'DatasetH', 'module_path': 'qlib.data.dataset', 'kwargs': {'handler': 'file:///home/zhonghao/sjtu/qlib/examples/benchmarks/crowd_data_csi300_rankFalse_alpha360_handler_horizon1.pkl', 'segments': {'train': (Timestamp('2008-01-02 00:00:00'), Timestamp('2008-01-29 00:00:00')), 'test': (Timestamp('2008-01-31 00:00:00'), Timestamp('2008-03-05 00:00:00'))}}}, 'record': ['qlib.workflow.record_temp.SignalRecord']}
+creating meta tasks:   0%|          | 0/147 [00:00<?, ?it/s]creating meta tasks:  26%|██▌       | 38/147 [00:00<00:00, 376.33it/s]creating meta tasks:  54%|█████▍    | 80/147 [00:00<00:00, 398.83it/s]creating meta tasks:  83%|████████▎ | 122/147 [00:00<00:00, 406.21it/s]creating meta tasks: 100%|██████████| 147/147 [00:00<00:00, 404.35it/s]
+[3430943:MainThread](2024-04-25 20:55:07,255) INFO - qlib.MetaDatasetInc - [dataset.py:152] - Example task for training meta model: {'model': {'class': 'LSTM', 'module_path': 'qlib.contrib.model.pytorch_lstm', 'kwargs': {'d_feat': 6, 'hidden_size': 64, 'num_layers': 2, 'dropout': 0.0, 'n_epochs': 200, 'lr': 0.001, 'early_stop': 8, 'batch_size': 800, 'metric': 'loss', 'loss': 'mse', 'GPU': 0}}, 'dataset': {'class': 'DatasetH', 'module_path': 'qlib.data.dataset', 'kwargs': {'handler': 'file:///home/zhonghao/sjtu/qlib/examples/benchmarks/crowd_data_csi300_rankFalse_alpha360_handler_horizon1.pkl', 'segments': {'train': (Timestamp('2019-01-02 00:00:00'), Timestamp('2019-01-29 00:00:00')), 'test': (Timestamp('2019-01-31 00:00:00'), Timestamp('2019-03-06 00:00:00'))}}}, 'record': ['qlib.workflow.record_temp.SignalRecord']}
+creating meta tasks:   0%|          | 0/63 [00:00<?, ?it/s]creating meta tasks:  68%|██████▊   | 43/63 [00:00<00:00, 420.81it/s]creating meta tasks: 100%|██████████| 63/63 [00:00<00:00, 419.51it/s]
+Traceback (most recent call last):
+  File "/home/zhonghao/sjtu/qlib/examples/benchmarks_dynamic/incremental/main.py", line 479, in run_all
+    assert self.reload_tag is not None
+AssertionError
+No valid experiment to reload. Restart offline training...
+Remove CSRankNorm
+Handler: {'class': 'Alpha360', 'module_path': 'qlib.contrib.data.handler', 'kwargs': {'start_time': datetime.date(2008, 1, 1), 'end_time': datetime.date(2020, 8, 1), 'fit_start_time': datetime.date(2008, 1, 1), 'fit_end_time': datetime.date(2014, 12, 31), 'instruments': 'csi300', 'infer_processors': [{'class': 'RobustZScoreNorm', 'kwargs': {'fields_group': 'feature', 'clip_outlier': True}}, {'class': 'Fillna', 'kwargs': {'fields_group': 'feature'}}], 'learn_processors': [{'class': 'DropnaLabel'}, {'class': 'CSZScoreNorm', 'kwargs': {'fields_group': 'label'}}], 'label': ['Ref($close, -2) / Ref($close, -1) - 1']}}
+Task: {'model': {'class': 'LSTM', 'module_path': 'qlib.contrib.model.pytorch_lstm', 'kwargs': {'d_feat': 6, 'hidden_size': 64, 'num_layers': 2, 'dropout': 0.0, 'n_epochs': 200, 'lr': 0.001, 'early_stop': 8, 'batch_size': 800, 'metric': 'loss', 'loss': 'mse', 'GPU': 0}}, 'dataset': {'class': 'DatasetH', 'module_path': 'qlib.data.dataset', 'kwargs': {'handler': 'file:///home/zhonghao/sjtu/qlib/examples/benchmarks/crowd_data_csi300_rankFalse_alpha360_handler_horizon1.pkl', 'segments': {'train': [datetime.date(2008, 1, 1), datetime.date(2014, 12, 31)], 'valid': [datetime.date(2015, 1, 1), datetime.date(2016, 12, 31)], 'test': [datetime.date(2017, 1, 1), datetime.date(2020, 8, 1)]}}}, 'record': ['qlib.workflow.record_temp.SignalRecord']}
+
+[3430943:MainThread](2024-04-25 20:55:08,007) INFO - qlib.LSTM - [pytorch_lstm.py:60] - LSTM pytorch version...
+[3430943:MainThread](2024-04-25 20:55:08,077) INFO - qlib.LSTM - [pytorch_lstm.py:77] - LSTM parameters setting:
+d_feat : 6
+hidden_size : 64
+num_layers : 2
+dropout : 0.0
+n_epochs : 200
+lr : 0.001
+metric : loss
+batch_size : 800
+early_stop : 8
+optimizer : adam
+loss_type : mse
+visible_GPU : 0
+use_GPU : True
+seed : None
+[3430943:MainThread](2024-04-25 20:55:15,510) WARNING - qlib.workflow - [expm.py:230] - No valid experiment found. Create a new experiment with name LSTM_crowd_data_csi300_360_rankFalse_43.
+[3430943:MainThread](2024-04-25 20:55:15,635) INFO - qlib.workflow - [exp.py:258] - Experiment 113 starts running ...
+[3430943:MainThread](2024-04-25 20:55:17,278) INFO - qlib.workflow - [recorder.py:341] - Recorder 09c2094be2244f7b99db70bafc3b1b97 starts running under Experiment 113 ...
+[3430943:MainThread](2024-04-25 20:55:26,959) INFO - qlib.LSTM - [pytorch_lstm.py:261] - training...
+[3430943:MainThread](2024-04-25 20:55:26,960) INFO - qlib.LSTM - [pytorch_lstm.py:265] - Epoch0:
+[3430943:MainThread](2024-04-25 20:55:26,960) INFO - qlib.LSTM - [pytorch_lstm.py:266] - training...
+[3430943:MainThread](2024-04-25 20:55:31,770) INFO - qlib.LSTM - [pytorch_lstm.py:268] - evaluating...
+[3430943:MainThread](2024-04-25 20:55:32,073) INFO - qlib.LSTM - [pytorch_lstm.py:271] - valid -0.994872
+[3430943:MainThread](2024-04-25 20:55:32,074) INFO - qlib.LSTM - [pytorch_lstm.py:265] - Epoch1:
+[3430943:MainThread](2024-04-25 20:55:32,074) INFO - qlib.LSTM - [pytorch_lstm.py:266] - training...
+[3430943:MainThread](2024-04-25 20:55:36,179) INFO - qlib.LSTM - [pytorch_lstm.py:268] - evaluating...
+[3430943:MainThread](2024-04-25 20:55:36,469) INFO - qlib.LSTM - [pytorch_lstm.py:271] - valid -0.993763
+[3430943:MainThread](2024-04-25 20:55:36,470) INFO - qlib.LSTM - [pytorch_lstm.py:265] - Epoch2:
+[3430943:MainThread](2024-04-25 20:55:36,471) INFO - qlib.LSTM - [pytorch_lstm.py:266] - training...
+[3430943:MainThread](2024-04-25 20:55:40,724) INFO - qlib.LSTM - [pytorch_lstm.py:268] - evaluating...
+[3430943:MainThread](2024-04-25 20:55:41,016) INFO - qlib.LSTM - [pytorch_lstm.py:271] - valid -0.994576
+[3430943:MainThread](2024-04-25 20:55:41,017) INFO - qlib.LSTM - [pytorch_lstm.py:265] - Epoch3:
+[3430943:MainThread](2024-04-25 20:55:41,017) INFO - qlib.LSTM - [pytorch_lstm.py:266] - training...
+[3430943:MainThread](2024-04-25 20:55:45,254) INFO - qlib.LSTM - [pytorch_lstm.py:268] - evaluating...
+[3430943:MainThread](2024-04-25 20:55:45,547) INFO - qlib.LSTM - [pytorch_lstm.py:271] - valid -0.995163
+[3430943:MainThread](2024-04-25 20:55:45,548) INFO - qlib.LSTM - [pytorch_lstm.py:265] - Epoch4:
+[3430943:MainThread](2024-04-25 20:55:45,548) INFO - qlib.LSTM - [pytorch_lstm.py:266] - training...
+[3430943:MainThread](2024-04-25 20:55:49,770) INFO - qlib.LSTM - [pytorch_lstm.py:268] - evaluating...
+[3430943:MainThread](2024-04-25 20:55:50,063) INFO - qlib.LSTM - [pytorch_lstm.py:271] - valid -0.995879
+[3430943:MainThread](2024-04-25 20:55:50,063) INFO - qlib.LSTM - [pytorch_lstm.py:265] - Epoch5:
+[3430943:MainThread](2024-04-25 20:55:50,064) INFO - qlib.LSTM - [pytorch_lstm.py:266] - training...
+[3430943:MainThread](2024-04-25 20:55:54,380) INFO - qlib.LSTM - [pytorch_lstm.py:268] - evaluating...
+[3430943:MainThread](2024-04-25 20:55:54,673) INFO - qlib.LSTM - [pytorch_lstm.py:271] - valid -0.995411
+[3430943:MainThread](2024-04-25 20:55:54,674) INFO - qlib.LSTM - [pytorch_lstm.py:265] - Epoch6:
+[3430943:MainThread](2024-04-25 20:55:54,674) INFO - qlib.LSTM - [pytorch_lstm.py:266] - training...
+[3430943:MainThread](2024-04-25 20:55:58,606) INFO - qlib.LSTM - [pytorch_lstm.py:268] - evaluating...
+[3430943:MainThread](2024-04-25 20:55:58,899) INFO - qlib.LSTM - [pytorch_lstm.py:271] - valid -0.993795
+[3430943:MainThread](2024-04-25 20:55:58,900) INFO - qlib.LSTM - [pytorch_lstm.py:265] - Epoch7:
+[3430943:MainThread](2024-04-25 20:55:58,900) INFO - qlib.LSTM - [pytorch_lstm.py:266] - training...
+[3430943:MainThread](2024-04-25 20:56:02,911) INFO - qlib.LSTM - [pytorch_lstm.py:268] - evaluating...
+[3430943:MainThread](2024-04-25 20:56:03,201) INFO - qlib.LSTM - [pytorch_lstm.py:271] - valid -0.997154
+[3430943:MainThread](2024-04-25 20:56:03,201) INFO - qlib.LSTM - [pytorch_lstm.py:265] - Epoch8:
+[3430943:MainThread](2024-04-25 20:56:03,202) INFO - qlib.LSTM - [pytorch_lstm.py:266] - training...
+[3430943:MainThread](2024-04-25 20:56:07,214) INFO - qlib.LSTM - [pytorch_lstm.py:268] - evaluating...
+[3430943:MainThread](2024-04-25 20:56:07,506) INFO - qlib.LSTM - [pytorch_lstm.py:271] - valid -0.996819
+[3430943:MainThread](2024-04-25 20:56:07,506) INFO - qlib.LSTM - [pytorch_lstm.py:265] - Epoch9:
+[3430943:MainThread](2024-04-25 20:56:07,507) INFO - qlib.LSTM - [pytorch_lstm.py:266] - training...
+[3430943:MainThread](2024-04-25 20:56:11,531) INFO - qlib.LSTM - [pytorch_lstm.py:268] - evaluating...
+[3430943:MainThread](2024-04-25 20:56:11,825) INFO - qlib.LSTM - [pytorch_lstm.py:271] - valid -0.996697
+[3430943:MainThread](2024-04-25 20:56:11,826) INFO - qlib.LSTM - [pytorch_lstm.py:283] - early stop
+[3430943:MainThread](2024-04-25 20:56:11,826) INFO - qlib.LSTM - [pytorch_lstm.py:286] - best score: -0.993763 @ 1
+[3430943:MainThread](2024-04-25 20:56:11,843) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+Save pretrained model to LSTM_crowd_data_csi300_360_rankFalse_43.
+[3430943:MainThread](2024-04-25 20:56:12,110) ERROR - qlib.workflow - [utils.py:41] - An exception has been raised[AttributeError: 'CML' object has no attribute 'is_rnn'].
+  File "main.py", line 62, in <module>
+    fire.Fire(CML)
+  File "/home/zhonghao/miniconda3/envs/sjtu_qlib/lib/python3.8/site-packages/fire/core.py", line 143, in Fire
+    component_trace = _Fire(component, args, parsed_flag_args, context, name)
+  File "/home/zhonghao/miniconda3/envs/sjtu_qlib/lib/python3.8/site-packages/fire/core.py", line 477, in _Fire
+    component, remaining_args = _CallAndUpdateTrace(
+  File "/home/zhonghao/miniconda3/envs/sjtu_qlib/lib/python3.8/site-packages/fire/core.py", line 693, in _CallAndUpdateTrace
+    component = fn(*varargs, **kwargs)
+  File "/home/zhonghao/sjtu/qlib/examples/benchmarks_dynamic/incremental/main.py", line 490, in run_all
+    mm = self.offline_training(seed=43 + i)
+  File "main.py", line 40, in offline_training
+    is_rnn=self.is_rnn,
+AttributeError: 'CML' object has no attribute 'is_rnn'

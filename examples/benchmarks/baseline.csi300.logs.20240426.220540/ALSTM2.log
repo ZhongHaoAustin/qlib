@@ -1,0 +1,183 @@
+[3970229:MainThread](2024-04-26 22:05:43,244) INFO - qlib.Initialization - [config.py:416] - default_conf: client.
+[3970229:MainThread](2024-04-26 22:05:43,246) INFO - qlib.Initialization - [__init__.py:74] - qlib successfully initialized based on client settings.
+[3970229:MainThread](2024-04-26 22:05:43,247) INFO - qlib.Initialization - [__init__.py:76] - data_path={'__DEFAULT_FREQ': PosixPath('/home/zhonghao/.qlib/qlib_data/crowd_data')}
+Handler: {'class': 'Alpha360', 'module_path': 'qlib.contrib.data.handler', 'kwargs': {'start_time': Timestamp('2008-01-01 00:00:00'), 'end_time': Timestamp('2024-03-31 00:00:00'), 'fit_start_time': Timestamp('2008-01-01 00:00:00'), 'fit_end_time': Timestamp('2018-12-31 00:00:00'), 'instruments': 'csi300', 'infer_processors': [{'class': 'RobustZScoreNorm', 'kwargs': {'fields_group': 'feature', 'clip_outlier': True}}, {'class': 'Fillna', 'kwargs': {'fields_group': 'feature'}}], 'learn_processors': [{'class': 'DropnaLabel'}, {'class': 'CSRankNorm', 'kwargs': {'fields_group': 'label'}}], 'label': ['Ref($close, -2) / Ref($close, -1) - 1']}}
+Task: {'model': {'class': 'ALSTM', 'module_path': 'qlib.contrib.model.pytorch_alstm', 'kwargs': {'d_feat': 6, 'hidden_size': 64, 'num_layers': 2, 'dropout': 0.0, 'n_epochs': 200, 'lr': 0.01, 'early_stop': 8, 'batch_size': 800, 'metric': 'loss', 'loss': 'mse', 'GPU': 0, 'rnn_type': 'LSTM'}}, 'dataset': {'class': 'DatasetH', 'module_path': 'qlib.data.dataset', 'kwargs': {'handler': 'file:///home/zhonghao/sjtu/qlib/examples/benchmarks/crowd_data_csi300_rankTrue_alpha360_handler_horizon1.pkl', 'segments': {'train': (Timestamp('2008-01-01 00:00:00'), Timestamp('2018-12-31 00:00:00')), 'valid': (Timestamp('2019-01-01 00:00:00'), Timestamp('2020-03-31 00:00:00')), 'test': (Timestamp('2020-04-01 00:00:00'), Timestamp('2024-03-31 00:00:00'))}}}, 'record': ['qlib.workflow.record_temp.SignalRecord']}
+Handler: {'class': 'Alpha360', 'module_path': 'qlib.contrib.data.handler', 'kwargs': {'start_time': Timestamp('2008-01-01 00:00:00'), 'end_time': Timestamp('2024-03-31 00:00:00'), 'fit_start_time': Timestamp('2008-01-01 00:00:00'), 'fit_end_time': Timestamp('2018-12-31 00:00:00'), 'instruments': 'csi300', 'infer_processors': [{'class': 'RobustZScoreNorm', 'kwargs': {'fields_group': 'feature', 'clip_outlier': True}}, {'class': 'Fillna', 'kwargs': {'fields_group': 'feature'}}], 'learn_processors': [{'class': 'DropnaLabel'}, {'class': 'CSRankNorm', 'kwargs': {'fields_group': 'label'}}], 'label': ['Ref($close, -2) / Ref($close, -1) - 1']}}
+Task: {'model': {'class': 'ALSTM', 'module_path': 'qlib.contrib.model.pytorch_alstm', 'kwargs': {'d_feat': 6, 'hidden_size': 64, 'num_layers': 2, 'dropout': 0.0, 'n_epochs': 200, 'lr': 0.01, 'early_stop': 8, 'batch_size': 800, 'metric': 'loss', 'loss': 'mse', 'GPU': 0, 'rnn_type': 'LSTM'}}, 'dataset': {'class': 'DatasetH', 'module_path': 'qlib.data.dataset', 'kwargs': {'handler': 'file:///home/zhonghao/sjtu/qlib/examples/benchmarks/crowd_data_csi300_rankTrue_alpha360_handler_horizon1.pkl', 'segments': {'train': (Timestamp('2008-01-01 00:00:00'), Timestamp('2018-12-31 00:00:00')), 'valid': (Timestamp('2019-01-01 00:00:00'), Timestamp('2020-03-31 00:00:00')), 'test': (Timestamp('2020-04-01 00:00:00'), Timestamp('2024-03-31 00:00:00'))}}}, 'record': ['qlib.workflow.record_temp.SignalRecord']}
+
+[3970229:MainThread](2024-04-26 22:05:46,956) INFO - qlib.ALSTM - [pytorch_alstm.py:61] - ALSTM pytorch version...
+[3970229:MainThread](2024-04-26 22:05:47,057) INFO - qlib.ALSTM - [pytorch_alstm.py:78] - ALSTM parameters setting:
+d_feat : 6
+hidden_size : 64
+num_layers : 2
+dropout : 0.0
+n_epochs : 200
+lr : 0.01
+metric : loss
+batch_size : 800
+early_stop : 8
+optimizer : adam
+loss_type : mse
+device : cuda:0
+use_GPU : True
+seed : None
+[3970229:MainThread](2024-04-26 22:05:47,083) INFO - qlib.ALSTM - [pytorch_alstm.py:121] - model:
+ALSTMModel(
+  (net): Sequential(
+    (fc_in): Linear(in_features=6, out_features=64, bias=True)
+    (act): Tanh()
+  )
+  (rnn): GRU(64, 64, num_layers=2, batch_first=True)
+  (fc_out): Linear(in_features=128, out_features=1, bias=True)
+  (att_net): Sequential(
+    (att_fc_in): Linear(in_features=64, out_features=32, bias=True)
+    (att_dropout): Dropout(p=0.0, inplace=False)
+    (att_act): Tanh()
+    (att_fc_out): Linear(in_features=32, out_features=1, bias=False)
+    (att_softmax): Softmax(dim=1)
+  )
+)
+[3970229:MainThread](2024-04-26 22:05:47,084) INFO - qlib.ALSTM - [pytorch_alstm.py:122] - model size: 0.0502 MB
+[3970229:MainThread](2024-04-26 22:05:54,133) WARNING - qlib.workflow - [expm.py:230] - No valid experiment found. Create a new experiment with name ALSTM2_crowd_data_csi300_360_rankTrue_43.
+[3970229:MainThread](2024-04-26 22:05:54,292) INFO - qlib.workflow - [exp.py:258] - Experiment 129 starts running ...
+[3970229:MainThread](2024-04-26 22:05:56,202) INFO - qlib.workflow - [recorder.py:341] - Recorder b155696d515d4a7cba03a299e1f776a8 starts running under Experiment 129 ...
+[3970229:MainThread](2024-04-26 22:06:01,670) INFO - qlib.ALSTM - [pytorch_alstm.py:266] - training...
+[3970229:MainThread](2024-04-26 22:06:01,671) INFO - qlib.ALSTM - [pytorch_alstm.py:270] - Epoch0:
+[3970229:MainThread](2024-04-26 22:06:01,671) INFO - qlib.ALSTM - [pytorch_alstm.py:271] - training...
+[3970229:MainThread](2024-04-26 22:06:10,770) INFO - qlib.ALSTM - [pytorch_alstm.py:273] - evaluating...
+[3970229:MainThread](2024-04-26 22:06:10,982) INFO - qlib.ALSTM - [pytorch_alstm.py:276] - valid -1.001516
+[3970229:MainThread](2024-04-26 22:06:10,983) INFO - qlib.ALSTM - [pytorch_alstm.py:270] - Epoch1:
+[3970229:MainThread](2024-04-26 22:06:10,984) INFO - qlib.ALSTM - [pytorch_alstm.py:271] - training...
+[3970229:MainThread](2024-04-26 22:06:18,949) INFO - qlib.ALSTM - [pytorch_alstm.py:273] - evaluating...
+[3970229:MainThread](2024-04-26 22:06:19,159) INFO - qlib.ALSTM - [pytorch_alstm.py:276] - valid -0.999823
+[3970229:MainThread](2024-04-26 22:06:19,160) INFO - qlib.ALSTM - [pytorch_alstm.py:270] - Epoch2:
+[3970229:MainThread](2024-04-26 22:06:19,161) INFO - qlib.ALSTM - [pytorch_alstm.py:271] - training...
+[3970229:MainThread](2024-04-26 22:06:26,812) INFO - qlib.ALSTM - [pytorch_alstm.py:273] - evaluating...
+[3970229:MainThread](2024-04-26 22:06:27,025) INFO - qlib.ALSTM - [pytorch_alstm.py:276] - valid -0.998732
+[3970229:MainThread](2024-04-26 22:06:27,027) INFO - qlib.ALSTM - [pytorch_alstm.py:270] - Epoch3:
+[3970229:MainThread](2024-04-26 22:06:27,027) INFO - qlib.ALSTM - [pytorch_alstm.py:271] - training...
+[3970229:MainThread](2024-04-26 22:06:34,887) INFO - qlib.ALSTM - [pytorch_alstm.py:273] - evaluating...
+[3970229:MainThread](2024-04-26 22:06:35,107) INFO - qlib.ALSTM - [pytorch_alstm.py:276] - valid -1.006892
+[3970229:MainThread](2024-04-26 22:06:35,107) INFO - qlib.ALSTM - [pytorch_alstm.py:270] - Epoch4:
+[3970229:MainThread](2024-04-26 22:06:35,108) INFO - qlib.ALSTM - [pytorch_alstm.py:271] - training...
+[3970229:MainThread](2024-04-26 22:06:42,796) INFO - qlib.ALSTM - [pytorch_alstm.py:273] - evaluating...
+[3970229:MainThread](2024-04-26 22:06:43,006) INFO - qlib.ALSTM - [pytorch_alstm.py:276] - valid -0.999539
+[3970229:MainThread](2024-04-26 22:06:43,006) INFO - qlib.ALSTM - [pytorch_alstm.py:270] - Epoch5:
+[3970229:MainThread](2024-04-26 22:06:43,006) INFO - qlib.ALSTM - [pytorch_alstm.py:271] - training...
+[3970229:MainThread](2024-04-26 22:06:51,314) INFO - qlib.ALSTM - [pytorch_alstm.py:273] - evaluating...
+[3970229:MainThread](2024-04-26 22:06:51,532) INFO - qlib.ALSTM - [pytorch_alstm.py:276] - valid -1.001811
+[3970229:MainThread](2024-04-26 22:06:51,533) INFO - qlib.ALSTM - [pytorch_alstm.py:270] - Epoch6:
+[3970229:MainThread](2024-04-26 22:06:51,533) INFO - qlib.ALSTM - [pytorch_alstm.py:271] - training...
+[3970229:MainThread](2024-04-26 22:06:59,754) INFO - qlib.ALSTM - [pytorch_alstm.py:273] - evaluating...
+[3970229:MainThread](2024-04-26 22:06:59,975) INFO - qlib.ALSTM - [pytorch_alstm.py:276] - valid -1.001493
+[3970229:MainThread](2024-04-26 22:06:59,975) INFO - qlib.ALSTM - [pytorch_alstm.py:270] - Epoch7:
+[3970229:MainThread](2024-04-26 22:06:59,976) INFO - qlib.ALSTM - [pytorch_alstm.py:271] - training...
+[3970229:MainThread](2024-04-26 22:07:08,602) INFO - qlib.ALSTM - [pytorch_alstm.py:273] - evaluating...
+[3970229:MainThread](2024-04-26 22:07:08,821) INFO - qlib.ALSTM - [pytorch_alstm.py:276] - valid -1.005009
+[3970229:MainThread](2024-04-26 22:07:08,822) INFO - qlib.ALSTM - [pytorch_alstm.py:270] - Epoch8:
+[3970229:MainThread](2024-04-26 22:07:08,822) INFO - qlib.ALSTM - [pytorch_alstm.py:271] - training...
+[3970229:MainThread](2024-04-26 22:07:16,585) INFO - qlib.ALSTM - [pytorch_alstm.py:273] - evaluating...
+[3970229:MainThread](2024-04-26 22:07:16,796) INFO - qlib.ALSTM - [pytorch_alstm.py:276] - valid -0.998740
+[3970229:MainThread](2024-04-26 22:07:16,796) INFO - qlib.ALSTM - [pytorch_alstm.py:270] - Epoch9:
+[3970229:MainThread](2024-04-26 22:07:16,796) INFO - qlib.ALSTM - [pytorch_alstm.py:271] - training...
+[3970229:MainThread](2024-04-26 22:07:24,694) INFO - qlib.ALSTM - [pytorch_alstm.py:273] - evaluating...
+[3970229:MainThread](2024-04-26 22:07:24,907) INFO - qlib.ALSTM - [pytorch_alstm.py:276] - valid -0.998714
+[3970229:MainThread](2024-04-26 22:07:24,908) INFO - qlib.ALSTM - [pytorch_alstm.py:270] - Epoch10:
+[3970229:MainThread](2024-04-26 22:07:24,909) INFO - qlib.ALSTM - [pytorch_alstm.py:271] - training...
+[3970229:MainThread](2024-04-26 22:07:33,400) INFO - qlib.ALSTM - [pytorch_alstm.py:273] - evaluating...
+[3970229:MainThread](2024-04-26 22:07:33,621) INFO - qlib.ALSTM - [pytorch_alstm.py:276] - valid -0.998128
+[3970229:MainThread](2024-04-26 22:07:33,622) INFO - qlib.ALSTM - [pytorch_alstm.py:270] - Epoch11:
+[3970229:MainThread](2024-04-26 22:07:33,623) INFO - qlib.ALSTM - [pytorch_alstm.py:271] - training...
+[3970229:MainThread](2024-04-26 22:07:41,790) INFO - qlib.ALSTM - [pytorch_alstm.py:273] - evaluating...
+[3970229:MainThread](2024-04-26 22:07:42,002) INFO - qlib.ALSTM - [pytorch_alstm.py:276] - valid -0.999586
+[3970229:MainThread](2024-04-26 22:07:42,002) INFO - qlib.ALSTM - [pytorch_alstm.py:270] - Epoch12:
+[3970229:MainThread](2024-04-26 22:07:42,002) INFO - qlib.ALSTM - [pytorch_alstm.py:271] - training...
+[3970229:MainThread](2024-04-26 22:07:50,038) INFO - qlib.ALSTM - [pytorch_alstm.py:273] - evaluating...
+[3970229:MainThread](2024-04-26 22:07:50,252) INFO - qlib.ALSTM - [pytorch_alstm.py:276] - valid -0.997635
+[3970229:MainThread](2024-04-26 22:07:50,253) INFO - qlib.ALSTM - [pytorch_alstm.py:270] - Epoch13:
+[3970229:MainThread](2024-04-26 22:07:50,254) INFO - qlib.ALSTM - [pytorch_alstm.py:271] - training...
+[3970229:MainThread](2024-04-26 22:07:58,088) INFO - qlib.ALSTM - [pytorch_alstm.py:273] - evaluating...
+[3970229:MainThread](2024-04-26 22:07:58,299) INFO - qlib.ALSTM - [pytorch_alstm.py:276] - valid -0.999254
+[3970229:MainThread](2024-04-26 22:07:58,300) INFO - qlib.ALSTM - [pytorch_alstm.py:270] - Epoch14:
+[3970229:MainThread](2024-04-26 22:07:58,300) INFO - qlib.ALSTM - [pytorch_alstm.py:271] - training...
+[3970229:MainThread](2024-04-26 22:08:06,263) INFO - qlib.ALSTM - [pytorch_alstm.py:273] - evaluating...
+[3970229:MainThread](2024-04-26 22:08:06,473) INFO - qlib.ALSTM - [pytorch_alstm.py:276] - valid -0.998341
+[3970229:MainThread](2024-04-26 22:08:06,474) INFO - qlib.ALSTM - [pytorch_alstm.py:270] - Epoch15:
+[3970229:MainThread](2024-04-26 22:08:06,474) INFO - qlib.ALSTM - [pytorch_alstm.py:271] - training...
+[3970229:MainThread](2024-04-26 22:08:14,729) INFO - qlib.ALSTM - [pytorch_alstm.py:273] - evaluating...
+[3970229:MainThread](2024-04-26 22:08:14,940) INFO - qlib.ALSTM - [pytorch_alstm.py:276] - valid -0.999459
+[3970229:MainThread](2024-04-26 22:08:14,940) INFO - qlib.ALSTM - [pytorch_alstm.py:270] - Epoch16:
+[3970229:MainThread](2024-04-26 22:08:14,940) INFO - qlib.ALSTM - [pytorch_alstm.py:271] - training...
+[3970229:MainThread](2024-04-26 22:08:22,763) INFO - qlib.ALSTM - [pytorch_alstm.py:273] - evaluating...
+[3970229:MainThread](2024-04-26 22:08:22,974) INFO - qlib.ALSTM - [pytorch_alstm.py:276] - valid -0.997468
+[3970229:MainThread](2024-04-26 22:08:22,975) INFO - qlib.ALSTM - [pytorch_alstm.py:270] - Epoch17:
+[3970229:MainThread](2024-04-26 22:08:22,976) INFO - qlib.ALSTM - [pytorch_alstm.py:271] - training...
+[3970229:MainThread](2024-04-26 22:08:30,803) INFO - qlib.ALSTM - [pytorch_alstm.py:273] - evaluating...
+[3970229:MainThread](2024-04-26 22:08:31,013) INFO - qlib.ALSTM - [pytorch_alstm.py:276] - valid -0.999420
+[3970229:MainThread](2024-04-26 22:08:31,013) INFO - qlib.ALSTM - [pytorch_alstm.py:270] - Epoch18:
+[3970229:MainThread](2024-04-26 22:08:31,014) INFO - qlib.ALSTM - [pytorch_alstm.py:271] - training...
+[3970229:MainThread](2024-04-26 22:08:39,130) INFO - qlib.ALSTM - [pytorch_alstm.py:273] - evaluating...
+[3970229:MainThread](2024-04-26 22:08:39,350) INFO - qlib.ALSTM - [pytorch_alstm.py:276] - valid -0.998149
+[3970229:MainThread](2024-04-26 22:08:39,350) INFO - qlib.ALSTM - [pytorch_alstm.py:270] - Epoch19:
+[3970229:MainThread](2024-04-26 22:08:39,350) INFO - qlib.ALSTM - [pytorch_alstm.py:271] - training...
+[3970229:MainThread](2024-04-26 22:08:47,372) INFO - qlib.ALSTM - [pytorch_alstm.py:273] - evaluating...
+[3970229:MainThread](2024-04-26 22:08:47,583) INFO - qlib.ALSTM - [pytorch_alstm.py:276] - valid -0.997717
+[3970229:MainThread](2024-04-26 22:08:47,583) INFO - qlib.ALSTM - [pytorch_alstm.py:270] - Epoch20:
+[3970229:MainThread](2024-04-26 22:08:47,583) INFO - qlib.ALSTM - [pytorch_alstm.py:271] - training...
+[3970229:MainThread](2024-04-26 22:08:55,791) INFO - qlib.ALSTM - [pytorch_alstm.py:273] - evaluating...
+[3970229:MainThread](2024-04-26 22:08:56,011) INFO - qlib.ALSTM - [pytorch_alstm.py:276] - valid -0.998247
+[3970229:MainThread](2024-04-26 22:08:56,011) INFO - qlib.ALSTM - [pytorch_alstm.py:270] - Epoch21:
+[3970229:MainThread](2024-04-26 22:08:56,012) INFO - qlib.ALSTM - [pytorch_alstm.py:271] - training...
+[3970229:MainThread](2024-04-26 22:09:04,073) INFO - qlib.ALSTM - [pytorch_alstm.py:273] - evaluating...
+[3970229:MainThread](2024-04-26 22:09:04,284) INFO - qlib.ALSTM - [pytorch_alstm.py:276] - valid -0.997443
+[3970229:MainThread](2024-04-26 22:09:04,286) INFO - qlib.ALSTM - [pytorch_alstm.py:270] - Epoch22:
+[3970229:MainThread](2024-04-26 22:09:04,286) INFO - qlib.ALSTM - [pytorch_alstm.py:271] - training...
+[3970229:MainThread](2024-04-26 22:09:12,057) INFO - qlib.ALSTM - [pytorch_alstm.py:273] - evaluating...
+[3970229:MainThread](2024-04-26 22:09:12,279) INFO - qlib.ALSTM - [pytorch_alstm.py:276] - valid -0.999647
+[3970229:MainThread](2024-04-26 22:09:12,279) INFO - qlib.ALSTM - [pytorch_alstm.py:270] - Epoch23:
+[3970229:MainThread](2024-04-26 22:09:12,279) INFO - qlib.ALSTM - [pytorch_alstm.py:271] - training...
+[3970229:MainThread](2024-04-26 22:09:20,195) INFO - qlib.ALSTM - [pytorch_alstm.py:273] - evaluating...
+[3970229:MainThread](2024-04-26 22:09:20,407) INFO - qlib.ALSTM - [pytorch_alstm.py:276] - valid -0.997985
+[3970229:MainThread](2024-04-26 22:09:20,407) INFO - qlib.ALSTM - [pytorch_alstm.py:270] - Epoch24:
+[3970229:MainThread](2024-04-26 22:09:20,407) INFO - qlib.ALSTM - [pytorch_alstm.py:271] - training...
+[3970229:MainThread](2024-04-26 22:09:28,489) INFO - qlib.ALSTM - [pytorch_alstm.py:273] - evaluating...
+[3970229:MainThread](2024-04-26 22:09:28,703) INFO - qlib.ALSTM - [pytorch_alstm.py:276] - valid -0.998728
+[3970229:MainThread](2024-04-26 22:09:28,704) INFO - qlib.ALSTM - [pytorch_alstm.py:270] - Epoch25:
+[3970229:MainThread](2024-04-26 22:09:28,704) INFO - qlib.ALSTM - [pytorch_alstm.py:271] - training...
+[3970229:MainThread](2024-04-26 22:09:36,763) INFO - qlib.ALSTM - [pytorch_alstm.py:273] - evaluating...
+[3970229:MainThread](2024-04-26 22:09:36,975) INFO - qlib.ALSTM - [pytorch_alstm.py:276] - valid -0.998932
+[3970229:MainThread](2024-04-26 22:09:36,975) INFO - qlib.ALSTM - [pytorch_alstm.py:270] - Epoch26:
+[3970229:MainThread](2024-04-26 22:09:36,975) INFO - qlib.ALSTM - [pytorch_alstm.py:271] - training...
+[3970229:MainThread](2024-04-26 22:09:44,837) INFO - qlib.ALSTM - [pytorch_alstm.py:273] - evaluating...
+[3970229:MainThread](2024-04-26 22:09:45,055) INFO - qlib.ALSTM - [pytorch_alstm.py:276] - valid -0.999519
+[3970229:MainThread](2024-04-26 22:09:45,056) INFO - qlib.ALSTM - [pytorch_alstm.py:270] - Epoch27:
+[3970229:MainThread](2024-04-26 22:09:45,056) INFO - qlib.ALSTM - [pytorch_alstm.py:271] - training...
+[3970229:MainThread](2024-04-26 22:09:53,316) INFO - qlib.ALSTM - [pytorch_alstm.py:273] - evaluating...
+[3970229:MainThread](2024-04-26 22:09:53,536) INFO - qlib.ALSTM - [pytorch_alstm.py:276] - valid -0.997549
+[3970229:MainThread](2024-04-26 22:09:53,537) INFO - qlib.ALSTM - [pytorch_alstm.py:270] - Epoch28:
+[3970229:MainThread](2024-04-26 22:09:53,537) INFO - qlib.ALSTM - [pytorch_alstm.py:271] - training...
+[3970229:MainThread](2024-04-26 22:10:02,099) INFO - qlib.ALSTM - [pytorch_alstm.py:273] - evaluating...
+[3970229:MainThread](2024-04-26 22:10:02,319) INFO - qlib.ALSTM - [pytorch_alstm.py:276] - valid -0.998247
+[3970229:MainThread](2024-04-26 22:10:02,320) INFO - qlib.ALSTM - [pytorch_alstm.py:270] - Epoch29:
+[3970229:MainThread](2024-04-26 22:10:02,320) INFO - qlib.ALSTM - [pytorch_alstm.py:271] - training...
+[3970229:MainThread](2024-04-26 22:10:10,925) INFO - qlib.ALSTM - [pytorch_alstm.py:273] - evaluating...
+[3970229:MainThread](2024-04-26 22:10:11,145) INFO - qlib.ALSTM - [pytorch_alstm.py:276] - valid -0.997607
+[3970229:MainThread](2024-04-26 22:10:11,145) INFO - qlib.ALSTM - [pytorch_alstm.py:288] - early stop
+[3970229:MainThread](2024-04-26 22:10:11,145) INFO - qlib.ALSTM - [pytorch_alstm.py:291] - best score: -0.997443 @ 21
+[3970229:MainThread](2024-04-26 22:10:11,168) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+Save pretrained model to ALSTM2_crowd_data_csi300_360_rankTrue_43.
+[3970229:MainThread](2024-04-26 22:10:11,527) WARNING - qlib.workflow - [expm.py:230] - No valid experiment found. Create a new experiment with name ALSTM2_crowd_data_csi300_360_rankTrue.
+[3970229:MainThread](2024-04-26 22:10:11,684) INFO - qlib.workflow - [exp.py:258] - Experiment 130 starts running ...
+[3970229:MainThread](2024-04-26 22:10:11,706) INFO - qlib.workflow - [recorder.py:341] - Recorder 762f3a45dab9482394cb371649458a27 starts running under Experiment 130 ...
+{'IC': 0.009460425373336639,
+ 'ICIR': 0.06965137982819328,
+ 'Rank IC': 0.009648519317820762,
+ 'Rank ICIR': 0.07157037796176006}
+[3970229:MainThread](2024-04-26 22:10:18,762) INFO - qlib.backtest caller - [__init__.py:93] - Create new exchange
+[3970229:MainThread](2024-04-26 22:10:55,152) WARNING - qlib.online operator - [exchange.py:219] - $close field data contains nan.
+[3970229:MainThread](2024-04-26 22:10:55,155) WARNING - qlib.online operator - [exchange.py:219] - $close field data contains nan.
+[3970229:MainThread](2024-04-26 22:11:02,566) WARNING - qlib.BaseExecutor - [executor.py:121] - `common_infra` is not set for <qlib.backtest.executor.SimulatorExecutor object at 0x7f537ac856d0>
+backtest loop:   0%|          | 0/971 [00:00<?, ?it/s]/home/zhonghao/miniconda3/envs/sjtu_qlib/lib/python3.8/site-packages/qlib/utils/index_data.py:481: RuntimeWarning: Mean of empty slice
+  return np.nanmean(self.data)
+backtest loop:   1%|          | 6/971 [00:00<00:16, 57.81it/s]backtest loop:   1%|          | 12/971 [00:00<00:18, 52.24it/s]backtest loop:   2%|▏         | 19/971 [00:00<00:16, 56.81it/s]backtest loop:   3%|▎         | 25/971 [00:00<00:17, 53.47it/s]backtest loop:   3%|▎         | 32/971 [00:00<00:16, 56.49it/s]backtest loop:   4%|▍         | 39/971 [00:00<00:17, 54.81it/s]backtest loop:   5%|▍         | 46/971 [00:00<00:16, 57.12it/s]backtest loop:   5%|▌         | 52/971 [00:00<00:15, 57.90it/s]backtest loop:   6%|▌         | 58/971 [00:01<00:16, 54.97it/s]backtest loop:   7%|▋         | 65/971 [00:01<00:15, 57.25it/s]backtest loop:   7%|▋         | 72/971 [00:01<00:16, 55.43it/s]backtest loop:   8%|▊         | 78/971 [00:01<00:15, 56.52it/s]backtest loop:   9%|▉         | 85/971 [00:01<00:15, 58.27it/s]backtest loop:   9%|▉         | 92/971 [00:01<00:15, 56.14it/s]backtest loop:  10%|█         | 98/971 [00:01<00:15, 57.11it/s]backtest loop:  11%|█         | 105/971 [00:01<00:14, 58.69it/s]backtest loop:  12%|█▏        | 112/971 [00:01<00:15, 56.38it/s]backtest loop:  12%|█▏        | 119/971 [00:02<00:14, 58.06it/s]backtest loop:  13%|█▎        | 125/971 [00:02<00:15, 55.23it/s]backtest loop:  13%|█▎        | 131/971 [00:02<00:15, 53.10it/s]backtest loop:  14%|█▍        | 138/971 [00:02<00:14, 55.76it/s]backtest loop:  15%|█▍        | 145/971 [00:02<00:14, 57.68it/s]backtest loop:  16%|█▌        | 151/971 [00:02<00:14, 55.08it/s]backtest loop:  16%|█▋        | 158/971 [00:02<00:14, 57.21it/s]backtest loop:  17%|█▋        | 165/971 [00:02<00:13, 58.64it/s]backtest loop:  18%|█▊        | 171/971 [00:03<00:14, 56.06it/s]backtest loop:  18%|█▊        | 178/971 [00:03<00:13, 57.90it/s]backtest loop:  19%|█▉        | 185/971 [00:03<00:14, 55.91it/s]backtest loop:  20%|█▉        | 192/971 [00:03<00:13, 57.70it/s]backtest loop:  20%|██        | 198/971 [00:03<00:13, 57.91it/s]backtest loop:  21%|██        | 204/971 [00:03<00:13, 58.48it/s]backtest loop:  22%|██▏       | 210/971 [00:03<00:13, 55.73it/s]backtest loop:  22%|██▏       | 216/971 [00:03<00:14, 53.85it/s]backtest loop:  23%|██▎       | 222/971 [00:03<00:13, 55.43it/s]backtest loop:  23%|██▎       | 228/971 [00:04<00:13, 56.47it/s]backtest loop:  24%|██▍       | 235/971 [00:04<00:13, 54.86it/s]backtest loop:  25%|██▍       | 242/971 [00:04<00:12, 57.07it/s]backtest loop:  26%|██▌       | 249/971 [00:04<00:13, 55.47it/s]backtest loop:  26%|██▋       | 256/971 [00:04<00:12, 57.60it/s]backtest loop:  27%|██▋       | 263/971 [00:04<00:12, 58.94it/s]backtest loop:  28%|██▊       | 269/971 [00:04<00:12, 55.19it/s]backtest loop:  28%|██▊       | 276/971 [00:04<00:12, 54.19it/s]backtest loop:  29%|██▉       | 282/971 [00:05<00:12, 55.50it/s]backtest loop:  30%|██▉       | 288/971 [00:05<00:12, 56.64it/s]backtest loop:  30%|███       | 294/971 [00:05<00:11, 57.52it/s]backtest loop:  31%|███       | 300/971 [00:05<00:12, 54.69it/s]backtest loop:  32%|███▏      | 306/971 [00:05<00:11, 56.11it/s]backtest loop:  32%|███▏      | 312/971 [00:05<00:11, 57.09it/s]backtest loop:  33%|███▎      | 319/971 [00:05<00:11, 58.93it/s]backtest loop:  33%|███▎      | 325/971 [00:05<00:11, 55.63it/s]backtest loop:  34%|███▍      | 331/971 [00:05<00:11, 56.55it/s]backtest loop:  35%|███▍      | 337/971 [00:05<00:11, 57.49it/s]backtest loop:  35%|███▌      | 344/971 [00:06<00:10, 58.94it/s]backtest loop:  36%|███▌      | 350/971 [00:06<00:11, 55.59it/s]backtest loop:  37%|███▋      | 356/971 [00:06<00:10, 56.75it/s]backtest loop:  37%|███▋      | 363/971 [00:06<00:10, 55.62it/s]backtest loop:  38%|███▊      | 369/971 [00:06<00:11, 53.83it/s]backtest loop:  39%|███▊      | 376/971 [00:06<00:10, 56.29it/s]backtest loop:  39%|███▉      | 382/971 [00:06<00:10, 57.18it/s]backtest loop:  40%|███▉      | 388/971 [00:06<00:10, 54.54it/s]backtest loop:  41%|████      | 395/971 [00:07<00:10, 56.86it/s]backtest loop:  41%|████▏     | 402/971 [00:07<00:09, 58.47it/s]backtest loop:  42%|████▏     | 408/971 [00:07<00:10, 55.51it/s]backtest loop:  43%|████▎     | 415/971 [00:07<00:09, 57.20it/s]backtest loop:  43%|████▎     | 422/971 [00:07<00:09, 58.64it/s]backtest loop:  44%|████▍     | 428/971 [00:07<00:09, 55.63it/s]backtest loop:  45%|████▍     | 434/971 [00:07<00:09, 56.59it/s]backtest loop:  45%|████▌     | 441/971 [00:07<00:09, 58.30it/s]backtest loop:  46%|████▌     | 447/971 [00:07<00:09, 55.37it/s]backtest loop:  47%|████▋     | 453/971 [00:08<00:09, 56.60it/s]backtest loop:  47%|████▋     | 460/971 [00:08<00:08, 58.26it/s]backtest loop:  48%|████▊     | 467/971 [00:08<00:08, 56.09it/s]backtest loop:  49%|████▉     | 474/971 [00:08<00:08, 57.82it/s]backtest loop:  50%|████▉     | 481/971 [00:08<00:08, 59.11it/s]backtest loop:  50%|█████     | 487/971 [00:08<00:08, 55.32it/s]backtest loop:  51%|█████     | 494/971 [00:08<00:08, 57.49it/s]backtest loop:  51%|█████▏    | 500/971 [00:08<00:08, 54.82it/s]backtest loop:  52%|█████▏    | 507/971 [00:08<00:08, 53.86it/s]backtest loop:  53%|█████▎    | 513/971 [00:09<00:08, 55.34it/s]backtest loop:  54%|█████▎    | 520/971 [00:09<00:07, 57.40it/s]backtest loop:  54%|█████▍    | 526/971 [00:09<00:08, 54.84it/s]backtest loop:  55%|█████▍    | 533/971 [00:09<00:07, 57.34it/s]backtest loop:  56%|█████▌    | 540/971 [00:09<00:07, 58.89it/s]backtest loop:  56%|█████▌    | 546/971 [00:09<00:07, 56.00it/s]backtest loop:  57%|█████▋    | 553/971 [00:09<00:07, 58.05it/s]backtest loop:  58%|█████▊    | 560/971 [00:09<00:06, 59.38it/s]backtest loop:  58%|█████▊    | 566/971 [00:10<00:07, 55.33it/s]backtest loop:  59%|█████▉    | 573/971 [00:10<00:06, 57.26it/s]backtest loop:  60%|█████▉    | 579/971 [00:10<00:06, 57.97it/s]backtest loop:  60%|██████    | 586/971 [00:10<00:06, 56.14it/s]backtest loop:  61%|██████    | 593/971 [00:10<00:06, 57.88it/s]backtest loop:  62%|██████▏   | 600/971 [00:10<00:06, 55.89it/s]backtest loop:  63%|██████▎   | 607/971 [00:10<00:06, 57.64it/s]backtest loop:  63%|██████▎   | 614/971 [00:10<00:06, 58.93it/s]backtest loop:  64%|██████▍   | 620/971 [00:10<00:06, 56.32it/s]backtest loop:  65%|██████▍   | 627/971 [00:11<00:05, 58.13it/s]backtest loop:  65%|██████▌   | 634/971 [00:11<00:05, 59.29it/s]backtest loop:  66%|██████▌   | 640/971 [00:11<00:05, 56.07it/s]backtest loop:  67%|██████▋   | 646/971 [00:11<00:05, 55.89it/s]backtest loop:  67%|██████▋   | 652/971 [00:11<00:05, 56.97it/s]backtest loop:  68%|██████▊   | 658/971 [00:11<00:05, 57.81it/s]backtest loop:  68%|██████▊   | 664/971 [00:11<00:05, 58.40it/s]backtest loop:  69%|██████▉   | 670/971 [00:11<00:05, 55.33it/s]backtest loop:  70%|██████▉   | 677/971 [00:11<00:05, 57.48it/s]backtest loop:  70%|███████   | 683/971 [00:12<00:04, 57.93it/s]backtest loop:  71%|███████   | 689/971 [00:12<00:05, 55.02it/s]backtest loop:  72%|███████▏  | 696/971 [00:12<00:04, 57.16it/s]backtest loop:  72%|███████▏  | 703/971 [00:12<00:04, 58.70it/s]backtest loop:  73%|███████▎  | 709/971 [00:12<00:04, 55.60it/s]backtest loop:  74%|███████▎  | 716/971 [00:12<00:04, 57.62it/s]backtest loop:  74%|███████▍  | 723/971 [00:12<00:04, 59.22it/s]backtest loop:  75%|███████▌  | 729/971 [00:12<00:04, 55.97it/s]backtest loop:  76%|███████▌  | 735/971 [00:12<00:04, 53.89it/s]backtest loop:  76%|███████▋  | 742/971 [00:13<00:04, 56.39it/s]backtest loop:  77%|███████▋  | 748/971 [00:13<00:04, 54.29it/s]backtest loop:  78%|███████▊  | 754/971 [00:13<00:03, 55.80it/s]backtest loop:  78%|███████▊  | 760/971 [00:13<00:03, 53.74it/s]backtest loop:  79%|███████▉  | 767/971 [00:13<00:03, 56.32it/s]backtest loop:  80%|███████▉  | 774/971 [00:13<00:03, 58.07it/s]backtest loop:  80%|████████  | 780/971 [00:13<00:03, 55.32it/s]backtest loop:  81%|████████  | 787/971 [00:13<00:03, 57.33it/s]backtest loop:  82%|████████▏ | 793/971 [00:14<00:03, 54.82it/s]backtest loop:  82%|████████▏ | 800/971 [00:14<00:02, 57.09it/s]backtest loop:  83%|████████▎ | 807/971 [00:14<00:02, 58.59it/s]backtest loop:  84%|████████▎ | 813/971 [00:14<00:02, 55.57it/s]backtest loop:  84%|████████▍ | 820/971 [00:14<00:02, 57.47it/s]backtest loop:  85%|████████▌ | 826/971 [00:14<00:02, 58.13it/s]backtest loop:  86%|████████▌ | 833/971 [00:14<00:02, 56.17it/s]backtest loop:  87%|████████▋ | 840/971 [00:14<00:02, 57.92it/s]backtest loop:  87%|████████▋ | 847/971 [00:14<00:02, 59.18it/s]backtest loop:  88%|████████▊ | 853/971 [00:15<00:02, 56.18it/s]backtest loop:  89%|████████▊ | 860/971 [00:15<00:01, 57.91it/s]backtest loop:  89%|████████▉ | 867/971 [00:15<00:01, 55.89it/s]backtest loop:  90%|█████████ | 874/971 [00:15<00:01, 57.74it/s]backtest loop:  91%|█████████ | 881/971 [00:15<00:01, 59.00it/s]backtest loop:  91%|█████████▏| 887/971 [00:15<00:01, 56.03it/s]backtest loop:  92%|█████████▏| 894/971 [00:15<00:01, 57.78it/s]backtest loop:  93%|█████████▎| 901/971 [00:15<00:01, 59.04it/s]backtest loop:  93%|█████████▎| 907/971 [00:16<00:01, 55.97it/s]backtest loop:  94%|█████████▍| 914/971 [00:16<00:00, 57.89it/s]backtest loop:  95%|█████████▍| 921/971 [00:16<00:00, 55.85it/s]backtest loop:  96%|█████████▌| 928/971 [00:16<00:00, 57.83it/s]backtest loop:  96%|█████████▋| 935/971 [00:16<00:00, 59.23it/s]backtest loop:  97%|█████████▋| 941/971 [00:16<00:00, 56.22it/s]backtest loop:  98%|█████████▊| 948/971 [00:16<00:00, 58.03it/s]backtest loop:  98%|█████████▊| 954/971 [00:16<00:00, 58.54it/s]

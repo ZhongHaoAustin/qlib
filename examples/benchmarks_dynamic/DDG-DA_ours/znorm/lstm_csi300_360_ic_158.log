@@ -1,68 +1,12 @@
-2024-04-23 01:08:08.185 | WARNING  | qlib.tests.data:qlib_data:175 - Data already exists: ~/.qlib/qlib_data/cn_data, the data download will be skipped
+2024-04-25 20:47:58.723 | WARNING  | qlib.tests.data:qlib_data:175 - Data already exists: ~/.qlib/qlib_data/cn_data, the data download will be skipped
 	If downloading is required: `exists_skip=False` or `change target_dir`
-[2232017:MainThread](2024-04-23 01:08:08,186) INFO - qlib.Initialization - [config.py:416] - default_conf: client.
-[2232017:MainThread](2024-04-23 01:08:08,189) INFO - qlib.Initialization - [__init__.py:74] - qlib successfully initialized based on client settings.
-[2232017:MainThread](2024-04-23 01:08:08,190) INFO - qlib.Initialization - [__init__.py:76] - data_path={'__DEFAULT_FREQ': PosixPath('/home/zhonghao/.qlib/qlib_data/cn_data')}
+[3428193:MainThread](2024-04-25 20:47:58,724) INFO - qlib.Initialization - [config.py:416] - default_conf: client.
+[3428193:MainThread](2024-04-25 20:47:58,727) INFO - qlib.Initialization - [__init__.py:74] - qlib successfully initialized based on client settings.
+[3428193:MainThread](2024-04-25 20:47:58,727) INFO - qlib.Initialization - [__init__.py:76] - data_path={'__DEFAULT_FREQ': PosixPath('/home/zhonghao/.qlib/qlib_data/cn_data')}
 Remove CSRankNorm
 {'class': 'Alpha360', 'module_path': 'qlib.contrib.data.handler', 'kwargs': {'start_time': datetime.date(2008, 1, 1), 'end_time': datetime.date(2020, 8, 1), 'fit_start_time': datetime.date(2008, 1, 1), 'fit_end_time': datetime.date(2014, 12, 31), 'instruments': 'csi300', 'infer_processors': [{'class': 'RobustZScoreNorm', 'kwargs': {'fields_group': 'feature', 'clip_outlier': True}}, {'class': 'Fillna', 'kwargs': {'fields_group': 'feature'}}], 'learn_processors': [{'class': 'DropnaLabel'}, {'class': 'CSZScoreNorm', 'kwargs': {'fields_group': 'label'}}], 'label': ['Ref($close, -2) / Ref($close, -1) - 1']}}
-[2232017:MainThread](2024-04-23 01:08:08,219) INFO - qlib.RollingBenchmark - [rolling_benchmark.py:208] - {'model': {'class': 'LSTM', 'module_path': 'qlib.contrib.model.pytorch_lstm', 'kwargs': {'d_feat': 6, 'hidden_size': 64, 'num_layers': 2, 'dropout': 0.0, 'n_epochs': 200, 'lr': 0.001, 'early_stop': 8, 'batch_size': 5000, 'metric': 'loss', 'loss': 'mse', 'GPU': 0}}, 'dataset': {'class': 'DatasetH', 'module_path': 'qlib.data.dataset', 'kwargs': {'handler': 'file:///home/zhonghao/sjtu/qlib/examples/benchmarks_dynamic/baseline/cn_data_csi300_rankFalse_alpha360_handler_horizon1.pkl', 'segments': {'train': [datetime.date(2008, 1, 1), datetime.date(2014, 12, 31)], 'valid': [datetime.date(2015, 1, 1), datetime.date(2016, 12, 31)], 'test': [datetime.date(2017, 1, 1), datetime.date(2020, 8, 1)]}}}, 'record': ['qlib.workflow.record_temp.SignalRecord']}
-[2232017:MainThread](2024-04-23 01:08:08,221) WARNING - qlib.data - [data.py:666] - load calendar error: freq=day, future=True; return current calendar!
-[2232017:MainThread](2024-04-23 01:08:08,221) WARNING - qlib.data - [data.py:669] - You can get future calendar by referring to the following document: https://github.com/microsoft/qlib/blob/main/scripts/data_collector/contrib/README.md
-[2232017:MainThread](2024-04-23 01:08:08,269) INFO - qlib.MetaDatasetDS - [dataset.py:316] - Example task for training meta model: {'model': {'class': 'LSTM', 'module_path': 'qlib.contrib.model.pytorch_lstm', 'kwargs': {'d_feat': 6, 'hidden_size': 64, 'num_layers': 2, 'dropout': 0.0, 'n_epochs': 200, 'lr': 0.001, 'early_stop': 8, 'batch_size': 5000, 'metric': 'loss', 'loss': 'mse', 'GPU': 0}}, 'dataset': {'class': 'DatasetH', 'module_path': 'qlib.data.dataset', 'kwargs': {'handler': 'file:///home/zhonghao/sjtu/qlib/examples/benchmarks_dynamic/baseline/cn_data_csi300_rankFalse_alpha360_handler_horizon1.pkl', 'segments': {'train': (Timestamp('2008-01-02 00:00:00'), Timestamp('2014-12-31 00:00:00')), 'valid': (Timestamp('2015-01-05 00:00:00'), Timestamp('2016-12-29 00:00:00')), 'test': (Timestamp('2017-01-03 00:00:00'), Timestamp('2017-02-06 00:00:00'))}}}, 'record': ['qlib.workflow.record_temp.SignalRecord']}
-creating meta tasks:   0%|          | 0/44 [00:00<?, ?it/s]creating meta tasks:   2%|▏         | 1/44 [00:00<00:18,  2.33it/s]creating meta tasks:   5%|▍         | 2/44 [00:00<00:18,  2.33it/s]creating meta tasks:   7%|▋         | 3/44 [00:01<00:17,  2.39it/s]creating meta tasks:   9%|▉         | 4/44 [00:01<00:16,  2.48it/s]creating meta tasks:  11%|█▏        | 5/44 [00:02<00:16,  2.42it/s]creating meta tasks:  14%|█▎        | 6/44 [00:02<00:16,  2.25it/s]creating meta tasks:  16%|█▌        | 7/44 [00:02<00:15,  2.36it/s]creating meta tasks:  18%|█▊        | 8/44 [00:03<00:14,  2.44it/s]creating meta tasks:  20%|██        | 9/44 [00:03<00:14,  2.48it/s]creating meta tasks:  23%|██▎       | 10/44 [00:04<00:14,  2.41it/s]creating meta tasks:  25%|██▌       | 11/44 [00:04<00:13,  2.37it/s]creating meta tasks:  27%|██▋       | 12/44 [00:05<00:13,  2.39it/s]creating meta tasks:  30%|██▉       | 13/44 [00:05<00:12,  2.44it/s]creating meta tasks:  32%|███▏      | 14/44 [00:05<00:12,  2.48it/s]creating meta tasks:  34%|███▍      | 15/44 [00:06<00:12,  2.40it/s]creating meta tasks:  36%|███▋      | 16/44 [00:06<00:11,  2.35it/s]creating meta tasks:  39%|███▊      | 17/44 [00:07<00:11,  2.31it/s]creating meta tasks:  41%|████      | 18/44 [00:07<00:11,  2.31it/s]creating meta tasks:  43%|████▎     | 19/44 [00:07<00:10,  2.36it/s]creating meta tasks:  45%|████▌     | 20/44 [00:08<00:10,  2.34it/s]creating meta tasks:  48%|████▊     | 21/44 [00:08<00:09,  2.33it/s]creating meta tasks:  50%|█████     | 22/44 [00:09<00:09,  2.32it/s]creating meta tasks:  52%|█████▏    | 23/44 [00:09<00:08,  2.37it/s]creating meta tasks:  55%|█████▍    | 24/44 [00:10<00:08,  2.39it/s]creating meta tasks:  57%|█████▋    | 25/44 [00:10<00:07,  2.40it/s]creating meta tasks:  59%|█████▉    | 26/44 [00:10<00:07,  2.41it/s]creating meta tasks:  61%|██████▏   | 27/44 [00:11<00:07,  2.42it/s]creating meta tasks:  64%|██████▎   | 28/44 [00:11<00:06,  2.42it/s]creating meta tasks:  66%|██████▌   | 29/44 [00:12<00:06,  2.41it/s]creating meta tasks:  68%|██████▊   | 30/44 [00:12<00:05,  2.41it/s]creating meta tasks:  70%|███████   | 31/44 [00:12<00:05,  2.40it/s]creating meta tasks:  73%|███████▎  | 32/44 [00:13<00:05,  2.40it/s]creating meta tasks:  75%|███████▌  | 33/44 [00:13<00:04,  2.39it/s]creating meta tasks:  77%|███████▋  | 34/44 [00:14<00:04,  2.39it/s]creating meta tasks:  80%|███████▉  | 35/44 [00:14<00:03,  2.32it/s]creating meta tasks:  82%|████████▏ | 36/44 [00:15<00:03,  2.27it/s]creating meta tasks:  84%|████████▍ | 37/44 [00:15<00:03,  2.23it/s]creating meta tasks:  86%|████████▋ | 38/44 [00:16<00:02,  2.21it/s]creating meta tasks:  89%|████████▊ | 39/44 [00:16<00:02,  2.18it/s]creating meta tasks:  91%|█████████ | 40/44 [00:17<00:01,  2.16it/s]creating meta tasks:  93%|█████████▎| 41/44 [00:17<00:01,  2.14it/s]creating meta tasks:  95%|█████████▌| 42/44 [00:17<00:00,  2.14it/s]creating meta tasks:  98%|█████████▊| 43/44 [00:18<00:00,  2.13it/s]creating meta tasks: 100%|██████████| 44/44 [00:18<00:00,  2.13it/s]creating meta tasks: 100%|██████████| 44/44 [00:18<00:00,  2.32it/s]
-train tasks:   0%|          | 0/44 [00:00<?, ?it/s][2232017:MainThread](2024-04-23 01:08:27,469) WARNING - qlib.workflow - [expm.py:230] - No valid experiment found. Create a new experiment with name rolling_cn_data_csi300_LSTM_alpha360_h1_step20_rankFalse_2024-04-23_01:08:27_DDG-DA.
-[2232017:MainThread](2024-04-23 01:08:27,482) INFO - qlib.workflow - [exp.py:258] - Experiment 18 starts running ...
-[2232017:MainThread](2024-04-23 01:08:27,654) INFO - qlib.workflow - [recorder.py:341] - Recorder 34d714cd9bf3447aa3251fb41fd1823f starts running under Experiment 18 ...
-[2232017:MainThread](2024-04-23 01:08:28,080) INFO - qlib.LSTM - [pytorch_lstm.py:60] - LSTM pytorch version...
-[2232017:MainThread](2024-04-23 01:08:28,389) INFO - qlib.LSTM - [pytorch_lstm.py:77] - LSTM parameters setting:
-d_feat : 6
-hidden_size : 64
-num_layers : 2
-dropout : 0.0
-n_epochs : 200
-lr : 0.001
-metric : loss
-batch_size : 5000
-early_stop : 8
-optimizer : adam
-loss_type : mse
-visible_GPU : 0
-use_GPU : True
-seed : None
-[2232017:MainThread](2024-04-23 01:08:43,682) INFO - qlib.data selection - [model.py:40] - Reweighting result: datetime    instrument
-2008-01-02  SH600000      0.531170
-            SH600004      0.531170
-            SH600006      0.531170
-            SH600007      0.531170
-            SH600008      0.531170
-                            ...   
-2014-12-31  SZ300070      1.926194
-            SZ300124      1.926194
-            SZ300133      1.926194
-            SZ300146      1.926194
-            SZ300251      1.926194
-Length: 478007, dtype: float64
-[2232017:MainThread](2024-04-23 01:08:43,686) INFO - qlib.LSTM - [pytorch_lstm.py:261] - training...
-[2232017:MainThread](2024-04-23 01:08:43,687) INFO - qlib.LSTM - [pytorch_lstm.py:265] - Epoch0:
-[2232017:MainThread](2024-04-23 01:08:43,688) INFO - qlib.LSTM - [pytorch_lstm.py:266] - training...
-[2232017:MainThread](2024-04-23 01:08:47,478) INFO - qlib.LSTM - [pytorch_lstm.py:268] - evaluating...
-[2232017:MainThread](2024-04-23 01:08:47,849) INFO - qlib.LSTM - [pytorch_lstm.py:271] - valid -0.995764
-[2232017:MainThread](2024-04-23 01:08:47,852) INFO - qlib.LSTM - [pytorch_lstm.py:265] - Epoch1:
-[2232017:MainThread](2024-04-23 01:08:47,853) INFO - qlib.LSTM - [pytorch_lstm.py:266] - training...
-[2232017:MainThread](2024-04-23 01:08:50,787) INFO - qlib.LSTM - [pytorch_lstm.py:268] - evaluating...
-[2232017:MainThread](2024-04-23 01:08:51,100) INFO - qlib.LSTM - [pytorch_lstm.py:271] - valid -0.996209
-[2232017:MainThread](2024-04-23 01:08:51,101) INFO - qlib.LSTM - [pytorch_lstm.py:265] - Epoch2:
-[2232017:MainThread](2024-04-23 01:08:51,102) INFO - qlib.LSTM - [pytorch_lstm.py:266] - training...
-[2232017:MainThread](2024-04-23 01:08:54,059) INFO - qlib.LSTM - [pytorch_lstm.py:268] - evaluating...
-[2232017:MainThread](2024-04-23 01:08:54,369) INFO - qlib.LSTM - [pytorch_lstm.py:271] - valid -0.995638
-[2232017:MainThread](2024-04-23 01:08:54,371) INFO - qlib.LSTM - [pytorch_lstm.py:265] - Epoch3:
-[2232017:MainThread](2024-04-23 01:08:54,371) INFO - qlib.LSTM - [pytorch_lstm.py:266] - training...
-[2232017:MainThread](2024-04-23 01:08:57,266) INFO - qlib.LSTM - [pytorch_lstm.py:268] - evaluating...
-[2232017:MainThread](2024-04-23 01:08:57,591) INFO - qlib.LSTM - [pytorch_lstm.py:271] - valid -0.994986
-[2232017:MainThread](2024-04-23 01:08:57,592) INFO - qlib.LSTM - [pytorch_lstm.py:265] - Epoch4:
-[2232017:MainThread](2024-04-23 01:08:57,593) INFO - qlib.LSTM - [pytorch_lstm.py:266] - training...
-[2232017:MainThread](2024-04-23 01:09:00,635) INFO - qlib.LSTM - [pytorch_lstm.py:268] - evaluating...
-[2232017:MainThread](2024-04-23 01:09:00,984) INFO - qlib.LSTM - [pytorch_lstm.py:271] - valid -0.995311
-[2232017:MainThread](2024-04-23 01:09:00,985) INFO - qlib.LSTM - [pytorch_lstm.py:265] - Epoch5:
-[2232017:MainThread](2024-04-23 01:09:00,985) INFO - qlib.LSTM - [pytorch_lstm.py:266] - training...
-Killed
+[3428193:MainThread](2024-04-25 20:47:58,759) INFO - qlib.RollingBenchmark - [rolling_benchmark.py:208] - {'model': {'class': 'LSTM', 'module_path': 'qlib.contrib.model.pytorch_lstm', 'kwargs': {'d_feat': 6, 'hidden_size': 64, 'num_layers': 2, 'dropout': 0.0, 'n_epochs': 200, 'lr': 0.001, 'early_stop': 8, 'batch_size': 5000, 'metric': 'loss', 'loss': 'mse', 'GPU': 0}}, 'dataset': {'class': 'DatasetH', 'module_path': 'qlib.data.dataset', 'kwargs': {'handler': 'file:///home/zhonghao/sjtu/qlib/examples/benchmarks_dynamic/baseline/cn_data_csi300_rankFalse_alpha360_handler_horizon1.pkl', 'segments': {'train': [datetime.date(2008, 1, 1), datetime.date(2014, 12, 31)], 'valid': [datetime.date(2015, 1, 1), datetime.date(2016, 12, 31)], 'test': [datetime.date(2017, 1, 1), datetime.date(2020, 8, 1)]}}}, 'record': ['qlib.workflow.record_temp.SignalRecord']}
+[3428193:MainThread](2024-04-25 20:47:58,761) WARNING - qlib.data - [data.py:666] - load calendar error: freq=day, future=True; return current calendar!
+[3428193:MainThread](2024-04-25 20:47:58,762) WARNING - qlib.data - [data.py:669] - You can get future calendar by referring to the following document: https://github.com/microsoft/qlib/blob/main/scripts/data_collector/contrib/README.md
+[3428193:MainThread](2024-04-25 20:47:58,808) INFO - qlib.MetaDatasetDS - [dataset.py:316] - Example task for training meta model: {'model': {'class': 'LSTM', 'module_path': 'qlib.contrib.model.pytorch_lstm', 'kwargs': {'d_feat': 6, 'hidden_size': 64, 'num_layers': 2, 'dropout': 0.0, 'n_epochs': 200, 'lr': 0.001, 'early_stop': 8, 'batch_size': 5000, 'metric': 'loss', 'loss': 'mse', 'GPU': 0}}, 'dataset': {'class': 'DatasetH', 'module_path': 'qlib.data.dataset', 'kwargs': {'handler': 'file:///home/zhonghao/sjtu/qlib/examples/benchmarks_dynamic/baseline/cn_data_csi300_rankFalse_alpha360_handler_horizon1.pkl', 'segments': {'train': (Timestamp('2008-01-02 00:00:00'), Timestamp('2014-12-31 00:00:00')), 'valid': (Timestamp('2015-01-05 00:00:00'), Timestamp('2016-12-29 00:00:00')), 'test': (Timestamp('2017-01-03 00:00:00'), Timestamp('2017-02-06 00:00:00'))}}}, 'record': ['qlib.workflow.record_temp.SignalRecord']}
+creating meta tasks:   0%|          | 0/44 [00:00<?, ?it/s]creating meta tasks:   2%|▏         | 1/44 [00:00<00:17,  2.42it/s]creating meta tasks:   5%|▍         | 2/44 [00:00<00:16,  2.55it/s]creating meta tasks:   7%|▋         | 3/44 [00:01<00:15,  2.62it/s]creating meta tasks:   9%|▉         | 4/44 [00:01<00:15,  2.65it/s]creating meta tasks:  11%|█▏        | 5/44 [00:01<00:14,  2.67it/s]creating meta tasks:  14%|█▎        | 6/44 [00:02<00:15,  2.47it/s]creating meta tasks:  16%|█▌        | 7/44 [00:02<00:14,  2.53it/s]creating meta tasks:  18%|█▊        | 8/44 [00:03<00:14,  2.55it/s]creating meta tasks:  20%|██        | 9/44 [00:03<00:13,  2.55it/s]creating meta tasks:  23%|██▎       | 10/44 [00:03<00:13,  2.58it/s]creating meta tasks:  25%|██▌       | 11/44 [00:04<00:12,  2.61it/s]creating meta tasks:  27%|██▋       | 12/44 [00:04<00:12,  2.62it/s]creating meta tasks:  30%|██▉       | 13/44 [00:05<00:11,  2.62it/s]creating meta tasks:  32%|███▏      | 14/44 [00:05<00:11,  2.63it/s]creating meta tasks:  34%|███▍      | 15/44 [00:05<00:11,  2.62it/s]creating meta tasks:  36%|███▋      | 16/44 [00:06<00:10,  2.61it/s]creating meta tasks:  39%|███▊      | 17/44 [00:06<00:10,  2.61it/s]creating meta tasks:  41%|████      | 18/44 [00:06<00:09,  2.60it/s]creating meta tasks:  43%|████▎     | 19/44 [00:07<00:09,  2.60it/s]creating meta tasks:  45%|████▌     | 20/44 [00:07<00:09,  2.59it/s]creating meta tasks:  48%|████▊     | 21/44 [00:08<00:08,  2.58it/s]creating meta tasks:  50%|█████     | 22/44 [00:08<00:08,  2.57it/s]creating meta tasks:  52%|█████▏    | 23/44 [00:08<00:08,  2.56it/s]creating meta tasks:  55%|█████▍    | 24/44 [00:09<00:07,  2.55it/s]Terminated

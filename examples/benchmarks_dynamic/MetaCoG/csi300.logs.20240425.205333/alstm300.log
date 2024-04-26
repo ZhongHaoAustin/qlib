@@ -1,0 +1,122 @@
+[3431409:MainThread](2024-04-25 20:56:15,183) INFO - qlib.Initialization - [config.py:416] - default_conf: client.
+[3431409:MainThread](2024-04-25 20:56:15,185) INFO - qlib.Initialization - [__init__.py:74] - qlib successfully initialized based on client settings.
+[3431409:MainThread](2024-04-25 20:56:15,186) INFO - qlib.Initialization - [__init__.py:76] - data_path={'__DEFAULT_FREQ': PosixPath('/home/zhonghao/.qlib/qlib_data/crowd_data')}
+Remove CSRankNorm
+Handler: {'class': 'Alpha360', 'module_path': 'qlib.contrib.data.handler', 'kwargs': {'start_time': Timestamp('2008-01-01 00:00:00'), 'end_time': Timestamp('2024-03-31 00:00:00'), 'fit_start_time': Timestamp('2008-01-01 00:00:00'), 'fit_end_time': Timestamp('2018-12-31 00:00:00'), 'instruments': 'csi300', 'infer_processors': [{'class': 'RobustZScoreNorm', 'kwargs': {'fields_group': 'feature', 'clip_outlier': True}}, {'class': 'Fillna', 'kwargs': {'fields_group': 'feature'}}], 'learn_processors': [{'class': 'DropnaLabel'}, {'class': 'CSZScoreNorm', 'kwargs': {'fields_group': 'label'}}], 'label': ['Ref($close, -2) / Ref($close, -1) - 1']}}
+Task: {'model': {'class': 'ALSTM', 'module_path': 'qlib.contrib.model.pytorch_alstm', 'kwargs': {'d_feat': 6, 'hidden_size': 64, 'num_layers': 2, 'dropout': 0.0, 'n_epochs': 200, 'lr': 0.001, 'early_stop': 8, 'batch_size': 800, 'metric': 'loss', 'loss': 'mse', 'GPU': 0, 'rnn_type': 'GRU'}}, 'dataset': {'class': 'DatasetH', 'module_path': 'qlib.data.dataset', 'kwargs': {'handler': 'file:///home/zhonghao/sjtu/qlib/examples/benchmarks/crowd_data_csi300_rankFalse_alpha360_handler_horizon1.pkl', 'segments': {'train': (Timestamp('2008-01-01 00:00:00'), Timestamp('2018-12-31 00:00:00')), 'valid': (Timestamp('2019-01-01 00:00:00'), Timestamp('2020-03-31 00:00:00')), 'test': (Timestamp('2020-04-01 00:00:00'), Timestamp('2024-03-31 00:00:00'))}}}, 'record': ['qlib.workflow.record_temp.SignalRecord']}
+[3431409:MainThread](2024-04-25 20:56:21,940) INFO - qlib.MetaDatasetInc - [dataset.py:152] - Example task for training meta model: {'model': {'class': 'ALSTM', 'module_path': 'qlib.contrib.model.pytorch_alstm', 'kwargs': {'d_feat': 6, 'hidden_size': 64, 'num_layers': 2, 'dropout': 0.0, 'n_epochs': 200, 'lr': 0.001, 'early_stop': 8, 'batch_size': 800, 'metric': 'loss', 'loss': 'mse', 'GPU': 0, 'rnn_type': 'GRU'}}, 'dataset': {'class': 'DatasetH', 'module_path': 'qlib.data.dataset', 'kwargs': {'handler': 'file:///home/zhonghao/sjtu/qlib/examples/benchmarks/crowd_data_csi300_rankFalse_alpha360_handler_horizon1.pkl', 'segments': {'train': (Timestamp('2008-01-02 00:00:00'), Timestamp('2008-01-29 00:00:00')), 'test': (Timestamp('2008-01-31 00:00:00'), Timestamp('2008-03-05 00:00:00'))}}}, 'record': ['qlib.workflow.record_temp.SignalRecord']}
+creating meta tasks:   0%|          | 0/147 [00:00<?, ?it/s]creating meta tasks:  26%|██▌       | 38/147 [00:00<00:00, 372.12it/s]creating meta tasks:  53%|█████▎    | 78/147 [00:00<00:00, 385.90it/s]creating meta tasks:  82%|████████▏ | 120/147 [00:00<00:00, 398.16it/s]creating meta tasks: 100%|██████████| 147/147 [00:00<00:00, 396.69it/s]
+[3431409:MainThread](2024-04-25 20:56:22,555) INFO - qlib.MetaDatasetInc - [dataset.py:152] - Example task for training meta model: {'model': {'class': 'ALSTM', 'module_path': 'qlib.contrib.model.pytorch_alstm', 'kwargs': {'d_feat': 6, 'hidden_size': 64, 'num_layers': 2, 'dropout': 0.0, 'n_epochs': 200, 'lr': 0.001, 'early_stop': 8, 'batch_size': 800, 'metric': 'loss', 'loss': 'mse', 'GPU': 0, 'rnn_type': 'GRU'}}, 'dataset': {'class': 'DatasetH', 'module_path': 'qlib.data.dataset', 'kwargs': {'handler': 'file:///home/zhonghao/sjtu/qlib/examples/benchmarks/crowd_data_csi300_rankFalse_alpha360_handler_horizon1.pkl', 'segments': {'train': (Timestamp('2019-01-02 00:00:00'), Timestamp('2019-01-29 00:00:00')), 'test': (Timestamp('2019-01-31 00:00:00'), Timestamp('2019-03-06 00:00:00'))}}}, 'record': ['qlib.workflow.record_temp.SignalRecord']}
+creating meta tasks:   0%|          | 0/63 [00:00<?, ?it/s]creating meta tasks:  68%|██████▊   | 43/63 [00:00<00:00, 420.50it/s]creating meta tasks: 100%|██████████| 63/63 [00:00<00:00, 419.27it/s]
+Traceback (most recent call last):
+  File "/home/zhonghao/sjtu/qlib/examples/benchmarks_dynamic/incremental/main.py", line 479, in run_all
+    assert self.reload_tag is not None
+AssertionError
+No valid experiment to reload. Restart offline training...
+Remove CSRankNorm
+Handler: {'class': 'Alpha360', 'module_path': 'qlib.contrib.data.handler', 'kwargs': {'start_time': datetime.date(2008, 1, 1), 'end_time': datetime.date(2020, 8, 1), 'fit_start_time': datetime.date(2008, 1, 1), 'fit_end_time': datetime.date(2014, 12, 31), 'instruments': 'csi300', 'infer_processors': [{'class': 'RobustZScoreNorm', 'kwargs': {'fields_group': 'feature', 'clip_outlier': True}}, {'class': 'Fillna', 'kwargs': {'fields_group': 'feature'}}], 'learn_processors': [{'class': 'DropnaLabel'}, {'class': 'CSZScoreNorm', 'kwargs': {'fields_group': 'label'}}], 'label': ['Ref($close, -2) / Ref($close, -1) - 1']}}
+Task: {'model': {'class': 'ALSTM', 'module_path': 'qlib.contrib.model.pytorch_alstm', 'kwargs': {'d_feat': 6, 'hidden_size': 64, 'num_layers': 2, 'dropout': 0.0, 'n_epochs': 200, 'lr': 0.001, 'early_stop': 8, 'batch_size': 800, 'metric': 'loss', 'loss': 'mse', 'GPU': 0, 'rnn_type': 'GRU'}}, 'dataset': {'class': 'DatasetH', 'module_path': 'qlib.data.dataset', 'kwargs': {'handler': 'file:///home/zhonghao/sjtu/qlib/examples/benchmarks/crowd_data_csi300_rankFalse_alpha360_handler_horizon1.pkl', 'segments': {'train': [datetime.date(2008, 1, 1), datetime.date(2014, 12, 31)], 'valid': [datetime.date(2015, 1, 1), datetime.date(2016, 12, 31)], 'test': [datetime.date(2017, 1, 1), datetime.date(2020, 8, 1)]}}}, 'record': ['qlib.workflow.record_temp.SignalRecord']}
+
+[3431409:MainThread](2024-04-25 20:56:23,328) INFO - qlib.ALSTM - [pytorch_alstm.py:61] - ALSTM pytorch version...
+[3431409:MainThread](2024-04-25 20:56:23,392) INFO - qlib.ALSTM - [pytorch_alstm.py:78] - ALSTM parameters setting:
+d_feat : 6
+hidden_size : 64
+num_layers : 2
+dropout : 0.0
+n_epochs : 200
+lr : 0.001
+metric : loss
+batch_size : 800
+early_stop : 8
+optimizer : adam
+loss_type : mse
+device : cuda:0
+use_GPU : True
+seed : None
+[3431409:MainThread](2024-04-25 20:56:23,395) INFO - qlib.ALSTM - [pytorch_alstm.py:121] - model:
+ALSTMModel(
+  (net): Sequential(
+    (fc_in): Linear(in_features=6, out_features=64, bias=True)
+    (act): Tanh()
+  )
+  (rnn): GRU(64, 64, num_layers=2, batch_first=True)
+  (fc_out): Linear(in_features=128, out_features=1, bias=True)
+  (att_net): Sequential(
+    (att_fc_in): Linear(in_features=64, out_features=32, bias=True)
+    (att_dropout): Dropout(p=0.0, inplace=False)
+    (att_act): Tanh()
+    (att_fc_out): Linear(in_features=32, out_features=1, bias=False)
+    (att_softmax): Softmax(dim=1)
+  )
+)
+[3431409:MainThread](2024-04-25 20:56:23,395) INFO - qlib.ALSTM - [pytorch_alstm.py:122] - model size: 0.0502 MB
+[3431409:MainThread](2024-04-25 20:56:31,257) WARNING - qlib.workflow - [expm.py:230] - No valid experiment found. Create a new experiment with name ALSTM_crowd_data_csi300_360_rankFalse_43.
+[3431409:MainThread](2024-04-25 20:56:31,388) INFO - qlib.workflow - [exp.py:258] - Experiment 114 starts running ...
+[3431409:MainThread](2024-04-25 20:56:33,336) INFO - qlib.workflow - [recorder.py:341] - Recorder 6491ebf7b75f4e8d86d62d249c4530f1 starts running under Experiment 114 ...
+[3431409:MainThread](2024-04-25 20:56:42,748) INFO - qlib.ALSTM - [pytorch_alstm.py:266] - training...
+[3431409:MainThread](2024-04-25 20:56:42,748) INFO - qlib.ALSTM - [pytorch_alstm.py:270] - Epoch0:
+[3431409:MainThread](2024-04-25 20:56:42,749) INFO - qlib.ALSTM - [pytorch_alstm.py:271] - training...
+[3431409:MainThread](2024-04-25 20:56:48,408) INFO - qlib.ALSTM - [pytorch_alstm.py:273] - evaluating...
+[3431409:MainThread](2024-04-25 20:56:48,725) INFO - qlib.ALSTM - [pytorch_alstm.py:276] - valid -0.994238
+[3431409:MainThread](2024-04-25 20:56:48,727) INFO - qlib.ALSTM - [pytorch_alstm.py:270] - Epoch1:
+[3431409:MainThread](2024-04-25 20:56:48,727) INFO - qlib.ALSTM - [pytorch_alstm.py:271] - training...
+[3431409:MainThread](2024-04-25 20:56:53,766) INFO - qlib.ALSTM - [pytorch_alstm.py:273] - evaluating...
+[3431409:MainThread](2024-04-25 20:56:54,081) INFO - qlib.ALSTM - [pytorch_alstm.py:276] - valid -0.992134
+[3431409:MainThread](2024-04-25 20:56:54,083) INFO - qlib.ALSTM - [pytorch_alstm.py:270] - Epoch2:
+[3431409:MainThread](2024-04-25 20:56:54,083) INFO - qlib.ALSTM - [pytorch_alstm.py:271] - training...
+[3431409:MainThread](2024-04-25 20:56:59,099) INFO - qlib.ALSTM - [pytorch_alstm.py:273] - evaluating...
+[3431409:MainThread](2024-04-25 20:56:59,413) INFO - qlib.ALSTM - [pytorch_alstm.py:276] - valid -0.992436
+[3431409:MainThread](2024-04-25 20:56:59,413) INFO - qlib.ALSTM - [pytorch_alstm.py:270] - Epoch3:
+[3431409:MainThread](2024-04-25 20:56:59,414) INFO - qlib.ALSTM - [pytorch_alstm.py:271] - training...
+[3431409:MainThread](2024-04-25 20:57:04,452) INFO - qlib.ALSTM - [pytorch_alstm.py:273] - evaluating...
+[3431409:MainThread](2024-04-25 20:57:04,766) INFO - qlib.ALSTM - [pytorch_alstm.py:276] - valid -0.991823
+[3431409:MainThread](2024-04-25 20:57:04,768) INFO - qlib.ALSTM - [pytorch_alstm.py:270] - Epoch4:
+[3431409:MainThread](2024-04-25 20:57:04,768) INFO - qlib.ALSTM - [pytorch_alstm.py:271] - training...
+[3431409:MainThread](2024-04-25 20:57:09,792) INFO - qlib.ALSTM - [pytorch_alstm.py:273] - evaluating...
+[3431409:MainThread](2024-04-25 20:57:10,106) INFO - qlib.ALSTM - [pytorch_alstm.py:276] - valid -0.992881
+[3431409:MainThread](2024-04-25 20:57:10,107) INFO - qlib.ALSTM - [pytorch_alstm.py:270] - Epoch5:
+[3431409:MainThread](2024-04-25 20:57:10,107) INFO - qlib.ALSTM - [pytorch_alstm.py:271] - training...
+[3431409:MainThread](2024-04-25 20:57:14,975) INFO - qlib.ALSTM - [pytorch_alstm.py:273] - evaluating...
+[3431409:MainThread](2024-04-25 20:57:15,285) INFO - qlib.ALSTM - [pytorch_alstm.py:276] - valid -0.993077
+[3431409:MainThread](2024-04-25 20:57:15,286) INFO - qlib.ALSTM - [pytorch_alstm.py:270] - Epoch6:
+[3431409:MainThread](2024-04-25 20:57:15,286) INFO - qlib.ALSTM - [pytorch_alstm.py:271] - training...
+[3431409:MainThread](2024-04-25 20:57:20,291) INFO - qlib.ALSTM - [pytorch_alstm.py:273] - evaluating...
+[3431409:MainThread](2024-04-25 20:57:20,602) INFO - qlib.ALSTM - [pytorch_alstm.py:276] - valid -0.992270
+[3431409:MainThread](2024-04-25 20:57:20,603) INFO - qlib.ALSTM - [pytorch_alstm.py:270] - Epoch7:
+[3431409:MainThread](2024-04-25 20:57:20,603) INFO - qlib.ALSTM - [pytorch_alstm.py:271] - training...
+[3431409:MainThread](2024-04-25 20:57:25,572) INFO - qlib.ALSTM - [pytorch_alstm.py:273] - evaluating...
+[3431409:MainThread](2024-04-25 20:57:25,883) INFO - qlib.ALSTM - [pytorch_alstm.py:276] - valid -0.996922
+[3431409:MainThread](2024-04-25 20:57:25,883) INFO - qlib.ALSTM - [pytorch_alstm.py:270] - Epoch8:
+[3431409:MainThread](2024-04-25 20:57:25,884) INFO - qlib.ALSTM - [pytorch_alstm.py:271] - training...
+[3431409:MainThread](2024-04-25 20:57:30,803) INFO - qlib.ALSTM - [pytorch_alstm.py:273] - evaluating...
+[3431409:MainThread](2024-04-25 20:57:31,115) INFO - qlib.ALSTM - [pytorch_alstm.py:276] - valid -0.997787
+[3431409:MainThread](2024-04-25 20:57:31,115) INFO - qlib.ALSTM - [pytorch_alstm.py:270] - Epoch9:
+[3431409:MainThread](2024-04-25 20:57:31,116) INFO - qlib.ALSTM - [pytorch_alstm.py:271] - training...
+[3431409:MainThread](2024-04-25 20:57:36,117) INFO - qlib.ALSTM - [pytorch_alstm.py:273] - evaluating...
+[3431409:MainThread](2024-04-25 20:57:36,429) INFO - qlib.ALSTM - [pytorch_alstm.py:276] - valid -0.995816
+[3431409:MainThread](2024-04-25 20:57:36,430) INFO - qlib.ALSTM - [pytorch_alstm.py:270] - Epoch10:
+[3431409:MainThread](2024-04-25 20:57:36,430) INFO - qlib.ALSTM - [pytorch_alstm.py:271] - training...
+[3431409:MainThread](2024-04-25 20:57:41,440) INFO - qlib.ALSTM - [pytorch_alstm.py:273] - evaluating...
+[3431409:MainThread](2024-04-25 20:57:41,750) INFO - qlib.ALSTM - [pytorch_alstm.py:276] - valid -0.998705
+[3431409:MainThread](2024-04-25 20:57:41,751) INFO - qlib.ALSTM - [pytorch_alstm.py:270] - Epoch11:
+[3431409:MainThread](2024-04-25 20:57:41,751) INFO - qlib.ALSTM - [pytorch_alstm.py:271] - training...
+[3431409:MainThread](2024-04-25 20:57:46,661) INFO - qlib.ALSTM - [pytorch_alstm.py:273] - evaluating...
+[3431409:MainThread](2024-04-25 20:57:46,972) INFO - qlib.ALSTM - [pytorch_alstm.py:276] - valid -1.002035
+[3431409:MainThread](2024-04-25 20:57:46,973) INFO - qlib.ALSTM - [pytorch_alstm.py:288] - early stop
+[3431409:MainThread](2024-04-25 20:57:46,973) INFO - qlib.ALSTM - [pytorch_alstm.py:291] - best score: -0.991823 @ 3
+[3431409:MainThread](2024-04-25 20:57:46,993) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+Save pretrained model to ALSTM_crowd_data_csi300_360_rankFalse_43.
+[3431409:MainThread](2024-04-25 20:57:47,278) ERROR - qlib.workflow - [utils.py:41] - An exception has been raised[AttributeError: 'CML' object has no attribute 'is_rnn'].
+  File "main.py", line 62, in <module>
+    fire.Fire(CML)
+  File "/home/zhonghao/miniconda3/envs/sjtu_qlib/lib/python3.8/site-packages/fire/core.py", line 143, in Fire
+    component_trace = _Fire(component, args, parsed_flag_args, context, name)
+  File "/home/zhonghao/miniconda3/envs/sjtu_qlib/lib/python3.8/site-packages/fire/core.py", line 477, in _Fire
+    component, remaining_args = _CallAndUpdateTrace(
+  File "/home/zhonghao/miniconda3/envs/sjtu_qlib/lib/python3.8/site-packages/fire/core.py", line 693, in _CallAndUpdateTrace
+    component = fn(*varargs, **kwargs)
+  File "/home/zhonghao/sjtu/qlib/examples/benchmarks_dynamic/incremental/main.py", line 490, in run_all
+    mm = self.offline_training(seed=43 + i)
+  File "main.py", line 40, in offline_training
+    is_rnn=self.is_rnn,
+AttributeError: 'CML' object has no attribute 'is_rnn'

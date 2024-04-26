@@ -1,5 +1,5 @@
 cur_time=$(date "+%Y%m%d.%H%M%S")
-log_dir="./csi300.logs.$cur_time"
+log_dir="./csi500.logs.$cur_time"
 if [ ! -d $log_dir ]; then
     mkdir $log_dir
 fi

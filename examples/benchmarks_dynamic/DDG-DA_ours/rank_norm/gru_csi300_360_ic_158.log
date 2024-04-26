@@ -1,0 +1,20 @@
+2024-04-25 20:48:41.310 | WARNING  | qlib.tests.data:qlib_data:175 - Data already exists: ~/.qlib/qlib_data/cn_data, the data download will be skipped
+	If downloading is required: `exists_skip=False` or `change target_dir`
+[3428704:MainThread](2024-04-25 20:48:41,311) INFO - qlib.Initialization - [config.py:416] - default_conf: client.
+[3428704:MainThread](2024-04-25 20:48:41,313) INFO - qlib.Initialization - [__init__.py:74] - qlib successfully initialized based on client settings.
+[3428704:MainThread](2024-04-25 20:48:41,313) INFO - qlib.Initialization - [__init__.py:76] - data_path={'__DEFAULT_FREQ': PosixPath('/home/zhonghao/.qlib/qlib_data/cn_data')}
+[3428704:MainThread](2024-04-25 20:48:41,320) WARNING - qlib.workflow - [expm.py:230] - No valid experiment found. Create a new experiment with name DDG-DA_cn_data_csi300_158_rankTrue_s20_h1_158_43.
+[3428704:MainThread](2024-04-25 20:48:41,332) ERROR - qlib.workflow - [utils.py:41] - An exception has been raised[IndexError: list index out of range].
+  File "workflow.py", line 444, in <module>
+    fire.Fire(DDGDA)
+  File "/home/zhonghao/miniconda3/envs/sjtu_qlib/lib/python3.8/site-packages/fire/core.py", line 143, in Fire
+    component_trace = _Fire(component, args, parsed_flag_args, context, name)
+  File "/home/zhonghao/miniconda3/envs/sjtu_qlib/lib/python3.8/site-packages/fire/core.py", line 477, in _Fire
+    component, remaining_args = _CallAndUpdateTrace(
+  File "/home/zhonghao/miniconda3/envs/sjtu_qlib/lib/python3.8/site-packages/fire/core.py", line 693, in _CallAndUpdateTrace
+    component = fn(*varargs, **kwargs)
+  File "workflow.py", line 416, in run_online
+    self.meta_inference()
+  File "workflow.py", line 288, in meta_inference
+    rec = exp.list_recorders(rtype=exp.RT_L)[0]
+IndexError: list index out of range
