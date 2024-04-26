@@ -117,6 +117,7 @@ class ALSTM(Model):
             hidden_size=self.hidden_size,
             num_layers=self.num_layers,
             dropout=self.dropout,
+            rnn_type=kwargs.get("rnn_type", "GRU"),
         )
         self.logger.info("model:\n{:}".format(self.ALSTM_model))
         self.logger.info("model size: {:.4f} MB".format(count_parameters(self.ALSTM_model)))
