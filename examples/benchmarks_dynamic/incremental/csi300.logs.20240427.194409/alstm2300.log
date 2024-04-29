@@ -1,0 +1,1525 @@
+['main.py', 'run_all', '--forecast_model', 'ALSTM2', '-num_head', '8', '--train_start=2008-01-01', '--train_end=2018-12-31', '--valid_start=2019-01-01', '--valid_end=2020-03-31', '--test_start=2020-04-01', '--test_end=2024-03-31', '--tau', '10', '--lr_da', '0.01', '--market', 'csi300', '--data_dir', 'crowd_data', '--rank_label', 'True', '--begin_valid_epoch', '30']
+[394347:MainThread](2024-04-27 23:00:40,199) INFO - qlib.Initialization - [config.py:416] - default_conf: client.
+[394347:MainThread](2024-04-27 23:00:40,202) INFO - qlib.Initialization - [__init__.py:74] - qlib successfully initialized based on client settings.
+[394347:MainThread](2024-04-27 23:00:40,203) INFO - qlib.Initialization - [__init__.py:76] - data_path={'__DEFAULT_FREQ': PosixPath('/home/zhonghao/.qlib/qlib_data/crowd_data')}
+Handler: {'class': 'Alpha360', 'module_path': 'qlib.contrib.data.handler', 'kwargs': {'start_time': Timestamp('2008-01-01 00:00:00'), 'end_time': Timestamp('2024-03-31 00:00:00'), 'fit_start_time': Timestamp('2008-01-01 00:00:00'), 'fit_end_time': Timestamp('2018-12-31 00:00:00'), 'instruments': 'csi300', 'infer_processors': [{'class': 'RobustZScoreNorm', 'kwargs': {'fields_group': 'feature', 'clip_outlier': True}}, {'class': 'Fillna', 'kwargs': {'fields_group': 'feature'}}], 'learn_processors': [{'class': 'DropnaLabel'}, {'class': 'CSRankNorm', 'kwargs': {'fields_group': 'label'}}], 'label': ['Ref($close, -2) / Ref($close, -1) - 1']}}
+Task: {'model': {'class': 'ALSTM', 'module_path': 'qlib.contrib.model.pytorch_alstm', 'kwargs': {'d_feat': 6, 'hidden_size': 64, 'num_layers': 2, 'dropout': 0.0, 'n_epochs': 200, 'lr': 0.001, 'early_stop': 8, 'batch_size': 800, 'metric': 'loss', 'loss': 'mse', 'GPU': 0, 'rnn_type': 'LSTM'}}, 'dataset': {'class': 'DatasetH', 'module_path': 'qlib.data.dataset', 'kwargs': {'handler': 'file:///home/zhonghao/sjtu/qlib/examples/benchmarks/crowd_data_csi300_rankTrue_alpha360_handler_horizon1.pkl', 'segments': {'train': (Timestamp('2008-01-01 00:00:00'), Timestamp('2018-12-31 00:00:00')), 'valid': (Timestamp('2019-01-01 00:00:00'), Timestamp('2020-03-31 00:00:00')), 'test': (Timestamp('2020-04-01 00:00:00'), Timestamp('2024-03-31 00:00:00'))}}}, 'record': ['qlib.workflow.record_temp.SignalRecord']}
+[394347:MainThread](2024-04-27 23:00:45,107) INFO - qlib.MetaDatasetInc - [dataset.py:152] - Example task for training meta model: {'model': {'class': 'ALSTM', 'module_path': 'qlib.contrib.model.pytorch_alstm', 'kwargs': {'d_feat': 6, 'hidden_size': 64, 'num_layers': 2, 'dropout': 0.0, 'n_epochs': 200, 'lr': 0.001, 'early_stop': 8, 'batch_size': 800, 'metric': 'loss', 'loss': 'mse', 'GPU': 0, 'rnn_type': 'LSTM'}}, 'dataset': {'class': 'DatasetH', 'module_path': 'qlib.data.dataset', 'kwargs': {'handler': 'file:///home/zhonghao/sjtu/qlib/examples/benchmarks/crowd_data_csi300_rankTrue_alpha360_handler_horizon1.pkl', 'segments': {'train': (Timestamp('2008-01-02 00:00:00'), Timestamp('2008-01-29 00:00:00')), 'test': (Timestamp('2008-01-31 00:00:00'), Timestamp('2008-03-05 00:00:00'))}}}, 'record': ['qlib.workflow.record_temp.SignalRecord']}
+creating meta tasks:   0%|          | 0/147 [00:00<?, ?it/s]creating meta tasks:   5%|▍         | 7/147 [00:00<00:02, 68.80it/s]creating meta tasks:  10%|█         | 15/147 [00:00<00:01, 71.03it/s]creating meta tasks:  16%|█▌        | 23/147 [00:00<00:01, 71.43it/s]creating meta tasks:  21%|██        | 31/147 [00:00<00:01, 71.56it/s]creating meta tasks:  27%|██▋       | 39/147 [00:00<00:01, 71.51it/s]creating meta tasks:  32%|███▏      | 47/147 [00:00<00:01, 71.50it/s]creating meta tasks:  37%|███▋      | 55/147 [00:00<00:01, 71.69it/s]creating meta tasks:  43%|████▎     | 63/147 [00:00<00:01, 71.43it/s]creating meta tasks:  48%|████▊     | 71/147 [00:00<00:01, 70.78it/s]creating meta tasks:  54%|█████▎    | 79/147 [00:01<00:00, 71.02it/s]creating meta tasks:  59%|█████▉    | 87/147 [00:01<00:00, 71.21it/s]creating meta tasks:  65%|██████▍   | 95/147 [00:01<00:00, 72.08it/s]creating meta tasks:  70%|███████   | 103/147 [00:01<00:00, 72.27it/s]creating meta tasks:  76%|███████▌  | 111/147 [00:01<00:00, 72.35it/s]creating meta tasks:  81%|████████  | 119/147 [00:01<00:00, 72.56it/s]creating meta tasks:  86%|████████▋ | 127/147 [00:01<00:00, 72.28it/s]creating meta tasks:  92%|█████████▏| 135/147 [00:01<00:00, 72.14it/s]creating meta tasks:  97%|█████████▋| 143/147 [00:01<00:00, 71.84it/s]creating meta tasks: 100%|██████████| 147/147 [00:02<00:00, 71.52it/s]
+[394347:MainThread](2024-04-27 23:00:47,452) INFO - qlib.MetaDatasetInc - [dataset.py:152] - Example task for training meta model: {'model': {'class': 'ALSTM', 'module_path': 'qlib.contrib.model.pytorch_alstm', 'kwargs': {'d_feat': 6, 'hidden_size': 64, 'num_layers': 2, 'dropout': 0.0, 'n_epochs': 200, 'lr': 0.001, 'early_stop': 8, 'batch_size': 800, 'metric': 'loss', 'loss': 'mse', 'GPU': 0, 'rnn_type': 'LSTM'}}, 'dataset': {'class': 'DatasetH', 'module_path': 'qlib.data.dataset', 'kwargs': {'handler': 'file:///home/zhonghao/sjtu/qlib/examples/benchmarks/crowd_data_csi300_rankTrue_alpha360_handler_horizon1.pkl', 'segments': {'train': (Timestamp('2019-01-02 00:00:00'), Timestamp('2019-01-29 00:00:00')), 'test': (Timestamp('2019-01-31 00:00:00'), Timestamp('2019-03-06 00:00:00'))}}}, 'record': ['qlib.workflow.record_temp.SignalRecord']}
+creating meta tasks:   0%|          | 0/63 [00:00<?, ?it/s]creating meta tasks:  11%|█         | 7/63 [00:00<00:00, 65.75it/s]creating meta tasks:  22%|██▏       | 14/63 [00:00<00:00, 67.47it/s]creating meta tasks:  33%|███▎      | 21/63 [00:00<00:00, 68.15it/s]creating meta tasks:  44%|████▍     | 28/63 [00:00<00:00, 68.36it/s]creating meta tasks:  56%|█████▌    | 35/63 [00:00<00:00, 68.27it/s]creating meta tasks:  67%|██████▋   | 42/63 [00:00<00:00, 68.16it/s]creating meta tasks:  78%|███████▊  | 49/63 [00:00<00:00, 68.43it/s]creating meta tasks:  89%|████████▉ | 56/63 [00:00<00:00, 67.25it/s]creating meta tasks: 100%|██████████| 63/63 [00:00<00:00, 68.04it/s]
+Traceback (most recent call last):
+  File "main.py", line 479, in run_all
+    assert self.reload_tag is not None
+AssertionError
+No valid experiment to reload. Restart offline training...
+[394347:MainThread](2024-04-27 23:00:49,118) INFO - qlib.ALSTM - [pytorch_alstm.py:61] - ALSTM pytorch version...
+[394347:MainThread](2024-04-27 23:00:49,227) INFO - qlib.ALSTM - [pytorch_alstm.py:78] - ALSTM parameters setting:
+d_feat : 6
+hidden_size : 64
+num_layers : 2
+dropout : 0.0
+n_epochs : 200
+lr : 0.001
+metric : loss
+batch_size : 800
+early_stop : 8
+optimizer : adam
+loss_type : mse
+device : cuda:0
+use_GPU : True
+seed : None
+[394347:MainThread](2024-04-27 23:00:49,231) INFO - qlib.ALSTM - [pytorch_alstm.py:122] - model:
+ALSTMModel(
+  (net): Sequential(
+    (fc_in): Linear(in_features=6, out_features=64, bias=True)
+    (act): Tanh()
+  )
+  (rnn): LSTM(64, 64, num_layers=2, batch_first=True)
+  (fc_out): Linear(in_features=128, out_features=1, bias=True)
+  (att_net): Sequential(
+    (att_fc_in): Linear(in_features=64, out_features=32, bias=True)
+    (att_dropout): Dropout(p=0.0, inplace=False)
+    (att_act): Tanh()
+    (att_fc_out): Linear(in_features=32, out_features=1, bias=False)
+    (att_softmax): Softmax(dim=1)
+  )
+)
+[394347:MainThread](2024-04-27 23:00:49,231) INFO - qlib.ALSTM - [pytorch_alstm.py:123] - model size: 0.0660 MB
+epoch:   0%|          | 0/100 [00:00<?, ?it/s]epoch:   1%|          | 1/100 [00:08<14:32,  8.81s/it]epoch:   2%|▏         | 2/100 [00:17<13:55,  8.53s/it]epoch:   3%|▎         | 3/100 [00:25<13:36,  8.42s/it]epoch:   4%|▍         | 4/100 [00:33<13:10,  8.24s/it]epoch:   5%|▌         | 5/100 [00:41<12:48,  8.09s/it]epoch:   6%|▌         | 6/100 [00:49<12:36,  8.05s/it]epoch:   7%|▋         | 7/100 [00:57<12:39,  8.17s/it]epoch:   8%|▊         | 8/100 [01:05<12:36,  8.22s/it]epoch:   9%|▉         | 9/100 [01:14<12:31,  8.26s/it]epoch:  10%|█         | 10/100 [01:22<12:18,  8.20s/it]epoch:  11%|█         | 11/100 [01:30<12:10,  8.21s/it]epoch:  12%|█▏        | 12/100 [01:38<12:04,  8.23s/it]epoch:  13%|█▎        | 13/100 [01:47<11:59,  8.27s/it]epoch:  14%|█▍        | 14/100 [01:55<11:51,  8.28s/it]epoch:  15%|█▌        | 15/100 [02:04<11:50,  8.35s/it]epoch:  16%|█▌        | 16/100 [02:12<11:40,  8.34s/it]epoch:  17%|█▋        | 17/100 [02:20<11:38,  8.42s/it]epoch:  18%|█▊        | 18/100 [02:29<11:27,  8.38s/it]epoch:  19%|█▉        | 19/100 [02:37<11:16,  8.35s/it]epoch:  20%|██        | 20/100 [02:45<11:06,  8.34s/it]epoch:  21%|██        | 21/100 [02:53<10:52,  8.26s/it]epoch:  22%|██▏       | 22/100 [03:02<10:48,  8.32s/it]epoch:  23%|██▎       | 23/100 [03:10<10:40,  8.32s/it]epoch:  24%|██▍       | 24/100 [03:18<10:30,  8.30s/it]epoch:  25%|██▌       | 25/100 [03:27<10:28,  8.38s/it]epoch:  26%|██▌       | 26/100 [03:35<10:15,  8.31s/it]epoch:  27%|██▋       | 27/100 [03:43<10:03,  8.26s/it]epoch:  28%|██▊       | 28/100 [03:52<10:00,  8.34s/it]epoch:  29%|██▉       | 29/100 [04:00<09:47,  8.28s/it]epoch:  30%|███       | 30/100 [04:08<09:40,  8.29s/it]0.05089871023973804
+best ic: 0.05089871023973804
+epoch:  31%|███       | 31/100 [04:18<09:56,  8.65s/it]0.05075643008360301
+epoch:  32%|███▏      | 32/100 [04:27<10:05,  8.90s/it]0.048319744974910296
+epoch:  33%|███▎      | 33/100 [04:37<10:09,  9.10s/it]0.05227433187075517
+best ic: 0.05227433187075517
+epoch:  34%|███▍      | 34/100 [04:46<10:11,  9.27s/it]0.050669069448992146
+epoch:  35%|███▌      | 35/100 [04:56<10:12,  9.43s/it]0.046645419422211225
+epoch:  36%|███▌      | 36/100 [05:06<10:06,  9.48s/it]0.050095605542033364
+epoch:  37%|███▋      | 37/100 [05:16<10:00,  9.54s/it]0.046812895395754985
+epoch:  38%|███▊      | 38/100 [05:25<09:53,  9.57s/it]0.04573031557515577
+epoch:  39%|███▉      | 39/100 [05:35<09:42,  9.55s/it]0.05021707016708917
+epoch:  40%|████      | 40/100 [05:44<09:32,  9.55s/it]0.046068004852823245
+epoch:  41%|████      | 41/100 [05:54<09:25,  9.58s/it]0.04785141421535561
+epoch:  41%|████      | 41/100 [06:03<08:43,  8.88s/it]
+Test segment: 2020-04-01 00:00:00 2024-03-29 00:00:00
+[394347:MainThread](2024-04-27 23:06:56,105) WARNING - qlib.workflow - [expm.py:230] - No valid experiment found. Create a new experiment with name csi300_ALSTM2_alpha360_horizon1_step20_rankTrue_2024-04-27_23:00:48_online.
+[394347:MainThread](2024-04-27 23:06:56,177) INFO - qlib.workflow - [exp.py:258] - Experiment 76 starts running ...
+[394347:MainThread](2024-04-27 23:06:56,850) INFO - qlib.workflow - [recorder.py:351] - Recorder 7823cc021832430da1efcc9a01615c17 starts running under Experiment 76 ...
+online:   0%|          | 0/63 [00:00<?, ?it/s]online:   3%|▎         | 2/63 [00:00<00:04, 13.99it/s]online:   6%|▋         | 4/63 [00:00<00:04, 13.87it/s]online:  10%|▉         | 6/63 [00:00<00:04, 13.70it/s]online:  13%|█▎        | 8/63 [00:00<00:04, 13.64it/s]online:  16%|█▌        | 10/63 [00:00<00:03, 13.85it/s]online:  19%|█▉        | 12/63 [00:00<00:03, 13.72it/s]online:  22%|██▏       | 14/63 [00:01<00:03, 13.78it/s]online:  25%|██▌       | 16/63 [00:01<00:03, 13.87it/s]online:  29%|██▊       | 18/63 [00:01<00:03, 14.12it/s]online:  32%|███▏      | 20/63 [00:01<00:03, 13.94it/s]online:  35%|███▍      | 22/63 [00:01<00:02, 14.03it/s]online:  38%|███▊      | 24/63 [00:01<00:02, 14.22it/s]online:  41%|████▏     | 26/63 [00:01<00:02, 14.21it/s]online:  44%|████▍     | 28/63 [00:01<00:02, 14.33it/s]online:  48%|████▊     | 30/63 [00:02<00:02, 14.42it/s]online:  51%|█████     | 32/63 [00:02<00:02, 14.18it/s]online:  54%|█████▍    | 34/63 [00:02<00:02, 14.11it/s]online:  57%|█████▋    | 36/63 [00:02<00:01, 13.84it/s]online:  60%|██████    | 38/63 [00:02<00:01, 13.92it/s]online:  63%|██████▎   | 40/63 [00:02<00:01, 13.80it/s]online:  67%|██████▋   | 42/63 [00:03<00:01, 13.84it/s]online:  70%|██████▉   | 44/63 [00:03<00:01, 13.71it/s]online:  73%|███████▎  | 46/63 [00:03<00:01, 13.86it/s]online:  76%|███████▌  | 48/63 [00:03<00:01, 13.86it/s]online:  79%|███████▉  | 50/63 [00:03<00:00, 13.76it/s]online:  83%|████████▎ | 52/63 [00:03<00:00, 13.60it/s]online:  86%|████████▌ | 54/63 [00:03<00:00, 13.47it/s]online:  89%|████████▉ | 56/63 [00:04<00:00, 13.39it/s]online:  92%|█████████▏| 58/63 [00:04<00:00, 13.34it/s]online:  95%|█████████▌| 60/63 [00:04<00:00, 13.24it/s]online:  98%|█████████▊| 62/63 [00:04<00:00, 13.28it/s]online: 100%|██████████| 63/63 [00:04<00:00, 13.78it/s]
+lr_model: 0.001 lr_ma: 0.001 lr_da: 0.01
+[394347:MainThread](2024-04-27 23:07:07,688) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+mse: 0.9951005 mae 0.8630503
+{'IC': 0.033681280416068694,
+ 'ICIR': 0.24620625834674423,
+ 'Rank IC': 0.05228233314931692,
+ 'Rank ICIR': 0.38322908496267455}
+[394347:MainThread](2024-04-27 23:07:09,508) INFO - qlib.backtest caller - [__init__.py:93] - Create new exchange
+[394347:MainThread](2024-04-27 23:07:20,183) WARNING - qlib.online operator - [exchange.py:219] - $close field data contains nan.
+[394347:MainThread](2024-04-27 23:07:20,186) WARNING - qlib.online operator - [exchange.py:219] - $close field data contains nan.
+[394347:MainThread](2024-04-27 23:07:26,303) WARNING - qlib.BaseExecutor - [executor.py:121] - `common_infra` is not set for <qlib.backtest.executor.SimulatorExecutor object at 0x7fe2f7bcec70>
+/home/zhonghao/miniconda3/envs/sjtu_qlib/lib/python3.8/site-packages/qlib/backtest/backtest.py:88: TqdmExperimentalWarning: rich is experimental/alpha
+  with tqdm(
+/home/zhonghao/miniconda3/envs/sjtu_qlib/lib/python3.8/site-packages/qlib/utils/index_data.py:481: RuntimeWarning: Mean of empty slice
+  return np.nanmean(self.data)
+backtest loop 100% ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 970/971  [ 0:00:18 < 0:00:01 , 54 it/s ]
+[394347:MainThread](2024-04-27 23:07:44,489) INFO - qlib.workflow - [record_temp.py:515] - Portfolio analysis record 'port_analysis_1day.pkl' has been saved as the artifact of the Experiment 76
+'The following are analysis results of benchmark return(1day).'
+                       risk
+mean               0.000039
+std                0.011364
+annualized_return  0.009266
+information_ratio  0.052853
+max_drawdown      -0.558443
+'The following are analysis results of the excess return without cost(1day).'
+                       risk
+mean               0.000868
+std                0.004872
+annualized_return  0.206476
+information_ratio  2.747204
+max_drawdown      -0.058337
+'The following are analysis results of the excess return with cost(1day).'
+                       risk
+mean               0.000669
+std                0.004873
+annualized_return  0.159131
+information_ratio  2.116767
+max_drawdown      -0.066186
+[394347:MainThread](2024-04-27 23:07:44,507) INFO - qlib.workflow - [record_temp.py:540] - Indicator analysis record 'indicator_analysis_1day.pkl' has been saved as the artifact of the Experiment 76
+'The following are analysis results of indicators(1day).'
+     value
+ffr    1.0
+pa     0.0
+pos    0.0
+Your evaluation results can be found in the experiment named `csi300_ALSTM2_alpha360_horizon1_step20_rankTrue_2024-04-27_23:00:48_online`.
+Round 1 Done!
+{'1day.excess_return_with_cost.annualized_return': [0.15913131909746991],
+ '1day.excess_return_with_cost.information_ratio': [2.1167671102721806],
+ '1day.excess_return_with_cost.max_drawdown': [-0.06618578874472841],
+ 'IC': [0.033681280416068694],
+ 'ICIR': [0.24620625834674423],
+ 'Rank IC': [0.05228233314931692],
+ 'Rank ICIR': [0.38322908496267455],
+ 'mae': [0.8630502820014954],
+ 'mse': [0.9951004981994629]}
+Traceback (most recent call last):
+  File "main.py", line 479, in run_all
+    assert self.reload_tag is not None
+AssertionError
+No valid experiment to reload. Restart offline training...
+[394347:MainThread](2024-04-27 23:07:45,729) INFO - qlib.ALSTM - [pytorch_alstm.py:61] - ALSTM pytorch version...
+[394347:MainThread](2024-04-27 23:07:45,730) INFO - qlib.ALSTM - [pytorch_alstm.py:78] - ALSTM parameters setting:
+d_feat : 6
+hidden_size : 64
+num_layers : 2
+dropout : 0.0
+n_epochs : 200
+lr : 0.001
+metric : loss
+batch_size : 800
+early_stop : 8
+optimizer : adam
+loss_type : mse
+device : cuda:0
+use_GPU : True
+seed : None
+[394347:MainThread](2024-04-27 23:07:45,732) INFO - qlib.ALSTM - [pytorch_alstm.py:122] - model:
+ALSTMModel(
+  (net): Sequential(
+    (fc_in): Linear(in_features=6, out_features=64, bias=True)
+    (act): Tanh()
+  )
+  (rnn): LSTM(64, 64, num_layers=2, batch_first=True)
+  (fc_out): Linear(in_features=128, out_features=1, bias=True)
+  (att_net): Sequential(
+    (att_fc_in): Linear(in_features=64, out_features=32, bias=True)
+    (att_dropout): Dropout(p=0.0, inplace=False)
+    (att_act): Tanh()
+    (att_fc_out): Linear(in_features=32, out_features=1, bias=False)
+    (att_softmax): Softmax(dim=1)
+  )
+)
+[394347:MainThread](2024-04-27 23:07:45,733) INFO - qlib.ALSTM - [pytorch_alstm.py:123] - model size: 0.0660 MB
+epoch:   0%|          | 0/100 [00:00<?, ?it/s]epoch:   1%|          | 1/100 [00:08<13:58,  8.47s/it]epoch:   2%|▏         | 2/100 [00:16<13:42,  8.40s/it]epoch:   3%|▎         | 3/100 [00:25<13:38,  8.44s/it]epoch:   4%|▍         | 4/100 [00:33<13:28,  8.42s/it]epoch:   5%|▌         | 5/100 [00:42<13:18,  8.40s/it]epoch:   6%|▌         | 6/100 [00:50<13:07,  8.38s/it]epoch:   7%|▋         | 7/100 [00:58<12:57,  8.36s/it]epoch:   8%|▊         | 8/100 [01:06<12:42,  8.29s/it]epoch:   9%|▉         | 9/100 [01:15<12:35,  8.30s/it]epoch:  10%|█         | 10/100 [01:23<12:39,  8.44s/it]epoch:  11%|█         | 11/100 [01:32<12:30,  8.43s/it]epoch:  12%|█▏        | 12/100 [01:40<12:21,  8.43s/it]epoch:  13%|█▎        | 13/100 [01:49<12:20,  8.51s/it]epoch:  14%|█▍        | 14/100 [01:57<12:08,  8.47s/it]epoch:  15%|█▌        | 15/100 [02:06<12:01,  8.49s/it]epoch:  16%|█▌        | 16/100 [02:14<11:54,  8.51s/it]epoch:  17%|█▋        | 17/100 [02:23<11:45,  8.50s/it]epoch:  18%|█▊        | 18/100 [02:32<11:40,  8.54s/it]epoch:  19%|█▉        | 19/100 [02:40<11:37,  8.61s/it]epoch:  20%|██        | 20/100 [02:49<11:22,  8.53s/it]epoch:  21%|██        | 21/100 [02:57<11:07,  8.45s/it]epoch:  22%|██▏       | 22/100 [03:06<11:03,  8.51s/it]epoch:  23%|██▎       | 23/100 [03:14<10:52,  8.48s/it]epoch:  24%|██▍       | 24/100 [03:22<10:39,  8.41s/it]epoch:  25%|██▌       | 25/100 [03:31<10:33,  8.45s/it]epoch:  26%|██▌       | 26/100 [03:39<10:28,  8.49s/it]epoch:  27%|██▋       | 27/100 [03:48<10:17,  8.46s/it]epoch:  28%|██▊       | 28/100 [03:56<10:07,  8.43s/it]epoch:  29%|██▉       | 29/100 [04:04<09:56,  8.41s/it]epoch:  30%|███       | 30/100 [04:13<09:49,  8.42s/it]0.05194905625508066
+best ic: 0.05194905625508066
+epoch:  31%|███       | 31/100 [04:22<10:04,  8.75s/it]0.05388169772152973
+best ic: 0.05388169772152973
+epoch:  32%|███▏      | 32/100 [04:32<10:10,  8.98s/it]0.05518959419279646
+best ic: 0.05518959419279646
+epoch:  33%|███▎      | 33/100 [04:41<10:12,  9.14s/it]0.051132455525183286
+epoch:  34%|███▍      | 34/100 [04:51<10:13,  9.30s/it]0.05199652093838041
+epoch:  35%|███▌      | 35/100 [05:01<10:13,  9.44s/it]0.051365138465587
+epoch:  36%|███▌      | 36/100 [05:11<10:11,  9.55s/it]0.0479607056167742
+epoch:  37%|███▋      | 37/100 [05:21<10:07,  9.65s/it]0.04790165907267627
+epoch:  38%|███▊      | 38/100 [05:30<09:55,  9.60s/it]0.0466598056808602
+epoch:  39%|███▉      | 39/100 [05:40<09:42,  9.56s/it]0.047373972110876926
+epoch:  40%|████      | 40/100 [05:49<09:35,  9.59s/it]0.04813684428972652
+epoch:  40%|████      | 40/100 [05:59<08:59,  8.99s/it]
+Test segment: 2020-04-01 00:00:00 2024-03-29 00:00:00
+[394347:MainThread](2024-04-27 23:13:45,230) INFO - qlib.workflow - [exp.py:258] - Experiment 76 starts running ...
+[394347:MainThread](2024-04-27 23:13:45,246) INFO - qlib.workflow - [recorder.py:351] - Recorder 7b22596bfee6476da18550f16728c2e8 starts running under Experiment 76 ...
+online:   0%|          | 0/63 [00:00<?, ?it/s]online:   3%|▎         | 2/63 [00:00<00:04, 13.78it/s]online:   6%|▋         | 4/63 [00:00<00:04, 13.98it/s]online:  10%|▉         | 6/63 [00:00<00:04, 14.16it/s]online:  13%|█▎        | 8/63 [00:00<00:03, 14.41it/s]online:  16%|█▌        | 10/63 [00:00<00:03, 14.79it/s]online:  19%|█▉        | 12/63 [00:00<00:03, 14.65it/s]online:  22%|██▏       | 14/63 [00:00<00:03, 14.68it/s]online:  25%|██▌       | 16/63 [00:01<00:03, 14.43it/s]online:  29%|██▊       | 18/63 [00:01<00:03, 14.33it/s]online:  32%|███▏      | 20/63 [00:01<00:03, 14.24it/s]online:  35%|███▍      | 22/63 [00:01<00:02, 14.11it/s]online:  38%|███▊      | 24/63 [00:01<00:02, 14.17it/s]online:  41%|████▏     | 26/63 [00:01<00:02, 14.27it/s]online:  44%|████▍     | 28/63 [00:01<00:02, 14.40it/s]online:  48%|████▊     | 30/63 [00:02<00:02, 14.48it/s]online:  51%|█████     | 32/63 [00:02<00:02, 14.28it/s]online:  54%|█████▍    | 34/63 [00:02<00:02, 14.16it/s]online:  57%|█████▋    | 36/63 [00:02<00:01, 14.19it/s]online:  60%|██████    | 38/63 [00:02<00:01, 14.08it/s]online:  63%|██████▎   | 40/63 [00:02<00:01, 14.04it/s]online:  67%|██████▋   | 42/63 [00:02<00:01, 14.05it/s]online:  70%|██████▉   | 44/63 [00:03<00:01, 14.05it/s]online:  73%|███████▎  | 46/63 [00:03<00:01, 14.11it/s]online:  76%|███████▌  | 48/63 [00:03<00:01, 14.38it/s]online:  79%|███████▉  | 50/63 [00:03<00:00, 14.34it/s]online:  83%|████████▎ | 52/63 [00:03<00:00, 14.24it/s]online:  86%|████████▌ | 54/63 [00:03<00:00, 14.15it/s]online:  89%|████████▉ | 56/63 [00:03<00:00, 14.34it/s]online:  92%|█████████▏| 58/63 [00:04<00:00, 14.41it/s]online:  95%|█████████▌| 60/63 [00:04<00:00, 14.54it/s]online:  98%|█████████▊| 62/63 [00:04<00:00, 14.63it/s]online: 100%|██████████| 63/63 [00:04<00:00, 14.32it/s]
+lr_model: 0.001 lr_ma: 0.001 lr_da: 0.01
+[394347:MainThread](2024-04-27 23:13:56,885) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+mse: 0.99523467 mae 0.8632134
+{'IC': 0.03286894554749832,
+ 'ICIR': 0.24451406678534285,
+ 'Rank IC': 0.051887562289837125,
+ 'Rank ICIR': 0.3832578630925832}
+[394347:MainThread](2024-04-27 23:13:58,648) INFO - qlib.backtest caller - [__init__.py:93] - Create new exchange
+[394347:MainThread](2024-04-27 23:14:09,593) WARNING - qlib.online operator - [exchange.py:219] - $close field data contains nan.
+[394347:MainThread](2024-04-27 23:14:09,596) WARNING - qlib.online operator - [exchange.py:219] - $close field data contains nan.
+[394347:MainThread](2024-04-27 23:14:15,707) WARNING - qlib.BaseExecutor - [executor.py:121] - `common_infra` is not set for <qlib.backtest.executor.SimulatorExecutor object at 0x7fdbeccb4d00>
+/home/zhonghao/miniconda3/envs/sjtu_qlib/lib/python3.8/site-packages/qlib/backtest/backtest.py:88: TqdmExperimentalWarning: rich is experimental/alpha
+  with tqdm(
+/home/zhonghao/miniconda3/envs/sjtu_qlib/lib/python3.8/site-packages/qlib/utils/index_data.py:481: RuntimeWarning: Mean of empty slice
+  return np.nanmean(self.data)
+backtest loop 100% ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 967/971  [ 0:00:18 < 0:00:01 , 54 it/s ]
+[394347:MainThread](2024-04-27 23:14:34,168) INFO - qlib.workflow - [record_temp.py:515] - Portfolio analysis record 'port_analysis_1day.pkl' has been saved as the artifact of the Experiment 76
+'The following are analysis results of benchmark return(1day).'
+                       risk
+mean               0.000039
+std                0.011364
+annualized_return  0.009266
+information_ratio  0.052853
+max_drawdown      -0.558443
+'The following are analysis results of the excess return without cost(1day).'
+                       risk
+mean               0.000597
+std                0.004693
+annualized_return  0.142172
+information_ratio  1.963758
+max_drawdown      -0.050818
+'The following are analysis results of the excess return with cost(1day).'
+                       risk
+mean               0.000400
+std                0.004695
+annualized_return  0.095147
+information_ratio  1.313556
+max_drawdown      -0.058056
+[394347:MainThread](2024-04-27 23:14:34,192) INFO - qlib.workflow - [record_temp.py:540] - Indicator analysis record 'indicator_analysis_1day.pkl' has been saved as the artifact of the Experiment 76
+'The following are analysis results of indicators(1day).'
+     value
+ffr    1.0
+pa     0.0
+pos    0.0
+Your evaluation results can be found in the experiment named `csi300_ALSTM2_alpha360_horizon1_step20_rankTrue_2024-04-27_23:00:48_online`.
+Round 2 Done!
+{'1day.excess_return_with_cost.annualized_return': [0.15913131909746991,
+                                                    0.09514733333862584],
+ '1day.excess_return_with_cost.information_ratio': [2.1167671102721806,
+                                                    1.3135564814549374],
+ '1day.excess_return_with_cost.max_drawdown': [-0.06618578874472841,
+                                               -0.058056209745737025],
+ 'IC': [0.033681280416068694, 0.03286894554749832],
+ 'ICIR': [0.24620625834674423, 0.24451406678534285],
+ 'Rank IC': [0.05228233314931692, 0.051887562289837125],
+ 'Rank ICIR': [0.38322908496267455, 0.3832578630925832],
+ 'mae': [0.8630502820014954, 0.8632134199142456],
+ 'mse': [0.9951004981994629, 0.9952346682548523]}
+Traceback (most recent call last):
+  File "main.py", line 479, in run_all
+    assert self.reload_tag is not None
+AssertionError
+No valid experiment to reload. Restart offline training...
+[394347:MainThread](2024-04-27 23:14:35,543) INFO - qlib.ALSTM - [pytorch_alstm.py:61] - ALSTM pytorch version...
+[394347:MainThread](2024-04-27 23:14:35,543) INFO - qlib.ALSTM - [pytorch_alstm.py:78] - ALSTM parameters setting:
+d_feat : 6
+hidden_size : 64
+num_layers : 2
+dropout : 0.0
+n_epochs : 200
+lr : 0.001
+metric : loss
+batch_size : 800
+early_stop : 8
+optimizer : adam
+loss_type : mse
+device : cuda:0
+use_GPU : True
+seed : None
+[394347:MainThread](2024-04-27 23:14:35,545) INFO - qlib.ALSTM - [pytorch_alstm.py:122] - model:
+ALSTMModel(
+  (net): Sequential(
+    (fc_in): Linear(in_features=6, out_features=64, bias=True)
+    (act): Tanh()
+  )
+  (rnn): LSTM(64, 64, num_layers=2, batch_first=True)
+  (fc_out): Linear(in_features=128, out_features=1, bias=True)
+  (att_net): Sequential(
+    (att_fc_in): Linear(in_features=64, out_features=32, bias=True)
+    (att_dropout): Dropout(p=0.0, inplace=False)
+    (att_act): Tanh()
+    (att_fc_out): Linear(in_features=32, out_features=1, bias=False)
+    (att_softmax): Softmax(dim=1)
+  )
+)
+[394347:MainThread](2024-04-27 23:14:35,546) INFO - qlib.ALSTM - [pytorch_alstm.py:123] - model size: 0.0660 MB
+epoch:   0%|          | 0/100 [00:00<?, ?it/s]epoch:   1%|          | 1/100 [00:08<13:56,  8.45s/it]epoch:   2%|▏         | 2/100 [00:16<13:36,  8.33s/it]epoch:   3%|▎         | 3/100 [00:25<13:41,  8.47s/it]epoch:   4%|▍         | 4/100 [00:33<13:27,  8.41s/it]epoch:   5%|▌         | 5/100 [00:42<13:17,  8.39s/it]epoch:   6%|▌         | 6/100 [00:50<13:05,  8.36s/it]epoch:   7%|▋         | 7/100 [00:58<12:56,  8.35s/it]epoch:   8%|▊         | 8/100 [01:06<12:47,  8.35s/it]epoch:   9%|▉         | 9/100 [01:15<12:38,  8.34s/it]epoch:  10%|█         | 10/100 [01:23<12:29,  8.33s/it]epoch:  11%|█         | 11/100 [01:31<12:21,  8.33s/it]epoch:  12%|█▏        | 12/100 [01:40<12:09,  8.29s/it]epoch:  13%|█▎        | 13/100 [01:48<12:04,  8.33s/it]epoch:  14%|█▍        | 14/100 [01:56<11:55,  8.32s/it]epoch:  15%|█▌        | 15/100 [02:05<11:48,  8.34s/it]epoch:  16%|█▌        | 16/100 [02:13<11:40,  8.34s/it]epoch:  17%|█▋        | 17/100 [02:21<11:32,  8.34s/it]epoch:  18%|█▊        | 18/100 [02:30<11:27,  8.38s/it]epoch:  19%|█▉        | 19/100 [02:38<11:21,  8.42s/it]epoch:  20%|██        | 20/100 [02:47<11:12,  8.40s/it]epoch:  21%|██        | 21/100 [02:55<11:05,  8.42s/it]epoch:  22%|██▏       | 22/100 [03:04<10:56,  8.41s/it]epoch:  23%|██▎       | 23/100 [03:12<10:53,  8.48s/it]epoch:  24%|██▍       | 24/100 [03:21<10:43,  8.47s/it]epoch:  25%|██▌       | 25/100 [03:29<10:37,  8.50s/it]epoch:  26%|██▌       | 26/100 [03:38<10:37,  8.61s/it]epoch:  27%|██▋       | 27/100 [03:46<10:22,  8.53s/it]epoch:  28%|██▊       | 28/100 [03:55<10:11,  8.49s/it]epoch:  29%|██▉       | 29/100 [04:03<09:58,  8.43s/it]epoch:  30%|███       | 30/100 [04:12<09:53,  8.48s/it]0.050112401514575314
+best ic: 0.050112401514575314
+epoch:  31%|███       | 31/100 [04:22<10:18,  8.96s/it]0.04721338953396584
+epoch:  32%|███▏      | 32/100 [04:32<10:34,  9.34s/it]0.04568469085296368
+epoch:  33%|███▎      | 33/100 [04:42<10:34,  9.47s/it]0.04971186227569721
+epoch:  34%|███▍      | 34/100 [04:51<10:23,  9.45s/it]0.04697664741214358
+epoch:  35%|███▌      | 35/100 [05:01<10:14,  9.46s/it]0.04764360655431508
+epoch:  36%|███▌      | 36/100 [05:10<10:10,  9.54s/it]0.04619907995769734
+epoch:  37%|███▋      | 37/100 [05:20<10:09,  9.67s/it]0.04515253324031982
+epoch:  38%|███▊      | 38/100 [05:30<10:00,  9.68s/it]0.04431411970548686
+epoch:  38%|███▊      | 38/100 [05:40<09:15,  8.95s/it]
+Test segment: 2020-04-01 00:00:00 2024-03-29 00:00:00
+[394347:MainThread](2024-04-27 23:20:15,828) INFO - qlib.workflow - [exp.py:258] - Experiment 76 starts running ...
+[394347:MainThread](2024-04-27 23:20:15,844) INFO - qlib.workflow - [recorder.py:351] - Recorder e5774ee9b4a84651b1e10d497a3558cb starts running under Experiment 76 ...
+online:   0%|          | 0/63 [00:00<?, ?it/s]online:   3%|▎         | 2/63 [00:00<00:04, 14.11it/s]online:   6%|▋         | 4/63 [00:00<00:03, 14.97it/s]online:  10%|▉         | 6/63 [00:00<00:03, 15.26it/s]online:  13%|█▎        | 8/63 [00:00<00:03, 15.37it/s]online:  16%|█▌        | 10/63 [00:00<00:03, 15.53it/s]online:  19%|█▉        | 12/63 [00:00<00:03, 15.29it/s]online:  22%|██▏       | 14/63 [00:00<00:03, 15.29it/s]online:  25%|██▌       | 16/63 [00:01<00:03, 15.32it/s]online:  29%|██▊       | 18/63 [00:01<00:02, 15.34it/s]online:  32%|███▏      | 20/63 [00:01<00:02, 15.31it/s]online:  35%|███▍      | 22/63 [00:01<00:02, 15.37it/s]online:  38%|███▊      | 24/63 [00:01<00:02, 15.49it/s]online:  41%|████▏     | 26/63 [00:01<00:02, 15.50it/s]online:  44%|████▍     | 28/63 [00:01<00:02, 15.34it/s]online:  48%|████▊     | 30/63 [00:01<00:02, 14.87it/s]online:  51%|█████     | 32/63 [00:02<00:02, 14.73it/s]online:  54%|█████▍    | 34/63 [00:02<00:01, 14.55it/s]online:  57%|█████▋    | 36/63 [00:02<00:01, 14.53it/s]online:  60%|██████    | 38/63 [00:02<00:01, 14.53it/s]online:  63%|██████▎   | 40/63 [00:02<00:01, 14.58it/s]online:  67%|██████▋   | 42/63 [00:02<00:01, 14.48it/s]online:  70%|██████▉   | 44/63 [00:02<00:01, 14.46it/s]online:  73%|███████▎  | 46/63 [00:03<00:01, 14.52it/s]online:  76%|███████▌  | 48/63 [00:03<00:01, 14.54it/s]online:  79%|███████▉  | 50/63 [00:03<00:00, 14.59it/s]online:  83%|████████▎ | 52/63 [00:03<00:00, 14.57it/s]online:  86%|████████▌ | 54/63 [00:03<00:00, 14.54it/s]online:  89%|████████▉ | 56/63 [00:03<00:00, 14.64it/s]online:  92%|█████████▏| 58/63 [00:03<00:00, 14.54it/s]online:  95%|█████████▌| 60/63 [00:04<00:00, 14.51it/s]online:  98%|█████████▊| 62/63 [00:04<00:00, 14.53it/s]online: 100%|██████████| 63/63 [00:04<00:00, 14.86it/s]
+lr_model: 0.001 lr_ma: 0.001 lr_da: 0.01
+[394347:MainThread](2024-04-27 23:20:28,162) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+mse: 0.99520177 mae 0.86318415
+{'IC': 0.03302616442532694,
+ 'ICIR': 0.23380147682548028,
+ 'Rank IC': 0.05121912914515699,
+ 'Rank ICIR': 0.368920565483708}
+[394347:MainThread](2024-04-27 23:20:29,945) INFO - qlib.backtest caller - [__init__.py:93] - Create new exchange
+[394347:MainThread](2024-04-27 23:20:41,773) WARNING - qlib.online operator - [exchange.py:219] - $close field data contains nan.
+[394347:MainThread](2024-04-27 23:20:41,776) WARNING - qlib.online operator - [exchange.py:219] - $close field data contains nan.
+[394347:MainThread](2024-04-27 23:20:47,924) WARNING - qlib.BaseExecutor - [executor.py:121] - `common_infra` is not set for <qlib.backtest.executor.SimulatorExecutor object at 0x7fdc5137f1f0>
+/home/zhonghao/miniconda3/envs/sjtu_qlib/lib/python3.8/site-packages/qlib/backtest/backtest.py:88: TqdmExperimentalWarning: rich is experimental/alpha
+  with tqdm(
+/home/zhonghao/miniconda3/envs/sjtu_qlib/lib/python3.8/site-packages/qlib/utils/index_data.py:481: RuntimeWarning: Mean of empty slice
+  return np.nanmean(self.data)
+backtest loop  99% ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  966/971  [ 0:00:18 < 0:00:01 , 52 it/s ]
+[394347:MainThread](2024-04-27 23:21:06,870) INFO - qlib.workflow - [record_temp.py:515] - Portfolio analysis record 'port_analysis_1day.pkl' has been saved as the artifact of the Experiment 76
+'The following are analysis results of benchmark return(1day).'
+                       risk
+mean               0.000039
+std                0.011364
+annualized_return  0.009266
+information_ratio  0.052853
+max_drawdown      -0.558443
+'The following are analysis results of the excess return without cost(1day).'
+                       risk
+mean               0.000698
+std                0.004692
+annualized_return  0.166174
+information_ratio  2.295487
+max_drawdown      -0.042098
+'The following are analysis results of the excess return with cost(1day).'
+                       risk
+mean               0.000500
+std                0.004694
+annualized_return  0.119003
+information_ratio  1.643503
+max_drawdown      -0.052310
+[394347:MainThread](2024-04-27 23:21:06,887) INFO - qlib.workflow - [record_temp.py:540] - Indicator analysis record 'indicator_analysis_1day.pkl' has been saved as the artifact of the Experiment 76
+'The following are analysis results of indicators(1day).'
+     value
+ffr    1.0
+pa     0.0
+pos    0.0
+Your evaluation results can be found in the experiment named `csi300_ALSTM2_alpha360_horizon1_step20_rankTrue_2024-04-27_23:00:48_online`.
+Round 3 Done!
+{'1day.excess_return_with_cost.annualized_return': [0.15913131909746991,
+                                                    0.09514733333862584,
+                                                    0.11900286990028856],
+ '1day.excess_return_with_cost.information_ratio': [2.1167671102721806,
+                                                    1.3135564814549374,
+                                                    1.6435033313602847],
+ '1day.excess_return_with_cost.max_drawdown': [-0.06618578874472841,
+                                               -0.058056209745737025,
+                                               -0.05230983308383774],
+ 'IC': [0.033681280416068694, 0.03286894554749832, 0.03302616442532694],
+ 'ICIR': [0.24620625834674423, 0.24451406678534285, 0.23380147682548028],
+ 'Rank IC': [0.05228233314931692, 0.051887562289837125, 0.05121912914515699],
+ 'Rank ICIR': [0.38322908496267455, 0.3832578630925832, 0.368920565483708],
+ 'mae': [0.8630502820014954, 0.8632134199142456, 0.8631841540336609],
+ 'mse': [0.9951004981994629, 0.9952346682548523, 0.9952017664909363]}
+Traceback (most recent call last):
+  File "main.py", line 479, in run_all
+    assert self.reload_tag is not None
+AssertionError
+No valid experiment to reload. Restart offline training...
+[394347:MainThread](2024-04-27 23:21:08,104) INFO - qlib.ALSTM - [pytorch_alstm.py:61] - ALSTM pytorch version...
+[394347:MainThread](2024-04-27 23:21:08,105) INFO - qlib.ALSTM - [pytorch_alstm.py:78] - ALSTM parameters setting:
+d_feat : 6
+hidden_size : 64
+num_layers : 2
+dropout : 0.0
+n_epochs : 200
+lr : 0.001
+metric : loss
+batch_size : 800
+early_stop : 8
+optimizer : adam
+loss_type : mse
+device : cuda:0
+use_GPU : True
+seed : None
+[394347:MainThread](2024-04-27 23:21:08,107) INFO - qlib.ALSTM - [pytorch_alstm.py:122] - model:
+ALSTMModel(
+  (net): Sequential(
+    (fc_in): Linear(in_features=6, out_features=64, bias=True)
+    (act): Tanh()
+  )
+  (rnn): LSTM(64, 64, num_layers=2, batch_first=True)
+  (fc_out): Linear(in_features=128, out_features=1, bias=True)
+  (att_net): Sequential(
+    (att_fc_in): Linear(in_features=64, out_features=32, bias=True)
+    (att_dropout): Dropout(p=0.0, inplace=False)
+    (att_act): Tanh()
+    (att_fc_out): Linear(in_features=32, out_features=1, bias=False)
+    (att_softmax): Softmax(dim=1)
+  )
+)
+[394347:MainThread](2024-04-27 23:21:08,108) INFO - qlib.ALSTM - [pytorch_alstm.py:123] - model size: 0.0660 MB
+epoch:   0%|          | 0/100 [00:00<?, ?it/s]epoch:   1%|          | 1/100 [00:08<13:56,  8.45s/it]epoch:   2%|▏         | 2/100 [00:16<13:24,  8.21s/it]epoch:   3%|▎         | 3/100 [00:24<13:18,  8.23s/it]epoch:   4%|▍         | 4/100 [00:33<13:17,  8.30s/it]epoch:   5%|▌         | 5/100 [00:41<13:05,  8.26s/it]epoch:   6%|▌         | 6/100 [00:49<12:56,  8.26s/it]epoch:   7%|▋         | 7/100 [00:57<12:50,  8.29s/it]epoch:   8%|▊         | 8/100 [01:06<12:38,  8.25s/it]epoch:   9%|▉         | 9/100 [01:14<12:32,  8.27s/it]epoch:  10%|█         | 10/100 [01:22<12:26,  8.30s/it]epoch:  11%|█         | 11/100 [01:31<12:22,  8.34s/it]epoch:  12%|█▏        | 12/100 [01:39<12:17,  8.38s/it]epoch:  13%|█▎        | 13/100 [01:48<12:12,  8.42s/it]epoch:  14%|█▍        | 14/100 [01:56<12:02,  8.40s/it]epoch:  15%|█▌        | 15/100 [02:05<11:57,  8.45s/it]epoch:  16%|█▌        | 16/100 [02:13<11:43,  8.38s/it]epoch:  17%|█▋        | 17/100 [02:21<11:34,  8.37s/it]epoch:  18%|█▊        | 18/100 [02:30<11:29,  8.41s/it]epoch:  19%|█▉        | 19/100 [02:38<11:22,  8.42s/it]epoch:  20%|██        | 20/100 [02:46<11:11,  8.40s/it]epoch:  21%|██        | 21/100 [02:55<11:00,  8.36s/it]epoch:  22%|██▏       | 22/100 [03:03<10:56,  8.42s/it]epoch:  23%|██▎       | 23/100 [03:12<10:54,  8.51s/it]epoch:  24%|██▍       | 24/100 [03:20<10:41,  8.44s/it]epoch:  25%|██▌       | 25/100 [03:29<10:34,  8.46s/it]epoch:  26%|██▌       | 26/100 [03:37<10:30,  8.52s/it]epoch:  27%|██▋       | 27/100 [03:46<10:19,  8.49s/it]epoch:  28%|██▊       | 28/100 [03:54<10:09,  8.46s/it]epoch:  29%|██▉       | 29/100 [04:03<10:01,  8.47s/it]epoch:  30%|███       | 30/100 [04:11<09:55,  8.51s/it]0.04926632071420858
+best ic: 0.04926632071420858
+epoch:  31%|███       | 31/100 [04:21<10:09,  8.84s/it]0.050426235526715595
+best ic: 0.050426235526715595
+epoch:  32%|███▏      | 32/100 [04:31<10:19,  9.10s/it]0.04893732274189003
+epoch:  33%|███▎      | 33/100 [04:40<10:18,  9.24s/it]0.0475380490850884
+epoch:  34%|███▍      | 34/100 [04:50<10:13,  9.30s/it]0.04870453363583408
+epoch:  35%|███▌      | 35/100 [04:59<10:04,  9.31s/it]0.048028890322638546
+epoch:  36%|███▌      | 36/100 [05:09<10:02,  9.42s/it]0.0457558366645341
+epoch:  37%|███▋      | 37/100 [05:18<10:00,  9.53s/it]0.048764039865797436
+epoch:  38%|███▊      | 38/100 [05:28<09:57,  9.63s/it]0.04777737353116351
+epoch:  39%|███▉      | 39/100 [05:38<09:46,  9.61s/it]0.04747668227562176
+epoch:  39%|███▉      | 39/100 [05:47<09:04,  8.92s/it]
+Test segment: 2020-04-01 00:00:00 2024-03-29 00:00:00
+[394347:MainThread](2024-04-27 23:26:56,083) INFO - qlib.workflow - [exp.py:258] - Experiment 76 starts running ...
+[394347:MainThread](2024-04-27 23:26:56,099) INFO - qlib.workflow - [recorder.py:351] - Recorder 227a3c207f1a483682e94794d5153bcb starts running under Experiment 76 ...
+online:   0%|          | 0/63 [00:00<?, ?it/s]online:   3%|▎         | 2/63 [00:00<00:04, 14.19it/s]online:   6%|▋         | 4/63 [00:00<00:04, 14.73it/s]online:  10%|▉         | 6/63 [00:00<00:03, 15.01it/s]online:  13%|█▎        | 8/63 [00:00<00:03, 15.08it/s]online:  16%|█▌        | 10/63 [00:00<00:03, 15.11it/s]online:  19%|█▉        | 12/63 [00:00<00:03, 15.19it/s]online:  22%|██▏       | 14/63 [00:00<00:03, 15.25it/s]online:  25%|██▌       | 16/63 [00:01<00:03, 15.21it/s]online:  29%|██▊       | 18/63 [00:01<00:02, 15.10it/s]online:  32%|███▏      | 20/63 [00:01<00:02, 15.03it/s]online:  35%|███▍      | 22/63 [00:01<00:02, 15.12it/s]online:  38%|███▊      | 24/63 [00:01<00:02, 15.08it/s]online:  41%|████▏     | 26/63 [00:01<00:02, 15.01it/s]online:  44%|████▍     | 28/63 [00:01<00:02, 15.08it/s]online:  48%|████▊     | 30/63 [00:01<00:02, 15.39it/s]online:  51%|█████     | 32/63 [00:02<00:01, 15.61it/s]online:  54%|█████▍    | 34/63 [00:02<00:01, 15.71it/s]online:  57%|█████▋    | 36/63 [00:02<00:01, 15.41it/s]online:  60%|██████    | 38/63 [00:02<00:01, 15.26it/s]online:  63%|██████▎   | 40/63 [00:02<00:01, 15.29it/s]online:  67%|██████▋   | 42/63 [00:02<00:01, 15.09it/s]online:  70%|██████▉   | 44/63 [00:02<00:01, 15.06it/s]online:  73%|███████▎  | 46/63 [00:03<00:01, 15.18it/s]online:  76%|███████▌  | 48/63 [00:03<00:00, 15.01it/s]online:  79%|███████▉  | 50/63 [00:03<00:00, 14.92it/s]online:  83%|████████▎ | 52/63 [00:03<00:00, 14.96it/s]online:  86%|████████▌ | 54/63 [00:03<00:00, 14.98it/s]online:  89%|████████▉ | 56/63 [00:03<00:00, 15.08it/s]online:  92%|█████████▏| 58/63 [00:03<00:00, 15.06it/s]online:  95%|█████████▌| 60/63 [00:03<00:00, 15.16it/s]online:  98%|█████████▊| 62/63 [00:04<00:00, 15.07it/s]online: 100%|██████████| 63/63 [00:04<00:00, 15.17it/s]
+lr_model: 0.001 lr_ma: 0.001 lr_da: 0.01
+[394347:MainThread](2024-04-27 23:27:08,075) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+mse: 0.9948423 mae 0.863049
+{'IC': 0.034978672137336145,
+ 'ICIR': 0.24958911306864315,
+ 'Rank IC': 0.0533875699665157,
+ 'Rank ICIR': 0.3798401892105949}
+[394347:MainThread](2024-04-27 23:27:09,806) INFO - qlib.backtest caller - [__init__.py:93] - Create new exchange
+[394347:MainThread](2024-04-27 23:27:21,770) WARNING - qlib.online operator - [exchange.py:219] - $close field data contains nan.
+[394347:MainThread](2024-04-27 23:27:21,773) WARNING - qlib.online operator - [exchange.py:219] - $close field data contains nan.
+[394347:MainThread](2024-04-27 23:27:27,843) WARNING - qlib.BaseExecutor - [executor.py:121] - `common_infra` is not set for <qlib.backtest.executor.SimulatorExecutor object at 0x7fdc51f63460>
+/home/zhonghao/miniconda3/envs/sjtu_qlib/lib/python3.8/site-packages/qlib/backtest/backtest.py:88: TqdmExperimentalWarning: rich is experimental/alpha
+  with tqdm(
+/home/zhonghao/miniconda3/envs/sjtu_qlib/lib/python3.8/site-packages/qlib/utils/index_data.py:481: RuntimeWarning: Mean of empty slice
+  return np.nanmean(self.data)
+backtest loop 100% ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 968/971  [ 0:00:18 < 0:00:01 , 53 it/s ]
+[394347:MainThread](2024-04-27 23:27:46,653) INFO - qlib.workflow - [record_temp.py:515] - Portfolio analysis record 'port_analysis_1day.pkl' has been saved as the artifact of the Experiment 76
+'The following are analysis results of benchmark return(1day).'
+                       risk
+mean               0.000039
+std                0.011364
+annualized_return  0.009266
+information_ratio  0.052853
+max_drawdown      -0.558443
+'The following are analysis results of the excess return without cost(1day).'
+                       risk
+mean               0.000739
+std                0.005050
+annualized_return  0.175966
+information_ratio  2.258724
+max_drawdown      -0.053988
+'The following are analysis results of the excess return with cost(1day).'
+                       risk
+mean               0.000540
+std                0.005051
+annualized_return  0.128602
+information_ratio  1.650280
+max_drawdown      -0.058384
+[394347:MainThread](2024-04-27 23:27:46,669) INFO - qlib.workflow - [record_temp.py:540] - Indicator analysis record 'indicator_analysis_1day.pkl' has been saved as the artifact of the Experiment 76
+'The following are analysis results of indicators(1day).'
+     value
+ffr    1.0
+pa     0.0
+pos    0.0
+Your evaluation results can be found in the experiment named `csi300_ALSTM2_alpha360_horizon1_step20_rankTrue_2024-04-27_23:00:48_online`.
+Round 4 Done!
+{'1day.excess_return_with_cost.annualized_return': [0.15913131909746991,
+                                                    0.09514733333862584,
+                                                    0.11900286990028856,
+                                                    0.12860236768248956],
+ '1day.excess_return_with_cost.information_ratio': [2.1167671102721806,
+                                                    1.3135564814549374,
+                                                    1.6435033313602847,
+                                                    1.6502799446827339],
+ '1day.excess_return_with_cost.max_drawdown': [-0.06618578874472841,
+                                               -0.058056209745737025,
+                                               -0.05230983308383774,
+                                               -0.05838391876280996],
+ 'IC': [0.033681280416068694,
+        0.03286894554749832,
+        0.03302616442532694,
+        0.034978672137336145],
+ 'ICIR': [0.24620625834674423,
+          0.24451406678534285,
+          0.23380147682548028,
+          0.24958911306864315],
+ 'Rank IC': [0.05228233314931692,
+             0.051887562289837125,
+             0.05121912914515699,
+             0.0533875699665157],
+ 'Rank ICIR': [0.38322908496267455,
+               0.3832578630925832,
+               0.368920565483708,
+               0.3798401892105949],
+ 'mae': [0.8630502820014954,
+         0.8632134199142456,
+         0.8631841540336609,
+         0.8630489706993103],
+ 'mse': [0.9951004981994629,
+         0.9952346682548523,
+         0.9952017664909363,
+         0.9948422908782959]}
+Traceback (most recent call last):
+  File "main.py", line 479, in run_all
+    assert self.reload_tag is not None
+AssertionError
+No valid experiment to reload. Restart offline training...
+[394347:MainThread](2024-04-27 23:27:47,907) INFO - qlib.ALSTM - [pytorch_alstm.py:61] - ALSTM pytorch version...
+[394347:MainThread](2024-04-27 23:27:47,907) INFO - qlib.ALSTM - [pytorch_alstm.py:78] - ALSTM parameters setting:
+d_feat : 6
+hidden_size : 64
+num_layers : 2
+dropout : 0.0
+n_epochs : 200
+lr : 0.001
+metric : loss
+batch_size : 800
+early_stop : 8
+optimizer : adam
+loss_type : mse
+device : cuda:0
+use_GPU : True
+seed : None
+[394347:MainThread](2024-04-27 23:27:47,910) INFO - qlib.ALSTM - [pytorch_alstm.py:122] - model:
+ALSTMModel(
+  (net): Sequential(
+    (fc_in): Linear(in_features=6, out_features=64, bias=True)
+    (act): Tanh()
+  )
+  (rnn): LSTM(64, 64, num_layers=2, batch_first=True)
+  (fc_out): Linear(in_features=128, out_features=1, bias=True)
+  (att_net): Sequential(
+    (att_fc_in): Linear(in_features=64, out_features=32, bias=True)
+    (att_dropout): Dropout(p=0.0, inplace=False)
+    (att_act): Tanh()
+    (att_fc_out): Linear(in_features=32, out_features=1, bias=False)
+    (att_softmax): Softmax(dim=1)
+  )
+)
+[394347:MainThread](2024-04-27 23:27:47,910) INFO - qlib.ALSTM - [pytorch_alstm.py:123] - model size: 0.0660 MB
+epoch:   0%|          | 0/100 [00:00<?, ?it/s]epoch:   1%|          | 1/100 [00:08<13:55,  8.44s/it]epoch:   2%|▏         | 2/100 [00:16<13:37,  8.34s/it]epoch:   3%|▎         | 3/100 [00:24<13:23,  8.28s/it]epoch:   4%|▍         | 4/100 [00:33<13:11,  8.24s/it]epoch:   5%|▌         | 5/100 [00:41<13:06,  8.28s/it]epoch:   6%|▌         | 6/100 [00:50<13:06,  8.37s/it]epoch:   7%|▋         | 7/100 [00:58<12:59,  8.38s/it]epoch:   8%|▊         | 8/100 [01:06<12:53,  8.41s/it]epoch:   9%|▉         | 9/100 [01:15<12:43,  8.39s/it]epoch:  10%|█         | 10/100 [01:23<12:33,  8.37s/it]epoch:  11%|█         | 11/100 [01:31<12:23,  8.35s/it]epoch:  12%|█▏        | 12/100 [01:40<12:16,  8.37s/it]epoch:  13%|█▎        | 13/100 [01:49<12:18,  8.48s/it]epoch:  14%|█▍        | 14/100 [01:57<12:03,  8.41s/it]epoch:  15%|█▌        | 15/100 [02:05<11:55,  8.41s/it]epoch:  16%|█▌        | 16/100 [02:14<11:56,  8.53s/it]epoch:  17%|█▋        | 17/100 [02:22<11:47,  8.52s/it]epoch:  18%|█▊        | 18/100 [02:31<11:34,  8.47s/it]epoch:  19%|█▉        | 19/100 [02:39<11:26,  8.48s/it]epoch:  20%|██        | 20/100 [02:48<11:15,  8.44s/it]epoch:  21%|██        | 21/100 [02:56<11:04,  8.41s/it]epoch:  22%|██▏       | 22/100 [03:05<10:57,  8.43s/it]epoch:  23%|██▎       | 23/100 [03:13<10:45,  8.38s/it]epoch:  24%|██▍       | 24/100 [03:21<10:35,  8.36s/it]epoch:  25%|██▌       | 25/100 [03:29<10:22,  8.31s/it]epoch:  26%|██▌       | 26/100 [03:38<10:15,  8.32s/it]epoch:  27%|██▋       | 27/100 [03:46<10:06,  8.31s/it]epoch:  28%|██▊       | 28/100 [03:54<10:00,  8.35s/it]epoch:  29%|██▉       | 29/100 [04:03<09:52,  8.35s/it]epoch:  30%|███       | 30/100 [04:11<09:40,  8.29s/it]0.04976217013697368
+best ic: 0.04976217013697368
+epoch:  31%|███       | 31/100 [04:21<10:00,  8.70s/it]0.047277170862546264
+epoch:  32%|███▏      | 32/100 [04:30<10:08,  8.95s/it]0.04812362377174164
+epoch:  33%|███▎      | 33/100 [04:39<10:06,  9.05s/it]0.042864666569697875
+epoch:  34%|███▍      | 34/100 [04:49<10:08,  9.21s/it]0.04703027419123508
+epoch:  35%|███▌      | 35/100 [04:59<10:09,  9.37s/it]0.0467551795604223
+epoch:  36%|███▌      | 36/100 [05:08<10:01,  9.40s/it]0.046757466178548916
+epoch:  37%|███▋      | 37/100 [05:17<09:45,  9.29s/it]0.04777110458821697
+epoch:  38%|███▊      | 38/100 [05:27<09:43,  9.42s/it]0.04249431963928026
+epoch:  38%|███▊      | 38/100 [05:37<09:09,  8.87s/it]
+Test segment: 2020-04-01 00:00:00 2024-03-29 00:00:00
+[394347:MainThread](2024-04-27 23:33:25,004) INFO - qlib.workflow - [exp.py:258] - Experiment 76 starts running ...
+[394347:MainThread](2024-04-27 23:33:25,020) INFO - qlib.workflow - [recorder.py:351] - Recorder 13d1ec931413427aa2c927347be9e9ea starts running under Experiment 76 ...
+online:   0%|          | 0/63 [00:00<?, ?it/s]online:   3%|▎         | 2/63 [00:00<00:03, 15.27it/s]online:   6%|▋         | 4/63 [00:00<00:03, 15.70it/s]online:  10%|▉         | 6/63 [00:00<00:03, 15.33it/s]online:  13%|█▎        | 8/63 [00:00<00:03, 15.23it/s]online:  16%|█▌        | 10/63 [00:00<00:03, 15.03it/s]online:  19%|█▉        | 12/63 [00:00<00:03, 15.19it/s]online:  22%|██▏       | 14/63 [00:00<00:03, 15.31it/s]online:  25%|██▌       | 16/63 [00:01<00:03, 15.34it/s]online:  29%|██▊       | 18/63 [00:01<00:02, 15.52it/s]online:  32%|███▏      | 20/63 [00:01<00:02, 15.55it/s]online:  35%|███▍      | 22/63 [00:01<00:02, 15.55it/s]online:  38%|███▊      | 24/63 [00:01<00:02, 15.61it/s]online:  41%|████▏     | 26/63 [00:01<00:02, 15.61it/s]online:  44%|████▍     | 28/63 [00:01<00:02, 15.42it/s]online:  48%|████▊     | 30/63 [00:01<00:02, 15.23it/s]online:  51%|█████     | 32/63 [00:02<00:02, 15.21it/s]online:  54%|█████▍    | 34/63 [00:02<00:01, 15.11it/s]online:  57%|█████▋    | 36/63 [00:02<00:01, 14.93it/s]online:  60%|██████    | 38/63 [00:02<00:01, 14.92it/s]online:  63%|██████▎   | 40/63 [00:02<00:01, 14.95it/s]online:  67%|██████▋   | 42/63 [00:02<00:01, 14.99it/s]online:  70%|██████▉   | 44/63 [00:02<00:01, 15.09it/s]online:  73%|███████▎  | 46/63 [00:03<00:01, 14.98it/s]online:  76%|███████▌  | 48/63 [00:03<00:01, 14.95it/s]online:  79%|███████▉  | 50/63 [00:03<00:00, 15.01it/s]online:  83%|████████▎ | 52/63 [00:03<00:00, 15.19it/s]online:  86%|████████▌ | 54/63 [00:03<00:00, 15.17it/s]online:  89%|████████▉ | 56/63 [00:03<00:00, 15.17it/s]online:  92%|█████████▏| 58/63 [00:03<00:00, 15.10it/s]online:  95%|█████████▌| 60/63 [00:03<00:00, 15.07it/s]online:  98%|█████████▊| 62/63 [00:04<00:00, 15.16it/s]online: 100%|██████████| 63/63 [00:04<00:00, 15.22it/s]
+lr_model: 0.001 lr_ma: 0.001 lr_da: 0.01
+[394347:MainThread](2024-04-27 23:33:36,939) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+mse: 0.9951545 mae 0.8631519
+{'IC': 0.032829305335798836,
+ 'ICIR': 0.24156167062674844,
+ 'Rank IC': 0.052257919190044064,
+ 'Rank ICIR': 0.38630299783752914}
+[394347:MainThread](2024-04-27 23:33:38,712) INFO - qlib.backtest caller - [__init__.py:93] - Create new exchange
+[394347:MainThread](2024-04-27 23:33:50,876) WARNING - qlib.online operator - [exchange.py:219] - $close field data contains nan.
+[394347:MainThread](2024-04-27 23:33:50,880) WARNING - qlib.online operator - [exchange.py:219] - $close field data contains nan.
+[394347:MainThread](2024-04-27 23:33:57,373) WARNING - qlib.BaseExecutor - [executor.py:121] - `common_infra` is not set for <qlib.backtest.executor.SimulatorExecutor object at 0x7fe2cdcd5f10>
+/home/zhonghao/miniconda3/envs/sjtu_qlib/lib/python3.8/site-packages/qlib/backtest/backtest.py:88: TqdmExperimentalWarning: rich is experimental/alpha
+  with tqdm(
+/home/zhonghao/miniconda3/envs/sjtu_qlib/lib/python3.8/site-packages/qlib/utils/index_data.py:481: RuntimeWarning: Mean of empty slice
+  return np.nanmean(self.data)
+backtest loop 100% ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 970/971  [ 0:00:18 < 0:00:01 , 52 it/s ]
+[394347:MainThread](2024-04-27 23:34:16,443) INFO - qlib.workflow - [record_temp.py:515] - Portfolio analysis record 'port_analysis_1day.pkl' has been saved as the artifact of the Experiment 76
+'The following are analysis results of benchmark return(1day).'
+                       risk
+mean               0.000039
+std                0.011364
+annualized_return  0.009266
+information_ratio  0.052853
+max_drawdown      -0.558443
+'The following are analysis results of the excess return without cost(1day).'
+                       risk
+mean               0.000655
+std                0.005014
+annualized_return  0.155805
+information_ratio  2.014050
+max_drawdown      -0.063372
+'The following are analysis results of the excess return with cost(1day).'
+                       risk
+mean               0.000456
+std                0.005016
+annualized_return  0.108641
+information_ratio  1.403848
+max_drawdown      -0.069741
+[394347:MainThread](2024-04-27 23:34:16,460) INFO - qlib.workflow - [record_temp.py:540] - Indicator analysis record 'indicator_analysis_1day.pkl' has been saved as the artifact of the Experiment 76
+'The following are analysis results of indicators(1day).'
+     value
+ffr    1.0
+pa     0.0
+pos    0.0
+Your evaluation results can be found in the experiment named `csi300_ALSTM2_alpha360_horizon1_step20_rankTrue_2024-04-27_23:00:48_online`.
+Round 5 Done!
+{'1day.excess_return_with_cost.annualized_return': [0.15913131909746991,
+                                                    0.09514733333862584,
+                                                    0.11900286990028856,
+                                                    0.12860236768248956,
+                                                    0.10864096349716311],
+ '1day.excess_return_with_cost.information_ratio': [2.1167671102721806,
+                                                    1.3135564814549374,
+                                                    1.6435033313602847,
+                                                    1.6502799446827339,
+                                                    1.403848187107993],
+ '1day.excess_return_with_cost.max_drawdown': [-0.06618578874472841,
+                                               -0.058056209745737025,
+                                               -0.05230983308383774,
+                                               -0.05838391876280996,
+                                               -0.06974149332137486],
+ 'IC': [0.033681280416068694,
+        0.03286894554749832,
+        0.03302616442532694,
+        0.034978672137336145,
+        0.032829305335798836],
+ 'ICIR': [0.24620625834674423,
+          0.24451406678534285,
+          0.23380147682548028,
+          0.24958911306864315,
+          0.24156167062674844],
+ 'Rank IC': [0.05228233314931692,
+             0.051887562289837125,
+             0.05121912914515699,
+             0.0533875699665157,
+             0.052257919190044064],
+ 'Rank ICIR': [0.38322908496267455,
+               0.3832578630925832,
+               0.368920565483708,
+               0.3798401892105949,
+               0.38630299783752914],
+ 'mae': [0.8630502820014954,
+         0.8632134199142456,
+         0.8631841540336609,
+         0.8630489706993103,
+         0.8631519079208374],
+ 'mse': [0.9951004981994629,
+         0.9952346682548523,
+         0.9952017664909363,
+         0.9948422908782959,
+         0.9951545000076294]}
+Traceback (most recent call last):
+  File "main.py", line 479, in run_all
+    assert self.reload_tag is not None
+AssertionError
+No valid experiment to reload. Restart offline training...
+[394347:MainThread](2024-04-27 23:34:17,687) INFO - qlib.ALSTM - [pytorch_alstm.py:61] - ALSTM pytorch version...
+[394347:MainThread](2024-04-27 23:34:17,687) INFO - qlib.ALSTM - [pytorch_alstm.py:78] - ALSTM parameters setting:
+d_feat : 6
+hidden_size : 64
+num_layers : 2
+dropout : 0.0
+n_epochs : 200
+lr : 0.001
+metric : loss
+batch_size : 800
+early_stop : 8
+optimizer : adam
+loss_type : mse
+device : cuda:0
+use_GPU : True
+seed : None
+[394347:MainThread](2024-04-27 23:34:17,690) INFO - qlib.ALSTM - [pytorch_alstm.py:122] - model:
+ALSTMModel(
+  (net): Sequential(
+    (fc_in): Linear(in_features=6, out_features=64, bias=True)
+    (act): Tanh()
+  )
+  (rnn): LSTM(64, 64, num_layers=2, batch_first=True)
+  (fc_out): Linear(in_features=128, out_features=1, bias=True)
+  (att_net): Sequential(
+    (att_fc_in): Linear(in_features=64, out_features=32, bias=True)
+    (att_dropout): Dropout(p=0.0, inplace=False)
+    (att_act): Tanh()
+    (att_fc_out): Linear(in_features=32, out_features=1, bias=False)
+    (att_softmax): Softmax(dim=1)
+  )
+)
+[394347:MainThread](2024-04-27 23:34:17,690) INFO - qlib.ALSTM - [pytorch_alstm.py:123] - model size: 0.0660 MB
+epoch:   0%|          | 0/100 [00:00<?, ?it/s]epoch:   1%|          | 1/100 [00:08<13:55,  8.44s/it]epoch:   2%|▏         | 2/100 [00:16<13:40,  8.38s/it]epoch:   3%|▎         | 3/100 [00:25<13:27,  8.32s/it]epoch:   4%|▍         | 4/100 [00:33<13:16,  8.30s/it]epoch:   5%|▌         | 5/100 [00:41<13:11,  8.33s/it]epoch:   6%|▌         | 6/100 [00:50<13:03,  8.33s/it]epoch:   7%|▋         | 7/100 [00:58<13:08,  8.48s/it]epoch:   8%|▊         | 8/100 [01:07<12:55,  8.43s/it]epoch:   9%|▉         | 9/100 [01:15<12:45,  8.42s/it]epoch:  10%|█         | 10/100 [01:23<12:36,  8.40s/it]epoch:  11%|█         | 11/100 [01:32<12:26,  8.38s/it]epoch:  12%|█▏        | 12/100 [01:40<12:15,  8.36s/it]epoch:  13%|█▎        | 13/100 [01:48<12:03,  8.32s/it]epoch:  14%|█▍        | 14/100 [01:56<11:50,  8.26s/it]epoch:  15%|█▌        | 15/100 [02:05<11:42,  8.27s/it]epoch:  16%|█▌        | 16/100 [02:13<11:43,  8.38s/it]epoch:  17%|█▋        | 17/100 [02:22<11:37,  8.41s/it]epoch:  18%|█▊        | 18/100 [02:30<11:25,  8.36s/it]epoch:  19%|█▉        | 19/100 [02:38<11:18,  8.38s/it]epoch:  20%|██        | 20/100 [02:47<11:17,  8.47s/it]epoch:  21%|██        | 21/100 [02:56<11:12,  8.52s/it]epoch:  22%|██▏       | 22/100 [03:04<11:02,  8.50s/it]epoch:  23%|██▎       | 23/100 [03:13<10:50,  8.44s/it]epoch:  24%|██▍       | 24/100 [03:21<10:45,  8.50s/it]epoch:  25%|██▌       | 25/100 [03:30<10:36,  8.48s/it]epoch:  26%|██▌       | 26/100 [03:38<10:27,  8.48s/it]epoch:  27%|██▋       | 27/100 [03:46<10:17,  8.46s/it]epoch:  28%|██▊       | 28/100 [03:55<10:06,  8.43s/it]epoch:  29%|██▉       | 29/100 [04:03<09:46,  8.27s/it]epoch:  30%|███       | 30/100 [04:11<09:41,  8.30s/it]0.05094748679294611
+best ic: 0.05094748679294611
+epoch:  31%|███       | 31/100 [04:21<09:58,  8.67s/it]0.04594155226205942
+epoch:  32%|███▏      | 32/100 [04:30<10:04,  8.89s/it]0.04868496555024128
+epoch:  33%|███▎      | 33/100 [04:40<10:09,  9.10s/it]0.0494333730139999
+epoch:  34%|███▍      | 34/100 [04:49<10:12,  9.28s/it]0.04472796384525609
+epoch:  35%|███▌      | 35/100 [04:59<10:11,  9.41s/it]0.04449799982166625
+epoch:  36%|███▌      | 36/100 [05:09<10:05,  9.45s/it]0.0484667708995696
+epoch:  37%|███▋      | 37/100 [05:18<09:54,  9.43s/it]0.046939356474943114
+epoch:  38%|███▊      | 38/100 [05:28<09:57,  9.63s/it]0.04360851268320849
+epoch:  38%|███▊      | 38/100 [05:38<09:11,  8.90s/it]
+Test segment: 2020-04-01 00:00:00 2024-03-29 00:00:00
+[394347:MainThread](2024-04-27 23:39:55,971) INFO - qlib.workflow - [exp.py:258] - Experiment 76 starts running ...
+[394347:MainThread](2024-04-27 23:39:55,987) INFO - qlib.workflow - [recorder.py:351] - Recorder fcbcac16942248babaf24fdd43d86304 starts running under Experiment 76 ...
+online:   0%|          | 0/63 [00:00<?, ?it/s]online:   3%|▎         | 2/63 [00:00<00:04, 14.75it/s]online:   6%|▋         | 4/63 [00:00<00:03, 15.37it/s]online:  10%|▉         | 6/63 [00:00<00:03, 15.50it/s]online:  13%|█▎        | 8/63 [00:00<00:03, 15.51it/s]online:  16%|█▌        | 10/63 [00:00<00:03, 15.74it/s]online:  19%|█▉        | 12/63 [00:00<00:03, 15.54it/s]online:  22%|██▏       | 14/63 [00:00<00:03, 15.62it/s]online:  25%|██▌       | 16/63 [00:01<00:03, 15.66it/s]online:  29%|██▊       | 18/63 [00:01<00:02, 15.68it/s]online:  32%|███▏      | 20/63 [00:01<00:02, 15.62it/s]online:  35%|███▍      | 22/63 [00:01<00:02, 15.61it/s]online:  38%|███▊      | 24/63 [00:01<00:02, 15.65it/s]online:  41%|████▏     | 26/63 [00:01<00:02, 15.61it/s]online:  44%|████▍     | 28/63 [00:01<00:02, 15.72it/s]online:  48%|████▊     | 30/63 [00:01<00:02, 15.77it/s]online:  51%|█████     | 32/63 [00:02<00:01, 15.77it/s]online:  54%|█████▍    | 34/63 [00:02<00:01, 15.38it/s]online:  57%|█████▋    | 36/63 [00:02<00:01, 15.18it/s]online:  60%|██████    | 38/63 [00:02<00:01, 15.07it/s]online:  63%|██████▎   | 40/63 [00:02<00:01, 15.04it/s]online:  67%|██████▋   | 42/63 [00:02<00:01, 14.80it/s]online:  70%|██████▉   | 44/63 [00:02<00:01, 14.92it/s]online:  73%|███████▎  | 46/63 [00:02<00:01, 14.75it/s]online:  76%|███████▌  | 48/63 [00:03<00:00, 15.06it/s]online:  79%|███████▉  | 50/63 [00:03<00:00, 15.30it/s]online:  83%|████████▎ | 52/63 [00:03<00:00, 15.48it/s]online:  86%|████████▌ | 54/63 [00:03<00:00, 15.26it/s]online:  89%|████████▉ | 56/63 [00:03<00:00, 14.94it/s]online:  92%|█████████▏| 58/63 [00:03<00:00, 15.16it/s]online:  95%|█████████▌| 60/63 [00:03<00:00, 15.30it/s]online:  98%|█████████▊| 62/63 [00:04<00:00, 15.48it/s]online: 100%|██████████| 63/63 [00:04<00:00, 15.40it/s]
+lr_model: 0.001 lr_ma: 0.001 lr_da: 0.01
+[394347:MainThread](2024-04-27 23:40:07,636) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+mse: 0.9951909 mae 0.8632376
+{'IC': 0.03155941907855899,
+ 'ICIR': 0.22289044184217596,
+ 'Rank IC': 0.05178274354616233,
+ 'Rank ICIR': 0.3574154345839874}
+[394347:MainThread](2024-04-27 23:40:09,407) INFO - qlib.backtest caller - [__init__.py:93] - Create new exchange
+[394347:MainThread](2024-04-27 23:40:21,394) WARNING - qlib.online operator - [exchange.py:219] - $close field data contains nan.
+[394347:MainThread](2024-04-27 23:40:21,398) WARNING - qlib.online operator - [exchange.py:219] - $close field data contains nan.
+[394347:MainThread](2024-04-27 23:40:27,518) WARNING - qlib.BaseExecutor - [executor.py:121] - `common_infra` is not set for <qlib.backtest.executor.SimulatorExecutor object at 0x7fe2bc698fa0>
+/home/zhonghao/miniconda3/envs/sjtu_qlib/lib/python3.8/site-packages/qlib/backtest/backtest.py:88: TqdmExperimentalWarning: rich is experimental/alpha
+  with tqdm(
+/home/zhonghao/miniconda3/envs/sjtu_qlib/lib/python3.8/site-packages/qlib/utils/index_data.py:481: RuntimeWarning: Mean of empty slice
+  return np.nanmean(self.data)
+backtest loop  99% ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  966/971  [ 0:00:18 < 0:00:01 , 53 it/s ]
+[394347:MainThread](2024-04-27 23:40:46,205) INFO - qlib.workflow - [record_temp.py:515] - Portfolio analysis record 'port_analysis_1day.pkl' has been saved as the artifact of the Experiment 76
+'The following are analysis results of benchmark return(1day).'
+                       risk
+mean               0.000039
+std                0.011364
+annualized_return  0.009266
+information_ratio  0.052853
+max_drawdown      -0.558443
+'The following are analysis results of the excess return without cost(1day).'
+                       risk
+mean               0.000670
+std                0.005236
+annualized_return  0.159365
+information_ratio  1.973063
+max_drawdown      -0.057010
+'The following are analysis results of the excess return with cost(1day).'
+                       risk
+mean               0.000472
+std                0.005237
+annualized_return  0.112351
+information_ratio  1.390549
+max_drawdown      -0.077240
+[394347:MainThread](2024-04-27 23:40:46,222) INFO - qlib.workflow - [record_temp.py:540] - Indicator analysis record 'indicator_analysis_1day.pkl' has been saved as the artifact of the Experiment 76
+'The following are analysis results of indicators(1day).'
+     value
+ffr    1.0
+pa     0.0
+pos    0.0
+Your evaluation results can be found in the experiment named `csi300_ALSTM2_alpha360_horizon1_step20_rankTrue_2024-04-27_23:00:48_online`.
+Round 6 Done!
+{'1day.excess_return_with_cost.annualized_return': [0.15913131909746991,
+                                                    0.09514733333862584,
+                                                    0.11900286990028856,
+                                                    0.12860236768248956,
+                                                    0.10864096349716311,
+                                                    0.11235124369892464],
+ '1day.excess_return_with_cost.information_ratio': [2.1167671102721806,
+                                                    1.3135564814549374,
+                                                    1.6435033313602847,
+                                                    1.6502799446827339,
+                                                    1.403848187107993,
+                                                    1.3905485176204913],
+ '1day.excess_return_with_cost.max_drawdown': [-0.06618578874472841,
+                                               -0.058056209745737025,
+                                               -0.05230983308383774,
+                                               -0.05838391876280996,
+                                               -0.06974149332137486,
+                                               -0.07723964413683052],
+ 'IC': [0.033681280416068694,
+        0.03286894554749832,
+        0.03302616442532694,
+        0.034978672137336145,
+        0.032829305335798836,
+        0.03155941907855899],
+ 'ICIR': [0.24620625834674423,
+          0.24451406678534285,
+          0.23380147682548028,
+          0.24958911306864315,
+          0.24156167062674844,
+          0.22289044184217596],
+ 'Rank IC': [0.05228233314931692,
+             0.051887562289837125,
+             0.05121912914515699,
+             0.0533875699665157,
+             0.052257919190044064,
+             0.05178274354616233],
+ 'Rank ICIR': [0.38322908496267455,
+               0.3832578630925832,
+               0.368920565483708,
+               0.3798401892105949,
+               0.38630299783752914,
+               0.3574154345839874],
+ 'mae': [0.8630502820014954,
+         0.8632134199142456,
+         0.8631841540336609,
+         0.8630489706993103,
+         0.8631519079208374,
+         0.8632376194000244],
+ 'mse': [0.9951004981994629,
+         0.9952346682548523,
+         0.9952017664909363,
+         0.9948422908782959,
+         0.9951545000076294,
+         0.9951909184455872]}
+Traceback (most recent call last):
+  File "main.py", line 479, in run_all
+    assert self.reload_tag is not None
+AssertionError
+No valid experiment to reload. Restart offline training...
+[394347:MainThread](2024-04-27 23:40:47,428) INFO - qlib.ALSTM - [pytorch_alstm.py:61] - ALSTM pytorch version...
+[394347:MainThread](2024-04-27 23:40:47,428) INFO - qlib.ALSTM - [pytorch_alstm.py:78] - ALSTM parameters setting:
+d_feat : 6
+hidden_size : 64
+num_layers : 2
+dropout : 0.0
+n_epochs : 200
+lr : 0.001
+metric : loss
+batch_size : 800
+early_stop : 8
+optimizer : adam
+loss_type : mse
+device : cuda:0
+use_GPU : True
+seed : None
+[394347:MainThread](2024-04-27 23:40:47,431) INFO - qlib.ALSTM - [pytorch_alstm.py:122] - model:
+ALSTMModel(
+  (net): Sequential(
+    (fc_in): Linear(in_features=6, out_features=64, bias=True)
+    (act): Tanh()
+  )
+  (rnn): LSTM(64, 64, num_layers=2, batch_first=True)
+  (fc_out): Linear(in_features=128, out_features=1, bias=True)
+  (att_net): Sequential(
+    (att_fc_in): Linear(in_features=64, out_features=32, bias=True)
+    (att_dropout): Dropout(p=0.0, inplace=False)
+    (att_act): Tanh()
+    (att_fc_out): Linear(in_features=32, out_features=1, bias=False)
+    (att_softmax): Softmax(dim=1)
+  )
+)
+[394347:MainThread](2024-04-27 23:40:47,431) INFO - qlib.ALSTM - [pytorch_alstm.py:123] - model size: 0.0660 MB
+epoch:   0%|          | 0/100 [00:00<?, ?it/s]epoch:   1%|          | 1/100 [00:08<14:16,  8.65s/it]epoch:   2%|▏         | 2/100 [00:16<13:45,  8.43s/it]epoch:   3%|▎         | 3/100 [00:25<13:35,  8.40s/it]epoch:   4%|▍         | 4/100 [00:33<13:28,  8.42s/it]epoch:   5%|▌         | 5/100 [00:42<13:19,  8.42s/it]epoch:   6%|▌         | 6/100 [00:50<13:04,  8.35s/it]epoch:   7%|▋         | 7/100 [00:58<12:58,  8.37s/it]epoch:   8%|▊         | 8/100 [01:07<12:52,  8.40s/it]epoch:   9%|▉         | 9/100 [01:15<12:41,  8.37s/it]epoch:  10%|█         | 10/100 [01:23<12:31,  8.35s/it]epoch:  11%|█         | 11/100 [01:32<12:19,  8.31s/it]epoch:  12%|█▏        | 12/100 [01:40<12:09,  8.29s/it]epoch:  13%|█▎        | 13/100 [01:48<12:00,  8.29s/it]epoch:  14%|█▍        | 14/100 [01:56<11:54,  8.31s/it]epoch:  15%|█▌        | 15/100 [02:05<11:52,  8.38s/it]epoch:  16%|█▌        | 16/100 [02:14<11:51,  8.47s/it]epoch:  17%|█▋        | 17/100 [02:22<11:40,  8.44s/it]epoch:  18%|█▊        | 18/100 [02:30<11:31,  8.43s/it]epoch:  19%|█▉        | 19/100 [02:39<11:32,  8.55s/it]epoch:  20%|██        | 20/100 [02:48<11:26,  8.59s/it]epoch:  21%|██        | 21/100 [02:56<11:11,  8.50s/it]epoch:  22%|██▏       | 22/100 [03:05<10:59,  8.45s/it]epoch:  23%|██▎       | 23/100 [03:13<10:53,  8.49s/it]epoch:  24%|██▍       | 24/100 [03:22<10:45,  8.49s/it]epoch:  25%|██▌       | 25/100 [03:30<10:39,  8.53s/it]epoch:  26%|██▌       | 26/100 [03:39<10:29,  8.51s/it]epoch:  27%|██▋       | 27/100 [03:47<10:18,  8.47s/it]epoch:  28%|██▊       | 28/100 [03:56<10:10,  8.48s/it]epoch:  29%|██▉       | 29/100 [04:04<09:57,  8.41s/it]epoch:  30%|███       | 30/100 [04:12<09:50,  8.44s/it]0.048839181940851614
+best ic: 0.048839181940851614
+epoch:  31%|███       | 31/100 [04:23<10:17,  8.95s/it]0.04895496460807733
+best ic: 0.04895496460807733
+epoch:  32%|███▏      | 32/100 [04:33<10:30,  9.26s/it]0.050598143777405395
+best ic: 0.050598143777405395
+epoch:  33%|███▎      | 33/100 [04:42<10:28,  9.38s/it]0.050762074400395304
+best ic: 0.050762074400395304
+epoch:  34%|███▍      | 34/100 [04:52<10:21,  9.42s/it]0.052907291045043284
+best ic: 0.052907291045043284
+epoch:  35%|███▌      | 35/100 [05:01<10:15,  9.46s/it]0.04855708855853101
+epoch:  36%|███▌      | 36/100 [05:11<10:12,  9.57s/it]0.04884146188577762
+epoch:  37%|███▋      | 37/100 [05:21<10:06,  9.63s/it]0.04376863566862876
+epoch:  38%|███▊      | 38/100 [05:30<09:56,  9.62s/it]0.044432798590034545
+epoch:  39%|███▉      | 39/100 [05:40<09:40,  9.52s/it]0.047390672787900864
+epoch:  40%|████      | 40/100 [05:49<09:32,  9.53s/it]0.04568719469384073
+epoch:  41%|████      | 41/100 [05:59<09:26,  9.60s/it]0.03985897053963189
+epoch:  42%|████▏     | 42/100 [06:09<09:17,  9.62s/it]0.0449289223070669
+epoch:  42%|████▏     | 42/100 [06:18<08:43,  9.02s/it]
+Test segment: 2020-04-01 00:00:00 2024-03-29 00:00:00
+[394347:MainThread](2024-04-27 23:47:06,349) INFO - qlib.workflow - [exp.py:258] - Experiment 76 starts running ...
+[394347:MainThread](2024-04-27 23:47:06,365) INFO - qlib.workflow - [recorder.py:351] - Recorder a6086f19adb84a73b51630a9be764271 starts running under Experiment 76 ...
+online:   0%|          | 0/63 [00:00<?, ?it/s]online:   3%|▎         | 2/63 [00:00<00:04, 14.43it/s]online:   6%|▋         | 4/63 [00:00<00:03, 14.83it/s]online:  10%|▉         | 6/63 [00:00<00:03, 14.99it/s]online:  13%|█▎        | 8/63 [00:00<00:03, 14.58it/s]online:  16%|█▌        | 10/63 [00:00<00:03, 14.36it/s]online:  19%|█▉        | 12/63 [00:00<00:03, 14.20it/s]online:  22%|██▏       | 14/63 [00:00<00:03, 14.17it/s]online:  25%|██▌       | 16/63 [00:01<00:03, 14.00it/s]online:  29%|██▊       | 18/63 [00:01<00:03, 13.97it/s]online:  32%|███▏      | 20/63 [00:01<00:03, 13.93it/s]online:  35%|███▍      | 22/63 [00:01<00:02, 13.92it/s]online:  38%|███▊      | 24/63 [00:01<00:02, 13.91it/s]online:  41%|████▏     | 26/63 [00:01<00:02, 14.00it/s]online:  44%|████▍     | 28/63 [00:01<00:02, 14.24it/s]online:  48%|████▊     | 30/63 [00:02<00:02, 14.55it/s]online:  51%|█████     | 32/63 [00:02<00:02, 14.71it/s]online:  54%|█████▍    | 34/63 [00:02<00:01, 14.96it/s]online:  57%|█████▋    | 36/63 [00:02<00:01, 15.01it/s]online:  60%|██████    | 38/63 [00:02<00:01, 15.05it/s]online:  63%|██████▎   | 40/63 [00:02<00:01, 15.10it/s]online:  67%|██████▋   | 42/63 [00:02<00:01, 15.10it/s]online:  70%|██████▉   | 44/63 [00:03<00:01, 15.12it/s]online:  73%|███████▎  | 46/63 [00:03<00:01, 15.06it/s]online:  76%|███████▌  | 48/63 [00:03<00:00, 15.02it/s]online:  79%|███████▉  | 50/63 [00:03<00:00, 15.16it/s]online:  83%|████████▎ | 52/63 [00:03<00:00, 14.97it/s]online:  86%|████████▌ | 54/63 [00:03<00:00, 15.00it/s]online:  89%|████████▉ | 56/63 [00:03<00:00, 15.04it/s]online:  92%|█████████▏| 58/63 [00:03<00:00, 14.98it/s]online:  95%|█████████▌| 60/63 [00:04<00:00, 15.04it/s]online:  98%|█████████▊| 62/63 [00:04<00:00, 15.15it/s]online: 100%|██████████| 63/63 [00:04<00:00, 14.71it/s]
+lr_model: 0.001 lr_ma: 0.001 lr_da: 0.01
+[394347:MainThread](2024-04-27 23:47:18,169) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+mse: 0.99555504 mae 0.8631409
+{'IC': 0.031142096606758242,
+ 'ICIR': 0.23737828195787306,
+ 'Rank IC': 0.05095856387643788,
+ 'Rank ICIR': 0.38175327933310216}
+[394347:MainThread](2024-04-27 23:47:19,937) INFO - qlib.backtest caller - [__init__.py:93] - Create new exchange
+[394347:MainThread](2024-04-27 23:47:32,030) WARNING - qlib.online operator - [exchange.py:219] - $close field data contains nan.
+[394347:MainThread](2024-04-27 23:47:32,033) WARNING - qlib.online operator - [exchange.py:219] - $close field data contains nan.
+[394347:MainThread](2024-04-27 23:47:38,238) WARNING - qlib.BaseExecutor - [executor.py:121] - `common_infra` is not set for <qlib.backtest.executor.SimulatorExecutor object at 0x7fe2da1b7c40>
+/home/zhonghao/miniconda3/envs/sjtu_qlib/lib/python3.8/site-packages/qlib/backtest/backtest.py:88: TqdmExperimentalWarning: rich is experimental/alpha
+  with tqdm(
+/home/zhonghao/miniconda3/envs/sjtu_qlib/lib/python3.8/site-packages/qlib/utils/index_data.py:481: RuntimeWarning: Mean of empty slice
+  return np.nanmean(self.data)
+backtest loop 100% ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 969/971  [ 0:00:19 < 0:00:01 , 51 it/s ]
+[394347:MainThread](2024-04-27 23:47:57,744) INFO - qlib.workflow - [record_temp.py:515] - Portfolio analysis record 'port_analysis_1day.pkl' has been saved as the artifact of the Experiment 76
+'The following are analysis results of benchmark return(1day).'
+                       risk
+mean               0.000039
+std                0.011364
+annualized_return  0.009266
+information_ratio  0.052853
+max_drawdown      -0.558443
+'The following are analysis results of the excess return without cost(1day).'
+                       risk
+mean               0.000575
+std                0.004585
+annualized_return  0.136960
+information_ratio  1.936256
+max_drawdown      -0.056161
+'The following are analysis results of the excess return with cost(1day).'
+                       risk
+mean               0.000377
+std                0.004587
+annualized_return  0.089763
+information_ratio  1.268431
+max_drawdown      -0.060559
+[394347:MainThread](2024-04-27 23:47:57,761) INFO - qlib.workflow - [record_temp.py:540] - Indicator analysis record 'indicator_analysis_1day.pkl' has been saved as the artifact of the Experiment 76
+'The following are analysis results of indicators(1day).'
+     value
+ffr    1.0
+pa     0.0
+pos    0.0
+Your evaluation results can be found in the experiment named `csi300_ALSTM2_alpha360_horizon1_step20_rankTrue_2024-04-27_23:00:48_online`.
+Round 7 Done!
+{'1day.excess_return_with_cost.annualized_return': [0.15913131909746991,
+                                                    0.09514733333862584,
+                                                    0.11900286990028856,
+                                                    0.12860236768248956,
+                                                    0.10864096349716311,
+                                                    0.11235124369892464,
+                                                    0.0897634262853418],
+ '1day.excess_return_with_cost.information_ratio': [2.1167671102721806,
+                                                    1.3135564814549374,
+                                                    1.6435033313602847,
+                                                    1.6502799446827339,
+                                                    1.403848187107993,
+                                                    1.3905485176204913,
+                                                    1.2684308174700276],
+ '1day.excess_return_with_cost.max_drawdown': [-0.06618578874472841,
+                                               -0.058056209745737025,
+                                               -0.05230983308383774,
+                                               -0.05838391876280996,
+                                               -0.06974149332137486,
+                                               -0.07723964413683052,
+                                               -0.06055887720786224],
+ 'IC': [0.033681280416068694,
+        0.03286894554749832,
+        0.03302616442532694,
+        0.034978672137336145,
+        0.032829305335798836,
+        0.03155941907855899,
+        0.031142096606758242],
+ 'ICIR': [0.24620625834674423,
+          0.24451406678534285,
+          0.23380147682548028,
+          0.24958911306864315,
+          0.24156167062674844,
+          0.22289044184217596,
+          0.23737828195787306],
+ 'Rank IC': [0.05228233314931692,
+             0.051887562289837125,
+             0.05121912914515699,
+             0.0533875699665157,
+             0.052257919190044064,
+             0.05178274354616233,
+             0.05095856387643788],
+ 'Rank ICIR': [0.38322908496267455,
+               0.3832578630925832,
+               0.368920565483708,
+               0.3798401892105949,
+               0.38630299783752914,
+               0.3574154345839874,
+               0.38175327933310216],
+ 'mae': [0.8630502820014954,
+         0.8632134199142456,
+         0.8631841540336609,
+         0.8630489706993103,
+         0.8631519079208374,
+         0.8632376194000244,
+         0.863140881061554],
+ 'mse': [0.9951004981994629,
+         0.9952346682548523,
+         0.9952017664909363,
+         0.9948422908782959,
+         0.9951545000076294,
+         0.9951909184455872,
+         0.99555504322052]}
+Traceback (most recent call last):
+  File "main.py", line 479, in run_all
+    assert self.reload_tag is not None
+AssertionError
+No valid experiment to reload. Restart offline training...
+[394347:MainThread](2024-04-27 23:47:58,978) INFO - qlib.ALSTM - [pytorch_alstm.py:61] - ALSTM pytorch version...
+[394347:MainThread](2024-04-27 23:47:58,978) INFO - qlib.ALSTM - [pytorch_alstm.py:78] - ALSTM parameters setting:
+d_feat : 6
+hidden_size : 64
+num_layers : 2
+dropout : 0.0
+n_epochs : 200
+lr : 0.001
+metric : loss
+batch_size : 800
+early_stop : 8
+optimizer : adam
+loss_type : mse
+device : cuda:0
+use_GPU : True
+seed : None
+[394347:MainThread](2024-04-27 23:47:58,980) INFO - qlib.ALSTM - [pytorch_alstm.py:122] - model:
+ALSTMModel(
+  (net): Sequential(
+    (fc_in): Linear(in_features=6, out_features=64, bias=True)
+    (act): Tanh()
+  )
+  (rnn): LSTM(64, 64, num_layers=2, batch_first=True)
+  (fc_out): Linear(in_features=128, out_features=1, bias=True)
+  (att_net): Sequential(
+    (att_fc_in): Linear(in_features=64, out_features=32, bias=True)
+    (att_dropout): Dropout(p=0.0, inplace=False)
+    (att_act): Tanh()
+    (att_fc_out): Linear(in_features=32, out_features=1, bias=False)
+    (att_softmax): Softmax(dim=1)
+  )
+)
+[394347:MainThread](2024-04-27 23:47:58,981) INFO - qlib.ALSTM - [pytorch_alstm.py:123] - model size: 0.0660 MB
+epoch:   0%|          | 0/100 [00:00<?, ?it/s]epoch:   1%|          | 1/100 [00:08<13:37,  8.26s/it]epoch:   2%|▏         | 2/100 [00:16<13:31,  8.29s/it]epoch:   3%|▎         | 3/100 [00:24<13:27,  8.32s/it]epoch:   4%|▍         | 4/100 [00:33<13:18,  8.32s/it]epoch:   5%|▌         | 5/100 [00:41<13:14,  8.36s/it]epoch:   6%|▌         | 6/100 [00:50<13:12,  8.43s/it]epoch:   7%|▋         | 7/100 [00:58<13:03,  8.43s/it]epoch:   8%|▊         | 8/100 [01:07<12:53,  8.41s/it]epoch:   9%|▉         | 9/100 [01:15<12:48,  8.44s/it]epoch:  10%|█         | 10/100 [01:24<12:42,  8.48s/it]epoch:  11%|█         | 11/100 [01:32<12:31,  8.44s/it]epoch:  12%|█▏        | 12/100 [01:40<12:19,  8.41s/it]epoch:  13%|█▎        | 13/100 [01:49<12:09,  8.39s/it]epoch:  14%|█▍        | 14/100 [01:57<12:03,  8.42s/it]epoch:  15%|█▌        | 15/100 [02:06<11:54,  8.41s/it]epoch:  16%|█▌        | 16/100 [02:14<11:52,  8.49s/it]epoch:  17%|█▋        | 17/100 [02:23<11:50,  8.56s/it]epoch:  18%|█▊        | 18/100 [02:31<11:36,  8.49s/it]epoch:  19%|█▉        | 19/100 [02:40<11:28,  8.50s/it]epoch:  20%|██        | 20/100 [02:48<11:22,  8.53s/it]epoch:  21%|██        | 21/100 [02:57<11:08,  8.46s/it]epoch:  22%|██▏       | 22/100 [03:05<10:57,  8.43s/it]epoch:  23%|██▎       | 23/100 [03:13<10:49,  8.43s/it]epoch:  24%|██▍       | 24/100 [03:22<10:48,  8.54s/it]epoch:  25%|██▌       | 25/100 [03:31<10:42,  8.57s/it]epoch:  26%|██▌       | 26/100 [03:39<10:29,  8.50s/it]epoch:  27%|██▋       | 27/100 [03:48<10:16,  8.45s/it]epoch:  28%|██▊       | 28/100 [03:56<10:04,  8.39s/it]epoch:  29%|██▉       | 29/100 [04:04<09:57,  8.42s/it]epoch:  30%|███       | 30/100 [04:13<09:49,  8.42s/it]0.05162918943404292
+best ic: 0.05162918943404292
+epoch:  31%|███       | 31/100 [04:23<10:11,  8.86s/it]0.05075851551218025
+epoch:  32%|███▏      | 32/100 [04:33<10:27,  9.22s/it]0.05011182118950716
+epoch:  33%|███▎      | 33/100 [04:42<10:25,  9.33s/it]0.05280787369398834
+best ic: 0.05280787369398834
+epoch:  34%|███▍      | 34/100 [04:52<10:20,  9.41s/it]0.052257061653780225
+epoch:  35%|███▌      | 35/100 [05:01<10:14,  9.45s/it]0.04871977123766512
+epoch:  36%|███▌      | 36/100 [05:11<10:13,  9.59s/it]0.04714124202513107
+epoch:  37%|███▋      | 37/100 [05:21<10:09,  9.68s/it]0.04994821974538541
+epoch:  38%|███▊      | 38/100 [05:31<09:57,  9.64s/it]0.050013055030946975
+epoch:  39%|███▉      | 39/100 [05:40<09:44,  9.58s/it]0.04953939683039912
+epoch:  40%|████      | 40/100 [05:50<09:36,  9.61s/it]0.049020948008986986
+epoch:  41%|████      | 41/100 [05:59<09:26,  9.61s/it]0.04747672150507508
+epoch:  41%|████      | 41/100 [06:09<08:51,  9.02s/it]
+Test segment: 2020-04-01 00:00:00 2024-03-29 00:00:00
+[394347:MainThread](2024-04-27 23:54:08,660) INFO - qlib.workflow - [exp.py:258] - Experiment 76 starts running ...
+[394347:MainThread](2024-04-27 23:54:08,676) INFO - qlib.workflow - [recorder.py:351] - Recorder 15e6057483704e46a2837aef3a7bd848 starts running under Experiment 76 ...
+online:   0%|          | 0/63 [00:00<?, ?it/s]online:   3%|▎         | 2/63 [00:00<00:04, 14.10it/s]online:   6%|▋         | 4/63 [00:00<00:03, 14.76it/s]online:  10%|▉         | 6/63 [00:00<00:03, 14.86it/s]online:  13%|█▎        | 8/63 [00:00<00:03, 14.80it/s]online:  16%|█▌        | 10/63 [00:00<00:03, 14.76it/s]online:  19%|█▉        | 12/63 [00:00<00:03, 14.75it/s]online:  22%|██▏       | 14/63 [00:00<00:03, 14.83it/s]online:  25%|██▌       | 16/63 [00:01<00:03, 15.06it/s]online:  29%|██▊       | 18/63 [00:01<00:02, 15.29it/s]online:  32%|███▏      | 20/63 [00:01<00:02, 15.51it/s]online:  35%|███▍      | 22/63 [00:01<00:02, 15.62it/s]online:  38%|███▊      | 24/63 [00:01<00:02, 15.79it/s]online:  41%|████▏     | 26/63 [00:01<00:02, 15.86it/s]online:  44%|████▍     | 28/63 [00:01<00:02, 15.93it/s]online:  48%|████▊     | 30/63 [00:01<00:02, 15.97it/s]online:  51%|█████     | 32/63 [00:02<00:01, 15.79it/s]online:  54%|█████▍    | 34/63 [00:02<00:01, 15.62it/s]online:  57%|█████▋    | 36/63 [00:02<00:01, 15.53it/s]online:  60%|██████    | 38/63 [00:02<00:01, 15.41it/s]online:  63%|██████▎   | 40/63 [00:02<00:01, 15.26it/s]online:  67%|██████▋   | 42/63 [00:02<00:01, 15.18it/s]online:  70%|██████▉   | 44/63 [00:02<00:01, 15.36it/s]online:  73%|███████▎  | 46/63 [00:02<00:01, 15.36it/s]online:  76%|███████▌  | 48/63 [00:03<00:00, 15.33it/s]online:  79%|███████▉  | 50/63 [00:03<00:00, 15.41it/s]online:  83%|████████▎ | 52/63 [00:03<00:00, 15.39it/s]online:  86%|████████▌ | 54/63 [00:03<00:00, 15.42it/s]online:  89%|████████▉ | 56/63 [00:03<00:00, 15.32it/s]online:  92%|█████████▏| 58/63 [00:03<00:00, 15.18it/s]online:  95%|█████████▌| 60/63 [00:03<00:00, 15.26it/s]online:  98%|█████████▊| 62/63 [00:04<00:00, 15.23it/s]online: 100%|██████████| 63/63 [00:04<00:00, 15.35it/s]
+lr_model: 0.001 lr_ma: 0.001 lr_da: 0.01
+[394347:MainThread](2024-04-27 23:54:20,320) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+mse: 0.9953417 mae 0.86318487
+{'IC': 0.033929960185139274,
+ 'ICIR': 0.25350850613760667,
+ 'Rank IC': 0.05195042221758594,
+ 'Rank ICIR': 0.39272690085606216}
+[394347:MainThread](2024-04-27 23:54:22,168) INFO - qlib.backtest caller - [__init__.py:93] - Create new exchange
+[394347:MainThread](2024-04-27 23:54:34,465) WARNING - qlib.online operator - [exchange.py:219] - $close field data contains nan.
+[394347:MainThread](2024-04-27 23:54:34,468) WARNING - qlib.online operator - [exchange.py:219] - $close field data contains nan.
+[394347:MainThread](2024-04-27 23:54:40,667) WARNING - qlib.BaseExecutor - [executor.py:121] - `common_infra` is not set for <qlib.backtest.executor.SimulatorExecutor object at 0x7fe2d28f3e80>
+/home/zhonghao/miniconda3/envs/sjtu_qlib/lib/python3.8/site-packages/qlib/backtest/backtest.py:88: TqdmExperimentalWarning: rich is experimental/alpha
+  with tqdm(
+/home/zhonghao/miniconda3/envs/sjtu_qlib/lib/python3.8/site-packages/qlib/utils/index_data.py:481: RuntimeWarning: Mean of empty slice
+  return np.nanmean(self.data)
+backtest loop 100% ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 969/971  [ 0:00:18 < 0:00:01 , 52 it/s ]
+[394347:MainThread](2024-04-27 23:54:59,643) INFO - qlib.workflow - [record_temp.py:515] - Portfolio analysis record 'port_analysis_1day.pkl' has been saved as the artifact of the Experiment 76
+'The following are analysis results of benchmark return(1day).'
+                       risk
+mean               0.000039
+std                0.011364
+annualized_return  0.009266
+information_ratio  0.052853
+max_drawdown      -0.558443
+'The following are analysis results of the excess return without cost(1day).'
+                       risk
+mean               0.000702
+std                0.004742
+annualized_return  0.167183
+information_ratio  2.285301
+max_drawdown      -0.060144
+'The following are analysis results of the excess return with cost(1day).'
+                       risk
+mean               0.000504
+std                0.004744
+annualized_return  0.119982
+information_ratio  1.639349
+max_drawdown      -0.064623
+[394347:MainThread](2024-04-27 23:54:59,661) INFO - qlib.workflow - [record_temp.py:540] - Indicator analysis record 'indicator_analysis_1day.pkl' has been saved as the artifact of the Experiment 76
+'The following are analysis results of indicators(1day).'
+     value
+ffr    1.0
+pa     0.0
+pos    0.0
+Your evaluation results can be found in the experiment named `csi300_ALSTM2_alpha360_horizon1_step20_rankTrue_2024-04-27_23:00:48_online`.
+Round 8 Done!
+{'1day.excess_return_with_cost.annualized_return': [0.15913131909746991,
+                                                    0.09514733333862584,
+                                                    0.11900286990028856,
+                                                    0.12860236768248956,
+                                                    0.10864096349716311,
+                                                    0.11235124369892464,
+                                                    0.0897634262853418,
+                                                    0.11998165873124944],
+ '1day.excess_return_with_cost.information_ratio': [2.1167671102721806,
+                                                    1.3135564814549374,
+                                                    1.6435033313602847,
+                                                    1.6502799446827339,
+                                                    1.403848187107993,
+                                                    1.3905485176204913,
+                                                    1.2684308174700276,
+                                                    1.6393490491076703],
+ '1day.excess_return_with_cost.max_drawdown': [-0.06618578874472841,
+                                               -0.058056209745737025,
+                                               -0.05230983308383774,
+                                               -0.05838391876280996,
+                                               -0.06974149332137486,
+                                               -0.07723964413683052,
+                                               -0.06055887720786224,
+                                               -0.06462287901373079],
+ 'IC': [0.033681280416068694,
+        0.03286894554749832,
+        0.03302616442532694,
+        0.034978672137336145,
+        0.032829305335798836,
+        0.03155941907855899,
+        0.031142096606758242,
+        0.033929960185139274],
+ 'ICIR': [0.24620625834674423,
+          0.24451406678534285,
+          0.23380147682548028,
+          0.24958911306864315,
+          0.24156167062674844,
+          0.22289044184217596,
+          0.23737828195787306,
+          0.25350850613760667],
+ 'Rank IC': [0.05228233314931692,
+             0.051887562289837125,
+             0.05121912914515699,
+             0.0533875699665157,
+             0.052257919190044064,
+             0.05178274354616233,
+             0.05095856387643788,
+             0.05195042221758594],
+ 'Rank ICIR': [0.38322908496267455,
+               0.3832578630925832,
+               0.368920565483708,
+               0.3798401892105949,
+               0.38630299783752914,
+               0.3574154345839874,
+               0.38175327933310216,
+               0.39272690085606216],
+ 'mae': [0.8630502820014954,
+         0.8632134199142456,
+         0.8631841540336609,
+         0.8630489706993103,
+         0.8631519079208374,
+         0.8632376194000244,
+         0.863140881061554,
+         0.8631848692893982],
+ 'mse': [0.9951004981994629,
+         0.9952346682548523,
+         0.9952017664909363,
+         0.9948422908782959,
+         0.9951545000076294,
+         0.9951909184455872,
+         0.99555504322052,
+         0.9953417181968689]}
+Traceback (most recent call last):
+  File "main.py", line 479, in run_all
+    assert self.reload_tag is not None
+AssertionError
+No valid experiment to reload. Restart offline training...
+[394347:MainThread](2024-04-27 23:55:00,904) INFO - qlib.ALSTM - [pytorch_alstm.py:61] - ALSTM pytorch version...
+[394347:MainThread](2024-04-27 23:55:00,904) INFO - qlib.ALSTM - [pytorch_alstm.py:78] - ALSTM parameters setting:
+d_feat : 6
+hidden_size : 64
+num_layers : 2
+dropout : 0.0
+n_epochs : 200
+lr : 0.001
+metric : loss
+batch_size : 800
+early_stop : 8
+optimizer : adam
+loss_type : mse
+device : cuda:0
+use_GPU : True
+seed : None
+[394347:MainThread](2024-04-27 23:55:00,907) INFO - qlib.ALSTM - [pytorch_alstm.py:122] - model:
+ALSTMModel(
+  (net): Sequential(
+    (fc_in): Linear(in_features=6, out_features=64, bias=True)
+    (act): Tanh()
+  )
+  (rnn): LSTM(64, 64, num_layers=2, batch_first=True)
+  (fc_out): Linear(in_features=128, out_features=1, bias=True)
+  (att_net): Sequential(
+    (att_fc_in): Linear(in_features=64, out_features=32, bias=True)
+    (att_dropout): Dropout(p=0.0, inplace=False)
+    (att_act): Tanh()
+    (att_fc_out): Linear(in_features=32, out_features=1, bias=False)
+    (att_softmax): Softmax(dim=1)
+  )
+)
+[394347:MainThread](2024-04-27 23:55:00,907) INFO - qlib.ALSTM - [pytorch_alstm.py:123] - model size: 0.0660 MB
+epoch:   0%|          | 0/100 [00:00<?, ?it/s]epoch:   1%|          | 1/100 [00:08<13:54,  8.43s/it]epoch:   2%|▏         | 2/100 [00:16<13:45,  8.42s/it]epoch:   3%|▎         | 3/100 [00:25<13:50,  8.56s/it]epoch:   4%|▍         | 4/100 [00:34<13:37,  8.52s/it]epoch:   5%|▌         | 5/100 [00:42<13:27,  8.50s/it]epoch:   6%|▌         | 6/100 [00:50<13:16,  8.47s/it]epoch:   7%|▋         | 7/100 [00:59<13:00,  8.40s/it]epoch:   8%|▊         | 8/100 [01:07<12:54,  8.42s/it]epoch:   9%|▉         | 9/100 [01:15<12:31,  8.25s/it]epoch:  10%|█         | 10/100 [01:23<12:24,  8.28s/it]epoch:  11%|█         | 11/100 [01:32<12:20,  8.32s/it]epoch:  12%|█▏        | 12/100 [01:40<12:13,  8.34s/it]epoch:  13%|█▎        | 13/100 [01:48<12:02,  8.30s/it]epoch:  14%|█▍        | 14/100 [01:57<11:52,  8.28s/it]epoch:  15%|█▌        | 15/100 [02:05<11:45,  8.30s/it]epoch:  16%|█▌        | 16/100 [02:13<11:37,  8.30s/it]epoch:  17%|█▋        | 17/100 [02:22<11:35,  8.38s/it]epoch:  18%|█▊        | 18/100 [02:30<11:25,  8.36s/it]epoch:  19%|█▉        | 19/100 [02:39<11:20,  8.40s/it]epoch:  20%|██        | 20/100 [02:47<11:12,  8.40s/it]epoch:  21%|██        | 21/100 [02:55<11:04,  8.42s/it]epoch:  22%|██▏       | 22/100 [03:04<10:57,  8.42s/it]epoch:  23%|██▎       | 23/100 [03:12<10:47,  8.41s/it]epoch:  24%|██▍       | 24/100 [03:21<10:40,  8.42s/it]epoch:  25%|██▌       | 25/100 [03:29<10:35,  8.48s/it]epoch:  26%|██▌       | 26/100 [03:38<10:29,  8.51s/it]epoch:  27%|██▋       | 27/100 [03:46<10:17,  8.46s/it]epoch:  28%|██▊       | 28/100 [03:55<10:05,  8.42s/it]epoch:  29%|██▉       | 29/100 [04:03<10:00,  8.46s/it]epoch:  30%|███       | 30/100 [04:12<09:55,  8.51s/it]0.05015180610375923
+best ic: 0.05015180610375923
+epoch:  31%|███       | 31/100 [04:21<10:09,  8.83s/it]0.04956337738724223
+epoch:  32%|███▏      | 32/100 [04:31<10:16,  9.06s/it]0.04682185856640143
+epoch:  33%|███▎      | 33/100 [04:41<10:18,  9.23s/it]0.04410317923700724
+epoch:  34%|███▍      | 34/100 [04:50<10:19,  9.39s/it]0.048469002655250996
+epoch:  35%|███▌      | 35/100 [05:00<10:17,  9.50s/it]0.04637664240225721
+epoch:  36%|███▌      | 36/100 [05:10<10:11,  9.56s/it]0.045382113679270523
+epoch:  37%|███▋      | 37/100 [05:19<10:03,  9.57s/it]0.04765209691510506
+epoch:  38%|███▊      | 38/100 [05:29<09:59,  9.67s/it]0.04351038160707762
+epoch:  38%|███▊      | 38/100 [05:39<09:13,  8.93s/it]
+Test segment: 2020-04-01 00:00:00 2024-03-29 00:00:00
+[394347:MainThread](2024-04-28 00:00:40,331) INFO - qlib.workflow - [exp.py:258] - Experiment 76 starts running ...
+[394347:MainThread](2024-04-28 00:00:40,347) INFO - qlib.workflow - [recorder.py:351] - Recorder 76bea4bdebe140e1be59056f08bf2955 starts running under Experiment 76 ...
+online:   0%|          | 0/63 [00:00<?, ?it/s]online:   3%|▎         | 2/63 [00:00<00:03, 15.32it/s]online:   6%|▋         | 4/63 [00:00<00:03, 15.74it/s]online:  10%|▉         | 6/63 [00:00<00:03, 15.92it/s]online:  13%|█▎        | 8/63 [00:00<00:03, 15.85it/s]online:  16%|█▌        | 10/63 [00:00<00:03, 15.97it/s]online:  19%|█▉        | 12/63 [00:00<00:03, 15.66it/s]online:  22%|██▏       | 14/63 [00:00<00:03, 15.03it/s]online:  25%|██▌       | 16/63 [00:01<00:03, 14.64it/s]online:  29%|██▊       | 18/63 [00:01<00:03, 14.32it/s]online:  32%|███▏      | 20/63 [00:01<00:03, 14.33it/s]online:  35%|███▍      | 22/63 [00:01<00:02, 14.45it/s]online:  38%|███▊      | 24/63 [00:01<00:02, 14.50it/s]online:  41%|████▏     | 26/63 [00:01<00:02, 14.78it/s]online:  44%|████▍     | 28/63 [00:01<00:02, 15.13it/s]online:  48%|████▊     | 30/63 [00:01<00:02, 15.18it/s]online:  51%|█████     | 32/63 [00:02<00:02, 15.13it/s]online:  54%|█████▍    | 34/63 [00:02<00:01, 15.08it/s]online:  57%|█████▋    | 36/63 [00:02<00:01, 15.21it/s]online:  60%|██████    | 38/63 [00:02<00:01, 15.30it/s]online:  63%|██████▎   | 40/63 [00:02<00:01, 15.11it/s]online:  67%|██████▋   | 42/63 [00:02<00:01, 15.14it/s]online:  70%|██████▉   | 44/63 [00:02<00:01, 15.02it/s]online:  73%|███████▎  | 46/63 [00:03<00:01, 14.65it/s]online:  76%|███████▌  | 48/63 [00:03<00:01, 14.73it/s]online:  79%|███████▉  | 50/63 [00:03<00:00, 14.61it/s]online:  83%|████████▎ | 52/63 [00:03<00:00, 14.76it/s]online:  86%|████████▌ | 54/63 [00:03<00:00, 14.80it/s]online:  89%|████████▉ | 56/63 [00:03<00:00, 15.11it/s]online:  92%|█████████▏| 58/63 [00:03<00:00, 15.43it/s]online:  95%|█████████▌| 60/63 [00:03<00:00, 15.31it/s]online:  98%|█████████▊| 62/63 [00:04<00:00, 15.20it/s]online: 100%|██████████| 63/63 [00:04<00:00, 15.06it/s]
+lr_model: 0.001 lr_ma: 0.001 lr_da: 0.01
+[394347:MainThread](2024-04-28 00:00:51,968) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+mse: 0.99518245 mae 0.8630484
+{'IC': 0.03263256821889149,
+ 'ICIR': 0.23018742409737258,
+ 'Rank IC': 0.05320681541458307,
+ 'Rank ICIR': 0.375861999219216}
+[394347:MainThread](2024-04-28 00:00:53,734) INFO - qlib.backtest caller - [__init__.py:93] - Create new exchange
+[394347:MainThread](2024-04-28 00:01:06,284) WARNING - qlib.online operator - [exchange.py:219] - $close field data contains nan.
+[394347:MainThread](2024-04-28 00:01:06,287) WARNING - qlib.online operator - [exchange.py:219] - $close field data contains nan.
+[394347:MainThread](2024-04-28 00:01:12,699) WARNING - qlib.BaseExecutor - [executor.py:121] - `common_infra` is not set for <qlib.backtest.executor.SimulatorExecutor object at 0x7fe0e41fbfd0>
+/home/zhonghao/miniconda3/envs/sjtu_qlib/lib/python3.8/site-packages/qlib/backtest/backtest.py:88: TqdmExperimentalWarning: rich is experimental/alpha
+  with tqdm(
+/home/zhonghao/miniconda3/envs/sjtu_qlib/lib/python3.8/site-packages/qlib/utils/index_data.py:481: RuntimeWarning: Mean of empty slice
+  return np.nanmean(self.data)
+backtest loop 100% ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 970/971  [ 0:00:18 < 0:00:01 , 53 it/s ]
+[394347:MainThread](2024-04-28 00:01:31,358) INFO - qlib.workflow - [record_temp.py:515] - Portfolio analysis record 'port_analysis_1day.pkl' has been saved as the artifact of the Experiment 76
+'The following are analysis results of benchmark return(1day).'
+                       risk
+mean               0.000039
+std                0.011364
+annualized_return  0.009266
+information_ratio  0.052853
+max_drawdown      -0.558443
+'The following are analysis results of the excess return without cost(1day).'
+                       risk
+mean               0.000739
+std                0.004949
+annualized_return  0.175802
+information_ratio  2.302816
+max_drawdown      -0.058590
+'The following are analysis results of the excess return with cost(1day).'
+                       risk
+mean               0.000540
+std                0.004950
+annualized_return  0.128404
+information_ratio  1.681472
+max_drawdown      -0.062982
+[394347:MainThread](2024-04-28 00:01:31,374) INFO - qlib.workflow - [record_temp.py:540] - Indicator analysis record 'indicator_analysis_1day.pkl' has been saved as the artifact of the Experiment 76
+'The following are analysis results of indicators(1day).'
+     value
+ffr    1.0
+pa     0.0
+pos    0.0
+Your evaluation results can be found in the experiment named `csi300_ALSTM2_alpha360_horizon1_step20_rankTrue_2024-04-27_23:00:48_online`.
+Round 9 Done!
+{'1day.excess_return_with_cost.annualized_return': [0.15913131909746991,
+                                                    0.09514733333862584,
+                                                    0.11900286990028856,
+                                                    0.12860236768248956,
+                                                    0.10864096349716311,
+                                                    0.11235124369892464,
+                                                    0.0897634262853418,
+                                                    0.11998165873124944,
+                                                    0.12840425097925398],
+ '1day.excess_return_with_cost.information_ratio': [2.1167671102721806,
+                                                    1.3135564814549374,
+                                                    1.6435033313602847,
+                                                    1.6502799446827339,
+                                                    1.403848187107993,
+                                                    1.3905485176204913,
+                                                    1.2684308174700276,
+                                                    1.6393490491076703,
+                                                    1.6814717862892268],
+ '1day.excess_return_with_cost.max_drawdown': [-0.06618578874472841,
+                                               -0.058056209745737025,
+                                               -0.05230983308383774,
+                                               -0.05838391876280996,
+                                               -0.06974149332137486,
+                                               -0.07723964413683052,
+                                               -0.06055887720786224,
+                                               -0.06462287901373079,
+                                               -0.06298163574390825],
+ 'IC': [0.033681280416068694,
+        0.03286894554749832,
+        0.03302616442532694,
+        0.034978672137336145,
+        0.032829305335798836,
+        0.03155941907855899,
+        0.031142096606758242,
+        0.033929960185139274,
+        0.03263256821889149],
+ 'ICIR': [0.24620625834674423,
+          0.24451406678534285,
+          0.23380147682548028,
+          0.24958911306864315,
+          0.24156167062674844,
+          0.22289044184217596,
+          0.23737828195787306,
+          0.25350850613760667,
+          0.23018742409737258],
+ 'Rank IC': [0.05228233314931692,
+             0.051887562289837125,
+             0.05121912914515699,
+             0.0533875699665157,
+             0.052257919190044064,
+             0.05178274354616233,
+             0.05095856387643788,
+             0.05195042221758594,
+             0.05320681541458307],
+ 'Rank ICIR': [0.38322908496267455,
+               0.3832578630925832,
+               0.368920565483708,
+               0.3798401892105949,
+               0.38630299783752914,
+               0.3574154345839874,
+               0.38175327933310216,
+               0.39272690085606216,
+               0.375861999219216],
+ 'mae': [0.8630502820014954,
+         0.8632134199142456,
+         0.8631841540336609,
+         0.8630489706993103,
+         0.8631519079208374,
+         0.8632376194000244,
+         0.863140881061554,
+         0.8631848692893982,
+         0.8630483746528625],
+ 'mse': [0.9951004981994629,
+         0.9952346682548523,
+         0.9952017664909363,
+         0.9948422908782959,
+         0.9951545000076294,
+         0.9951909184455872,
+         0.99555504322052,
+         0.9953417181968689,
+         0.995182454586029]}
+Traceback (most recent call last):
+  File "main.py", line 479, in run_all
+    assert self.reload_tag is not None
+AssertionError
+No valid experiment to reload. Restart offline training...
+[394347:MainThread](2024-04-28 00:01:32,603) INFO - qlib.ALSTM - [pytorch_alstm.py:61] - ALSTM pytorch version...
+[394347:MainThread](2024-04-28 00:01:32,604) INFO - qlib.ALSTM - [pytorch_alstm.py:78] - ALSTM parameters setting:
+d_feat : 6
+hidden_size : 64
+num_layers : 2
+dropout : 0.0
+n_epochs : 200
+lr : 0.001
+metric : loss
+batch_size : 800
+early_stop : 8
+optimizer : adam
+loss_type : mse
+device : cuda:0
+use_GPU : True
+seed : None
+[394347:MainThread](2024-04-28 00:01:32,606) INFO - qlib.ALSTM - [pytorch_alstm.py:122] - model:
+ALSTMModel(
+  (net): Sequential(
+    (fc_in): Linear(in_features=6, out_features=64, bias=True)
+    (act): Tanh()
+  )
+  (rnn): LSTM(64, 64, num_layers=2, batch_first=True)
+  (fc_out): Linear(in_features=128, out_features=1, bias=True)
+  (att_net): Sequential(
+    (att_fc_in): Linear(in_features=64, out_features=32, bias=True)
+    (att_dropout): Dropout(p=0.0, inplace=False)
+    (att_act): Tanh()
+    (att_fc_out): Linear(in_features=32, out_features=1, bias=False)
+    (att_softmax): Softmax(dim=1)
+  )
+)
+[394347:MainThread](2024-04-28 00:01:32,606) INFO - qlib.ALSTM - [pytorch_alstm.py:123] - model size: 0.0660 MB
+epoch:   0%|          | 0/100 [00:00<?, ?it/s]epoch:   1%|          | 1/100 [00:08<13:40,  8.29s/it]epoch:   2%|▏         | 2/100 [00:16<13:34,  8.31s/it]epoch:   3%|▎         | 3/100 [00:25<13:39,  8.45s/it]epoch:   4%|▍         | 4/100 [00:33<13:23,  8.37s/it]epoch:   5%|▌         | 5/100 [00:42<13:22,  8.45s/it]epoch:   6%|▌         | 6/100 [00:50<13:25,  8.57s/it]epoch:   7%|▋         | 7/100 [00:59<13:13,  8.53s/it]epoch:   8%|▊         | 8/100 [01:07<13:00,  8.48s/it]epoch:   9%|▉         | 9/100 [01:16<12:49,  8.45s/it]epoch:  10%|█         | 10/100 [01:24<12:37,  8.41s/it]epoch:  11%|█         | 11/100 [01:32<12:27,  8.40s/it]epoch:  12%|█▏        | 12/100 [01:41<12:20,  8.41s/it]epoch:  13%|█▎        | 13/100 [01:49<12:15,  8.46s/it]epoch:  14%|█▍        | 14/100 [01:58<12:07,  8.46s/it]epoch:  15%|█▌        | 15/100 [02:06<11:56,  8.43s/it]epoch:  16%|█▌        | 16/100 [02:15<11:47,  8.42s/it]epoch:  17%|█▋        | 17/100 [02:23<11:40,  8.44s/it]epoch:  18%|█▊        | 18/100 [02:32<11:33,  8.46s/it]epoch:  19%|█▉        | 19/100 [02:40<11:31,  8.54s/it]epoch:  20%|██        | 20/100 [02:49<11:18,  8.48s/it]epoch:  21%|██        | 21/100 [02:57<11:06,  8.43s/it]epoch:  22%|██▏       | 22/100 [03:06<11:04,  8.52s/it]epoch:  23%|██▎       | 23/100 [03:14<10:54,  8.50s/it]epoch:  24%|██▍       | 24/100 [03:23<10:50,  8.56s/it]epoch:  25%|██▌       | 25/100 [03:31<10:39,  8.52s/it]epoch:  26%|██▌       | 26/100 [03:39<10:20,  8.39s/it]epoch:  27%|██▋       | 27/100 [03:48<10:12,  8.39s/it]epoch:  28%|██▊       | 28/100 [03:56<10:05,  8.41s/it]epoch:  29%|██▉       | 29/100 [04:05<09:56,  8.40s/it]epoch:  30%|███       | 30/100 [04:13<09:50,  8.44s/it]0.05311916174131774
+best ic: 0.05311916174131774
+epoch:  31%|███       | 31/100 [04:23<10:05,  8.77s/it]0.05436457779143823
+best ic: 0.05436457779143823
+epoch:  32%|███▏      | 32/100 [04:32<10:13,  9.03s/it]0.05092613377993331
+epoch:  33%|███▎      | 33/100 [04:42<10:14,  9.17s/it]0.05582958714890594
+best ic: 0.05582958714890594
+epoch:  34%|███▍      | 34/100 [04:51<10:13,  9.29s/it]0.05451788070066206
+epoch:  35%|███▌      | 35/100 [05:01<10:08,  9.35s/it]0.05472415150732983
+epoch:  36%|███▌      | 36/100 [05:10<10:03,  9.44s/it]0.0528658319007673
+epoch:  37%|███▋      | 37/100 [05:20<10:00,  9.53s/it]0.054419731240303144
+epoch:  38%|███▊      | 38/100 [05:30<09:56,  9.61s/it]0.05277881568426035
+epoch:  39%|███▉      | 39/100 [05:39<09:44,  9.58s/it]0.054058351841651246
+epoch:  40%|████      | 40/100 [05:49<09:34,  9.57s/it]0.05312076480465565
+epoch:  41%|████      | 41/100 [05:59<09:25,  9.58s/it]0.051984511221283995
+epoch:  41%|████      | 41/100 [06:08<08:50,  9.00s/it]
+Test segment: 2020-04-01 00:00:00 2024-03-29 00:00:00
+[394347:MainThread](2024-04-28 00:07:41,625) INFO - qlib.workflow - [exp.py:258] - Experiment 76 starts running ...
+[394347:MainThread](2024-04-28 00:07:41,642) INFO - qlib.workflow - [recorder.py:351] - Recorder 40e05cb2e8584c8398b929abd4a15bbd starts running under Experiment 76 ...
+online:   0%|          | 0/63 [00:00<?, ?it/s]online:   3%|▎         | 2/63 [00:00<00:04, 13.62it/s]online:   6%|▋         | 4/63 [00:00<00:04, 14.11it/s]online:  10%|▉         | 6/63 [00:00<00:03, 14.51it/s]online:  13%|█▎        | 8/63 [00:00<00:03, 14.30it/s]online:  16%|█▌        | 10/63 [00:00<00:03, 14.77it/s]online:  19%|█▉        | 12/63 [00:00<00:03, 15.06it/s]online:  22%|██▏       | 14/63 [00:00<00:03, 15.36it/s]online:  25%|██▌       | 16/63 [00:01<00:03, 15.52it/s]online:  29%|██▊       | 18/63 [00:01<00:02, 15.79it/s]online:  32%|███▏      | 20/63 [00:01<00:02, 15.76it/s]online:  35%|███▍      | 22/63 [00:01<00:02, 16.07it/s]online:  38%|███▊      | 24/63 [00:01<00:02, 16.21it/s]online:  41%|████▏     | 26/63 [00:01<00:02, 16.28it/s]online:  44%|████▍     | 28/63 [00:01<00:02, 16.31it/s]online:  48%|████▊     | 30/63 [00:01<00:02, 16.40it/s]online:  51%|█████     | 32/63 [00:02<00:01, 15.82it/s]online:  54%|█████▍    | 34/63 [00:02<00:01, 15.63it/s]online:  57%|█████▋    | 36/63 [00:02<00:01, 15.48it/s]online:  60%|██████    | 38/63 [00:02<00:01, 15.39it/s]online:  63%|██████▎   | 40/63 [00:02<00:01, 15.37it/s]online:  67%|██████▋   | 42/63 [00:02<00:01, 15.48it/s]online:  70%|██████▉   | 44/63 [00:02<00:01, 15.29it/s]online:  73%|███████▎  | 46/63 [00:02<00:01, 15.43it/s]online:  76%|███████▌  | 48/63 [00:03<00:00, 15.52it/s]online:  79%|███████▉  | 50/63 [00:03<00:00, 15.31it/s]online:  83%|████████▎ | 52/63 [00:03<00:00, 15.28it/s]online:  86%|████████▌ | 54/63 [00:03<00:00, 15.15it/s]online:  89%|████████▉ | 56/63 [00:03<00:00, 15.19it/s]online:  92%|█████████▏| 58/63 [00:03<00:00, 15.22it/s]online:  95%|█████████▌| 60/63 [00:03<00:00, 15.30it/s]online:  98%|█████████▊| 62/63 [00:04<00:00, 15.52it/s]online: 100%|██████████| 63/63 [00:04<00:00, 15.47it/s]
+lr_model: 0.001 lr_ma: 0.001 lr_da: 0.01
+[394347:MainThread](2024-04-28 00:07:53,492) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+mse: 0.9952162 mae 0.8632073
+{'IC': 0.030081148802680372,
+ 'ICIR': 0.20766949784008945,
+ 'Rank IC': 0.05046545700468481,
+ 'Rank ICIR': 0.3532252948985252}
+[394347:MainThread](2024-04-28 00:07:55,258) INFO - qlib.backtest caller - [__init__.py:93] - Create new exchange
+[394347:MainThread](2024-04-28 00:08:07,463) WARNING - qlib.online operator - [exchange.py:219] - $close field data contains nan.
+[394347:MainThread](2024-04-28 00:08:07,466) WARNING - qlib.online operator - [exchange.py:219] - $close field data contains nan.
+[394347:MainThread](2024-04-28 00:08:13,646) WARNING - qlib.BaseExecutor - [executor.py:121] - `common_infra` is not set for <qlib.backtest.executor.SimulatorExecutor object at 0x7fe2b26c0280>
+/home/zhonghao/miniconda3/envs/sjtu_qlib/lib/python3.8/site-packages/qlib/backtest/backtest.py:88: TqdmExperimentalWarning: rich is experimental/alpha
+  with tqdm(
+/home/zhonghao/miniconda3/envs/sjtu_qlib/lib/python3.8/site-packages/qlib/utils/index_data.py:481: RuntimeWarning: Mean of empty slice
+  return np.nanmean(self.data)
+backtest loop 100% ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 969/971  [ 0:00:19 < 0:00:01 , 51 it/s ]
+[394347:MainThread](2024-04-28 00:08:33,135) INFO - qlib.workflow - [record_temp.py:515] - Portfolio analysis record 'port_analysis_1day.pkl' has been saved as the artifact of the Experiment 76
+'The following are analysis results of benchmark return(1day).'
+                       risk
+mean               0.000039
+std                0.011364
+annualized_return  0.009266
+information_ratio  0.052853
+max_drawdown      -0.558443
+'The following are analysis results of the excess return without cost(1day).'
+                       risk
+mean               0.000764
+std                0.005132
+annualized_return  0.181825
+information_ratio  2.296441
+max_drawdown      -0.063337
+'The following are analysis results of the excess return with cost(1day).'
+                       risk
+mean               0.000566
+std                0.005135
+annualized_return  0.134684
+information_ratio  1.700260
+max_drawdown      -0.067597
+[394347:MainThread](2024-04-28 00:08:33,152) INFO - qlib.workflow - [record_temp.py:540] - Indicator analysis record 'indicator_analysis_1day.pkl' has been saved as the artifact of the Experiment 76
+'The following are analysis results of indicators(1day).'
+     value
+ffr    1.0
+pa     0.0
+pos    0.0
+Your evaluation results can be found in the experiment named `csi300_ALSTM2_alpha360_horizon1_step20_rankTrue_2024-04-27_23:00:48_online`.
+Round 10 Done!
+{'1day.excess_return_with_cost.annualized_return': [0.15913131909746991,
+                                                    0.09514733333862584,
+                                                    0.11900286990028856,
+                                                    0.12860236768248956,
+                                                    0.10864096349716311,
+                                                    0.11235124369892464,
+                                                    0.0897634262853418,
+                                                    0.11998165873124944,
+                                                    0.12840425097925398,
+                                                    0.13468357041828247],
+ '1day.excess_return_with_cost.information_ratio': [2.1167671102721806,
+                                                    1.3135564814549374,
+                                                    1.6435033313602847,
+                                                    1.6502799446827339,
+                                                    1.403848187107993,
+                                                    1.3905485176204913,
+                                                    1.2684308174700276,
+                                                    1.6393490491076703,
+                                                    1.6814717862892268,
+                                                    1.7002598358800176],
+ '1day.excess_return_with_cost.max_drawdown': [-0.06618578874472841,
+                                               -0.058056209745737025,
+                                               -0.05230983308383774,
+                                               -0.05838391876280996,
+                                               -0.06974149332137486,
+                                               -0.07723964413683052,
+                                               -0.06055887720786224,
+                                               -0.06462287901373079,
+                                               -0.06298163574390825,
+                                               -0.0675971839576946],
+ 'IC': [0.033681280416068694,
+        0.03286894554749832,
+        0.03302616442532694,
+        0.034978672137336145,
+        0.032829305335798836,
+        0.03155941907855899,
+        0.031142096606758242,
+        0.033929960185139274,
+        0.03263256821889149,
+        0.030081148802680372],
+ 'ICIR': [0.24620625834674423,
+          0.24451406678534285,
+          0.23380147682548028,
+          0.24958911306864315,
+          0.24156167062674844,
+          0.22289044184217596,
+          0.23737828195787306,
+          0.25350850613760667,
+          0.23018742409737258,
+          0.20766949784008945],
+ 'Rank IC': [0.05228233314931692,
+             0.051887562289837125,
+             0.05121912914515699,
+             0.0533875699665157,
+             0.052257919190044064,
+             0.05178274354616233,
+             0.05095856387643788,
+             0.05195042221758594,
+             0.05320681541458307,
+             0.05046545700468481],
+ 'Rank ICIR': [0.38322908496267455,
+               0.3832578630925832,
+               0.368920565483708,
+               0.3798401892105949,
+               0.38630299783752914,
+               0.3574154345839874,
+               0.38175327933310216,
+               0.39272690085606216,
+               0.375861999219216,
+               0.3532252948985252],
+ 'mae': [0.8630502820014954,
+         0.8632134199142456,
+         0.8631841540336609,
+         0.8630489706993103,
+         0.8631519079208374,
+         0.8632376194000244,
+         0.863140881061554,
+         0.8631848692893982,
+         0.8630483746528625,
+         0.8632072806358337],
+ 'mse': [0.9951004981994629,
+         0.9952346682548523,
+         0.9952017664909363,
+         0.9948422908782959,
+         0.9951545000076294,
+         0.9951909184455872,
+         0.99555504322052,
+         0.9953417181968689,
+         0.995182454586029,
+         0.9952161908149719]}
+[394347:MainThread](2024-04-28 00:08:34,425) WARNING - qlib.workflow - [expm.py:230] - No valid experiment found. Create a new experiment with name csi300_ALSTM2_alpha360_horizon1_step20_rankTrue_2024-04-27_23:00:48_final.
+[394347:MainThread](2024-04-28 00:08:34,498) INFO - qlib.workflow - [exp.py:258] - Experiment 77 starts running ...
+[394347:MainThread](2024-04-28 00:08:34,521) INFO - qlib.workflow - [recorder.py:351] - Recorder 18c279222c3e4ccab597b3562396d14c starts running under Experiment 77 ...
+Time cost: 354.70175471305845	51.840825009346005
+Final results:
+{'1day.excess_return_with_cost.annualized_return': [0.11957090036290893,
+                                                    0.019000235503975834],
+ '1day.excess_return_with_cost.information_ratio': [1.5808015061245562,
+                                                    0.23671808990322957],
+ '1day.excess_return_with_cost.max_drawdown': [-0.06376774637185142,
+                                               0.006650009725444193],
+ 'IC': [0.032672956075405726, 0.0013565879419689306],
+ 'ICIR': [0.23673067375280765, 0.013070804238121422],
+ 'Rank IC': [0.05193985158003248, 0.0008719679527474687],
+ 'Rank ICIR': [0.37625336094779827, 0.01205111315507097],
+ 'mae': [0.8631467759609223, 6.915478458393396e-05],
+ 'mse': [0.9952020049095154, 0.00016967135278581164]}
+Your final results can be found in the experiment named `csi300_ALSTM2_alpha360_horizon1_step20_rankTrue_2024-04-27_23:00:48_final`.
+All Done!
+[394347:MainThread](2024-04-28 00:08:35,319) INFO - qlib.timer - [log.py:127] - Time cost: 0.060s | waiting `async_log` Done
